@@ -1,9 +1,7 @@
 name: Publicar Libri Convites
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 
 jobs:
@@ -202,8 +200,7 @@ jobs:
               with Image.open(origem) as original:
 
 
-                  # Corrige orientação de fotos/imagens
-                  # que carregam EXIF de rotação.
+                  # Corrige orientação baseada em EXIF.
 
                   original = (
                       ImageOps.exif_transpose(

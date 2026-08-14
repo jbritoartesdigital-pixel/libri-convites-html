@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#090706"
+  >
+
+
+  <!-- ==========================================
+       PRÉVIA DO SITE
+       ========================================== -->
+
+  <meta
+    property="og:title"
+    content="Libri Convites | Convites Digitais"
+  >
+
+  <meta
+    property="og:description"
+    content="Convites digitais personalizados para transformar momentos especiais em experiências inesquecíveis."
+  >
+
+  <meta
+    property="og:url"
+    content="https://libriconvites.com.br/"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:locale"
+    content="pt_BR"
+  >
+
+
+  <title>
+    Libri Convites | Convites Digitais
+  </title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    :root {
+
+      --fundo:
+        #090706;
+
+      --fundo-secundario:
+        #140d0a;
+
+      --rose:
+        #d99a7f;
+
+      --rose-claro:
+        #f1c4ae;
+
+      --rose-escuro:
+        #8f4f3c;
+
+      --texto:
+        #fff9f5;
+
+      --texto-suave:
+        rgba(255, 249, 245, 0.72);
+
+    }
+
+
+    html,
+    body {
+
+      margin: 0;
+      padding: 0;
+
+      width: 100%;
+      min-height: 100%;
+
+      background:
+        var(--fundo);
+
+      color:
+        var(--texto);
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    }
+
+
+    body {
+
+      min-height:
+        100vh;
+
+      min-height:
+        100dvh;
+
+      overflow-x:
+        hidden;
+
+      -webkit-tap-highlight-color:
+        transparent;
+
+    }
+
+
+
+    /* ==========================================
+       FUNDO
+       ========================================== */
+
+    .pagina {
+
+      position:
+        relative;
+
+      min-height:
+        100vh;
+
+      min-height:
+        100dvh;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      overflow:
+        hidden;
+
+      padding:
+
+        max(
+          34px,
+          env(safe-area-inset-top)
+        )
+
+        24px
+
+        max(
+          34px,
+          env(safe-area-inset-bottom)
+        );
+
+      background:
+
+        radial-gradient(
+          circle at 50% 28%,
+          rgba(192, 111, 79, 0.16),
+          transparent 34%
+        ),
+
+        radial-gradient(
+          circle at 20% 90%,
+          rgba(217, 154, 127, 0.07),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          180deg,
+          #050404 0%,
+          #0d0907 55%,
+          #090706 100%
+        );
+
+    }
+
+
+
+    .pagina::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        520px;
+
+      height:
+        520px;
+
+      top:
+        -250px;
+
+      right:
+        -260px;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid
+        rgba(241, 196, 174, 0.10);
+
+      box-shadow:
+
+        0 0 80px
+        rgba(217, 154, 127, 0.05),
+
+        inset 0 0 70px
+        rgba(217, 154, 127, 0.04);
+
+      pointer-events:
+        none;
+
+    }
+
+
+
+    /* ==========================================
+       CONTEÚDO
+       ========================================== */
+
+    .conteudo {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      width:
+        min(
+          100%,
+          520px
+        );
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      align-items:
+        center;
+
+      text-align:
+        center;
+
+    }
+
+
+
+    /* ==========================================
+       LOGO
+       ========================================== */
+
+    .logo {
+
+      width:
+        min(
+          72vw,
+          310px
+        );
+
+      height:
+        auto;
+
+      display:
+        block;
+
+      margin-bottom:
+        10px;
+
+      user-select:
+        none;
+
+      -webkit-user-drag:
+        none;
+
+      filter:
+        drop-shadow(
+          0 18px 35px
+          rgba(0, 0, 0, 0.38)
+        );
+
+    }
+
+
+
+    /* ==========================================
+       TEXTO
+       ========================================== */
+
+    .selo {
+
+      margin:
+        2px 0 16px;
+
+      font-size:
+        11px;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        0.24em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--rose-claro);
+
+      opacity:
+        0.88;
+
+    }
+
+
+    h1 {
+
+      margin:
+        0;
+
+      max-width:
+        460px;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          30px,
+          8vw,
+          47px
+        );
+
+      line-height:
+        1.06;
+
+      font-weight:
+        400;
+
+      letter-spacing:
+        -0.025em;
+
+      color:
+        #fff8f2;
+
+    }
+
+
+    .destaque {
+
+      color:
+        var(--rose-claro);
+
+    }
+
+
+    .descricao {
+
+      max-width:
+        420px;
+
+      margin:
+        19px auto 0;
+
+      font-size:
+        15px;
+
+      line-height:
+        1.65;
+
+      color:
+        var(--texto-suave);
+
+    }
+
+
+
+    /* ==========================================
+       CATEGORIAS
+       ========================================== */
+
+    .categorias {
+
+      margin:
+        21px 0 0;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        13px;
+
+      letter-spacing:
+        0.055em;
+
+      color:
+        rgba(
+          241,
+          196,
+          174,
+          0.82
+        );
+
+    }
+
+
+
+    /* ==========================================
+       BOTÃO WHATSAPP
+       ========================================== */
+
+    .botaoWhatsapp {
+
+      position:
+        relative;
+
+      width:
+        min(
+          100%,
+          350px
+        );
+
+      min-height:
+        58px;
+
+      margin-top:
+        32px;
+
+      padding:
+        0 24px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        11px;
+
+      border:
+        1px solid
+        rgba(
+          255,
+          230,
+          216,
+          0.48
+        );
+
+      border-radius:
+        999px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #b66f54,
+          #e1a78d 48%,
+          #a75e47
+        );
+
+      color:
+        #24110b;
+
+      text-decoration:
+        none;
+
+      font-size:
+        15px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        0.01em;
+
+      box-shadow:
+
+        0 14px 36px
+        rgba(
+          155,
+          79,
+          54,
+          0.24
+        ),
+
+        inset 0 1px 0
+        rgba(
+          255,
+          255,
+          255,
+          0.42
+        );
+
+      transition:
+        transform 0.16s ease,
+        filter 0.16s ease;
+
+      cursor:
+        pointer;
+
+    }
+
+
+    .botaoWhatsapp:active {
+
+      transform:
+        scale(0.975);
+
+      filter:
+        brightness(0.96);
+
+    }
+
+
+    .botaoWhatsapp svg {
+
+      width:
+        21px;
+
+      height:
+        21px;
+
+      fill:
+        currentColor;
+
+      flex:
+        0 0 auto;
+
+    }
+
+
+
+    /* ==========================================
+       INSTAGRAM
+       ========================================== */
+
+    .instagram {
+
+      margin-top:
+        24px;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        7px;
+
+      color:
+        rgba(
+          255,
+          249,
+          245,
+          0.62
+        );
+
+      text-decoration:
+        none;
+
+      font-size:
+        13px;
+
+      transition:
+        color 0.2s ease;
+
+    }
+
+
+    .instagram:active {
+
+      color:
+        var(--rose-claro);
+
+    }
+
+
+    .instagram svg {
+
+      width:
+        16px;
+
+      height:
+        16px;
+
+      fill:
+        none;
+
+      stroke:
+        currentColor;
+
+      stroke-width:
+        1.8;
+
+    }
+
+
+
+    /* ==========================================
+       RODAPÉ
+       ========================================== */
+
+    .rodape {
+
+      margin-top:
+        34px;
+
+      font-size:
+        10px;
+
+      letter-spacing:
+        0.11em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          0.28
+        );
+
+    }
+
+
+
+    /* ==========================================
+       TELAS BAIXAS
+       ========================================== */
+
+    @media (
+      max-height: 720px
+    ) {
+
+      .logo {
+
+        width:
+          min(
+            56vw,
+            230px
+          );
+
+      }
+
+
+      .descricao {
+
+        margin-top:
+          12px;
+
+      }
+
+
+      .botaoWhatsapp {
+
+        margin-top:
+          22px;
+
+      }
+
+
+      .rodape {
+
+        margin-top:
+          22px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <main class="pagina">
+
+
+    <div class="conteudo">
+
+
+      <!-- LOGO -->
+
+      <img
+        class="logo"
+        src="imagens/logo-libri.png"
+        alt="Libri Convites"
+        draggable="false"
+      >
+
+
+
+      <div class="selo">
+
+        Convites virtuais & arte digital
+
+      </div>
+
+
+
+      <h1>
+
+        Seu momento merece
+        <span class="destaque">
+          mais que um convite.
+        </span>
+
+      </h1>
+
+
+
+      <p class="descricao">
+
+        Criamos convites digitais personalizados
+        que transformam cada celebração em uma
+        experiência feita para encantar desde o
+        primeiro clique.
+
+      </p>
+
+
+
+      <div class="categorias">
+
+        Infantis · 15 anos · Casamentos · Celebrações
+
+      </div>
+
+
+
+      <!-- WHATSAPP -->
+
+      <a
+
+        class="botaoWhatsapp"
+
+        href="https://wa.me/5561995705621?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Libri%20Convites%20e%20quero%20fazer%20um%20or%C3%A7amento%20para%20um%20convite%20digital."
+
+        aria-label="Encomendar convite pelo WhatsApp"
+
+      >
+
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.5 4.2 1.6 6L.1 24l6.3-1.7a12 12 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.2-6.1-3.5-8.4ZM12.1 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 0 1-1.5-5.3c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.9-9.8 9.9Zm5.4-7.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.6-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.5c.1.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"
+          ></path>
+
+        </svg>
+
+
+        Encomendar meu convite
+
+
+      </a>
+
+
+
+      <!-- INSTAGRAM -->
+
+      <a
+
+        class="instagram"
+
+        href="https://www.instagram.com/libriconvites/"
+
+        target="_blank"
+
+        rel="noopener noreferrer"
+
+        aria-label="Instagram Libri Convites"
+
+      >
+
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+
+          <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="5"
+          ></rect>
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+          ></circle>
+
+          <circle
+            cx="17.5"
+            cy="6.5"
+            r="1"
+            fill="currentColor"
+            stroke="none"
+          ></circle>
+
+        </svg>
+
+
+        @libriconvites
+
+
+      </a>
+
+
+
+      <div class="rodape">
+
+        Libri Convites
+
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+
+</body>
+
+</html>

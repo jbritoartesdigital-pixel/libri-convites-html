@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>Save the Date | Uma celebração encantada</title>
+
+  <meta
+    name="robots"
+    content="noindex,nofollow,noarchive,noimageindex"
+  >
+
+  <!-- ==========================================
+       OPEN GRAPH
+  =========================================== -->
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:locale" content="pt_BR">
+
+  <meta
+    property="og:title"
+    content="Save the Date"
+  >
+
+  <meta
+    property="og:description"
+    content="Um momento encantado está para começar..."
+  >
+
+  <meta
+    property="og:image"
+    content="https://libriconvites.com.br/save-disney100/imagens/preview-otimizada.jpg?v=1"
+  >
+
+  <meta
+    property="og:url"
+    content="https://libriconvites.com.br/save-disney100/"
+  >
+
+
+  <!-- ==========================================
+       TWITTER / WHATSAPP PREVIEW
+  =========================================== -->
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Save the Date"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Um momento encantado está para começar..."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://libriconvites.com.br/save-disney100/imagens/preview-otimizada.jpg?v=1"
+  >
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+
+      -webkit-tap-highlight-color:
+        transparent;
+    }
+
+
+    html,
+    body {
+
+      margin: 0;
+
+      padding: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      background: #040611;
+
+      overflow: hidden;
+
+      user-select: none;
+
+      -webkit-user-select: none;
+
+      overscroll-behavior: none;
+
+    }
+
+
+    body {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    /* ==========================================
+       PALCO VERTICAL 9:16
+    =========================================== */
+
+    #experiencia {
+
+      position: relative;
+
+      width:
+        min(
+          100vw,
+          56.25vh
+        );
+
+      height:
+        min(
+          177.777vw,
+          100vh
+        );
+
+
+      width:
+        min(
+          100vw,
+          56.25dvh
+        );
+
+      height:
+        min(
+          177.777vw,
+          100dvh
+        );
+
+
+      overflow: hidden;
+
+      background: #040611;
+
+      isolation: isolate;
+
+    }
+
+
+    .tela {
+
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+    }
+
+
+    /* ==========================================
+       CAPA
+    =========================================== */
+
+    #capaTela {
+
+      z-index: 30;
+
+      opacity: 1;
+
+      transition:
+        opacity 220ms ease;
+
+    }
+
+
+    #capaTela.saindo {
+
+      opacity: 0;
+
+      pointer-events: none;
+
+    }
+
+
+    #capa {
+
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      pointer-events: none;
+
+      -webkit-user-drag: none;
+
+    }
+
+
+    /* ==========================================
+       ESTRELA
+    =========================================== */
+
+    #estrela {
+
+      position: absolute;
+
+      z-index: 40;
+
+      width: 16%;
+
+      left: 42%;
+
+      top: 78%;
+
+      cursor: grab;
+
+      touch-action: none;
+
+      user-select: none;
+
+      -webkit-user-select: none;
+
+      -webkit-user-drag: none;
+
+      filter:
+
+        drop-shadow(
+          0 0 7px
+          rgba(255,255,255,.95)
+        )
+
+        drop-shadow(
+          0 0 18px
+          rgba(210,195,255,.88)
+        )
+
+        drop-shadow(
+          0 0 32px
+          rgba(135,155,255,.58)
+        );
+
+      animation:
+        estrelaRespira
+        2s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    #estrela.arrastando {
+
+      cursor: grabbing;
+
+      animation: none;
+
+      transform: scale(1.13);
+
+      filter:
+
+        drop-shadow(
+          0 0 11px
+          white
+        )
+
+        drop-shadow(
+          0 0 26px
+          rgba(218,205,255,1)
+        )
+
+        drop-shadow(
+          0 0 45px
+          rgba(140,160,255,.95)
+        );
+
+    }
+
+
+    #estrela.encaixando {
+
+      animation: none;
+
+      pointer-events: none;
+
+      transform: scale(.92);
+
+      filter:
+
+        drop-shadow(
+          0 0 15px
+          white
+        )
+
+        drop-shadow(
+          0 0 38px
+          rgba(220,205,255,1)
+        );
+
+    }
+
+
+    @keyframes estrelaRespira {
+
+      0%,
+      100% {
+
+        transform: scale(1);
+
+      }
+
+
+      50% {
+
+        transform: scale(1.08);
+
+      }
+
+    }
+
+
+    /* ==========================================
+       ÁREA INVISÍVEL DA TORRE
+    =========================================== */
+
+    #zonaCastelo {
+
+      position: absolute;
+
+      z-index: 35;
+
+      pointer-events: none;
+
+      left: 43%;
+
+      top: 16%;
+
+      width: 14%;
+
+      height: 20%;
+
+      border-radius: 50%;
+
+    }
+
+
+    /* ==========================================
+       BRILHO DO ALVO
+    =========================================== */
+
+    #haloCastelo {
+
+      position: absolute;
+
+      z-index: 34;
+
+      pointer-events: none;
+
+      left: 50%;
+
+      top: 25%;
+
+      width: 15%;
+
+      aspect-ratio: 1;
+
+      transform:
+        translate(-50%, -50%)
+        scale(.7);
+
+      border-radius: 50%;
+
+      opacity: 0;
+
+      background:
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,.55),
+          rgba(205,190,255,.20) 40%,
+          transparent 72%
+        );
+
+      transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+
+    }
+
+
+    #haloCastelo.ativo {
+
+      opacity: 1;
+
+      transform:
+        translate(-50%, -50%)
+        scale(1.25);
+
+    }
+
+
+    /* ==========================================
+       FLASH MÁGICO
+    =========================================== */
+
+    #flash {
+
+      position: absolute;
+
+      z-index: 100;
+
+      pointer-events: none;
+
+      left: 50%;
+
+      top: 25%;
+
+      width: 18%;
+
+      aspect-ratio: 1;
+
+      border-radius: 50%;
+
+      transform:
+        translate(-50%, -50%)
+        scale(.05);
+
+      opacity: 0;
+
+      background:
+
+        radial-gradient(
+          circle,
+
+          rgba(255,255,255,1)
+          0%,
+
+          rgba(230,220,255,.95)
+          15%,
+
+          rgba(190,195,255,.67)
+          36%,
+
+          rgba(155,125,230,.28)
+          55%,
+
+          transparent
+          72%
+        );
+
+    }
+
+
+    #flash.ativo {
+
+      animation:
+        despertarMagia
+        900ms
+        ease-out
+        forwards;
+
+    }
+
+
+    @keyframes despertarMagia {
+
+      0% {
+
+        opacity: 0;
+
+        transform:
+          translate(-50%, -50%)
+          scale(.05);
+
+      }
+
+
+      18% {
+
+        opacity: 1;
+
+      }
+
+
+      65% {
+
+        opacity: .95;
+
+      }
+
+
+      100% {
+
+        opacity: 0;
+
+        transform:
+          translate(-50%, -50%)
+          scale(9);
+
+      }
+
+    }
+
+
+    /* ==========================================
+       VÍDEO
+    =========================================== */
+
+    #videoTela {
+
+      display: none;
+
+      z-index: 20;
+
+      background: black;
+
+    }
+
+
+    #video {
+
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      background: black;
+
+    }
+
+
+    /* ==========================================
+       PULAR
+    =========================================== */
+
+    #pular {
+
+      position: absolute;
+
+      z-index: 60;
+
+      right: 18px;
+
+      bottom: 26px;
+
+      display: none;
+
+      padding: 9px 15px;
+
+      border:
+
+        1px solid
+        rgba(255,255,255,.55);
+
+      border-radius: 22px;
+
+      background:
+        rgba(3,5,17,.52);
+
+      backdrop-filter:
+        blur(7px);
+
+      -webkit-backdrop-filter:
+        blur(7px);
+
+      color: white;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+    }
+
+
+    /* ==========================================
+       CARREGANDO
+    =========================================== */
+
+    #carregando {
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 70;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        rgba(2,4,14,.30);
+
+      color: white;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 14px;
+
+      letter-spacing: .04em;
+
+      pointer-events: none;
+
+    }
+
+
+    /* ==========================================
+       FALLBACK DO PLAY
+    =========================================== */
+
+    #continuar {
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 80;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        rgba(3,5,17,.60);
+
+      cursor: pointer;
+
+    }
+
+
+    #continuar span {
+
+      padding: 12px 20px;
+
+      border:
+
+        1px solid
+        rgba(255,255,255,.55);
+
+      border-radius: 25px;
+
+      background:
+        rgba(7,9,24,.67);
+
+      backdrop-filter:
+        blur(6px);
+
+      color: white;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 14px;
+
+    }
+
+
+    /* ==========================================
+       CARD FINAL
+    =========================================== */
+
+    #finalTela {
+
+      display: none;
+
+      z-index: 90;
+
+      opacity: 0;
+
+      background: #040611;
+
+      transition:
+        opacity 500ms ease;
+
+    }
+
+
+    #finalTela.ativo {
+
+      opacity: 1;
+
+    }
+
+
+    #final {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      pointer-events: none;
+
+      -webkit-user-drag: none;
+
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <main id="experiencia">
+
+
+    <!-- ======================================
+         CAPA
+    ======================================= -->
+
+    <section
+      id="capaTela"
+      class="tela"
+    >
+
+
+      <img
+        id="capa"
+        alt=""
+        draggable="false"
+      >
+
+
+      <!-- ZONA INVISÍVEL DO CASTELO -->
+
+      <div
+        id="zonaCastelo"
+        aria-hidden="true"
+      ></div>
+
+
+      <!-- HALO DE PROXIMIDADE -->
+
+      <div
+        id="haloCastelo"
+        aria-hidden="true"
+      ></div>
+
+
+      <!-- ESTRELA ARRASTÁVEL -->
+
+      <img
+        id="estrela"
+        alt="Arraste a estrela até o castelo"
+        draggable="false"
+        role="button"
+        tabindex="0"
+        aria-label="Arraste a estrela até o castelo"
+      >
+
+
+    </section>
+
+
+    <!-- FLASH FICA FORA DA CAPA -->
+
+    <div
+      id="flash"
+      aria-hidden="true"
+    ></div>
+
+
+    <!-- ======================================
+         VÍDEO
+    ======================================= -->
+
+    <section
+      id="videoTela"
+      class="tela"
+    >
+
+
+      <video
+        id="video"
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+
+      <div id="pular">
+        Pular
+      </div>
+
+
+      <div id="carregando">
+        Carregando...
+      </div>
+
+
+      <div id="continuar">
+        <span>
+          Toque para continuar
+        </span>
+      </div>
+
+
+    </section>
+
+
+    <!-- ======================================
+         FINAL
+    ======================================= -->
+
+    <section
+      id="finalTela"
+      class="tela"
+    >
+
+
+      <img
+        id="final"
+        alt="Save the Date"
+        draggable="false"
+      >
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <script>
+
+
+    /* ==================================================
+       🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸
+    ================================================== */
+
+
+    const CONFIG = {
+
+
+      /* ======================================
+         PASTA
+      ======================================= */
+
+      pastaCliente:
+        "save-disney100",
+
+
+      hostMidia:
+        "https://midia.libriconvites.com.br",
+
+
+      versaoArquivos:
+        "1",
+
+
+      /* ======================================
+         IMAGENS NO GITHUB
+      ======================================= */
+
+      capaArquivo:
+        "capa.jpg",
+
+
+      estrelaArquivo:
+        "estrela.png",
+
+
+      finalArquivo:
+        "final.jpg",
+
+
+      /* ======================================
+         VÍDEO NO R2
+      ======================================= */
+
+      videoArquivo:
+        "abertura.mp4",
+
+
+      /* ======================================
+         POSIÇÃO INICIAL DA ESTRELA
+      ======================================= */
+
+      estrelaEsquerda:
+        42,
+
+
+      estrelaTopo:
+        78,
+
+
+      estrelaLargura:
+        16,
+
+
+      /* ======================================
+         ÁREA DA TORRE DO CASTELO
+      ======================================= */
+
+      casteloEsquerda:
+        43,
+
+
+      casteloTopo:
+        16,
+
+
+      casteloLargura:
+        14,
+
+
+      casteloAltura:
+        20,
+
+
+      /* ======================================
+         BOTÃO PULAR
+      ======================================= */
+
+      mostrarPular:
+        true,
+
+
+      tempoPular:
+        5000
+
+
+    };
+
+
+    /* ==================================================
+       ⛔⛔⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔⛔⛔
+    ================================================== */
+
+
+    const experiencia =
+      document.getElementById(
+        "experiencia"
+      );
+
+
+    const capaTela =
+      document.getElementById(
+        "capaTela"
+      );
+
+
+    const capa =
+      document.getElementById(
+        "capa"
+      );
+
+
+    const estrela =
+      document.getElementById(
+        "estrela"
+      );
+
+
+    const zonaCastelo =
+      document.getElementById(
+        "zonaCastelo"
+      );
+
+
+    const haloCastelo =
+      document.getElementById(
+        "haloCastelo"
+      );
+
+
+    const flash =
+      document.getElementById(
+        "flash"
+      );
+
+
+    const videoTela =
+      document.getElementById(
+        "videoTela"
+      );
+
+
+    const video =
+      document.getElementById(
+        "video"
+      );
+
+
+    const pular =
+      document.getElementById(
+        "pular"
+      );
+
+
+    const carregando =
+      document.getElementById(
+        "carregando"
+      );
+
+
+    const continuar =
+      document.getElementById(
+        "continuar"
+      );
+
+
+    const finalTela =
+      document.getElementById(
+        "finalTela"
+      );
+
+
+    const final =
+      document.getElementById(
+        "final"
+      );
+
+
+    /* ==================================================
+       URLs
+    ================================================== */
+
+
+    const versao =
+      "?v=" +
+      encodeURIComponent(
+        CONFIG.versaoArquivos
+      );
+
+
+    function imagemUrl(nome) {
+
+      return (
+        "imagens/" +
+        nome +
+        versao
+      );
+
+    }
+
+
+    function midiaUrl(nome) {
+
+      return (
+
+        CONFIG.hostMidia +
+
+        "/" +
+
+        CONFIG.pastaCliente +
+
+        "/" +
+
+        nome +
+
+        versao
+
+      );
+
+    }
+
+
+    /* ==================================================
+       CARREGAR ARQUIVOS
+    ================================================== */
+
+
+    capa.src =
+      imagemUrl(
+        CONFIG.capaArquivo
+      );
+
+
+    estrela.src =
+      imagemUrl(
+        CONFIG.estrelaArquivo
+      );
+
+
+    final.src =
+      imagemUrl(
+        CONFIG.finalArquivo
+      );
+
+
+    video.src =
+      midiaUrl(
+        CONFIG.videoArquivo
+      );
+
+
+    /* ==================================================
+       POSIÇÕES
+    ================================================== */
+
+
+    function aplicarPosicoes() {
+
+
+      estrela.style.left =
+        CONFIG.estrelaEsquerda +
+        "%";
+
+
+      estrela.style.top =
+        CONFIG.estrelaTopo +
+        "%";
+
+
+      estrela.style.width =
+        CONFIG.estrelaLargura +
+        "%";
+
+
+      zonaCastelo.style.left =
+        CONFIG.casteloEsquerda +
+        "%";
+
+
+      zonaCastelo.style.top =
+        CONFIG.casteloTopo +
+        "%";
+
+
+      zonaCastelo.style.width =
+        CONFIG.casteloLargura +
+        "%";
+
+
+      zonaCastelo.style.height =
+        CONFIG.casteloAltura +
+        "%";
+
+
+      haloCastelo.style.left =
+
+        (
+          CONFIG.casteloEsquerda +
+          CONFIG.casteloLargura / 2
+        ) +
+        "%";
+
+
+      haloCastelo.style.top =
+
+        (
+          CONFIG.casteloTopo +
+          CONFIG.casteloAltura / 2
+        ) +
+        "%";
+
+
+      flash.style.left =
+
+        (
+          CONFIG.casteloEsquerda +
+          CONFIG.casteloLargura / 2
+        ) +
+        "%";
+
+
+      flash.style.top =
+
+        (
+          CONFIG.casteloTopo +
+          CONFIG.casteloAltura / 2
+        ) +
+        "%";
+
+
+    }
+
+
+    aplicarPosicoes();
+
+
+    /* ==================================================
+       ESTADO
+    ================================================== */
+
+
+    let arrastando =
+      false;
+
+
+    let ativado =
+      false;
+
+
+    let offsetX =
+      0;
+
+
+    let offsetY =
+      0;
+
+
+    let inicioLeft =
+      0;
+
+
+    let inicioTop =
+      0;
+
+
+    let estavaTocandoAntesDeSair =
+      false;
+
+
+    let timerPular =
+      null;
+
+
+    /* ==================================================
+       ARRASTE
+    ================================================== */
+
+
+    function iniciarArraste(event) {
+
+
+      if (ativado) {
+        return;
+      }
+
+
+      arrastando =
+        true;
+
+
+      const rect =
+        estrela.getBoundingClientRect();
+
+
+      offsetX =
+        event.clientX -
+        rect.left;
+
+
+      offsetY =
+        event.clientY -
+        rect.top;
+
+
+      inicioLeft =
+        estrela.offsetLeft;
+
+
+      inicioTop =
+        estrela.offsetTop;
+
+
+      estrela.classList.add(
+        "arrastando"
+      );
+
+
+      try {
+
+        estrela.setPointerCapture(
+          event.pointerId
+        );
+
+      } catch (_) {}
+
+
+      event.preventDefault();
+
+    }
+
+
+    function moverEstrela(event) {
+
+
+      if (
+        !arrastando ||
+        ativado
+      ) {
+        return;
+      }
+
+
+      const palco =
+        experiencia.getBoundingClientRect();
+
+
+      let esquerda =
+
+        event.clientX -
+
+        palco.left -
+
+        offsetX;
+
+
+      let topo =
+
+        event.clientY -
+
+        palco.top -
+
+        offsetY;
+
+
+      esquerda =
+        Math.max(
+
+          0,
+
+          Math.min(
+
+            esquerda,
+
+            palco.width -
+            estrela.offsetWidth
+
+          )
+
+        );
+
+
+      topo =
+        Math.max(
+
+          0,
+
+          Math.min(
+
+            topo,
+
+            palco.height -
+            estrela.offsetHeight
+
+          )
+
+        );
+
+
+      estrela.style.left =
+        esquerda +
+        "px";
+
+
+      estrela.style.top =
+        topo +
+        "px";
+
+
+      atualizarHalo();
+
+
+      event.preventDefault();
+
+    }
+
+
+    function finalizarArraste(event) {
+
+
+      if (
+        !arrastando ||
+        ativado
+      ) {
+        return;
+      }
+
+
+      arrastando =
+        false;
+
+
+      estrela.classList.remove(
+        "arrastando"
+      );
+
+
+      haloCastelo.classList.remove(
+        "ativo"
+      );
+
+
+      if (
+        estrelaSobreCastelo()
+      ) {
+
+        ativarMagia();
+
+      }
+
+      else {
+
+        voltarEstrela();
+
+      }
+
+
+      try {
+
+        estrela.releasePointerCapture(
+          event.pointerId
+        );
+
+      } catch (_) {}
+
+    }
+
+
+    /* ==================================================
+       DETECTAR CASTELO
+    ================================================== */
+
+
+    function estrelaSobreCastelo() {
+
+
+      const estrelaRect =
+        estrela.getBoundingClientRect();
+
+
+      const casteloRect =
+        zonaCastelo.getBoundingClientRect();
+
+
+      const centroX =
+
+        estrelaRect.left +
+
+        estrelaRect.width / 2;
+
+
+      const centroY =
+
+        estrelaRect.top +
+
+        estrelaRect.height / 2;
+
+
+      return (
+
+        centroX >=
+          casteloRect.left &&
+
+        centroX <=
+          casteloRect.right &&
+
+        centroY >=
+          casteloRect.top &&
+
+        centroY <=
+          casteloRect.bottom
+
+      );
+
+    }
+
+
+    function atualizarHalo() {
+
+
+      if (
+        estrelaSobreCastelo()
+      ) {
+
+        haloCastelo.classList.add(
+          "ativo"
+        );
+
+      }
+
+      else {
+
+        haloCastelo.classList.remove(
+          "ativo"
+        );
+
+      }
+
+    }
+
+
+    /* ==================================================
+       VOLTAR AO INÍCIO
+    ================================================== */
+
+
+    function voltarEstrela() {
+
+
+      estrela.style.transition =
+
+        "left 420ms cubic-bezier(.2,.8,.2,1)," +
+
+        "top 420ms cubic-bezier(.2,.8,.2,1)";
+
+
+      estrela.style.left =
+        inicioLeft +
+        "px";
+
+
+      estrela.style.top =
+        inicioTop +
+        "px";
+
+
+      setTimeout(
+        () => {
+
+
+          estrela.style.transition =
+            "";
+
+
+          aplicarPosicoes();
+
+
+        },
+
+        440
+
+      );
+
+    }
+
+
+    /* ==================================================
+       ATIVAÇÃO
+    ================================================== */
+
+
+    function ativarMagia() {
+
+
+      if (ativado) {
+        return;
+      }
+
+
+      ativado =
+        true;
+
+
+      const palco =
+        experiencia.getBoundingClientRect();
+
+
+      const destino =
+        zonaCastelo.getBoundingClientRect();
+
+
+      const esquerdaFinal =
+
+        destino.left -
+
+        palco.left +
+
+        destino.width / 2 -
+
+        estrela.offsetWidth / 2;
+
+
+      const topoFinal =
+
+        destino.top -
+
+        palco.top +
+
+        destino.height / 2 -
+
+        estrela.offsetHeight / 2;
+
+
+      estrela.classList.add(
+        "encaixando"
+      );
+
+
+      estrela.style.transition =
+
+        "left 180ms cubic-bezier(.18,.8,.2,1)," +
+
+        "top 180ms cubic-bezier(.18,.8,.2,1)," +
+
+        "transform 180ms ease";
+
+
+      estrela.style.left =
+        esquerdaFinal +
+        "px";
+
+
+      estrela.style.top =
+        topoFinal +
+        "px";
+
+
+      navigator.vibrate?.(
+        25
+      );
+
+
+      /*
+        IMPORTANTE:
+        O play acontece dentro do próprio gesto
+        para aumentar compatibilidade com áudio
+        em navegadores móveis.
+      */
+
+      prepararEIniciarVideo();
+
+
+      flash.classList.add(
+        "ativo"
+      );
+
+
+      setTimeout(
+        () => {
+
+
+          capaTela.classList.add(
+            "saindo"
+          );
+
+
+        },
+
+        120
+
+      );
+
+
+      setTimeout(
+        () => {
+
+
+          capaTela.style.display =
+            "none";
+
+
+        },
+
+        360
+
+      );
+
+    }
+
+
+    /* ==================================================
+       VÍDEO
+    ================================================== */
+
+
+    function prepararEIniciarVideo() {
+
+
+      videoTela.style.display =
+        "block";
+
+
+      video.currentTime =
+        0;
+
+
+      video.muted =
+        false;
+
+
+      video.volume =
+        1;
+
+
+      iniciarTimerPular();
+
+
+      const tentativa =
+        video.play();
+
+
+      if (
+        tentativa &&
+        typeof tentativa.catch ===
+        "function"
+      ) {
+
+
+        tentativa.catch(
+          () => {
+
+
+            continuar.style.display =
+              "flex";
+
+
+          }
+        );
+
+      }
+
+    }
+
+
+    function iniciarTimerPular() {
+
+
+      if (
+        !CONFIG.mostrarPular
+      ) {
+        return;
+      }
+
+
+      clearTimeout(
+        timerPular
+      );
+
+
+      timerPular =
+        setTimeout(
+          () => {
+
+
+            if (
+              videoTela.style.display ===
+              "block"
+            ) {
+
+
+              pular.style.display =
+                "block";
+
+
+            }
+
+
+          },
+
+          CONFIG.tempoPular
+
+        );
+
+    }
+
+
+    video.addEventListener(
+      "playing",
+      () => {
+
+
+        carregando.style.display =
+          "none";
+
+
+        continuar.style.display =
+          "none";
+
+
+      }
+    );
+
+
+    video.addEventListener(
+      "waiting",
+      () => {
+
+
+        if (
+          !video.ended
+        ) {
+
+
+          carregando.style.display =
+            "flex";
+
+
+        }
+
+
+      }
+    );
+
+
+    video.addEventListener(
+      "canplay",
+      () => {
+
+
+        carregando.style.display =
+          "none";
+
+
+      }
+    );
+
+
+    video.addEventListener(
+      "ended",
+      mostrarFinal
+    );
+
+
+    video.addEventListener(
+      "error",
+      () => {
+
+
+        carregando.style.display =
+          "none";
+
+
+        continuar.style.display =
+          "flex";
+
+
+      }
+    );
+
+
+    /* ==================================================
+       TOQUE PARA CONTINUAR
+    ================================================== */
+
+
+    continuar.addEventListener(
+      "click",
+      async () => {
+
+
+        continuar.style.display =
+          "none";
+
+
+        try {
+
+
+          await video.play();
+
+
+        }
+
+        catch (_) {
+
+
+          mostrarFinal();
+
+
+        }
+
+
+      }
+    );
+
+
+    /* ==================================================
+       FINAL
+    ================================================== */
+
+
+    function mostrarFinal() {
+
+
+      clearTimeout(
+        timerPular
+      );
+
+
+      pular.style.display =
+        "none";
+
+
+      carregando.style.display =
+        "none";
+
+
+      continuar.style.display =
+        "none";
+
+
+      video.pause();
+
+
+      videoTela.style.display =
+        "none";
+
+
+      finalTela.style.display =
+        "block";
+
+
+      requestAnimationFrame(
+        () => {
+
+
+          finalTela.classList.add(
+            "ativo"
+          );
+
+
+        }
+      );
+
+    }
+
+
+    /* ==================================================
+       PULAR
+    ================================================== */
+
+
+    pular.addEventListener(
+      "click",
+      mostrarFinal
+    );
+
+
+    /* ==================================================
+       PAUSA AO SAIR DO APP
+    ================================================== */
+
+
+    document.addEventListener(
+      "visibilitychange",
+      async () => {
+
+
+        if (
+          document.hidden
+        ) {
+
+
+          estavaTocandoAntesDeSair =
+
+            videoTela.style.display ===
+            "block" &&
+
+            !video.paused &&
+
+            !video.ended;
+
+
+          if (
+            estavaTocandoAntesDeSair
+          ) {
+
+
+            video.pause();
+
+
+          }
+
+
+        }
+
+        else {
+
+
+          if (
+            estavaTocandoAntesDeSair
+          ) {
+
+
+            try {
+
+
+              await video.play();
+
+
+            }
+
+            catch (_) {}
+
+
+          }
+
+
+          estavaTocandoAntesDeSair =
+            false;
+
+
+        }
+
+
+      }
+    );
+
+
+    /* ==================================================
+       EVENTOS DA ESTRELA
+    ================================================== */
+
+
+    estrela.addEventListener(
+      "pointerdown",
+      iniciarArraste
+    );
+
+
+    window.addEventListener(
+      "pointermove",
+      moverEstrela,
+      {
+        passive: false
+      }
+    );
+
+
+    window.addEventListener(
+      "pointerup",
+      finalizarArraste
+    );
+
+
+    window.addEventListener(
+      "pointercancel",
+      finalizarArraste
+    );
+
+
+    /* ==========================================
+       ACESSIBILIDADE NO COMPUTADOR
+    =========================================== */
+
+
+    estrela.addEventListener(
+      "keydown",
+      event => {
+
+
+        if (
+          ativado
+        ) {
+          return;
+        }
+
+
+        if (
+          event.key ===
+          "Enter"
+        ) {
+
+
+          event.preventDefault();
+
+
+          ativarMagia();
+
+
+        }
+
+
+      }
+    );
+
+
+    /* ==================================================
+       BLOQUEIOS CASUAIS
+    ================================================== */
+
+
+    document.addEventListener(
+      "contextmenu",
+      event => {
+
+
+        event.preventDefault();
+
+
+      }
+    );
+
+
+    document.addEventListener(
+      "dragstart",
+      event => {
+
+
+        event.preventDefault();
+
+
+      }
+    );
+
+
+    document.addEventListener(
+      "selectstart",
+      event => {
+
+
+        event.preventDefault();
+
+
+      }
+    );
+
+
+    /* ==================================================
+       PRÉ-CARREGAMENTO
+    ================================================== */
+
+
+    video.load();
+
+
+    const preloadFinal =
+      new Image();
+
+
+    preloadFinal.src =
+      imagemUrl(
+        CONFIG.finalArquivo
+      );
+
+
+  </script>
+
+
+</body>
+
+</html>

@@ -17,7 +17,7 @@
   ║                                                              ║
   ║            🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸                ║
   ║                                                              ║
-  ║         DADOS QUE MUDAM DE CLIENTE PARA CLIENTE              ║
+  ║        DADOS QUE MUDAM DE CLIENTE PARA CLIENTE               ║
   ║                                                              ║
   ╚══════════════════════════════════════════════════════════════╝
   -->
@@ -28,118 +28,91 @@
     const CONFIG = {
 
 
-      /* ==================================================
-         🌸 1. TÍTULO DA PÁGINA
-         ================================================== */
+      /* 🌸 NOME / TÍTULO */
 
       tituloPagina:
         "Convite da Helena",
 
 
 
-      /* ==================================================
-         🌸 2. VÍDEO DO CONVITE NO R2
-         ================================================== */
+      /* 🌸 VÍDEO NO R2 */
 
       videoUrl:
         "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/abertura.mp4",
 
 
 
-      /* ==================================================
-         🌸 3. MÚSICA DE FUNDO NO R2
-         ================================================== */
+      /* 🌸 MÚSICA NO R2 */
 
       musicaUrl:
         "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/musica-aquarela.mp3",
 
 
 
-      /* ==================================================
-         🌸 4. PONTO INICIAL DA MÚSICA
+      /* 🌸 PONTO DA MÚSICA
 
-         NORMALMENTE:
-         0
+         0 = começa do início.
 
-         Exemplo:
-         se no CapCut a música começa
-         no segundo 15 do arquivo original:
+         Se o vídeo começar usando,
+         por exemplo, o segundo 12
+         da música original:
 
-         inicioMusica: 15
-         ================================================== */
+         inicioMusica: 12
+      */
 
       inicioMusica:
         0,
 
 
 
-      /* ==================================================
-         🌸 5. VOLUME DA MÚSICA DEPOIS DO VÍDEO
+      /* 🌸 VOLUME APÓS O VÍDEO
 
-         0.20 = 20%
+         0.25 = 25%
          0.35 = 35%
          0.50 = 50%
-         1.00 = 100%
-         ================================================== */
+      */
 
       volumeMusica:
         0.35,
 
 
 
-      /* ==================================================
-         🌸 6. WHATSAPP
-
-         Formato:
-         55 + DDD + número
-
-         SEM +
-         SEM espaço
-         SEM traço
-         ================================================== */
+      /* 🌸 WHATSAPP */
 
       numeroWhatsapp:
         "5561995705621",
 
 
 
-      /* ==================================================
-         🌸 7. MENSAGEM DO WHATSAPP
-         ================================================== */
+      /* 🌸 MENSAGEM */
 
       mensagemWhatsapp:
         "Olá! Quero confirmar minha presença no aniversário da Helena.",
 
 
 
-      /* ==================================================
-         🌸 8. LOCALIZAÇÃO
-         ================================================== */
+      /* 🌸 MAPA */
 
       linkMapa:
         "https://www.google.com/maps/search/?api=1&query=Parque+da+Cidade+Sarah+Kubitschek+Brasilia",
 
 
 
-      /* ==================================================
-         🌸 9. TEMPO DO PULAR ABERTURA
+      /* 🌸 PULAR ABERTURA
 
-         5000 = 5 segundos
-         ================================================== */
+         5000 = aparece durante
+         5 segundos
+      */
 
       tempoPular:
         5000,
 
 
 
-      /* ==================================================
-         🌸 10. POSIÇÃO DOS BOTÕES
+      /* 🌸 POSIÇÃO DOS BOTÕES
 
-         NORMALMENTE NÃO PRECISA ALTERAR.
-
-         Só mexa se o layout do card
-         final mudar.
-         ================================================== */
+         Normalmente não mexa.
+      */
 
       botoes: {
 
@@ -210,9 +183,7 @@
 
 
 
-    /* ==================================================
-       CAPA
-    ================================================== */
+    /* CAPA */
 
     #capa {
 
@@ -234,9 +205,7 @@
 
 
 
-    /* ==================================================
-       VÍDEO
-    ================================================== */
+    /* VÍDEO */
 
     #videoTela {
 
@@ -268,9 +237,7 @@
 
 
 
-    /* ==================================================
-       CARREGAMENTO
-    ================================================== */
+    /* CARREGAMENTO */
 
     #carregando {
 
@@ -284,6 +251,7 @@
 
       align-items: center;
       justify-content: center;
+
       flex-direction: column;
 
       color: white;
@@ -306,12 +274,16 @@
         4px solid
         rgba(255, 255, 255, 0.25);
 
-      border-top-color: white;
+      border-top-color:
+        white;
 
       border-radius: 50%;
 
       animation:
-        girar 0.9s linear infinite;
+        girar
+        0.9s
+        linear
+        infinite;
 
     }
 
@@ -326,9 +298,7 @@
 
 
 
-    /* ==================================================
-       PULAR ABERTURA
-    ================================================== */
+    /* PULAR ABERTURA */
 
     #pular {
 
@@ -366,8 +336,7 @@
       border-radius:
         999px;
 
-      font-size:
-        13px;
+      font-size: 13px;
 
       backdrop-filter:
         blur(5px);
@@ -385,9 +354,7 @@
 
 
 
-    /* ==================================================
-       ERRO DO VÍDEO
-    ================================================== */
+    /* ERRO */
 
     #erroVideo {
 
@@ -401,6 +368,7 @@
 
       align-items: center;
       justify-content: center;
+
       flex-direction: column;
 
       text-align: center;
@@ -419,11 +387,9 @@
       margin:
         0 0 18px;
 
-      line-height:
-        1.5;
+      line-height: 1.5;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
     }
 
@@ -438,25 +404,19 @@
       border-radius:
         999px;
 
-      background:
-        white;
+      background: white;
 
-      color:
-        black;
+      color: black;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
     }
 
 
 
-    /* ==================================================
-       CARD FINAL
-    ================================================== */
+    /* CARD FINAL */
 
     #finalTela {
 
@@ -521,9 +481,7 @@
 
 
 
-    /* ==================================================
-       BOTÕES INVISÍVEIS
-    ================================================== */
+    /* BOTÕES INVISÍVEIS */
 
     .botaoInvisivel {
 
@@ -545,9 +503,7 @@
 
 
 
-    /* ==================================================
-       POP-UP DE PRESENTES
-    ================================================== */
+    /* POP-UP PRESENTES */
 
     #popupPresentes {
 
@@ -636,8 +592,7 @@
         1px solid
         rgba(255, 255, 255, 0.35);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
         rgba(0, 0, 0, 0.62);
@@ -665,17 +620,21 @@
 </head>
 
 
-
 <body>
 
 
   <!-- CAPA -->
 
   <img
+
     id="capa"
+
     src="imagens/capa.jpg"
+
     alt="Abrir convite"
+
     onclick="abrirConvite()"
+
   >
 
 
@@ -724,10 +683,15 @@
 
 
     <div
+
       id="pular"
+
       onclick="pularAbertura()"
+
     >
+
       Pular abertura
+
     </div>
 
 
@@ -735,15 +699,22 @@
     <div id="erroVideo">
 
       <p>
+
         Não foi possível carregar
         a animação do convite.
+
       </p>
 
       <button
+
         id="irParaConvite"
+
         onclick="mostrarFinal()"
+
       >
+
         Abrir convite
+
       </button>
 
     </div>
@@ -753,15 +724,14 @@
 
 
 
-  <!-- ==================================================
-       MÚSICA DE FUNDO
-
-       FICA INVISÍVEL PARA O CONVIDADO
-  ================================================== -->
+  <!-- ÁUDIO INVISÍVEL -->
 
   <audio
+
     id="musica"
+
     preload="auto"
+
   ></audio>
 
 
@@ -775,9 +745,13 @@
 
 
       <img
+
         id="final"
+
         src="imagens/final.jpg"
+
         alt="Convite"
+
       >
 
 
@@ -879,9 +853,6 @@
 
     /* ==================================================
        ⛔ MOTOR DO CONVITE
-
-       DAQUI PARA BAIXO
-       NORMALMENTE NÃO PRECISA EDITAR
     ================================================== */
 
 
@@ -943,17 +914,13 @@
       false;
 
 
-    let musicaJaIniciada =
-      false;
-
-
     let conviteFinalAberto =
       false;
 
 
 
     /* ==================================================
-       CONFIGURAÇÃO INICIAL
+       APLICAR CONFIGURAÇÕES
     ================================================== */
 
     function aplicarConfiguracoes() {
@@ -967,12 +934,21 @@
         CONFIG.musicaUrl;
 
 
+
+      /*
+         IMPORTANTE:
+
+         NÃO usamos muted.
+
+         Ela começa audível tecnicamente,
+         mas num volume praticamente zero.
+
+         Assim o navegador autoriza
+         a reprodução no toque inicial.
+      */
+
       musica.volume =
-        CONFIG.volumeMusica;
-
-
-      musica.muted =
-        true;
+        0.001;
 
 
 
@@ -992,6 +968,7 @@
 
 
       todosBotoes.forEach(
+
         function(botao) {
 
 
@@ -1008,6 +985,7 @@
 
 
         }
+
       );
 
 
@@ -1026,17 +1004,15 @@
     }
 
 
-
     aplicarConfiguracoes();
 
 
 
     /* ==================================================
-       CONVERTER TEMPO DO VÍDEO
-       PARA TEMPO DA MÚSICA
+       TEMPO CORRESPONDENTE DA MÚSICA
     ================================================== */
 
-    function tempoCorrespondenteMusica() {
+    function tempoDaMusica() {
 
 
       let tempo =
@@ -1045,33 +1021,48 @@
         video.currentTime;
 
 
+
       if (
+
         Number.isFinite(
           musica.duration
         )
+
         &&
+
         musica.duration > 0
-        &&
-        tempo >= musica.duration
+
       ) {
 
 
-        tempo =
-          CONFIG.inicioMusica
-          +
-          (
+        const trechoDisponivel =
+          musica.duration
+          -
+          CONFIG.inicioMusica;
+
+
+        if (
+          trechoDisponivel > 0
+          &&
+          tempo >= musica.duration
+        ) {
+
+
+          tempo =
+            CONFIG.inicioMusica
+            +
             (
-              tempo
-              -
-              CONFIG.inicioMusica
-            )
-            %
-            (
-              musica.duration
-              -
-              CONFIG.inicioMusica
-            )
-          );
+              (
+                tempo
+                -
+                CONFIG.inicioMusica
+              )
+              %
+              trechoDisponivel
+            );
+
+
+        }
 
 
       }
@@ -1085,25 +1076,34 @@
 
 
     /* ==================================================
-       SINCRONIZAR MÚSICA
-       COM O VÍDEO
+       SINCRONIZAR
     ================================================== */
 
     function sincronizarMusica() {
 
 
       const tempo =
-        tempoCorrespondenteMusica();
+        tempoDaMusica();
 
 
-      if (
+      const diferenca =
         Math.abs(
           musica.currentTime
           -
           tempo
-        )
-        >
-        0.35
+        );
+
+
+      /*
+         Só corrige se realmente
+         estiver fora de sincronia.
+
+         Evita ficar "cutucando"
+         o MP3 o tempo inteiro.
+      */
+
+      if (
+        diferenca > 0.30
       ) {
 
 
@@ -1155,23 +1155,15 @@
 
 
       /*
-         A música começa AQUI,
-         no toque do convidado.
-
-         Porém fica muda enquanto
-         o vídeo está tocando.
+         PREPARAMOS OS DOIS
+         NO MESMO TOQUE.
       */
 
-
-      musica.muted =
-        true;
-
-
-      musica.volume =
-        CONFIG.volumeMusica;
-
-
       try {
+
+
+        video.currentTime =
+          0;
 
 
         musica.currentTime =
@@ -1189,8 +1181,29 @@
 
 
 
+      musica.volume =
+        0.001;
+
+
+
+      /*
+         PRIMEIRO iniciamos o MP3
+         no gesto do convidado.
+      */
+
       const tocarMusica =
         musica.play();
+
+
+
+      /*
+         Logo em seguida,
+         iniciamos o vídeo.
+      */
+
+      const tocarVideo =
+        video.play();
+
 
 
       if (
@@ -1198,44 +1211,33 @@
       ) {
 
 
-        tocarMusica
-          .then(
-            function() {
+        tocarMusica.catch(
+
+          function(erro) {
 
 
-              musicaJaIniciada =
-                true;
+            console.log(
+              "Áudio não iniciou:",
+              erro
+            );
 
 
-            }
-          )
-          .catch(
-            function() {
+          }
 
-
-              musicaJaIniciada =
-                false;
-
-
-            }
-          );
+        );
 
 
       }
 
 
 
-      const reproduzir =
-        video.play();
-
-
-
       if (
-        reproduzir !== undefined
+        tocarVideo !== undefined
       ) {
 
 
-        reproduzir.catch(
+        tocarVideo.catch(
+
           function() {
 
 
@@ -1247,6 +1249,7 @@
 
 
           }
+
         );
 
 
@@ -1258,8 +1261,7 @@
 
 
     /* ==================================================
-       VÍDEO COMEÇOU / VOLTOU
-       A TOCAR
+       VÍDEO TOCANDO
     ================================================== */
 
     function aoVideoTocar() {
@@ -1268,31 +1270,22 @@
       esconderCarregando();
 
 
+
+      /*
+         Se o vídeo ficou carregando,
+         ajustamos novamente o MP3.
+      */
+
       sincronizarMusica();
 
 
-      musica.muted =
-        true;
 
+      /*
+         Não pausamos o MP3.
 
-
-      if (
-        musica.paused
-      ) {
-
-
-        musica
-          .play()
-          .catch(
-            function() {
-              /* sem ação */
-            }
-          );
-
-
-      }
-
-
+         Ele continua tocando
+         praticamente sem volume.
+      */
 
       if (
         !temporizadorPularIniciado
@@ -1308,6 +1301,7 @@
 
 
         setTimeout(
+
           function() {
 
 
@@ -1330,7 +1324,7 @@
 
 
     /* ==================================================
-       SE O VÍDEO PARAR PARA CARREGAR
+       VÍDEO ESPERANDO INTERNET
     ================================================== */
 
     function aoVideoEsperar() {
@@ -1339,14 +1333,14 @@
       mostrarCarregando();
 
 
+
       /*
-         O MP3 também pausa para
-         não avançar sozinho enquanto
-         o vídeo está carregando.
+         NÃO pausamos a música.
+
+         Quando o vídeo voltar,
+         sincronizarMusica()
+         reposiciona o MP3.
       */
-
-
-      musica.pause();
 
 
     }
@@ -1367,7 +1361,6 @@
     }
 
 
-
     function esconderCarregando() {
 
 
@@ -1380,7 +1373,7 @@
 
 
     /* ==================================================
-       ERRO DO VÍDEO
+       ERRO
     ================================================== */
 
     function erroAoCarregarVideo() {
@@ -1405,7 +1398,7 @@
 
 
     /* ==================================================
-       PASSAR PARA O CARD FINAL
+       CARD FINAL
     ================================================== */
 
     function mostrarFinal() {
@@ -1428,1410 +1421,49 @@
 
 
       /*
-         Guarda 
-
-
-      /* ==================================================
-         🌸 2. VÍDEO DO R2
-
-         Cole aqui a URL completa do vídeo
-         daquele cliente.
-         ================================================== */
-
-      videoUrl:
-        "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/abertura.mp4",
-
-
-
-      /* ==================================================
-         🌸 3. WHATSAPP
-
-         Formato:
-         55 + DDD + número
-
-         SEM +
-         SEM espaço
-         SEM traço
-         ================================================== */
-
-      numeroWhatsapp:
-        "5561995705621",
-
-
-
-      /* ==================================================
-         🌸 4. MENSAGEM DO WHATSAPP
-         ================================================== */
-
-      mensagemWhatsapp:
-        "Olá! Quero confirmar minha presença no aniversário da Helena.",
-
-
-
-      /* ==================================================
-         🌸 5. LOCALIZAÇÃO
-
-         Cole aqui o link do Google Maps.
-         ================================================== */
-
-      linkMapa:
-        "https://www.google.com/maps/search/?api=1&query=Parque+da+Cidade+Sarah+Kubitschek+Brasilia",
-
-
-
-      /* ==================================================
-         🌸 6. TEMPO DO BOTÃO "PULAR ABERTURA"
-
-         5000 = 5 segundos
-         8000 = 8 segundos
-         ================================================== */
-
-      tempoPular:
-        5000,
-
-
-
-      /* ==================================================
-         🌸 7. POSIÇÃO DOS BOTÕES INVISÍVEIS
-
-         NORMALMENTE NÃO PRECISA MEXER.
-
-         Só altere se os botões estiverem
-         em lugares diferentes na nova arte final.
-         ================================================== */
-
-      botoes: {
-
-        esquerda:
-          "44%",
-
-        largura:
-          "40%",
-
-        altura:
-          "8%",
-
-
-        presentesTopo:
-          "56%",
-
-        confirmarTopo:
-          "65.5%",
-
-        localizacaoTopo:
-          "75.5%"
-
-      }
-
-
-    };
-
-  </script>
-
-
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║                                                              ║
-  ║        ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔             ║
-  ║                                                              ║
-  ╚══════════════════════════════════════════════════════════════╝
-  -->
-
-
-  <title>Convite</title>
-
-
-  <style>
-
-
-    /* ==================================================
-       CONFIGURAÇÃO GERAL
-    ================================================== */
-
-    * {
-
-      box-sizing:
-        border-box;
-
-    }
-
-
-    html,
-    body {
-
-      margin:
-        0;
-
-      padding:
-        0;
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-      background:
-        black;
-
-      overflow:
-        hidden;
-
-      font-family:
-        Arial,
-        sans-serif;
-
-      -webkit-tap-highlight-color:
-        transparent;
-
-    }
-
-
-
-    /* ==================================================
-       CAPA
-    ================================================== */
-
-    #capa {
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        100vh;
-
-      object-fit:
-        cover;
-
-      display:
-        block;
-
-      cursor:
-        pointer;
-
-      z-index:
-        10;
-
-    }
-
-
-
-    /* ==================================================
-       ÁREA DO VÍDEO
-    ================================================== */
-
-    #videoTela {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        100vh;
-
-      background:
-        black;
-
-      z-index:
-        20;
-
-    }
-
-
-    #video {
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-      object-fit:
-        cover;
-
-      display:
-        block;
-
-    }
-
-
-
-    /* ==================================================
-       CARREGAMENTO
-    ================================================== */
-
-    #carregando {
-
-      display:
-        none;
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.72
-        );
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      flex-direction:
-        column;
-
-      color:
-        white;
-
-      font-size:
-        14px;
-
-      z-index:
-        40;
-
-    }
-
-
-    #spinner {
-
-      width:
-        38px;
-
-      height:
-        38px;
-
-      margin-bottom:
-        15px;
-
-      border:
-        4px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.25
-        );
-
-      border-top-color:
-        white;
-
-      border-radius:
-        50%;
-
-      animation:
-        girar
-        0.9s
-        linear
-        infinite;
-
-    }
-
-
-    @keyframes girar {
-
-      to {
-
-        transform:
-          rotate(360deg);
-
-      }
-
-    }
-
-
-
-    /* ==================================================
-       PULAR ABERTURA
-    ================================================== */
-
-    #pular {
-
-      display:
-        none;
-
-      position:
-        absolute;
-
-      right:
-        max(
-          16px,
-          env(
-            safe-area-inset-right
-          )
-        );
-
-      bottom:
-        max(
-          90px,
-          calc(
-            env(
-              safe-area-inset-bottom
-            )
-            + 70px
-          )
-        );
-
-      padding:
-        10px
-        17px;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.48
-        );
-
-      color:
-        white;
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.48
-        );
-
-      border-radius:
-        999px;
-
-      font-size:
-        13px;
-
-      backdrop-filter:
-        blur(5px);
-
-      -webkit-backdrop-filter:
-        blur(5px);
-
-      cursor:
-        pointer;
-
-      z-index:
-        60;
-
-      user-select:
-        none;
-
-    }
-
-
-
-    /* ==================================================
-       ERRO DE CARREGAMENTO
-    ================================================== */
-
-    #erroVideo {
-
-      display:
-        none;
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.88
-        );
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      flex-direction:
-        column;
-
-      text-align:
-        center;
-
-      color:
-        white;
-
-      padding:
-        30px;
-
-      z-index:
-        80;
-
-    }
-
-
-    #erroVideo p {
-
-      margin:
-        0
-        0
-        18px;
-
-      line-height:
-        1.5;
-
-      font-size:
-        14px;
-
-    }
-
-
-    #irParaConvite {
-
-      border:
-        0;
-
-      padding:
-        11px
-        20px;
-
-      border-radius:
-        999px;
-
-      background:
-        white;
-
-      color:
-        black;
-
-      font-size:
-        14px;
-
-      cursor:
-        pointer;
-
-    }
-
-
-
-    /* ==================================================
-       CARD FINAL
-    ================================================== */
-
-    #finalTela {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        100vh;
-
-      overflow:
-        hidden;
-
-      background:
-        black;
-
-      z-index:
-        70;
-
-    }
-
-
-
-    #arteFinal {
-
-      position:
-        absolute;
-
-      top:
-        50%;
-
-      left:
-        50%;
-
-      width:
-        max(
-          100vw,
-          calc(
-            100vh
-            * 9
-            / 16
-          )
-        );
-
-      aspect-ratio:
-        9 / 16;
-
-      transform:
-        translate(
-          -50%,
-          -50%
-        );
-
-    }
-
-
-
-    #final {
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-      object-fit:
-        cover;
-
-      display:
-        block;
-
-      pointer-events:
-        none;
-
-    }
-
-
-
-    /* ==================================================
-       BOTÕES INVISÍVEIS
-    ================================================== */
-
-    .botaoInvisivel {
-
-      position:
-        absolute;
-
-      padding:
-        0;
-
-      margin:
-        0;
-
-      border:
-        0;
-
-      outline:
-        0;
-
-      background:
-        transparent;
-
-      cursor:
-        pointer;
-
-      z-index:
-        10;
-
-    }
-
-
-
-    /* ==================================================
-       POP-UP DE PRESENTES
-    ================================================== */
-
-    #popupPresentes {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        100vh;
-
-      padding:
-
-        max(
-          18px,
-          env(
-            safe-area-inset-top
-          )
-        )
-
-        18px
-
-        max(
-          18px,
-          env(
-            safe-area-inset-bottom
-          )
-        );
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.82
-        );
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      z-index:
-        200;
-
-    }
-
-
-
-    #conteudoPresentes {
-
-      position:
-        relative;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-    }
-
-
-
-    #imagemPresentes {
-
-      display:
-        block;
-
-      width:
-        auto;
-
-      height:
-        auto;
-
-      max-width:
-        94vw;
-
-      max-height:
-        92vh;
-
-      object-fit:
-        contain;
-
-      border-radius:
-        16px;
-
-      box-shadow:
-
-        0
-        12px
-        45px
-
-        rgba(
-          0,
-          0,
-          0,
-          0.35
-        );
-
-    }
-
-
-
-    /* ==================================================
-       FECHAR POP-UP
-    ================================================== */
-
-    #fecharPresentes {
-
-      position:
-        absolute;
-
-      top:
-        12px;
-
-      right:
-        12px;
-
-      width:
-        42px;
-
-      height:
-        42px;
-
-      padding:
-        0;
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.35
-        );
-
-      border-radius:
-        50%;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.62
-        );
-
-      color:
-        white;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      font-size:
-        26px;
-
-      line-height:
-        1;
-
-      cursor:
-        pointer;
-
-      z-index:
-        210;
-
-    }
-
-
-  </style>
-
-</head>
-
-
-
-<body>
-
-
-
-  <!-- ==================================================
-       CAPA
-  =================================================== -->
-
-  <img
-
-    id="capa"
-
-    src="imagens/capa.jpg"
-
-    alt="Abrir convite"
-
-    onclick="abrirConvite()"
-
-  >
-
-
-
-  <!-- ==================================================
-       VÍDEO
-  =================================================== -->
-
-  <div id="videoTela">
-
-
-    <video
-
-      id="video"
-
-      playsinline
-
-      webkit-playsinline
-
-      preload="auto"
-
-      onplaying="aoVideoTocar()"
-
-      oncanplay="esconderCarregando()"
-
-      onwaiting="mostrarCarregando()"
-
-      onstalled="mostrarCarregando()"
-
-      onended="mostrarFinal()"
-
-      onerror="erroAoCarregarVideo()"
-
-    ></video>
-
-
-
-    <!-- CARREGAMENTO -->
-
-    <div id="carregando">
-
-
-      <div id="spinner"></div>
-
-
-      <div>
-
-        Carregando convite...
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- PULAR ABERTURA -->
-
-    <div
-
-      id="pular"
-
-      onclick="pularAbertura()"
-
-    >
-
-      Pular abertura
-
-    </div>
-
-
-
-    <!-- ERRO -->
-
-    <div id="erroVideo">
-
-
-      <p>
-
-        Não foi possível carregar
-        a animação do convite.
-
-      </p>
-
-
-      <button
-
-        id="irParaConvite"
-
-        onclick="mostrarFinal()"
-
-      >
-
-        Abrir convite
-
-      </button>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- ==================================================
-       CARD FINAL
-  =================================================== -->
-
-  <div id="finalTela">
-
-
-    <div id="arteFinal">
-
-
-      <img
-
-        id="final"
-
-        src="imagens/final.jpg"
-
-        alt="Convite"
-
-      >
-
-
-
-      <!-- SUGESTÕES DE PRESENTES -->
-
-      <button
-
-        id="botaoPresentes"
-
-        class="botaoInvisivel"
-
-        aria-label="Abrir sugestões de presentes"
-
-        onclick="abrirPresentes()"
-
-      ></button>
-
-
-
-      <!-- CONFIRMAÇÃO -->
-
-      <button
-
-        id="botaoConfirmar"
-
-        class="botaoInvisivel"
-
-        aria-label="Confirmar presença"
-
-        onclick="abrirWhatsApp()"
-
-      ></button>
-
-
-
-      <!-- LOCALIZAÇÃO -->
-
-      <button
-
-        id="botaoLocalizacao"
-
-        class="botaoInvisivel"
-
-        aria-label="Abrir localização"
-
-        onclick="abrirLocalizacao()"
-
-      ></button>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- ==================================================
-       POP-UP DE PRESENTES
-  =================================================== -->
-
-  <div
-
-    id="popupPresentes"
-
-    onclick="fecharAoClicarFora(event)"
-
-  >
-
-
-    <div id="conteudoPresentes">
-
-
-      <img
-
-        id="imagemPresentes"
-
-        src="imagens/presentes.jpg"
-
-        alt="Sugestões de presentes"
-
-      >
-
-
-
-      <button
-
-        id="fecharPresentes"
-
-        aria-label="Fechar sugestões de presentes"
-
-        onclick="fecharPresentes(event)"
-
-      >
-
-        ×
-
-      </button>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <script>
-
-
-    /* ==================================================
-       ⛔ MOTOR DO CONVITE
-
-       NORMALMENTE NÃO PRECISA EDITAR
-       DAQUI PARA BAIXO.
-    ================================================== */
-
-
-    document.title =
-      CONFIG.tituloPagina;
-
-
-
-    const capa =
-      document.getElementById(
-        "capa"
-      );
-
-
-    const video =
-      document.getElementById(
-        "video"
-      );
-
-
-    const videoTela =
-      document.getElementById(
-        "videoTela"
-      );
-
-
-    const carregando =
-      document.getElementById(
-        "carregando"
-      );
-
-
-    const pular =
-      document.getElementById(
-        "pular"
-      );
-
-
-    const erroVideo =
-      document.getElementById(
-        "erroVideo"
-      );
-
-
-    const finalTela =
-      document.getElementById(
-        "finalTela"
-      );
-
-
-    const popupPresentes =
-      document.getElementById(
-        "popupPresentes"
-      );
-
-
-    const botaoPresentes =
-      document.getElementById(
-        "botaoPresentes"
-      );
-
-
-    const botaoConfirmar =
-      document.getElementById(
-        "botaoConfirmar"
-      );
-
-
-    const botaoLocalizacao =
-      document.getElementById(
-        "botaoLocalizacao"
-      );
-
-
-
-    let temporizadorPularIniciado =
-      false;
-
-
-
-    /* ==================================================
-       APLICAR CONFIGURAÇÕES
-    ================================================== */
-
-    function aplicarConfiguracoes() {
-
-
-      /*
-         VÍDEO DO R2
+         Antes de parar o vídeo,
+         descobrimos exatamente
+         onde a música deveria estar.
       */
 
-      video.src =
-        CONFIG.videoUrl;
+      const pontoExato =
+        tempoDaMusica();
 
-
-
-      /*
-         POSIÇÃO DOS BOTÕES
-      */
-
-      const botoes =
-        CONFIG.botoes;
-
-
-      const todosBotoes = [
-
-        botaoPresentes,
-
-        botaoConfirmar,
-
-        botaoLocalizacao
-
-      ];
-
-
-      todosBotoes.forEach(
-        function(botao) {
-
-
-          botao.style.left =
-            botoes.esquerda;
-
-
-          botao.style.width =
-            botoes.largura;
-
-
-          botao.style.height =
-            botoes.altura;
-
-
-        }
-      );
-
-
-      botaoPresentes.style.top =
-        botoes.presentesTopo;
-
-
-      botaoConfirmar.style.top =
-        botoes.confirmarTopo;
-
-
-      botaoLocalizacao.style.top =
-        botoes.localizacaoTopo;
-
-
-    }
-
-
-
-    aplicarConfiguracoes();
-
-
-
-    /* ==================================================
-       ABRIR CONVITE
-    ================================================== */
-
-    function abrirConvite() {
-
-
-      capa.style.display =
-        "none";
-
-
-      videoTela.style.display =
-        "block";
-
-
-      pular.style.display =
-        "none";
-
-
-      mostrarCarregando();
-
-
-      const reproduzir =
-        video.play();
-
-
-
-      if (
-        reproduzir !==
-        undefined
-      ) {
-
-
-        reproduzir.catch(
-          function() {
-
-
-            esconderCarregando();
-
-
-            erroVideo.style.display =
-              "flex";
-
-
-          }
-        );
-
-
-      }
-
-
-    }
-
-
-
-    /* ==================================================
-       QUANDO O VÍDEO COMEÇA
-    ================================================== */
-
-    function aoVideoTocar() {
-
-
-      esconderCarregando();
-
-
-
-      if (
-        !temporizadorPularIniciado
-      ) {
-
-
-        temporizadorPularIniciado =
-          true;
-
-
-        pular.style.display =
-          "block";
-
-
-        setTimeout(
-          function() {
-
-
-            pular.style.display =
-              "none";
-
-
-          },
-
-          CONFIG.tempoPular
-
-        );
-
-
-      }
-
-
-    }
-
-
-
-    /* ==================================================
-       CARREGAMENTO
-    ================================================== */
-
-    function mostrarCarregando() {
-
-
-      carregando.style.display =
-        "flex";
-
-
-    }
-
-
-
-    function esconderCarregando() {
-
-
-      carregando.style.display =
-        "none";
-
-
-    }
-
-
-
-    /* ==================================================
-       ERRO DO VÍDEO
-    ================================================== */
-
-    function erroAoCarregarVideo() {
-
-
-      esconderCarregando();
-
-
-      pular.style.display =
-        "none";
-
-
-      erroVideo.style.display =
-        "flex";
-
-
-    }
-
-
-
-    /* ==================================================
-       CARD FINAL
-    ================================================== */
-
-    function mostrarFinal() {
 
 
       video.pause();
+
+
+
+      try {
+
+
+        musica.currentTime =
+          pontoExato;
+
+
+      }
+      catch (erro) {
+
+
+        /* sem ação */
+
+
+      }
+
+
+
+      /*
+         A MÁGICA:
+
+         o MP3 JÁ ESTÁ TOCANDO.
+
+         Só aumentamos o volume.
+      */
+
+      musica.volume =
+        CONFIG.volumeMusica;
+
 
 
       esconderCarregando();
@@ -2854,6 +1486,49 @@
 
 
     }
+
+
+
+    /* ==================================================
+       LOOP DA MÚSICA
+    ================================================== */
+
+    musica.addEventListener(
+
+      "ended",
+
+      function() {
+
+
+        try {
+
+
+          musica.currentTime =
+            CONFIG.inicioMusica;
+
+
+        }
+        catch (erro) {
+
+
+          /* sem ação */
+
+
+        }
+
+
+        musica
+          .play()
+          .catch(
+            function() {
+              /* sem ação */
+            }
+          );
+
+
+      }
+
+    );
 
 
 
@@ -2885,10 +1560,7 @@
     }
 
 
-
-    function fecharPresentes(
-      event
-    ) {
+    function fecharPresentes(event) {
 
 
       if (event) {
@@ -2907,10 +1579,7 @@
     }
 
 
-
-    function fecharAoClicarFora(
-      event
-    ) {
+    function fecharAoClicarFora(event) {
 
 
       if (
@@ -2954,7 +1623,7 @@
 
 
     /* ==================================================
-       LOCALIZAÇÃO
+       MAPA
     ================================================== */
 
     function abrirLocalizacao() {
@@ -2972,2265 +1641,4 @@
 
 </body>
 
-</html>    }
-
-
-    /* ==================================================
-       POSIÇÃO DOS BOTÕES
-
-       SÓ ALTERE SE O LAYOUT
-       DO CARD FINAL MUDAR
-    ================================================== */
-
-    :root {
-
-      --botao-left: 44%;
-      --botao-width: 40%;
-      --botao-height: 8%;
-
-      --presentes-top: 56%;
-      --confirmar-top: 65.5%;
-      --localizacao-top: 75.5%;
-
-    }
-
-
-    /* ==================================================
-       CAPA
-    ================================================== */
-
-    #capa {
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      object-fit: cover;
-
-      display: block;
-
-      cursor: pointer;
-
-      z-index: 10;
-    }
-
-
-    /* ==================================================
-       VÍDEO
-    ================================================== */
-
-    #videoTela {
-
-      display: none;
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      background: black;
-
-      z-index: 20;
-    }
-
-    #video {
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      display: block;
-    }
-
-
-    /* ==================================================
-       CARREGAMENTO
-    ================================================== */
-
-    #carregando {
-
-      display: none;
-
-      position: absolute;
-      inset: 0;
-
-      background: rgba(0, 0, 0, 0.72);
-
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-
-      color: white;
-
-      font-size: 14px;
-
-      z-index: 40;
-    }
-
-    #spinner {
-
-      width: 38px;
-      height: 38px;
-
-      margin-bottom: 15px;
-
-      border: 4px solid rgba(255,255,255,0.25);
-
-      border-top-color: white;
-
-      border-radius: 50%;
-
-      animation: girar 0.9s linear infinite;
-    }
-
-    @keyframes girar {
-
-      to {
-        transform: rotate(360deg);
-      }
-
-    }
-
-
-    /* ==================================================
-       PULAR ABERTURA
-    ================================================== */
-
-    #pular {
-
-      display: none;
-
-      position: absolute;
-
-      right:
-        max(
-          16px,
-          env(safe-area-inset-right)
-        );
-
-      bottom:
-        max(
-          90px,
-          calc(
-            env(safe-area-inset-bottom)
-            + 70px
-          )
-        );
-
-      padding: 10px 17px;
-
-      background: rgba(0, 0, 0, 0.48);
-
-      color: white;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.48);
-
-      border-radius: 999px;
-
-      font-size: 13px;
-
-      backdrop-filter: blur(5px);
-
-      -webkit-backdrop-filter: blur(5px);
-
-      cursor: pointer;
-
-      z-index: 60;
-
-      user-select: none;
-    }
-
-
-    /* ==================================================
-       ERRO DO VÍDEO
-    ================================================== */
-
-    #erroVideo {
-
-      display: none;
-
-      position: absolute;
-      inset: 0;
-
-      background: rgba(0,0,0,0.88);
-
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-
-      text-align: center;
-
-      color: white;
-
-      padding: 30px;
-
-      z-index: 80;
-    }
-
-    #erroVideo p {
-
-      margin: 0 0 18px;
-
-      line-height: 1.5;
-
-      font-size: 14px;
-    }
-
-    #irParaConvite {
-
-      border: 0;
-
-      padding: 11px 20px;
-
-      border-radius: 999px;
-
-      background: white;
-
-      color: black;
-
-      font-size: 14px;
-
-      cursor: pointer;
-    }
-
-
-    /* ==================================================
-       CARD FINAL
-    ================================================== */
-
-    #finalTela {
-
-      display: none;
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      overflow: hidden;
-
-      background: black;
-
-      z-index: 70;
-    }
-
-    #arteFinal {
-
-      position: absolute;
-
-      top: 50%;
-      left: 50%;
-
-      width:
-        max(
-          100vw,
-          calc(100vh * 9 / 16)
-        );
-
-      aspect-ratio: 9 / 16;
-
-      transform:
-        translate(-50%, -50%);
-    }
-
-    #final {
-
-      position: absolute;
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      display: block;
-
-      pointer-events: none;
-    }
-
-
-    /* ==================================================
-       BOTÕES INVISÍVEIS
-    ================================================== */
-
-    .botaoInvisivel {
-
-      position: absolute;
-
-      left: var(--botao-left);
-
-      width: var(--botao-width);
-      height: var(--botao-height);
-
-      padding: 0;
-      margin: 0;
-
-      border: 0;
-      outline: 0;
-
-      background: transparent;
-
-      cursor: pointer;
-
-      z-index: 10;
-    }
-
-    #botaoPresentes {
-      top: var(--presentes-top);
-    }
-
-    #botaoConfirmar {
-      top: var(--confirmar-top);
-    }
-
-    #botaoLocalizacao {
-      top: var(--localizacao-top);
-    }
-
-
-    /* ==================================================
-       POP-UP PRESENTES
-    ================================================== */
-
-    #popupPresentes {
-
-      display: none;
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      padding:
-        max(
-          18px,
-          env(safe-area-inset-top)
-        )
-        18px
-        max(
-          18px,
-          env(safe-area-inset-bottom)
-        );
-
-      background: rgba(0,0,0,0.82);
-
-      align-items: center;
-      justify-content: center;
-
-      z-index: 200;
-    }
-
-    #conteudoPresentes {
-
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 100%;
-      height: 100%;
-    }
-
-    #imagemPresentes {
-
-      display: block;
-
-      width: auto;
-      height: auto;
-
-      max-width: 94vw;
-      max-height: 92vh;
-
-      object-fit: contain;
-
-      border-radius: 16px;
-
-      box-shadow:
-        0 12px 45px rgba(0,0,0,0.35);
-    }
-
-
-    /* ==================================================
-       FECHAR PRESENTES
-    ================================================== */
-
-    #fecharPresentes {
-
-      position: absolute;
-
-      top: 12px;
-      right: 12px;
-
-      width: 42px;
-      height: 42px;
-
-      padding: 0;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.35);
-
-      border-radius: 50%;
-
-      background: rgba(0,0,0,0.62);
-
-      color: white;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      font-size: 26px;
-
-      line-height: 1;
-
-      cursor: pointer;
-
-      z-index: 210;
-    }
-
-  </style>
-
-</head>
-
-
-<body>
-
-
-  <!-- ==================================================
-       CAPA
-  =================================================== -->
-
-  <img
-    id="capa"
-    src="imagens/capa.jpg"
-    alt="Abrir convite"
-    onclick="abrirConvite()"
-  >
-
-
-  <!-- ==================================================
-       VÍDEO
-  =================================================== -->
-
-  <div id="videoTela">
-
-    <video
-      id="video"
-
-      playsinline
-
-      webkit-playsinline
-
-      preload="auto"
-
-      onplaying="aoVideoTocar()"
-
-      oncanplay="esconderCarregando()"
-
-      onwaiting="mostrarCarregando()"
-
-      onstalled="mostrarCarregando()"
-
-      onended="mostrarFinal()"
-
-      onerror="erroAoCarregarVideo()"
-    >
-
-      <source
-        src="videos/abertura.mp4"
-        type="video/mp4"
-      >
-
-    </video>
-
-
-    <!-- CARREGAMENTO -->
-
-    <div id="carregando">
-
-      <div id="spinner"></div>
-
-      <div>
-        Carregando convite...
-      </div>
-
-    </div>
-
-
-    <!-- PULAR ABERTURA -->
-
-    <div
-      id="pular"
-      onclick="pularAbertura()"
-    >
-      Pular abertura
-    </div>
-
-
-    <!-- ERRO -->
-
-    <div id="erroVideo">
-
-      <p>
-        Não foi possível carregar
-        a animação do convite.
-      </p>
-
-      <button
-        id="irParaConvite"
-        onclick="mostrarFinal()"
-      >
-        Abrir convite
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- ==================================================
-       CARD FINAL
-  =================================================== -->
-
-  <div id="finalTela">
-
-    <div id="arteFinal">
-
-      <img
-        id="final"
-        src="imagens/final.jpg"
-        alt="Convite"
-      >
-
-
-      <!-- PRESENTES -->
-
-      <button
-        id="botaoPresentes"
-        class="botaoInvisivel"
-        aria-label="Abrir sugestões de presentes"
-        onclick="abrirPresentes()"
-      ></button>
-
-
-      <!-- CONFIRMAÇÃO -->
-
-      <button
-        id="botaoConfirmar"
-        class="botaoInvisivel"
-        aria-label="Confirmar presença"
-        onclick="abrirWhatsApp()"
-      ></button>
-
-
-      <!-- LOCALIZAÇÃO -->
-
-      <button
-        id="botaoLocalizacao"
-        class="botaoInvisivel"
-        aria-label="Abrir localização"
-        onclick="abrirLocalizacao()"
-      ></button>
-
-    </div>
-
-  </div>
-
-
-  <!-- ==================================================
-       POP-UP PRESENTES
-  =================================================== -->
-
-  <div
-    id="popupPresentes"
-    onclick="fecharAoClicarFora(event)"
-  >
-
-    <div id="conteudoPresentes">
-
-      <img
-        id="imagemPresentes"
-        src="imagens/presentes.jpg"
-        alt="Sugestões de presentes"
-      >
-
-      <button
-        id="fecharPresentes"
-        aria-label="Fechar sugestões de presentes"
-        onclick="fecharPresentes(event)"
-      >
-        ×
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <script>
-
-
-    /* ==================================================
-       🌸 PAINEL DE CONFIGURAÇÃO DO CLIENTE 🌸
-
-       É AQUI QUE VOCÊ ALTERA
-       OS DADOS DE CADA CONVITE.
-    ================================================== */
-
-    const CONFIG = {
-
-
-      /* TÍTULO DA PÁGINA */
-
-      tituloPagina:
-        "Convite da Helena",
-
-
-      /* WHATSAPP
-
-         55 + DDD + NÚMERO
-
-         SEM +
-         SEM ESPAÇOS
-         SEM TRAÇOS
-      */
-
-      numeroWhatsapp:
-        "5561995705621",
-
-
-      /* MENSAGEM DO WHATSAPP */
-
-      mensagemWhatsapp:
-        "Olá! Quero confirmar minha presença no aniversário da Helena.",
-
-
-      /* LINK DO GOOGLE MAPS */
-
-      linkMapa:
-        "https://www.google.com/maps/search/?api=1&query=Parque+da+Cidade+Sarah+Kubitschek+Brasilia",
-
-
-      /* TEMPO DO PULAR ABERTURA
-
-         5000 = 5 segundos
-      */
-
-      tempoPular:
-        5000
-
-
-    };
-
-
-    /* ==================================================
-       DAQUI PARA BAIXO
-       NORMALMENTE NÃO PRECISA EDITAR
-    ================================================== */
-
-
-    document.title =
-      CONFIG.tituloPagina;
-
-
-    const capa =
-      document.getElementById("capa");
-
-
-    const video =
-      document.getElementById("video");
-
-
-    const videoTela =
-      document.getElementById("videoTela");
-
-
-    const carregando =
-      document.getElementById("carregando");
-
-
-    const pular =
-      document.getElementById("pular");
-
-
-    const erroVideo =
-      document.getElementById("erroVideo");
-
-
-    const finalTela =
-      document.getElementById("finalTela");
-
-
-    const popupPresentes =
-      document.getElementById("popupPresentes");
-
-
-    let temporizadorPularIniciado =
-      false;
-
-
-    /* ==================================================
-       ABRIR CONVITE
-    ================================================== */
-
-    function abrirConvite() {
-
-      capa.style.display =
-        "none";
-
-
-      videoTela.style.display =
-        "block";
-
-
-      pular.style.display =
-        "none";
-
-
-      mostrarCarregando();
-
-
-      const reproduzir =
-        video.play();
-
-
-      if (
-        reproduzir !== undefined
-      ) {
-
-        reproduzir.catch(
-          function() {
-
-            esconderCarregando();
-
-            erroVideo.style.display =
-              "flex";
-
-          }
-        );
-
-      }
-
-    }
-
-
-    /* ==================================================
-       QUANDO O VÍDEO COMEÇA
-    ================================================== */
-
-    function aoVideoTocar() {
-
-      esconderCarregando();
-
-
-      if (
-        !temporizadorPularIniciado
-      ) {
-
-        temporizadorPularIniciado =
-          true;
-
-
-        pular.style.display =
-          "block";
-
-
-        setTimeout(
-          function() {
-
-            pular.style.display =
-              "none";
-
-          },
-
-          CONFIG.tempoPular
-
-        );
-
-      }
-
-    }
-
-
-    /* ==================================================
-       CARREGAMENTO
-    ================================================== */
-
-    function mostrarCarregando() {
-
-      carregando.style.display =
-        "flex";
-
-    }
-
-
-    function esconderCarregando() {
-
-      carregando.style.display =
-        "none";
-
-    }
-
-
-    /* ==================================================
-       ERRO DO VÍDEO
-    ================================================== */
-
-    function erroAoCarregarVideo() {
-
-      esconderCarregando();
-
-      pular.style.display =
-        "none";
-
-      erroVideo.style.display =
-        "flex";
-
-    }
-
-
-    /* ==================================================
-       CARD FINAL
-<!DOCTYPE html>
-
-<html lang="pt-BR">
-
-<head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║                                                              ║
-  ║            🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸                ║
-  ║                                                              ║
-  ║         DADOS QUE MUDAM DE CLIENTE PARA CLIENTE              ║
-  ║                                                              ║
-  ╚══════════════════════════════════════════════════════════════╝
-  -->
-
-
-  <script>
-
-    const CONFIG = {
-
-
-      /* ==================================================
-         🌸 1. TÍTULO DA PÁGINA
-         ================================================== */
-
-      tituloPagina:
-        "Convite da Helena",
-
-
-
-      /* ==================================================
-         🌸 2. VÍDEO DO CONVITE NO R2
-         ================================================== */
-
-      videoUrl:
-        "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/abertura.mp4",
-
-
-
-      /* ==================================================
-         🌸 3. MÚSICA DE FUNDO NO R2
-         ================================================== */
-
-      musicaUrl:
-        "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/musica-aquarela.mp3",
-
-
-
-      /* ==================================================
-         🌸 4. PONTO INICIAL DA MÚSICA
-
-         NORMALMENTE:
-         0
-
-         Exemplo:
-         se no CapCut a música começa
-         no segundo 15 do arquivo original:
-
-         inicioMusica: 15
-         ================================================== */
-
-      inicioMusica:
-        0,
-
-
-
-      /* ==================================================
-         🌸 5. VOLUME DA MÚSICA DEPOIS DO VÍDEO
-
-         0.20 = 20%
-         0.35 = 35%
-         0.50 = 50%
-         1.00 = 100%
-         ================================================== */
-
-      volumeMusica:
-        0.35,
-
-
-
-      /* ==================================================
-         🌸 6. WHATSAPP
-
-         Formato:
-         55 + DDD + número
-
-         SEM +
-         SEM espaço
-         SEM traço
-         ================================================== */
-
-      numeroWhatsapp:
-        "5561995705621",
-
-
-
-      /* ==================================================
-         🌸 7. MENSAGEM DO WHATSAPP
-         ================================================== */
-
-      mensagemWhatsapp:
-        "Olá! Quero confirmar minha presença no aniversário da Helena.",
-
-
-
-      /* ==================================================
-         🌸 8. LOCALIZAÇÃO
-         ================================================== */
-
-      linkMapa:
-        "https://www.google.com/maps/search/?api=1&query=Parque+da+Cidade+Sarah+Kubitschek+Brasilia",
-
-
-
-      /* ==================================================
-         🌸 9. TEMPO DO PULAR ABERTURA
-
-         5000 = 5 segundos
-         ================================================== */
-
-      tempoPular:
-        5000,
-
-
-
-      /* ==================================================
-         🌸 10. POSIÇÃO DOS BOTÕES
-
-         NORMALMENTE NÃO PRECISA ALTERAR.
-
-         Só mexa se o layout do card
-         final mudar.
-         ================================================== */
-
-      botoes: {
-
-        esquerda:
-          "44%",
-
-        largura:
-          "40%",
-
-        altura:
-          "8%",
-
-        presentesTopo:
-          "56%",
-
-        confirmarTopo:
-          "65.5%",
-
-        localizacaoTopo:
-          "75.5%"
-
-      }
-
-
-    };
-
-  </script>
-
-
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║                                                              ║
-  ║          ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔           ║
-  ║                                                              ║
-  ╚══════════════════════════════════════════════════════════════╝
-  -->
-
-
-  <title>Convite</title>
-
-
-  <style>
-
-
-    * {
-      box-sizing: border-box;
-    }
-
-
-    html,
-    body {
-
-      margin: 0;
-      padding: 0;
-
-      width: 100%;
-      height: 100%;
-
-      background: black;
-
-      overflow: hidden;
-
-      font-family: Arial, sans-serif;
-
-      -webkit-tap-highlight-color: transparent;
-
-    }
-
-
-
-    /* ==================================================
-       CAPA
-    ================================================== */
-
-    #capa {
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      object-fit: cover;
-
-      display: block;
-
-      cursor: pointer;
-
-      z-index: 10;
-
-    }
-
-
-
-    /* ==================================================
-       VÍDEO
-    ================================================== */
-
-    #videoTela {
-
-      display: none;
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      background: black;
-
-      z-index: 20;
-
-    }
-
-
-    #video {
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      display: block;
-
-    }
-
-
-
-    /* ==================================================
-       CARREGAMENTO
-    ================================================== */
-
-    #carregando {
-
-      display: none;
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        rgba(0, 0, 0, 0.72);
-
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-
-      color: white;
-
-      font-size: 14px;
-
-      z-index: 40;
-
-    }
-
-
-    #spinner {
-
-      width: 38px;
-      height: 38px;
-
-      margin-bottom: 15px;
-
-      border:
-        4px solid
-        rgba(255, 255, 255, 0.25);
-
-      border-top-color: white;
-
-      border-radius: 50%;
-
-      animation:
-        girar 0.9s linear infinite;
-
-    }
-
-
-    @keyframes girar {
-
-      to {
-        transform: rotate(360deg);
-      }
-
-    }
-
-
-
-    /* ==================================================
-       PULAR ABERTURA
-    ================================================== */
-
-    #pular {
-
-      display: none;
-
-      position: absolute;
-
-      right:
-        max(
-          16px,
-          env(safe-area-inset-right)
-        );
-
-      bottom:
-        max(
-          90px,
-          calc(
-            env(safe-area-inset-bottom)
-            + 70px
-          )
-        );
-
-      padding:
-        10px 17px;
-
-      background:
-        rgba(0, 0, 0, 0.48);
-
-      color: white;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.48);
-
-      border-radius:
-        999px;
-
-      font-size:
-        13px;
-
-      backdrop-filter:
-        blur(5px);
-
-      -webkit-backdrop-filter:
-        blur(5px);
-
-      cursor: pointer;
-
-      z-index: 60;
-
-      user-select: none;
-
-    }
-
-
-
-    /* ==================================================
-       ERRO DO VÍDEO
-    ================================================== */
-
-    #erroVideo {
-
-      display: none;
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        rgba(0, 0, 0, 0.88);
-
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-
-      text-align: center;
-
-      color: white;
-
-      padding: 30px;
-
-      z-index: 80;
-
-    }
-
-
-    #erroVideo p {
-
-      margin:
-        0 0 18px;
-
-      line-height:
-        1.5;
-
-      font-size:
-        14px;
-
-    }
-
-
-    #irParaConvite {
-
-      border: 0;
-
-      padding:
-        11px 20px;
-
-      border-radius:
-        999px;
-
-      background:
-        white;
-
-      color:
-        black;
-
-      font-size:
-        14px;
-
-      cursor:
-        pointer;
-
-    }
-
-
-
-    /* ==================================================
-       CARD FINAL
-    ================================================== */
-
-    #finalTela {
-
-      display: none;
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      overflow: hidden;
-
-      background: black;
-
-      z-index: 70;
-
-    }
-
-
-    #arteFinal {
-
-      position: absolute;
-
-      top: 50%;
-      left: 50%;
-
-      width:
-        max(
-          100vw,
-          calc(
-            100vh
-            * 9
-            / 16
-          )
-        );
-
-      aspect-ratio:
-        9 / 16;
-
-      transform:
-        translate(-50%, -50%);
-
-    }
-
-
-    #final {
-
-      position: absolute;
-      inset: 0;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      display: block;
-
-      pointer-events: none;
-
-    }
-
-
-
-    /* ==================================================
-       BOTÕES INVISÍVEIS
-    ================================================== */
-
-    .botaoInvisivel {
-
-      position: absolute;
-
-      padding: 0;
-      margin: 0;
-
-      border: 0;
-      outline: 0;
-
-      background: transparent;
-
-      cursor: pointer;
-
-      z-index: 10;
-
-    }
-
-
-
-    /* ==================================================
-       POP-UP DE PRESENTES
-    ================================================== */
-
-    #popupPresentes {
-
-      display: none;
-
-      position: fixed;
-      inset: 0;
-
-      width: 100vw;
-      height: 100vh;
-
-      padding:
-
-        max(
-          18px,
-          env(safe-area-inset-top)
-        )
-
-        18px
-
-        max(
-          18px,
-          env(safe-area-inset-bottom)
-        );
-
-      background:
-        rgba(0, 0, 0, 0.82);
-
-      align-items: center;
-      justify-content: center;
-
-      z-index: 200;
-
-    }
-
-
-    #conteudoPresentes {
-
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      width: 100%;
-      height: 100%;
-
-    }
-
-
-    #imagemPresentes {
-
-      display: block;
-
-      width: auto;
-      height: auto;
-
-      max-width: 94vw;
-      max-height: 92vh;
-
-      object-fit: contain;
-
-      border-radius: 16px;
-
-      box-shadow:
-        0 12px 45px
-        rgba(0, 0, 0, 0.35);
-
-    }
-
-
-    #fecharPresentes {
-
-      position: absolute;
-
-      top: 12px;
-      right: 12px;
-
-      width: 42px;
-      height: 42px;
-
-      padding: 0;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.35);
-
-      border-radius:
-        50%;
-
-      background:
-        rgba(0, 0, 0, 0.62);
-
-      color: white;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      font-size: 26px;
-
-      line-height: 1;
-
-      cursor: pointer;
-
-      z-index: 210;
-
-    }
-
-
-  </style>
-
-</head>
-
-
-
-<body>
-
-
-  <!-- CAPA -->
-
-  <img
-    id="capa"
-    src="imagens/capa.jpg"
-    alt="Abrir convite"
-    onclick="abrirConvite()"
-  >
-
-
-
-  <!-- VÍDEO -->
-
-  <div id="videoTela">
-
-
-    <video
-
-      id="video"
-
-      playsinline
-
-      webkit-playsinline
-
-      preload="auto"
-
-      onplaying="aoVideoTocar()"
-
-      oncanplay="esconderCarregando()"
-
-      onwaiting="aoVideoEsperar()"
-
-      onstalled="aoVideoEsperar()"
-
-      onended="mostrarFinal()"
-
-      onerror="erroAoCarregarVideo()"
-
-    ></video>
-
-
-
-    <div id="carregando">
-
-      <div id="spinner"></div>
-
-      <div>
-        Carregando convite...
-      </div>
-
-    </div>
-
-
-
-    <div
-      id="pular"
-      onclick="pularAbertura()"
-    >
-      Pular abertura
-    </div>
-
-
-
-    <div id="erroVideo">
-
-      <p>
-        Não foi possível carregar
-        a animação do convite.
-      </p>
-
-      <button
-        id="irParaConvite"
-        onclick="mostrarFinal()"
-      >
-        Abrir convite
-      </button>
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- ==================================================
-       MÚSICA DE FUNDO
-
-       FICA INVISÍVEL PARA O CONVIDADO
-  ================================================== -->
-
-  <audio
-    id="musica"
-    preload="auto"
-  ></audio>
-
-
-
-  <!-- CARD FINAL -->
-
-  <div id="finalTela">
-
-
-    <div id="arteFinal">
-
-
-      <img
-        id="final"
-        src="imagens/final.jpg"
-        alt="Convite"
-      >
-
-
-      <button
-
-        id="botaoPresentes"
-
-        class="botaoInvisivel"
-
-        aria-label="Abrir sugestões de presentes"
-
-        onclick="abrirPresentes()"
-
-      ></button>
-
-
-      <button
-
-        id="botaoConfirmar"
-
-        class="botaoInvisivel"
-
-        aria-label="Confirmar presença"
-
-        onclick="abrirWhatsApp()"
-
-      ></button>
-
-
-      <button
-
-        id="botaoLocalizacao"
-
-        class="botaoInvisivel"
-
-        aria-label="Abrir localização"
-
-        onclick="abrirLocalizacao()"
-
-      ></button>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- POP-UP PRESENTES -->
-
-  <div
-
-    id="popupPresentes"
-
-    onclick="fecharAoClicarFora(event)"
-
-  >
-
-
-    <div id="conteudoPresentes">
-
-
-      <img
-
-        id="imagemPresentes"
-
-        src="imagens/presentes.jpg"
-
-        alt="Sugestões de presentes"
-
-      >
-
-
-      <button
-
-        id="fecharPresentes"
-
-        aria-label="Fechar sugestões de presentes"
-
-        onclick="fecharPresentes(event)"
-
-      >
-
-        ×
-
-      </button>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <script>
-
-
-    /* ==================================================
-       ⛔ MOTOR DO CONVITE
-
-       DAQUI PARA BAIXO
-       NORMALMENTE NÃO PRECISA EDITAR
-    ================================================== */
-
-
-    document.title =
-      CONFIG.tituloPagina;
-
-
-
-    const capa =
-      document.getElementById("capa");
-
-
-    const video =
-      document.getElementById("video");
-
-
-    const musica =
-      document.getElementById("musica");
-
-
-    const videoTela =
-      document.getElementById("videoTela");
-
-
-    const carregando =
-      document.getElementById("carregando");
-
-
-    const pular =
-      document.getElementById("pular");
-
-
-    const erroVideo =
-      document.getElementById("erroVideo");
-
-
-    const finalTela =
-      document.getElementById("finalTela");
-
-
-    const popupPresentes =
-      document.getElementById("popupPresentes");
-
-
-    const botaoPresentes =
-      document.getElementById("botaoPresentes");
-
-
-    const botaoConfirmar =
-      document.getElementById("botaoConfirmar");
-
-
-    const botaoLocalizacao =
-      document.getElementById("botaoLocalizacao");
-
-
-
-    let temporizadorPularIniciado =
-      false;
-
-
-    let musicaJaIniciada =
-      false;
-
-
-    let conviteFinalAberto =
-      false;
-
-
-
-    /* ==================================================
-       CONFIGURAÇÃO INICIAL
-    ================================================== */
-
-    function aplicarConfiguracoes() {
-
-
-      video.src =
-        CONFIG.videoUrl;
-
-
-      musica.src =
-        CONFIG.musicaUrl;
-
-
-      musica.volume =
-        CONFIG.volumeMusica;
-
-
-      musica.muted =
-        true;
-
-
-
-      const botoes =
-        CONFIG.botoes;
-
-
-      const todosBotoes = [
-
-        botaoPresentes,
-
-        botaoConfirmar,
-
-        botaoLocalizacao
-
-      ];
-
-
-      todosBotoes.forEach(
-        function(botao) {
-
-
-          botao.style.left =
-            botoes.esquerda;
-
-
-          botao.style.width =
-            botoes.largura;
-
-
-          botao.style.height =
-            botoes.altura;
-
-
-        }
-      );
-
-
-      botaoPresentes.style.top =
-        botoes.presentesTopo;
-
-
-      botaoConfirmar.style.top =
-        botoes.confirmarTopo;
-
-
-      botaoLocalizacao.style.top =
-        botoes.localizacaoTopo;
-
-
-    }
-
-
-
-    aplicarConfiguracoes();
-
-
-
-    /* ==================================================
-       CONVERTER TEMPO DO VÍDEO
-       PARA TEMPO DA MÚSICA
-    ================================================== */
-
-    function tempoCorrespondenteMusica() {
-
-
-      let tempo =
-        CONFIG.inicioMusica
-        +
-        video.currentTime;
-
-
-      if (
-        Number.isFinite(
-          musica.duration
-        )
-        &&
-        musica.duration > 0
-        &&
-        tempo >= musica.duration
-      ) {
-
-
-        tempo =
-          CONFIG.inicioMusica
-          +
-          (
-            (
-              tempo
-              -
-              CONFIG.inicioMusica
-            )
-            %
-            (
-              musica.duration
-              -
-              CONFIG.inicioMusica
-            )
-          );
-
-
-      }
-
-
-      return tempo;
-
-
-    }
-
-
-
-    /* ==================================================
-       SINCRONIZAR MÚSICA
-       COM O VÍDEO
-    ================================================== */
-
-    function sincronizarMusica() {
-
-
-      const tempo =
-        tempoCorrespondenteMusica();
-
-
-      if (
-        Math.abs(
-          musica.currentTime
-          -
-          tempo
-        )
-        >
-        0.35
-      ) {
-
-
-        try {
-
-
-          musica.currentTime =
-            tempo;
-
-
-        }
-        catch (erro) {
-
-
-          /* sem ação */
-
-
-        }
-
-
-      }
-
-
-    }
-
-
-
-    /* ==================================================
-       ABRIR CONVITE
-    ================================================== */
-
-    function abrirConvite() {
-
-
-      capa.style.display =
-        "none";
-
-
-      videoTela.style.display =
-        "block";
-
-
-      pular.style.display =
-        "none";
-
-
-      mostrarCarregando();
-
-
-
-      /*
-         A música começa AQUI,
-         no toque do convidado.
-
-         Porém fica muda enquanto
-         o vídeo está tocando.
-      */
-
-
-      musica.muted =
-        true;
-
-
-      musica.volume =
-        CONFIG.volumeMusica;
-
-
-      try {
-
-
-        musica.currentTime =
-          CONFIG.inicioMusica;
-
-
-      }
-      catch (erro) {
-
-
-        /* sem ação */
-
-
-      }
-
-
-
-      const tocarMusica =
-        musica.play();
-
-
-      if (
-        tocarMusica !== undefined
-      ) {
-
-
-        tocarMusica
-          .then(
-            function() {
-
-
-              musicaJaIniciada =
-                true;
-
-
-            }
-          )
-          .catch(
-            function() {
-
-
-              musicaJaIniciada =
-                false;
-
-
-            }
-          );
-
-
-      }
-
-
-
-      const reproduzir =
-        video.play();
-
-
-
-      if (
-        reproduzir !== undefined
-      ) {
-
-
-        reproduzir.catch(
-          function() {
-
-
-            esconderCarregando();
-
-
-            erroVideo.style.display =
-              "flex";
-
-
-          }
-        );
-
-
-      }
-
-
-    }
-
-
-
-    /* ==================================================
-       VÍDEO COMEÇOU / VOLTOU
-       A TOCAR
-    ================================================== */
-
-    function aoVideoTocar() {
-
-
-      esconderCarregando();
-
-
-      sincronizarMusica();
-
-
-      musica.muted =
-        true;
-
-
-
-      if (
-        musica.paused
-      ) {
-
-
-        musica
-          .play()
-          .catch(
-            function() {
-              /* sem ação */
-            }
-          );
-
-
-      }
-
-
-
-      if (
-        !temporizadorPularIniciado
-      ) {
-
-
-        temporizadorPularIniciado =
-          true;
-
-
-        pular.style.display =
-          "block";
-
-
-        setTimeout(
-          function() {
-
-
-            pular.style.display =
-              "none";
-
-
-          },
-
-          CONFIG.tempoPular
-
-        );
-
-
-      }
-
-
-    }
-
-
-
-    /* ==================================================
-       SE O VÍDEO PARAR PARA CARREGAR
-    ================================================== */
-
-    function aoVideoEsperar() {
-
-
-      mostrarCarregando();
-
-
-      /*
-         O MP3 também pausa para
-         não avançar sozinho enquanto
-         o vídeo está carregando.
-      */
-
-
-      musica.pause();
-
-
-    }
-
-
-
-    /* ==================================================
-       CARREGAMENTO
-    ================================================== */
-
-    function mostrarCarregando() {
-
-
-      carregando.style.display =
-        "flex";
-
-
-    }
-
-
-
-    function esconderCarregando() {
-
-
-      carregando.style.display =
-        "none";
-
-
-    }
-
-
-
-    /* ==================================================
-       ERRO DO VÍDEO
-    ================================================== */
-
-    function erroAoCarregarVideo() {
-
-
-      esconderCarregando();
-
-
-      pular.style.display =
-        "none";
-
-
-      musica.pause();
-
-
-      erroVideo.style.display =
-        "flex";
-
-
-    }
-
-
-
-    /* ==================================================
-       PASSAR PARA O CARD FINAL
-    ================================================== */
-
-    function mostrarFinal() {
-
-
-      if (
-        conviteFinalAberto
-      ) {
-
-
-        return;
-
-
-      }
-
-
-      conviteFinalAberto =
-        true;
-
-
-
-      /*
-         Guarda 
+</html>

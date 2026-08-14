@@ -34,12 +34,10 @@
         "Convite da Helena",
 
 
-
       /* 🌸 VÍDEO NO R2 */
 
       videoUrl:
         "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/abertura.mp4",
-
 
 
       /* 🌸 MÚSICA NO R2 */
@@ -48,19 +46,16 @@
         "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/musica-aquarela.mp3",
 
 
-
       /* 🌸 PONTO INICIAL DA MÚSICA */
 
       inicioMusica:
         0,
 
 
-
-      /* 🌸 VOLUME NO CARD FINAL */
+      /* 🌸 VOLUME DA MÚSICA NO FINAL */
 
       volumeMusica:
         0.35,
-
 
 
       /* 🌸 WHATSAPP */
@@ -69,12 +64,10 @@
         "5561995705621",
 
 
-
       /* 🌸 MENSAGEM */
 
       mensagemWhatsapp:
         "Olá! Quero confirmar minha presença no aniversário da Helena.",
-
 
 
       /* 🌸 MAPA */
@@ -83,12 +76,10 @@
         "https://www.google.com/maps/search/?api=1&query=Parque+da+Cidade+Sarah+Kubitschek+Brasilia",
 
 
-
       /* 🌸 PULAR ABERTURA */
 
       tempoPular:
         5000,
-
 
 
       /* 🌸 POSIÇÃO DOS BOTÕES */
@@ -135,7 +126,6 @@
 
   <style>
 
-
     * {
       box-sizing: border-box;
     }
@@ -161,8 +151,9 @@
     }
 
 
-
-    /* CAPA */
+    /* ===============================
+       CAPA
+    =============================== */
 
     #capa {
 
@@ -183,8 +174,9 @@
     }
 
 
-
-    /* VÍDEO */
+    /* ===============================
+       VÍDEO
+    =============================== */
 
     #videoTela {
 
@@ -215,8 +207,9 @@
     }
 
 
-
-    /* CARREGAMENTO */
+    /* ===============================
+       CARREGAMENTO
+    =============================== */
 
     #carregando {
 
@@ -225,7 +218,8 @@
       position: absolute;
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.72);
+      background:
+        rgba(0, 0, 0, 0.72);
 
       align-items: center;
       justify-content: center;
@@ -247,13 +241,19 @@
 
       margin-bottom: 15px;
 
-      border: 4px solid rgba(255, 255, 255, 0.25);
+      border:
+        4px solid
+        rgba(255,255,255,0.25);
 
       border-top-color: white;
 
       border-radius: 50%;
 
-      animation: girar 0.9s linear infinite;
+      animation:
+        girar
+        0.9s
+        linear
+        infinite;
 
     }
 
@@ -267,8 +267,9 @@
     }
 
 
-
-    /* PULAR ABERTURA */
+    /* ===============================
+       PULAR ABERTURA
+    =============================== */
 
     #pular {
 
@@ -291,21 +292,29 @@
           )
         );
 
-      padding: 10px 17px;
+      padding:
+        10px 17px;
 
-      background: rgba(0, 0, 0, 0.48);
+      background:
+        rgba(0, 0, 0, 0.48);
 
       color: white;
 
-      border: 1px solid rgba(255, 255, 255, 0.48);
+      border:
+        1px solid
+        rgba(255,255,255,0.48);
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      backdrop-filter: blur(5px);
+      backdrop-filter:
+        blur(5px);
 
-      -webkit-backdrop-filter: blur(5px);
+      -webkit-backdrop-filter:
+        blur(5px);
 
       cursor: pointer;
 
@@ -316,8 +325,9 @@
     }
 
 
-
-    /* ERRO */
+    /* ===============================
+       ERRO
+    =============================== */
 
     #erroVideo {
 
@@ -326,7 +336,8 @@
       position: absolute;
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.88);
+      background:
+        rgba(0,0,0,0.88);
 
       align-items: center;
       justify-content: center;
@@ -345,11 +356,14 @@
 
     #erroVideo p {
 
-      margin: 0 0 18px;
+      margin:
+        0 0 18px;
 
-      line-height: 1.5;
+      line-height:
+        1.5;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
     }
 
@@ -358,23 +372,30 @@
 
       border: 0;
 
-      padding: 11px 20px;
+      padding:
+        11px 20px;
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
-      background: white;
+      background:
+        white;
 
-      color: black;
+      color:
+        black;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
     }
 
 
-
-    /* CARD FINAL */
+    /* ===============================
+       CARD FINAL
+    =============================== */
 
     #finalTela {
 
@@ -408,7 +429,8 @@
           calc(100vh * 9 / 16)
         );
 
-      aspect-ratio: 9 / 16;
+      aspect-ratio:
+        9 / 16;
 
       transform:
         translate(-50%, -50%);
@@ -433,8 +455,9 @@
     }
 
 
-
-    /* BOTÕES INVISÍVEIS */
+    /* ===============================
+       BOTÕES INVISÍVEIS
+    =============================== */
 
     .botaoInvisivel {
 
@@ -446,7 +469,8 @@
       border: 0;
       outline: 0;
 
-      background: transparent;
+      background:
+        transparent;
 
       cursor: pointer;
 
@@ -455,8 +479,75 @@
     }
 
 
+    /* ===============================
+       CONTROLE DE SOM
 
-    /* POP-UP PRESENTES */
+       APARECE SOMENTE NO FINAL
+    =============================== */
+
+    #controleSom {
+
+      display: none;
+
+      position: fixed;
+
+      left:
+        max(
+          16px,
+          env(safe-area-inset-left)
+        );
+
+      bottom:
+        max(
+          90px,
+          calc(
+            env(safe-area-inset-bottom)
+            + 70px
+          )
+        );
+
+      width: 42px;
+      height: 42px;
+
+      padding: 0;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.38);
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(0,0,0,0.50);
+
+      color:
+        white;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size:
+        19px;
+
+      cursor:
+        pointer;
+
+      backdrop-filter:
+        blur(5px);
+
+      -webkit-backdrop-filter:
+        blur(5px);
+
+      z-index:
+        250;
+
+    }
+
+
+    /* ===============================
+       POP-UP PRESENTES
+    =============================== */
 
     #popupPresentes {
 
@@ -482,7 +573,8 @@
           env(safe-area-inset-bottom)
         );
 
-      background: rgba(0, 0, 0, 0.82);
+      background:
+        rgba(0,0,0,0.82);
 
       align-items: center;
       justify-content: center;
@@ -523,7 +615,7 @@
 
       box-shadow:
         0 12px 45px
-        rgba(0, 0, 0, 0.35);
+        rgba(0,0,0,0.35);
 
     }
 
@@ -540,13 +632,18 @@
 
       padding: 0;
 
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border:
+        1px solid
+        rgba(255,255,255,0.35);
 
-      border-radius: 50%;
+      border-radius:
+        50%;
 
-      background: rgba(0, 0, 0, 0.62);
+      background:
+        rgba(0,0,0,0.62);
 
-      color: white;
+      color:
+        white;
 
       display: flex;
 
@@ -560,7 +657,6 @@
       z-index: 210;
 
     }
-
 
   </style>
 
@@ -578,7 +674,6 @@
     alt="Abrir convite"
     onclick="abrirConvite()"
   >
-
 
 
   <!-- VÍDEO -->
@@ -611,7 +706,6 @@
     ></video>
 
 
-
     <div id="carregando">
 
       <div id="spinner"></div>
@@ -623,14 +717,12 @@
     </div>
 
 
-
     <div
       id="pular"
       onclick="pularAbertura()"
     >
       Pular abertura
     </div>
-
 
 
     <div id="erroVideo">
@@ -653,14 +745,12 @@
   </div>
 
 
-
   <!-- MÚSICA -->
 
   <audio
     id="musica"
     preload="auto"
   ></audio>
-
 
 
   <!-- CARD FINAL -->
@@ -708,6 +798,16 @@
   </div>
 
 
+  <!-- CONTROLE DE SOM -->
+
+  <button
+    id="controleSom"
+    aria-label="Silenciar música"
+    onclick="alternarSom()"
+  >
+    🔊
+  </button>
+
 
   <!-- POP-UP PRESENTES -->
 
@@ -742,18 +842,16 @@
   </div>
 
 
-
   <script>
 
 
-    /* ==================================================
-       ⛔ MOTOR DO CONVITE
-    ================================================== */
+    /* ===============================
+       MOTOR DO CONVITE
+    =============================== */
 
 
     document.title =
       CONFIG.tituloPagina;
-
 
 
     const capa =
@@ -804,6 +902,10 @@
       document.getElementById("botaoLocalizacao");
 
 
+    const controleSom =
+      document.getElementById("controleSom");
+
+
 
     let temporizadorPularIniciado =
       false;
@@ -813,12 +915,6 @@
       false;
 
 
-
-    /*
-       GUARDA O ESTADO DA MÍDIA
-       QUANDO A PESSOA SAI DO APP
-    */
-
     let retomarMusicaAoVoltar =
       false;
 
@@ -827,10 +923,14 @@
       false;
 
 
+    let musicaSilenciadaPeloUsuario =
+      false;
 
-    /* ==================================================
+
+
+    /* ===============================
        CONFIGURAÇÕES
-    ================================================== */
+    =============================== */
 
     function aplicarConfiguracoes() {
 
@@ -904,9 +1004,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        TEMPO DA MÚSICA
-    ================================================== */
+    =============================== */
 
     function tempoDaMusica() {
 
@@ -915,7 +1015,6 @@
         CONFIG.inicioMusica
         +
         video.currentTime;
-
 
 
       if (
@@ -971,9 +1070,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        SINCRONIZAÇÃO
-    ================================================== */
+    =============================== */
 
     function sincronizarMusica() {
 
@@ -1005,10 +1104,6 @@
         }
         catch (erro) {
 
-
-          /* sem ação */
-
-
         }
 
 
@@ -1019,9 +1114,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        ABRIR CONVITE
-    ================================================== */
+    =============================== */
 
     function abrirConvite() {
 
@@ -1041,7 +1136,6 @@
       mostrarCarregando();
 
 
-
       try {
 
 
@@ -1056,10 +1150,6 @@
       }
       catch (erro) {
 
-
-        /* sem ação */
-
-
       }
 
 
@@ -1067,38 +1157,17 @@
         0.001;
 
 
-
-      const tocarMusica =
-        musica.play();
-
-
-      const tocarVideo =
-        video.play();
-
-
-
-      if (
-        tocarMusica !== undefined
-      ) {
-
-
-        tocarMusica.catch(
+      musica
+        .play()
+        .catch(
           function() {
-            /* sem ação */
           }
         );
 
 
-      }
-
-
-
-      if (
-        tocarVideo !== undefined
-      ) {
-
-
-        tocarVideo.catch(
+      video
+        .play()
+        .catch(
 
           function() {
 
@@ -1115,16 +1184,13 @@
         );
 
 
-      }
-
-
     }
 
 
 
-    /* ==================================================
+    /* ===============================
        VÍDEO TOCANDO
-    ================================================== */
+    =============================== */
 
     function aoVideoTocar() {
 
@@ -1135,15 +1201,8 @@
       sincronizarMusica();
 
 
-
-      /*
-         Enquanto o vídeo toca,
-         a música fica quase inaudível.
-      */
-
       musica.volume =
         0.001;
-
 
 
       if (
@@ -1155,13 +1214,11 @@
           .play()
           .catch(
             function() {
-              /* sem ação */
             }
           );
 
 
       }
-
 
 
       if (
@@ -1200,10 +1257,6 @@
 
 
 
-    /* ==================================================
-       VÍDEO ESPERANDO INTERNET
-    ================================================== */
-
     function aoVideoEsperar() {
 
 
@@ -1214,9 +1267,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        CARREGAMENTO
-    ================================================== */
+    =============================== */
 
     function mostrarCarregando() {
 
@@ -1239,9 +1292,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        ERRO
-    ================================================== */
+    =============================== */
 
     function erroAoCarregarVideo() {
 
@@ -1264,9 +1317,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        CARD FINAL
-    ================================================== */
+    =============================== */
 
     function mostrarFinal() {
 
@@ -1275,9 +1328,7 @@
         conviteFinalAberto
       ) {
 
-
         return;
-
 
       }
 
@@ -1286,14 +1337,11 @@
         true;
 
 
-
       const pontoExato =
         tempoDaMusica();
 
 
-
       video.pause();
-
 
 
       try {
@@ -1306,27 +1354,36 @@
       }
       catch (erro) {
 
-
-        /* sem ação */
-
-
       }
 
 
 
-      musica.volume =
-        CONFIG.volumeMusica;
+      if (
+        musicaSilenciadaPeloUsuario
+      ) {
 
+
+        musica.volume =
+          0;
+
+
+      }
+      else {
+
+
+        musica.volume =
+          CONFIG.volumeMusica;
+
+
+      }
 
 
       musica
         .play()
         .catch(
           function() {
-            /* sem ação */
           }
         );
-
 
 
       esconderCarregando();
@@ -1348,13 +1405,99 @@
         "block";
 
 
+      /*
+         CONTROLE DE SOM SÓ NASCE AQUI.
+      */
+
+      controleSom.style.display =
+        "flex";
+
+
     }
 
 
 
-    /* ==================================================
+    /* ===============================
+       CONTROLE DE SOM
+    =============================== */
+
+    function alternarSom() {
+
+
+      musicaSilenciadaPeloUsuario =
+        !musicaSilenciadaPeloUsuario;
+
+
+      if (
+        musicaSilenciadaPeloUsuario
+      ) {
+
+
+        /*
+           A música NÃO pausa.
+
+           Continua avançando
+           silenciosamente.
+        */
+
+        musica.volume =
+          0;
+
+
+        controleSom.textContent =
+          "🔇";
+
+
+        controleSom.setAttribute(
+          "aria-label",
+          "Ativar música"
+        );
+
+
+      }
+      else {
+
+
+        musica.volume =
+          CONFIG.volumeMusica;
+
+
+        controleSom.textContent =
+          "🔊";
+
+
+        controleSom.setAttribute(
+          "aria-label",
+          "Silenciar música"
+        );
+
+
+        if (
+          musica.paused
+        ) {
+
+
+          musica
+            .play()
+            .catch(
+              function() {
+              }
+            );
+
+
+        }
+
+
+      }
+
+
+    }
+
+
+
+    /* ===============================
        PULAR
-    ================================================== */
+    =============================== */
 
     function pularAbertura() {
 
@@ -1366,27 +1509,16 @@
 
 
 
-    /* ==================================================
-       PAUSAR QUANDO SAI DO CONVITE
-    ================================================== */
+    /* ===============================
+       SEGUNDO PLANO
+    =============================== */
 
     function pausarMidiaAoSair() {
 
 
-      /*
-         GUARDA SE A MÚSICA
-         ESTAVA TOCANDO.
-      */
-
       retomarMusicaAoVoltar =
         !musica.paused;
 
-
-
-      /*
-         GUARDA SE O VÍDEO
-         ESTAVA TOCANDO.
-      */
 
       retomarVideoAoVoltar =
 
@@ -1395,7 +1527,6 @@
         &&
 
         !video.ended;
-
 
 
       if (
@@ -1407,7 +1538,6 @@
 
 
       }
-
 
 
       if (
@@ -1425,10 +1555,6 @@
 
 
 
-    /* ==================================================
-       RETOMAR QUANDO VOLTA
-    ================================================== */
-
     function retomarMidiaAoVoltar() {
 
 
@@ -1436,18 +1562,10 @@
         document.hidden
       ) {
 
-
         return;
-
 
       }
 
-
-
-      /*
-         SE JÁ ESTÁ NO CARD FINAL:
-         RETOMA SÓ A MÚSICA.
-      */
 
       if (
         conviteFinalAberto
@@ -1459,15 +1577,30 @@
         ) {
 
 
-          musica.volume =
-            CONFIG.volumeMusica;
+          if (
+            musicaSilenciadaPeloUsuario
+          ) {
+
+
+            musica.volume =
+              0;
+
+
+          }
+          else {
+
+
+            musica.volume =
+              CONFIG.volumeMusica;
+
+
+          }
 
 
           musica
             .play()
             .catch(
               function() {
-                /* sem ação */
               }
             );
 
@@ -1488,12 +1621,6 @@
 
       }
 
-
-
-      /*
-         SE AINDA ESTAVA NO VÍDEO:
-         RETOMA OS DOIS.
-      */
 
       if (
         videoTela.style.display ===
@@ -1517,13 +1644,11 @@
             .play()
             .catch(
               function() {
-                /* sem ação */
               }
             );
 
 
         }
-
 
 
         if (
@@ -1535,7 +1660,6 @@
             .play()
             .catch(
               function() {
-                /* sem ação */
               }
             );
 
@@ -1544,7 +1668,6 @@
 
 
       }
-
 
 
       retomarMusicaAoVoltar =
@@ -1558,10 +1681,6 @@
     }
 
 
-
-    /* ==================================================
-       DETECTAR TROCA DE APP / ABA
-    ================================================== */
 
     document.addEventListener(
 
@@ -1594,11 +1713,6 @@
 
 
 
-    /*
-       AJUDA QUANDO O NAVEGADOR
-       RESTAURA A PÁGINA AO VOLTAR.
-    */
-
     window.addEventListener(
 
       "pageshow",
@@ -1615,9 +1729,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        LOOP DA MÚSICA
-    ================================================== */
+    =============================== */
 
     musica.addEventListener(
 
@@ -1636,10 +1750,6 @@
         }
         catch (erro) {
 
-
-          /* sem ação */
-
-
         }
 
 
@@ -1647,7 +1757,6 @@
           .play()
           .catch(
             function() {
-              /* sem ação */
             }
           );
 
@@ -1658,9 +1767,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        PRESENTES
-    ================================================== */
+    =============================== */
 
     function abrirPresentes() {
 
@@ -1710,9 +1819,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        WHATSAPP
-    ================================================== */
+    =============================== */
 
     function abrirWhatsApp() {
 
@@ -1734,9 +1843,9 @@
 
 
 
-    /* ==================================================
+    /* ===============================
        MAPA
-    ================================================== */
+    =============================== */
 
     function abrirLocalizacao() {
 

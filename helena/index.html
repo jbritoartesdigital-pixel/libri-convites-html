@@ -21,8 +21,15 @@
   ║                                                              ║
   ║             🌸 PRÉVIA DO WHATSAPP / REDES 🌸                ║
   ║                                                              ║
-  ║  ESTES CAMPOS PRECISAM FICAR DIRETAMENTE NO HTML.            ║
-  ║  EDITE TAMBÉM O ?v= QUANDO TROCAR versaoArquivos.            ║
+  ║  A IMAGEM É OTIMIZADA AUTOMATICAMENTE PELO GITHUB.           ║
+  ║                                                              ║
+  ║  VOCÊ PODE SUBIR:                                            ║
+  ║  preview.png                                                  ║
+  ║  preview.jpg                                                  ║
+  ║  preview.jpeg                                                 ║
+  ║                                                              ║
+  ║  O SISTEMA PUBLICA:                                          ║
+  ║  preview-otimizada.jpg                                       ║
   ║                                                              ║
   ╚══════════════════════════════════════════════════════════════╝
   -->
@@ -39,22 +46,12 @@
 
   <meta
     property="og:image"
-    content="https://libriconvites.com.br/helena/imagens/preview.jpg?v=2"
+    content="https://libriconvites.com.br/helena/imagens/preview-otimizada.jpg?v=2"
   >
 
   <meta
     property="og:image:type"
     content="image/jpeg"
-  >
-
-  <meta
-    property="og:image:width"
-    content="1200"
-  >
-
-  <meta
-    property="og:image:height"
-    content="675"
   >
 
   <meta
@@ -71,6 +68,7 @@
     property="og:locale"
     content="pt_BR"
   >
+
 
   <meta
     name="twitter:card"
@@ -89,8 +87,9 @@
 
   <meta
     name="twitter:image"
-    content="https://libriconvites.com.br/helena/imagens/preview.jpg?v=2"
+    content="https://libriconvites.com.br/helena/imagens/preview-otimizada.jpg?v=2"
   >
+
 
 
   <!--
@@ -105,6 +104,7 @@
     name="robots"
     content="noindex, nofollow, noarchive, noimageindex"
   >
+
 
 
   <!--
@@ -151,16 +151,6 @@
 
       /* ==================================================
          🌸 VERSÃO DOS ARQUIVOS
-
-         Se trocar capa, final, presentes ou preview
-         e algum celular continuar mostrando a versão antiga:
-
-         "2" → "3"
-         "3" → "4"
-
-         IMPORTANTE:
-         também atualize manualmente o ?v=
-         nos campos og:image e twitter:image acima.
          ================================================== */
 
       versaoArquivos:
@@ -169,7 +159,7 @@
 
 
       /* ==================================================
-         🌸 SERVIDOR DE VÍDEOS E MÚSICAS
+         🌸 SERVIDOR DE MÍDIA
          ================================================== */
 
       hostMidia:
@@ -193,23 +183,8 @@
       musicaArquivo:
         "musica-aquarela.mp3",
 
-
-      /*
-         Se a música usada no vídeo começa
-         do início do arquivo MP3:
-      */
-
       inicioMusica:
         0,
-
-
-      /*
-         Volume da música no card final:
-
-         0.25 = 25%
-         0.35 = 35%
-         0.50 = 50%
-      */
 
       volumeMusica:
         0.35,
@@ -239,8 +214,6 @@
 
       /* ==================================================
          🌸 PULAR ABERTURA
-
-         5000 = botão fica disponível por 5 segundos
          ================================================== */
 
       tempoPular:
@@ -249,9 +222,7 @@
 
 
       /* ==================================================
-         🌸 POSIÇÃO DOS BOTÕES INVISÍVEIS
-
-         Só altere se a arte final mudar de layout.
+         🌸 POSIÇÃO DOS BOTÕES
          ================================================== */
 
       botoes: {
@@ -282,6 +253,7 @@
   </script>
 
 
+
   <!--
   ╔══════════════════════════════════════════════════════════════╗
   ║                                                              ║
@@ -293,8 +265,6 @@
 
   <title>Convite</title>
 
-
-  <!-- CONEXÃO ANTECIPADA COM A MÍDIA -->
 
   <link
     rel="preconnect"
@@ -308,52 +278,8 @@
   >
 
 
-  <!-- PRELOAD AUTOMÁTICO DAS IMAGENS -->
-
-  <script>
-
-    (function prepararImagens() {
-
-      const arquivos = [
-        CONFIG.capaArquivo,
-        CONFIG.finalArquivo,
-        CONFIG.presentesArquivo
-      ];
-
-
-      arquivos.forEach(function(arquivo) {
-
-        const link =
-          document.createElement("link");
-
-        link.rel =
-          "preload";
-
-        link.as =
-          "image";
-
-        link.href =
-          arquivo +
-          "?v=" +
-          encodeURIComponent(
-            CONFIG.versaoArquivos
-          );
-
-        document.head.appendChild(link);
-
-      });
-
-    })();
-
-  </script>
-
 
   <style>
-
-
-    /* ==================================================
-       BASE
-       ================================================== */
 
     * {
       box-sizing: border-box;
@@ -419,9 +345,6 @@
     audio {
 
       -webkit-user-drag:
-        none;
-
-      user-drag:
         none;
 
       -webkit-touch-callout:
@@ -607,7 +530,7 @@
 
 
     /* ==================================================
-       PULAR ABERTURA
+       PULAR
        ================================================== */
 
     #pular {
@@ -663,12 +586,6 @@
       font-size:
         13px;
 
-      backdrop-filter:
-        blur(5px);
-
-      -webkit-backdrop-filter:
-        blur(5px);
-
       cursor:
         pointer;
 
@@ -683,7 +600,7 @@
 
 
     /* ==================================================
-       ERRO DO VÍDEO
+       ERRO
        ================================================== */
 
     #erroVideo {
@@ -777,7 +694,7 @@
 
 
     /* ==================================================
-       CARD FINAL
+       FINAL
        ================================================== */
 
     #finalTela {
@@ -870,7 +787,7 @@
 
 
     /* ==================================================
-       BOTÕES INVISÍVEIS
+       BOTÕES
        ================================================== */
 
     .botaoInvisivel {
@@ -904,9 +821,7 @@
 
 
     /* ==================================================
-       CONTROLE DE SOM
-
-       APARECE SOMENTE NO CARD FINAL
+       SOM
        ================================================== */
 
     #controleSom {
@@ -979,38 +894,8 @@
       -webkit-backdrop-filter:
         blur(8px);
 
-      box-shadow:
-        0 3px 14px
-        rgba(
-          0,
-          0,
-          0,
-          0.16
-        );
-
       z-index:
         260;
-
-      transition:
-        transform 0.15s ease,
-        background 0.2s ease,
-        opacity 0.2s ease;
-
-    }
-
-
-    #controleSom:active {
-
-      transform:
-        scale(0.91);
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.38
-        );
 
     }
 
@@ -1054,7 +939,7 @@
 
 
     /* ==================================================
-       POP-UP PRESENTES
+       PRESENTES
        ================================================== */
 
     #popupPresentes {
@@ -1075,18 +960,7 @@
         var(--altura-app);
 
       padding:
-
-        max(
-          18px,
-          env(safe-area-inset-top)
-        )
-
-        18px
-
-        max(
-          18px,
-          env(safe-area-inset-bottom)
-        );
+        18px;
 
       background:
         rgba(
@@ -1157,17 +1031,6 @@
       border-radius:
         16px;
 
-      box-shadow:
-        0
-        12px
-        45px
-        rgba(
-          0,
-          0,
-          0,
-          0.35
-        );
-
     }
 
 
@@ -1226,9 +1089,6 @@
       font-size:
         26px;
 
-      line-height:
-        1;
-
       cursor:
         pointer;
 
@@ -1245,8 +1105,6 @@
 <body>
 
 
-  <!-- CAPA -->
-
   <img
     id="capa"
     alt="Abrir convite"
@@ -1254,9 +1112,6 @@
     onclick="abrirConvite()"
   >
 
-
-
-  <!-- VÍDEO -->
 
   <div id="videoTela">
 
@@ -1270,8 +1125,8 @@
       controlslist="nodownload noplaybackrate"
       onplaying="aoVideoTocar()"
       oncanplay="esconderCarregando()"
-      onwaiting="aoVideoEsperar()"
-      onstalled="aoVideoEsperar()"
+      onwaiting="mostrarCarregando()"
+      onstalled="mostrarCarregando()"
       onended="mostrarFinal()"
       onerror="erroAoCarregarVideo()"
     ></video>
@@ -1290,7 +1145,7 @@
 
     <div
       id="pular"
-      onclick="pularAbertura()"
+      onclick="mostrarFinal()"
     >
       Pular abertura
     </div>
@@ -1314,17 +1169,11 @@
   </div>
 
 
-
-  <!-- MÚSICA -->
-
   <audio
     id="musica"
     preload="auto"
   ></audio>
 
-
-
-  <!-- CARD FINAL -->
 
   <div id="finalTela">
 
@@ -1340,7 +1189,6 @@
       <button
         id="botaoPresentes"
         class="botaoInvisivel"
-        aria-label="Abrir sugestões de presentes"
         onclick="abrirPresentes()"
       ></button>
 
@@ -1348,7 +1196,6 @@
       <button
         id="botaoConfirmar"
         class="botaoInvisivel"
-        aria-label="Confirmar presença"
         onclick="abrirWhatsApp()"
       ></button>
 
@@ -1356,7 +1203,6 @@
       <button
         id="botaoLocalizacao"
         class="botaoInvisivel"
-        aria-label="Abrir localização"
         onclick="abrirLocalizacao()"
       ></button>
 
@@ -1365,19 +1211,15 @@
   </div>
 
 
-
-  <!-- CONTROLE DE SOM -->
-
   <button
     id="controleSom"
-    aria-label="Silenciar música"
     onclick="alternarSom()"
   >
+
 
     <svg
       id="iconeSomLigado"
       viewBox="0 0 24 24"
-      aria-hidden="true"
     >
 
       <path
@@ -1398,7 +1240,6 @@
     <svg
       id="iconeSomDesligado"
       viewBox="0 0 24 24"
-      aria-hidden="true"
     >
 
       <path
@@ -1418,9 +1259,6 @@
   </button>
 
 
-
-  <!-- POP-UP PRESENTES -->
-
   <div
     id="popupPresentes"
     onclick="fecharAoClicarFora(event)"
@@ -1430,14 +1268,12 @@
 
       <img
         id="imagemPresentes"
-        alt="Sugestões de presentes"
         draggable="false"
       >
 
 
       <button
         id="fecharPresentes"
-        aria-label="Fechar sugestões de presentes"
         onclick="fecharPresentes(event)"
       >
         ×
@@ -1452,17 +1288,9 @@
   <script>
 
 
-    /* ==================================================
-       MOTOR DO CONVITE
-       ================================================== */
-
-
     document.title =
       CONFIG.tituloPagina;
 
-
-
-    /* ELEMENTOS */
 
     const capa =
       document.getElementById("capa");
@@ -1516,47 +1344,32 @@
       document.getElementById("iconeSomDesligado");
 
 
-
-    /* ESTADO */
-
     let temporizadorPularIniciado =
       false;
 
     let conviteFinalAberto =
       false;
 
-    let musicaSilenciadaPeloUsuario =
+    let musicaSilenciada =
       false;
 
     let musicaDisponivel =
       true;
 
-    let retomarMusicaAoVoltar =
+    let retomarMusica =
       false;
 
-    let retomarVideoAoVoltar =
+    let retomarVideo =
       false;
 
 
-
-    /* ==================================================
-       URLS
-       ================================================== */
 
     function arquivoLocal(arquivo) {
-
-      const separador =
-        arquivo.includes("?")
-          ? "&"
-          : "?";
-
 
       return (
         arquivo
         +
-        separador
-        +
-        "v="
+        "?v="
         +
         encodeURIComponent(
           CONFIG.versaoArquivos
@@ -1575,7 +1388,9 @@
         .map(
           function(parte) {
 
-            return encodeURIComponent(parte);
+            return encodeURIComponent(
+              parte
+            );
 
           }
         )
@@ -1587,42 +1402,36 @@
 
     function urlMidia(arquivo) {
 
-      const host =
+      return (
+
         CONFIG.hostMidia
-          .replace(/\/+$/, "");
+          .replace(/\/+$/, "")
 
+        +
 
-      const pasta =
+        "/"
+
+        +
+
         caminhoSeguro(
           CONFIG.pastaCliente
-        );
+        )
 
+        +
 
-      const nome =
+        "/"
+
+        +
+
         caminhoSeguro(
           arquivo
-        );
+        )
 
-
-      return (
-        host
-        +
-        "/"
-        +
-        pasta
-        +
-        "/"
-        +
-        nome
       );
 
     }
 
 
-
-    /* ==================================================
-       CONFIGURAÇÕES
-       ================================================== */
 
     function aplicarConfiguracoes() {
 
@@ -1664,18 +1473,11 @@
         CONFIG.botoes;
 
 
-      const todosBotoes = [
-
+      [
         botaoPresentes,
-
         botaoConfirmar,
-
         botaoLocalizacao
-
-      ];
-
-
-      todosBotoes.forEach(
+      ].forEach(
 
         function(botao) {
 
@@ -1711,50 +1513,6 @@
 
 
 
-    /* ==================================================
-       PRELOAD EXTRA
-       ================================================== */
-
-    function prepararImagensFinais() {
-
-      const imagens = [
-
-        arquivoLocal(
-          CONFIG.finalArquivo
-        ),
-
-        arquivoLocal(
-          CONFIG.presentesArquivo
-        )
-
-      ];
-
-
-      imagens.forEach(
-
-        function(src) {
-
-          const imagem =
-            new Image();
-
-          imagem.src =
-            src;
-
-        }
-
-      );
-
-    }
-
-
-    prepararImagensFinais();
-
-
-
-    /* ==================================================
-       DISPONIBILIDADE DO ÁUDIO
-       ================================================== */
-
     musica.addEventListener(
 
       "error",
@@ -1772,101 +1530,33 @@
     );
 
 
-    musica.addEventListener(
-
-      "canplay",
-
-      function() {
-
-        musicaDisponivel =
-          true;
-
-      }
-
-    );
-
-
-
-    /* ==================================================
-       TEMPO DA MÚSICA
-       ================================================== */
 
     function tempoDaMusica() {
 
-      let tempo =
+      return (
         CONFIG.inicioMusica
         +
-        video.currentTime;
-
-
-      if (
-        Number.isFinite(
-          musica.duration
-        )
-        &&
-        musica.duration > 0
-      ) {
-
-        const trechoDisponivel =
-          musica.duration
-          -
-          CONFIG.inicioMusica;
-
-
-        if (
-          trechoDisponivel > 0
-          &&
-          tempo >= musica.duration
-        ) {
-
-          tempo =
-            CONFIG.inicioMusica
-            +
-            (
-              (
-                tempo
-                -
-                CONFIG.inicioMusica
-              )
-              %
-              trechoDisponivel
-            );
-
-        }
-
-      }
-
-
-      return tempo;
+        video.currentTime
+      );
 
     }
 
 
-
-    /* ==================================================
-       SINCRONIZAÇÃO
-       ================================================== */
 
     function sincronizarMusica() {
 
       if (
         !musicaDisponivel
       ) {
-
         return;
-
       }
-
-
-      const tempo =
-        tempoDaMusica();
 
 
       const diferenca =
         Math.abs(
           musica.currentTime
           -
-          tempo
+          tempoDaMusica()
         );
 
 
@@ -1877,7 +1567,7 @@
         try {
 
           musica.currentTime =
-            tempo;
+            tempoDaMusica();
 
         }
         catch (erro) {
@@ -1890,10 +1580,6 @@
 
 
 
-    /* ==================================================
-       ABRIR CONVITE
-       ================================================== */
-
     function abrirConvite() {
 
       capa.style.display =
@@ -1904,10 +1590,6 @@
         "block";
 
 
-      pular.style.display =
-        "none";
-
-
       mostrarCarregando();
 
 
@@ -1915,7 +1597,6 @@
 
         video.currentTime =
           0;
-
 
         musica.currentTime =
           CONFIG.inicioMusica;
@@ -1938,7 +1619,6 @@
           .play()
           .catch(
             function() {
-
             }
           );
 
@@ -1953,7 +1633,6 @@
 
             esconderCarregando();
 
-
             erroVideo.style.display =
               "flex";
 
@@ -1965,41 +1644,12 @@
 
 
 
-    /* ==================================================
-       VÍDEO TOCANDO
-       ================================================== */
-
     function aoVideoTocar() {
 
       esconderCarregando();
 
 
-      if (
-        musicaDisponivel
-      ) {
-
-        sincronizarMusica();
-
-
-        musica.volume =
-          0.001;
-
-
-        if (
-          musica.paused
-        ) {
-
-          musica
-            .play()
-            .catch(
-              function() {
-
-              }
-            );
-
-        }
-
-      }
+      sincronizarMusica();
 
 
       if (
@@ -2033,18 +1683,6 @@
 
 
 
-    /* ==================================================
-       VÍDEO CARREGANDO
-       ================================================== */
-
-    function aoVideoEsperar() {
-
-      mostrarCarregando();
-
-    }
-
-
-
     function mostrarCarregando() {
 
       carregando.style.display =
@@ -2063,27 +1701,14 @@
 
 
 
-    /* ==================================================
-       ERRO DO VÍDEO
-       ================================================== */
-
     function erroAoCarregarVideo() {
 
       esconderCarregando();
 
-
       pular.style.display =
         "none";
 
-
-      if (
-        musicaDisponivel
-      ) {
-
-        musica.pause();
-
-      }
-
+      musica.pause();
 
       erroVideo.style.display =
         "flex";
@@ -2092,18 +1717,12 @@
 
 
 
-    /* ==================================================
-       CARD FINAL
-       ================================================== */
-
     function mostrarFinal() {
 
       if (
         conviteFinalAberto
       ) {
-
         return;
-
       }
 
 
@@ -2111,30 +1730,30 @@
         true;
 
 
-      const pontoExato =
+      const ponto =
         tempoDaMusica();
 
 
       video.pause();
 
 
+      try {
+
+        musica.currentTime =
+          ponto;
+
+      }
+      catch (erro) {
+
+      }
+
+
       if (
         musicaDisponivel
       ) {
 
-        try {
-
-          musica.currentTime =
-            pontoExato;
-
-        }
-        catch (erro) {
-
-        }
-
-
         musica.volume =
-          musicaSilenciadaPeloUsuario
+          musicaSilenciada
             ? 0
             : CONFIG.volumeMusica;
 
@@ -2145,14 +1764,8 @@
 
             function() {
 
-              if (
-                musicaDisponivel
-              ) {
-
-                controleSom.style.display =
-                  "flex";
-
-              }
+              controleSom.style.display =
+                "flex";
 
             }
 
@@ -2164,7 +1777,6 @@
               musicaDisponivel =
                 false;
 
-
               controleSom.style.display =
                 "none";
 
@@ -2173,28 +1785,18 @@
           );
 
       }
-      else {
-
-        controleSom.style.display =
-          "none";
-
-      }
 
 
       esconderCarregando();
 
-
       erroVideo.style.display =
         "none";
-
 
       pular.style.display =
         "none";
 
-
       videoTela.style.display =
         "none";
-
 
       finalTela.style.display =
         "block";
@@ -2203,147 +1805,47 @@
 
 
 
-    /* ==================================================
-       PULAR ABERTURA
-       ================================================== */
-
-    function pularAbertura() {
-
-      mostrarFinal();
-
-    }
-
-
-
-    /* ==================================================
-       CONTROLE DE SOM
-       ================================================== */
-
-    function atualizarIconeSom() {
-
-      if (
-        musicaSilenciadaPeloUsuario
-      ) {
-
-        iconeSomLigado.style.display =
-          "none";
-
-
-        iconeSomDesligado.style.display =
-          "block";
-
-
-        controleSom.setAttribute(
-          "aria-label",
-          "Ativar música"
-        );
-
-      }
-      else {
-
-        iconeSomLigado.style.display =
-          "block";
-
-
-        iconeSomDesligado.style.display =
-          "none";
-
-
-        controleSom.setAttribute(
-          "aria-label",
-          "Silenciar música"
-        );
-
-      }
-
-    }
-
-
-
     function alternarSom() {
 
-      if (
-        !musicaDisponivel
-      ) {
-
-        controleSom.style.display =
-          "none";
-
-        return;
-
-      }
+      musicaSilenciada =
+        !musicaSilenciada;
 
 
-      musicaSilenciadaPeloUsuario =
-        !musicaSilenciadaPeloUsuario;
+      musica.volume =
+        musicaSilenciada
+          ? 0
+          : CONFIG.volumeMusica;
 
 
-      if (
-        musicaSilenciadaPeloUsuario
-      ) {
-
-        musica.volume =
-          0;
-
-      }
-      else {
-
-        musica.volume =
-          CONFIG.volumeMusica;
+      iconeSomLigado.style.display =
+        musicaSilenciada
+          ? "none"
+          : "block";
 
 
-        if (
-          musica.paused
-        ) {
-
-          musica
-            .play()
-            .catch(
-
-              function() {
-
-                musicaDisponivel =
-                  false;
-
-
-                controleSom.style.display =
-                  "none";
-
-              }
-
-            );
-
-        }
-
-      }
-
-
-      atualizarIconeSom();
+      iconeSomDesligado.style.display =
+        musicaSilenciada
+          ? "block"
+          : "none";
 
     }
 
 
-
-    /* ==================================================
-       SEGUNDO PLANO
-       ================================================== */
 
     function pausarMidiaAoSair() {
 
-      retomarMusicaAoVoltar =
-        musicaDisponivel
-        &&
+      retomarMusica =
         !musica.paused;
 
 
-      retomarVideoAoVoltar =
+      retomarVideo =
         !video.paused
         &&
         !video.ended;
 
 
       if (
-        retomarMusicaAoVoltar
+        retomarMusica
       ) {
 
         musica.pause();
@@ -2352,7 +1854,7 @@
 
 
       if (
-        retomarVideoAoVoltar
+        retomarVideo
       ) {
 
         video.pause();
@@ -2368,9 +1870,7 @@
       if (
         document.hidden
       ) {
-
         return;
-
       }
 
 
@@ -2379,13 +1879,13 @@
       ) {
 
         if (
-          retomarMusicaAoVoltar
+          retomarMusica
           &&
           musicaDisponivel
         ) {
 
           musica.volume =
-            musicaSilenciadaPeloUsuario
+            musicaSilenciada
               ? 0
               : CONFIG.volumeMusica;
 
@@ -2393,43 +1893,17 @@
           musica
             .play()
             .catch(
-
               function() {
-
-                musicaDisponivel =
-                  false;
-
-
-                controleSom.style.display =
-                  "none";
-
               }
-
             );
 
         }
 
-
-        retomarMusicaAoVoltar =
-          false;
-
-
-        retomarVideoAoVoltar =
-          false;
-
-
-        return;
-
       }
-
-
-      if (
-        videoTela.style.display ===
-        "block"
-      ) {
+      else {
 
         if (
-          retomarMusicaAoVoltar
+          retomarMusica
           &&
           musicaDisponivel
         ) {
@@ -2444,28 +1918,21 @@
           musica
             .play()
             .catch(
-
               function() {
-
-                musicaDisponivel =
-                  false;
-
               }
-
             );
 
         }
 
 
         if (
-          retomarVideoAoVoltar
+          retomarVideo
         ) {
 
           video
             .play()
             .catch(
               function() {
-
               }
             );
 
@@ -2474,11 +1941,11 @@
       }
 
 
-      retomarMusicaAoVoltar =
+      retomarMusica =
         false;
 
 
-      retomarVideoAoVoltar =
+      retomarVideo =
         false;
 
     }
@@ -2510,38 +1977,11 @@
 
 
 
-    window.addEventListener(
-
-      "pageshow",
-
-      function() {
-
-        retomarMidiaAoVoltar();
-
-      }
-
-    );
-
-
-
-    /* ==================================================
-       LOOP DA MÚSICA
-       ================================================== */
-
     musica.addEventListener(
 
       "ended",
 
       function() {
-
-        if (
-          !musicaDisponivel
-        ) {
-
-          return;
-
-        }
-
 
         try {
 
@@ -2557,18 +1997,8 @@
         musica
           .play()
           .catch(
-
             function() {
-
-              musicaDisponivel =
-                false;
-
-
-              controleSom.style.display =
-                "none";
-
             }
-
           );
 
       }
@@ -2577,15 +2007,10 @@
 
 
 
-    /* ==================================================
-       PRESENTES
-       ================================================== */
-
     function abrirPresentes() {
 
       popupPresentes.style.display =
         "flex";
-
 
       controleSom.style.display =
         "none";
@@ -2637,34 +2062,29 @@
 
 
 
-    /* ==================================================
-       WHATSAPP
-       ================================================== */
-
     function abrirWhatsApp() {
 
-      const link =
+      window.location.href =
+
         "https://wa.me/"
+
         +
+
         CONFIG.numeroWhatsapp
+
         +
+
         "?text="
+
         +
+
         encodeURIComponent(
           CONFIG.mensagemWhatsapp
         );
 
-
-      window.location.href =
-        link;
-
     }
 
 
-
-    /* ==================================================
-       MAPA
-       ================================================== */
 
     function abrirLocalizacao() {
 
@@ -2675,26 +2095,28 @@
 
 
 
-    /* ==================================================
-       EVITAR MENU / DOWNLOAD CASUAL DE MÍDIA
-       ================================================== */
-
     document.addEventListener(
 
       "contextmenu",
 
       function(event) {
 
-        const alvo =
-          event.target;
-
-
         if (
-          alvo instanceof HTMLImageElement
+          event.target
+          instanceof
+          HTMLImageElement
+
           ||
-          alvo instanceof HTMLVideoElement
+
+          event.target
+          instanceof
+          HTMLVideoElement
+
           ||
-          alvo instanceof HTMLAudioElement
+
+          event.target
+          instanceof
+          HTMLAudioElement
         ) {
 
           event.preventDefault();

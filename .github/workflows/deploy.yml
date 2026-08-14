@@ -5,21 +5,548 @@ on:
     branches:
       - main
 
+
 jobs:
+
   publicar:
+
     runs-on: ubuntu-latest
+
 
     steps:
 
+
+      # ==================================================
+      # 1. BAIXAR O REPOSITÓRIO
+      # ==================================================
+
       - name: Baixar arquivos do GitHub
+
         uses: actions/checkout@v6
 
-      - name: Publicar no Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+
+      # ==================================================
+      # 2. PREPARAR PYTHON
+      # ==================================================
+
+      - name: Preparar Python
+
+        uses: actions/setup-python@v5
+
+        with:
+
+          python-version: "3.12"
+
+
+
+      # ==================================================
+      # 3. INSTALAR PILLOW
+      # ==================================================
+
+      - name: Instalar otimizador de imagens
 
         run: |
+
+          python -m pip install --upgrade pip
+
+          pip install pillow
+
+
+
+      # ==================================================
+      # 4. OTIMIZAR TODAS AS PREVIEWS
+      #
+      # ACEITA:
+      #
+      # preview.png
+      # preview.jpg
+      # preview.jpeg
+      #
+      # E SEMPRE GERA:
+      #
+      # preview-otimizada.jpg
+      #
+      # O arquivo original NÃO é alterado.
+      # ==================================================
+
+      - name: Criar previews otimizadas
+
+        run: |
+
+          python <<'PYTHON'
+
+          from pathlib import Path
+          from PIL import Image, ImageOps
+
+
+          # ==============================================
+          # CONFIGURAÇÃO DA OTIMIZAÇÃO
+          # ==============================================
+
+          TAMANHO_ALVO_KB = 550
+
+          LARGURA_MAXIMA = 1200
+
+          QUALIDADE_INICIAL = 92
+
+          QUALIDADE_MINIMA = 60
+
+          PASSO_QUALIDADE = 2
+
+          FATOR_REDUCAO_EXTRA = 0.90
+
+          LARGURA_MINIMA = 700
+
+
+
+          # ==============================================
+          # LOCALIZAR PREVIEWS
+          # ==============================================
+
+          formatos_aceitos = {
+              ".png",
+              ".jpg",
+              ".jpeg"
+          }
+
+
+          previews = []
+
+
+          for arquivo in Path(".").glob(
+              "*/imagens/preview.*"
+          ):
+
+              if (
+                  arquivo.suffix.lower()
+                  in formatos_aceitos
+              ):
+
+                  previews.append(
+                      arquivo
+                  )
+
+
+
+          if not previews:
+
+              print(
+                  "Nenhuma preview encontrada."
+              )
+
+              raise SystemExit(0)
+
+
+
+          print(
+              f"{len(previews)} preview(s) encontrada(s)."
+          )
+
+
+
+          # ==============================================
+          # FUNÇÃO PARA SALVAR JPG
+          # ==============================================
+
+          def salvar_jpg(
+              imagem,
+              destino,
+              qualidade
+          ):
+
+              imagem.save(
+
+                  destino,
+
+                  "JPEG",
+
+                  quality=qualidade,
+
+                  optimize=True,
+
+                  progressive=True,
+
+                  subsampling="4:2:0"
+
+              )
+
+
+
+          # ==============================================
+          # PROCESSAR CADA CLIENTE
+          # ==============================================
+
+          for origem in previews:
+
+
+              destino = (
+                  origem.parent
+                  /
+                  "preview-otimizada.jpg"
+              )
+
+
+              print()
+
+              print(
+                  "--------------------------------"
+              )
+
+              print(
+                  f"Original: {origem}"
+              )
+
+
+
+              with Image.open(origem) as original:
+
+
+                  # Corrige orientação de fotos/imagens
+                  # que carregam EXIF de rotação.
+
+                  original = (
+                      ImageOps.exif_transpose(
+                          original
+                      )
+                  )
+
+
+                  # Remove transparência e padroniza RGB.
+
+                  if original.mode in (
+                      "RGBA",
+                      "LA"
+                  ):
+
+
+                      fundo = Image.new(
+
+                          "RGB",
+
+                          original.size,
+
+                          "white"
+
+                      )
+
+
+                      if original.mode == "RGBA":
+
+                          fundo.paste(
+
+                              original,
+
+                              mask=original.getchannel(
+                                  "A"
+                              )
+
+                          )
+
+                      else:
+
+                          fundo.paste(
+                              original.convert("RGB")
+                          )
+
+
+                      imagem = fundo
+
+
+                  else:
+
+
+                      imagem = (
+                          original.convert(
+                              "RGB"
+                          )
+                      )
+
+
+
+                  # ======================================
+                  # REDIMENSIONAR SE FOR MUITO GRANDE
+                  # ======================================
+
+                  if (
+                      imagem.width
+                      >
+                      LARGURA_MAXIMA
+                  ):
+
+
+                      nova_altura = round(
+
+                          imagem.height
+
+                          *
+
+                          LARGURA_MAXIMA
+
+                          /
+
+                          imagem.width
+
+                      )
+
+
+                      imagem = imagem.resize(
+
+                          (
+                              LARGURA_MAXIMA,
+                              nova_altura
+                          ),
+
+                          Image.Resampling.LANCZOS
+
+                      )
+
+
+
+                  qualidade_usada = (
+                      QUALIDADE_INICIAL
+                  )
+
+
+
+                  # ======================================
+                  # PRIMEIRA TENTATIVA:
+                  # REDUZIR QUALIDADE
+                  # ======================================
+
+                  for qualidade in range(
+
+                      QUALIDADE_INICIAL,
+
+                      QUALIDADE_MINIMA - 1,
+
+                      -PASSO_QUALIDADE
+
+                  ):
+
+
+                      salvar_jpg(
+
+                          imagem,
+
+                          destino,
+
+                          qualidade
+
+                      )
+
+
+                      tamanho_kb = (
+
+                          destino.stat().st_size
+
+                          /
+
+                          1024
+
+                      )
+
+
+                      qualidade_usada = (
+                          qualidade
+                      )
+
+
+                      if (
+                          tamanho_kb
+                          <=
+                          TAMANHO_ALVO_KB
+                      ):
+
+                          break
+
+
+
+                  # ======================================
+                  # SE AINDA ESTIVER GRANDE:
+                  # REDUZ DIMENSÃO GRADUALMENTE
+                  # ======================================
+
+                  tamanho_kb = (
+
+                      destino.stat().st_size
+
+                      /
+
+                      1024
+
+                  )
+
+
+                  while (
+
+                      tamanho_kb
+                      >
+                      TAMANHO_ALVO_KB
+
+                      and
+
+                      imagem.width
+                      >
+                      LARGURA_MINIMA
+
+                  ):
+
+
+                      nova_largura = max(
+
+                          LARGURA_MINIMA,
+
+                          round(
+                              imagem.width
+                              *
+                              FATOR_REDUCAO_EXTRA
+                          )
+
+                      )
+
+
+                      nova_altura = round(
+
+                          imagem.height
+
+                          *
+
+                          nova_largura
+
+                          /
+
+                          imagem.width
+
+                      )
+
+
+                      imagem = imagem.resize(
+
+                          (
+                              nova_largura,
+                              nova_altura
+                          ),
+
+                          Image.Resampling.LANCZOS
+
+                      )
+
+
+                      salvar_jpg(
+
+                          imagem,
+
+                          destino,
+
+                          QUALIDADE_MINIMA
+
+                      )
+
+
+                      qualidade_usada = (
+                          QUALIDADE_MINIMA
+                      )
+
+
+                      tamanho_kb = (
+
+                          destino.stat().st_size
+
+                          /
+
+                          1024
+
+                      )
+
+
+
+                  # ======================================
+                  # RESULTADO
+                  # ======================================
+
+                  tamanho_final = (
+
+                      destino.stat().st_size
+
+                      /
+
+                      1024
+
+                  )
+
+
+                  print(
+                      f"Gerado: {destino}"
+                  )
+
+
+                  print(
+                      "Dimensão final: "
+                      f"{imagem.width}"
+                      "x"
+                      f"{imagem.height}"
+                  )
+
+
+                  print(
+                      "Qualidade JPEG: "
+                      f"{qualidade_usada}"
+                  )
+
+
+                  print(
+                      "Tamanho final: "
+                      f"{tamanho_final:.0f} KB"
+                  )
+
+
+                  if (
+                      tamanho_final
+                      <=
+                      TAMANHO_ALVO_KB
+                  ):
+
+                      print(
+                          "STATUS: OK"
+                      )
+
+                  else:
+
+                      print(
+                          "STATUS: arquivo ainda "
+                          "ficou acima do alvo."
+                      )
+
+
+
+          print()
+
+          print(
+              "Otimização concluída."
+          )
+
+          PYTHON
+
+
+
+      # ==================================================
+      # 5. PUBLICAR NO CLOUDFLARE PAGES
+      # ==================================================
+
+      - name: Publicar no Cloudflare Pages
+
+        env:
+
+          CLOUDFLARE_API_TOKEN:
+            ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+          CLOUDFLARE_ACCOUNT_ID:
+            ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+
+        run: |
+
           npx wrangler pages deploy . \
             --project-name=libri-convites \
             --branch=main

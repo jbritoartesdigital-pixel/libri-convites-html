@@ -39,7 +39,22 @@
 
   <meta
     property="og:image"
-    content="https://libriconvites.com.br/helena/imagens/preview.png?v=1"
+    content="https://libriconvites.com.br/helena/imagens/preview.jpg?v=2"
+  >
+
+  <meta
+    property="og:image:type"
+    content="image/jpeg"
+  >
+
+  <meta
+    property="og:image:width"
+    content="1200"
+  >
+
+  <meta
+    property="og:image:height"
+    content="675"
   >
 
   <meta
@@ -74,7 +89,7 @@
 
   <meta
     name="twitter:image"
-    content="https://libriconvites.com.br/helena/imagens/preview.png?v=1"
+    content="https://libriconvites.com.br/helena/imagens/preview.jpg?v=2"
   >
 
 
@@ -140,8 +155,8 @@
          Se trocar capa, final, presentes ou preview
          e algum celular continuar mostrando a versão antiga:
 
-         "1" → "2"
          "2" → "3"
+         "3" → "4"
 
          IMPORTANTE:
          também atualize manualmente o ?v=
@@ -149,7 +164,7 @@
          ================================================== */
 
       versaoArquivos:
-        "1",
+        "2",
 
 
 
@@ -180,8 +195,8 @@
 
 
       /*
-         Se a música do vídeo começa do início
-         do arquivo MP3:
+         Se a música usada no vídeo começa
+         do início do arquivo MP3:
       */
 
       inicioMusica:
@@ -189,7 +204,7 @@
 
 
       /*
-         Volume no card final:
+         Volume da música no card final:
 
          0.25 = 25%
          0.35 = 35%
@@ -400,7 +415,8 @@
 
 
     img,
-    video {
+    video,
+    audio {
 
       -webkit-user-drag:
         none;
@@ -888,9 +904,9 @@
 
 
     /* ==================================================
-       CONTROLE DE SOM PREMIUM
+       CONTROLE DE SOM
 
-       SÓ APARECE NO FINAL
+       APARECE SOMENTE NO CARD FINAL
        ================================================== */
 
     #controleSom {
@@ -2660,7 +2676,7 @@
 
 
     /* ==================================================
-       EVITAR MENU DE LONG PRESS
+       EVITAR MENU / DOWNLOAD CASUAL DE MÍDIA
        ================================================== */
 
     document.addEventListener(
@@ -2677,6 +2693,8 @@
           alvo instanceof HTMLImageElement
           ||
           alvo instanceof HTMLVideoElement
+          ||
+          alvo instanceof HTMLAudioElement
         ) {
 
           event.preventDefault();

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
@@ -10,31 +11,1574 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║                                                              ║
+  ║             🌸🌸🌸  ALTERE SOMENTE AQUI  🌸🌸🌸             ║
+  ║                                                              ║
+  ║        DADOS QUE MUDAM DE UM CLIENTE PARA OUTRO              ║
+  ║                                                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+  -->
+
+
+  <script>
+
+    const CONFIG = {
+
+
+      /* ==================================================
+         🌸 1. TÍTULO DA PÁGINA
+         ================================================== */
+
+      tituloPagina:
+        "Convite da Helena",
+
+
+
+      /* ==================================================
+         🌸 2. VÍDEO DO R2
+
+         Cole aqui a URL completa do vídeo
+         daquele cliente.
+         ================================================== */
+
+      videoUrl:
+        "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/abertura.mp4",
+
+
+
+      /* ==================================================
+         🌸 3. WHATSAPP
+
+         Formato:
+         55 + DDD + número
+
+         SEM +
+         SEM espaço
+         SEM traço
+         ================================================== */
+
+      numeroWhatsapp:
+        "5561995705621",
+
+
+
+      /* ==================================================
+         🌸 4. MENSAGEM DO WHATSAPP
+         ================================================== */
+
+      mensagemWhatsapp:
+        "Olá! Quero confirmar minha presença no aniversário da Helena.",
+
+
+
+      /* ==================================================
+         🌸 5. LOCALIZAÇÃO
+
+         Cole aqui o link do Google Maps.
+         ================================================== */
+
+      linkMapa:
+        "https://www.google.com/maps/search/?api=1&query=Parque+da+Cidade+Sarah+Kubitschek+Brasilia",
+
+
+
+      /* ==================================================
+         🌸 6. TEMPO DO BOTÃO "PULAR ABERTURA"
+
+         5000 = 5 segundos
+         8000 = 8 segundos
+         ================================================== */
+
+      tempoPular:
+        5000,
+
+
+
+      /* ==================================================
+         🌸 7. POSIÇÃO DOS BOTÕES INVISÍVEIS
+
+         NORMALMENTE NÃO PRECISA MEXER.
+
+         Só altere se os botões estiverem
+         em lugares diferentes na nova arte final.
+         ================================================== */
+
+      botoes: {
+
+        esquerda:
+          "44%",
+
+        largura:
+          "40%",
+
+        altura:
+          "8%",
+
+
+        presentesTopo:
+          "56%",
+
+        confirmarTopo:
+          "65.5%",
+
+        localizacaoTopo:
+          "75.5%"
+
+      }
+
+
+    };
+
+  </script>
+
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║                                                              ║
+  ║        ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔             ║
+  ║                                                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+  -->
+
+
   <title>Convite</title>
 
 
   <style>
 
+
+    /* ==================================================
+       CONFIGURAÇÃO GERAL
+    ================================================== */
+
     * {
-      box-sizing: border-box;
+
+      box-sizing:
+        border-box;
+
     }
+
 
     html,
     body {
-      margin: 0;
-      padding: 0;
 
-      width: 100%;
-      height: 100%;
+      margin:
+        0;
 
-      background: black;
+      padding:
+        0;
 
-      overflow: hidden;
+      width:
+        100%;
 
-      font-family: Arial, sans-serif;
+      height:
+        100%;
 
-      -webkit-tap-highlight-color: transparent;
+      background:
+        black;
+
+      overflow:
+        hidden;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      -webkit-tap-highlight-color:
+        transparent;
+
     }
+
+
+
+    /* ==================================================
+       CAPA
+    ================================================== */
+
+    #capa {
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      width:
+        100vw;
+
+      height:
+        100vh;
+
+      object-fit:
+        cover;
+
+      display:
+        block;
+
+      cursor:
+        pointer;
+
+      z-index:
+        10;
+
+    }
+
+
+
+    /* ==================================================
+       ÁREA DO VÍDEO
+    ================================================== */
+
+    #videoTela {
+
+      display:
+        none;
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      width:
+        100vw;
+
+      height:
+        100vh;
+
+      background:
+        black;
+
+      z-index:
+        20;
+
+    }
+
+
+    #video {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      display:
+        block;
+
+    }
+
+
+
+    /* ==================================================
+       CARREGAMENTO
+    ================================================== */
+
+    #carregando {
+
+      display:
+        none;
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.72
+        );
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      flex-direction:
+        column;
+
+      color:
+        white;
+
+      font-size:
+        14px;
+
+      z-index:
+        40;
+
+    }
+
+
+    #spinner {
+
+      width:
+        38px;
+
+      height:
+        38px;
+
+      margin-bottom:
+        15px;
+
+      border:
+        4px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.25
+        );
+
+      border-top-color:
+        white;
+
+      border-radius:
+        50%;
+
+      animation:
+        girar
+        0.9s
+        linear
+        infinite;
+
+    }
+
+
+    @keyframes girar {
+
+      to {
+
+        transform:
+          rotate(360deg);
+
+      }
+
+    }
+
+
+
+    /* ==================================================
+       PULAR ABERTURA
+    ================================================== */
+
+    #pular {
+
+      display:
+        none;
+
+      position:
+        absolute;
+
+      right:
+        max(
+          16px,
+          env(
+            safe-area-inset-right
+          )
+        );
+
+      bottom:
+        max(
+          90px,
+          calc(
+            env(
+              safe-area-inset-bottom
+            )
+            + 70px
+          )
+        );
+
+      padding:
+        10px
+        17px;
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.48
+        );
+
+      color:
+        white;
+
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.48
+        );
+
+      border-radius:
+        999px;
+
+      font-size:
+        13px;
+
+      backdrop-filter:
+        blur(5px);
+
+      -webkit-backdrop-filter:
+        blur(5px);
+
+      cursor:
+        pointer;
+
+      z-index:
+        60;
+
+      user-select:
+        none;
+
+    }
+
+
+
+    /* ==================================================
+       ERRO DE CARREGAMENTO
+    ================================================== */
+
+    #erroVideo {
+
+      display:
+        none;
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.88
+        );
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      flex-direction:
+        column;
+
+      text-align:
+        center;
+
+      color:
+        white;
+
+      padding:
+        30px;
+
+      z-index:
+        80;
+
+    }
+
+
+    #erroVideo p {
+
+      margin:
+        0
+        0
+        18px;
+
+      line-height:
+        1.5;
+
+      font-size:
+        14px;
+
+    }
+
+
+    #irParaConvite {
+
+      border:
+        0;
+
+      padding:
+        11px
+        20px;
+
+      border-radius:
+        999px;
+
+      background:
+        white;
+
+      color:
+        black;
+
+      font-size:
+        14px;
+
+      cursor:
+        pointer;
+
+    }
+
+
+
+    /* ==================================================
+       CARD FINAL
+    ================================================== */
+
+    #finalTela {
+
+      display:
+        none;
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      width:
+        100vw;
+
+      height:
+        100vh;
+
+      overflow:
+        hidden;
+
+      background:
+        black;
+
+      z-index:
+        70;
+
+    }
+
+
+
+    #arteFinal {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        50%;
+
+      width:
+        max(
+          100vw,
+          calc(
+            100vh
+            * 9
+            / 16
+          )
+        );
+
+      aspect-ratio:
+        9 / 16;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+    }
+
+
+
+    #final {
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      display:
+        block;
+
+      pointer-events:
+        none;
+
+    }
+
+
+
+    /* ==================================================
+       BOTÕES INVISÍVEIS
+    ================================================== */
+
+    .botaoInvisivel {
+
+      position:
+        absolute;
+
+      padding:
+        0;
+
+      margin:
+        0;
+
+      border:
+        0;
+
+      outline:
+        0;
+
+      background:
+        transparent;
+
+      cursor:
+        pointer;
+
+      z-index:
+        10;
+
+    }
+
+
+
+    /* ==================================================
+       POP-UP DE PRESENTES
+    ================================================== */
+
+    #popupPresentes {
+
+      display:
+        none;
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      width:
+        100vw;
+
+      height:
+        100vh;
+
+      padding:
+
+        max(
+          18px,
+          env(
+            safe-area-inset-top
+          )
+        )
+
+        18px
+
+        max(
+          18px,
+          env(
+            safe-area-inset-bottom
+          )
+        );
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.82
+        );
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      z-index:
+        200;
+
+    }
+
+
+
+    #conteudoPresentes {
+
+      position:
+        relative;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+    }
+
+
+
+    #imagemPresentes {
+
+      display:
+        block;
+
+      width:
+        auto;
+
+      height:
+        auto;
+
+      max-width:
+        94vw;
+
+      max-height:
+        92vh;
+
+      object-fit:
+        contain;
+
+      border-radius:
+        16px;
+
+      box-shadow:
+
+        0
+        12px
+        45px
+
+        rgba(
+          0,
+          0,
+          0,
+          0.35
+        );
+
+    }
+
+
+
+    /* ==================================================
+       FECHAR POP-UP
+    ================================================== */
+
+    #fecharPresentes {
+
+      position:
+        absolute;
+
+      top:
+        12px;
+
+      right:
+        12px;
+
+      width:
+        42px;
+
+      height:
+        42px;
+
+      padding:
+        0;
+
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.35
+        );
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.62
+        );
+
+      color:
+        white;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      font-size:
+        26px;
+
+      line-height:
+        1;
+
+      cursor:
+        pointer;
+
+      z-index:
+        210;
+
+    }
+
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+
+  <!-- ==================================================
+       CAPA
+  =================================================== -->
+
+  <img
+
+    id="capa"
+
+    src="imagens/capa.jpg"
+
+    alt="Abrir convite"
+
+    onclick="abrirConvite()"
+
+  >
+
+
+
+  <!-- ==================================================
+       VÍDEO
+  =================================================== -->
+
+  <div id="videoTela">
+
+
+    <video
+
+      id="video"
+
+      playsinline
+
+      webkit-playsinline
+
+      preload="auto"
+
+      onplaying="aoVideoTocar()"
+
+      oncanplay="esconderCarregando()"
+
+      onwaiting="mostrarCarregando()"
+
+      onstalled="mostrarCarregando()"
+
+      onended="mostrarFinal()"
+
+      onerror="erroAoCarregarVideo()"
+
+    ></video>
+
+
+
+    <!-- CARREGAMENTO -->
+
+    <div id="carregando">
+
+
+      <div id="spinner"></div>
+
+
+      <div>
+
+        Carregando convite...
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- PULAR ABERTURA -->
+
+    <div
+
+      id="pular"
+
+      onclick="pularAbertura()"
+
+    >
+
+      Pular abertura
+
+    </div>
+
+
+
+    <!-- ERRO -->
+
+    <div id="erroVideo">
+
+
+      <p>
+
+        Não foi possível carregar
+        a animação do convite.
+
+      </p>
+
+
+      <button
+
+        id="irParaConvite"
+
+        onclick="mostrarFinal()"
+
+      >
+
+        Abrir convite
+
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- ==================================================
+       CARD FINAL
+  =================================================== -->
+
+  <div id="finalTela">
+
+
+    <div id="arteFinal">
+
+
+      <img
+
+        id="final"
+
+        src="imagens/final.jpg"
+
+        alt="Convite"
+
+      >
+
+
+
+      <!-- SUGESTÕES DE PRESENTES -->
+
+      <button
+
+        id="botaoPresentes"
+
+        class="botaoInvisivel"
+
+        aria-label="Abrir sugestões de presentes"
+
+        onclick="abrirPresentes()"
+
+      ></button>
+
+
+
+      <!-- CONFIRMAÇÃO -->
+
+      <button
+
+        id="botaoConfirmar"
+
+        class="botaoInvisivel"
+
+        aria-label="Confirmar presença"
+
+        onclick="abrirWhatsApp()"
+
+      ></button>
+
+
+
+      <!-- LOCALIZAÇÃO -->
+
+      <button
+
+        id="botaoLocalizacao"
+
+        class="botaoInvisivel"
+
+        aria-label="Abrir localização"
+
+        onclick="abrirLocalizacao()"
+
+      ></button>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- ==================================================
+       POP-UP DE PRESENTES
+  =================================================== -->
+
+  <div
+
+    id="popupPresentes"
+
+    onclick="fecharAoClicarFora(event)"
+
+  >
+
+
+    <div id="conteudoPresentes">
+
+
+      <img
+
+        id="imagemPresentes"
+
+        src="imagens/presentes.jpg"
+
+        alt="Sugestões de presentes"
+
+      >
+
+
+
+      <button
+
+        id="fecharPresentes"
+
+        aria-label="Fechar sugestões de presentes"
+
+        onclick="fecharPresentes(event)"
+
+      >
+
+        ×
+
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <script>
+
+
+    /* ==================================================
+       ⛔ MOTOR DO CONVITE
+
+       NORMALMENTE NÃO PRECISA EDITAR
+       DAQUI PARA BAIXO.
+    ================================================== */
+
+
+    document.title =
+      CONFIG.tituloPagina;
+
+
+
+    const capa =
+      document.getElementById(
+        "capa"
+      );
+
+
+    const video =
+      document.getElementById(
+        "video"
+      );
+
+
+    const videoTela =
+      document.getElementById(
+        "videoTela"
+      );
+
+
+    const carregando =
+      document.getElementById(
+        "carregando"
+      );
+
+
+    const pular =
+      document.getElementById(
+        "pular"
+      );
+
+
+    const erroVideo =
+      document.getElementById(
+        "erroVideo"
+      );
+
+
+    const finalTela =
+      document.getElementById(
+        "finalTela"
+      );
+
+
+    const popupPresentes =
+      document.getElementById(
+        "popupPresentes"
+      );
+
+
+    const botaoPresentes =
+      document.getElementById(
+        "botaoPresentes"
+      );
+
+
+    const botaoConfirmar =
+      document.getElementById(
+        "botaoConfirmar"
+      );
+
+
+    const botaoLocalizacao =
+      document.getElementById(
+        "botaoLocalizacao"
+      );
+
+
+
+    let temporizadorPularIniciado =
+      false;
+
+
+
+    /* ==================================================
+       APLICAR CONFIGURAÇÕES
+    ================================================== */
+
+    function aplicarConfiguracoes() {
+
+
+      /*
+         VÍDEO DO R2
+      */
+
+      video.src =
+        CONFIG.videoUrl;
+
+
+
+      /*
+         POSIÇÃO DOS BOTÕES
+      */
+
+      const botoes =
+        CONFIG.botoes;
+
+
+      const todosBotoes = [
+
+        botaoPresentes,
+
+        botaoConfirmar,
+
+        botaoLocalizacao
+
+      ];
+
+
+      todosBotoes.forEach(
+        function(botao) {
+
+
+          botao.style.left =
+            botoes.esquerda;
+
+
+          botao.style.width =
+            botoes.largura;
+
+
+          botao.style.height =
+            botoes.altura;
+
+
+        }
+      );
+
+
+      botaoPresentes.style.top =
+        botoes.presentesTopo;
+
+
+      botaoConfirmar.style.top =
+        botoes.confirmarTopo;
+
+
+      botaoLocalizacao.style.top =
+        botoes.localizacaoTopo;
+
+
+    }
+
+
+
+    aplicarConfiguracoes();
+
+
+
+    /* ==================================================
+       ABRIR CONVITE
+    ================================================== */
+
+    function abrirConvite() {
+
+
+      capa.style.display =
+        "none";
+
+
+      videoTela.style.display =
+        "block";
+
+
+      pular.style.display =
+        "none";
+
+
+      mostrarCarregando();
+
+
+      const reproduzir =
+        video.play();
+
+
+
+      if (
+        reproduzir !==
+        undefined
+      ) {
+
+
+        reproduzir.catch(
+          function() {
+
+
+            esconderCarregando();
+
+
+            erroVideo.style.display =
+              "flex";
+
+
+          }
+        );
+
+
+      }
+
+
+    }
+
+
+
+    /* ==================================================
+       QUANDO O VÍDEO COMEÇA
+    ================================================== */
+
+    function aoVideoTocar() {
+
+
+      esconderCarregando();
+
+
+
+      if (
+        !temporizadorPularIniciado
+      ) {
+
+
+        temporizadorPularIniciado =
+          true;
+
+
+        pular.style.display =
+          "block";
+
+
+        setTimeout(
+          function() {
+
+
+            pular.style.display =
+              "none";
+
+
+          },
+
+          CONFIG.tempoPular
+
+        );
+
+
+      }
+
+
+    }
+
+
+
+    /* ==================================================
+       CARREGAMENTO
+    ================================================== */
+
+    function mostrarCarregando() {
+
+
+      carregando.style.display =
+        "flex";
+
+
+    }
+
+
+
+    function esconderCarregando() {
+
+
+      carregando.style.display =
+        "none";
+
+
+    }
+
+
+
+    /* ==================================================
+       ERRO DO VÍDEO
+    ================================================== */
+
+    function erroAoCarregarVideo() {
+
+
+      esconderCarregando();
+
+
+      pular.style.display =
+        "none";
+
+
+      erroVideo.style.display =
+        "flex";
+
+
+    }
+
+
+
+    /* ==================================================
+       CARD FINAL
+    ================================================== */
+
+    function mostrarFinal() {
+
+
+      video.pause();
+
+
+      esconderCarregando();
+
+
+      erroVideo.style.display =
+        "none";
+
+
+      pular.style.display =
+        "none";
+
+
+      videoTela.style.display =
+        "none";
+
+
+      finalTela.style.display =
+        "block";
+
+
+    }
+
+
+
+    /* ==================================================
+       PULAR ABERTURA
+    ================================================== */
+
+    function pularAbertura() {
+
+
+      mostrarFinal();
+
+
+    }
+
+
+
+    /* ==================================================
+       PRESENTES
+    ================================================== */
+
+    function abrirPresentes() {
+
+
+      popupPresentes.style.display =
+        "flex";
+
+
+    }
+
+
+
+    function fecharPresentes(
+      event
+    ) {
+
+
+      if (event) {
+
+
+        event.stopPropagation();
+
+
+      }
+
+
+      popupPresentes.style.display =
+        "none";
+
+
+    }
+
+
+
+    function fecharAoClicarFora(
+      event
+    ) {
+
+
+      if (
+        event.target ===
+        popupPresentes
+      ) {
+
+
+        fecharPresentes();
+
+
+      }
+
+
+    }
+
+
+
+    /* ==================================================
+       WHATSAPP
+    ================================================== */
+
+    function abrirWhatsApp() {
+
+
+      const link =
+        "https://wa.me/" +
+        CONFIG.numeroWhatsapp +
+        "?text=" +
+        encodeURIComponent(
+          CONFIG.mensagemWhatsapp
+        );
+
+
+      window.location.href =
+        link;
+
+
+    }
+
+
+
+    /* ==================================================
+       LOCALIZAÇÃO
+    ================================================== */
+
+    function abrirLocalizacao() {
+
+
+      window.location.href =
+        CONFIG.linkMapa;
+
+
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>    }
 
 
     /* ==================================================

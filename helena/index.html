@@ -49,28 +49,14 @@
 
 
 
-      /* 🌸 PONTO DA MÚSICA
-
-         0 = começa do início.
-
-         Se o vídeo começar usando,
-         por exemplo, o segundo 12
-         da música original:
-
-         inicioMusica: 12
-      */
+      /* 🌸 PONTO INICIAL DA MÚSICA */
 
       inicioMusica:
         0,
 
 
 
-      /* 🌸 VOLUME APÓS O VÍDEO
-
-         0.25 = 25%
-         0.35 = 35%
-         0.50 = 50%
-      */
+      /* 🌸 VOLUME NO CARD FINAL */
 
       volumeMusica:
         0.35,
@@ -98,21 +84,14 @@
 
 
 
-      /* 🌸 PULAR ABERTURA
-
-         5000 = aparece durante
-         5 segundos
-      */
+      /* 🌸 PULAR ABERTURA */
 
       tempoPular:
         5000,
 
 
 
-      /* 🌸 POSIÇÃO DOS BOTÕES
-
-         Normalmente não mexa.
-      */
+      /* 🌸 POSIÇÃO DOS BOTÕES */
 
       botoes: {
 
@@ -246,12 +225,10 @@
       position: absolute;
       inset: 0;
 
-      background:
-        rgba(0, 0, 0, 0.72);
+      background: rgba(0, 0, 0, 0.72);
 
       align-items: center;
       justify-content: center;
-
       flex-direction: column;
 
       color: white;
@@ -270,20 +247,13 @@
 
       margin-bottom: 15px;
 
-      border:
-        4px solid
-        rgba(255, 255, 255, 0.25);
+      border: 4px solid rgba(255, 255, 255, 0.25);
 
-      border-top-color:
-        white;
+      border-top-color: white;
 
       border-radius: 50%;
 
-      animation:
-        girar
-        0.9s
-        linear
-        infinite;
+      animation: girar 0.9s linear infinite;
 
     }
 
@@ -321,28 +291,21 @@
           )
         );
 
-      padding:
-        10px 17px;
+      padding: 10px 17px;
 
-      background:
-        rgba(0, 0, 0, 0.48);
+      background: rgba(0, 0, 0, 0.48);
 
       color: white;
 
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.48);
+      border: 1px solid rgba(255, 255, 255, 0.48);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       font-size: 13px;
 
-      backdrop-filter:
-        blur(5px);
+      backdrop-filter: blur(5px);
 
-      -webkit-backdrop-filter:
-        blur(5px);
+      -webkit-backdrop-filter: blur(5px);
 
       cursor: pointer;
 
@@ -363,12 +326,10 @@
       position: absolute;
       inset: 0;
 
-      background:
-        rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.88);
 
       align-items: center;
       justify-content: center;
-
       flex-direction: column;
 
       text-align: center;
@@ -384,8 +345,7 @@
 
     #erroVideo p {
 
-      margin:
-        0 0 18px;
+      margin: 0 0 18px;
 
       line-height: 1.5;
 
@@ -398,11 +358,9 @@
 
       border: 0;
 
-      padding:
-        11px 20px;
+      padding: 11px 20px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background: white;
 
@@ -447,15 +405,10 @@
       width:
         max(
           100vw,
-          calc(
-            100vh
-            * 9
-            / 16
-          )
+          calc(100vh * 9 / 16)
         );
 
-      aspect-ratio:
-        9 / 16;
+      aspect-ratio: 9 / 16;
 
       transform:
         translate(-50%, -50%);
@@ -529,8 +482,7 @@
           env(safe-area-inset-bottom)
         );
 
-      background:
-        rgba(0, 0, 0, 0.82);
+      background: rgba(0, 0, 0, 0.82);
 
       align-items: center;
       justify-content: center;
@@ -588,14 +540,11 @@
 
       padding: 0;
 
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.35);
 
       border-radius: 50%;
 
-      background:
-        rgba(0, 0, 0, 0.62);
+      background: rgba(0, 0, 0, 0.62);
 
       color: white;
 
@@ -605,8 +554,6 @@
       justify-content: center;
 
       font-size: 26px;
-
-      line-height: 1;
 
       cursor: pointer;
 
@@ -626,15 +573,10 @@
   <!-- CAPA -->
 
   <img
-
     id="capa"
-
     src="imagens/capa.jpg"
-
     alt="Abrir convite"
-
     onclick="abrirConvite()"
-
   >
 
 
@@ -683,15 +625,10 @@
 
 
     <div
-
       id="pular"
-
       onclick="pularAbertura()"
-
     >
-
       Pular abertura
-
     </div>
 
 
@@ -699,22 +636,15 @@
     <div id="erroVideo">
 
       <p>
-
         Não foi possível carregar
         a animação do convite.
-
       </p>
 
       <button
-
         id="irParaConvite"
-
         onclick="mostrarFinal()"
-
       >
-
         Abrir convite
-
       </button>
 
     </div>
@@ -724,14 +654,11 @@
 
 
 
-  <!-- ÁUDIO INVISÍVEL -->
+  <!-- MÚSICA -->
 
   <audio
-
     id="musica"
-
     preload="auto"
-
   ></audio>
 
 
@@ -745,52 +672,33 @@
 
 
       <img
-
         id="final"
-
         src="imagens/final.jpg"
-
         alt="Convite"
-
       >
 
 
       <button
-
         id="botaoPresentes"
-
         class="botaoInvisivel"
-
         aria-label="Abrir sugestões de presentes"
-
         onclick="abrirPresentes()"
-
       ></button>
 
 
       <button
-
         id="botaoConfirmar"
-
         class="botaoInvisivel"
-
         aria-label="Confirmar presença"
-
         onclick="abrirWhatsApp()"
-
       ></button>
 
 
       <button
-
         id="botaoLocalizacao"
-
         class="botaoInvisivel"
-
         aria-label="Abrir localização"
-
         onclick="abrirLocalizacao()"
-
       ></button>
 
 
@@ -804,11 +712,8 @@
   <!-- POP-UP PRESENTES -->
 
   <div
-
     id="popupPresentes"
-
     onclick="fecharAoClicarFora(event)"
-
   >
 
 
@@ -816,28 +721,18 @@
 
 
       <img
-
         id="imagemPresentes"
-
         src="imagens/presentes.jpg"
-
         alt="Sugestões de presentes"
-
       >
 
 
       <button
-
         id="fecharPresentes"
-
         aria-label="Fechar sugestões de presentes"
-
         onclick="fecharPresentes(event)"
-
       >
-
         ×
-
       </button>
 
 
@@ -919,8 +814,22 @@
 
 
 
+    /*
+       GUARDA O ESTADO DA MÍDIA
+       QUANDO A PESSOA SAI DO APP
+    */
+
+    let retomarMusicaAoVoltar =
+      false;
+
+
+    let retomarVideoAoVoltar =
+      false;
+
+
+
     /* ==================================================
-       APLICAR CONFIGURAÇÕES
+       CONFIGURAÇÕES
     ================================================== */
 
     function aplicarConfiguracoes() {
@@ -933,19 +842,6 @@
       musica.src =
         CONFIG.musicaUrl;
 
-
-
-      /*
-         IMPORTANTE:
-
-         NÃO usamos muted.
-
-         Ela começa audível tecnicamente,
-         mas num volume praticamente zero.
-
-         Assim o navegador autoriza
-         a reprodução no toque inicial.
-      */
 
       musica.volume =
         0.001;
@@ -1009,7 +905,7 @@
 
 
     /* ==================================================
-       TEMPO CORRESPONDENTE DA MÚSICA
+       TEMPO DA MÚSICA
     ================================================== */
 
     function tempoDaMusica() {
@@ -1076,7 +972,7 @@
 
 
     /* ==================================================
-       SINCRONIZAR
+       SINCRONIZAÇÃO
     ================================================== */
 
     function sincronizarMusica() {
@@ -1093,14 +989,6 @@
           tempo
         );
 
-
-      /*
-         Só corrige se realmente
-         estiver fora de sincronia.
-
-         Evita ficar "cutucando"
-         o MP3 o tempo inteiro.
-      */
 
       if (
         diferenca > 0.30
@@ -1154,11 +1042,6 @@
 
 
 
-      /*
-         PREPARAMOS OS DOIS
-         NO MESMO TOQUE.
-      */
-
       try {
 
 
@@ -1180,26 +1063,14 @@
       }
 
 
-
       musica.volume =
         0.001;
 
 
 
-      /*
-         PRIMEIRO iniciamos o MP3
-         no gesto do convidado.
-      */
-
       const tocarMusica =
         musica.play();
 
-
-
-      /*
-         Logo em seguida,
-         iniciamos o vídeo.
-      */
 
       const tocarVideo =
         video.play();
@@ -1212,18 +1083,9 @@
 
 
         tocarMusica.catch(
-
-          function(erro) {
-
-
-            console.log(
-              "Áudio não iniciou:",
-              erro
-            );
-
-
+          function() {
+            /* sem ação */
           }
-
         );
 
 
@@ -1270,22 +1132,37 @@
       esconderCarregando();
 
 
-
-      /*
-         Se o vídeo ficou carregando,
-         ajustamos novamente o MP3.
-      */
-
       sincronizarMusica();
 
 
 
       /*
-         Não pausamos o MP3.
-
-         Ele continua tocando
-         praticamente sem volume.
+         Enquanto o vídeo toca,
+         a música fica quase inaudível.
       */
+
+      musica.volume =
+        0.001;
+
+
+
+      if (
+        musica.paused
+      ) {
+
+
+        musica
+          .play()
+          .catch(
+            function() {
+              /* sem ação */
+            }
+          );
+
+
+      }
+
+
 
       if (
         !temporizadorPularIniciado
@@ -1331,16 +1208,6 @@
 
 
       mostrarCarregando();
-
-
-
-      /*
-         NÃO pausamos a música.
-
-         Quando o vídeo voltar,
-         sincronizarMusica()
-         reposiciona o MP3.
-      */
 
 
     }
@@ -1420,12 +1287,6 @@
 
 
 
-      /*
-         Antes de parar o vídeo,
-         descobrimos exatamente
-         onde a música deveria estar.
-      */
-
       const pontoExato =
         tempoDaMusica();
 
@@ -1453,16 +1314,18 @@
 
 
 
-      /*
-         A MÁGICA:
-
-         o MP3 JÁ ESTÁ TOCANDO.
-
-         Só aumentamos o volume.
-      */
-
       musica.volume =
         CONFIG.volumeMusica;
+
+
+
+      musica
+        .play()
+        .catch(
+          function() {
+            /* sem ação */
+          }
+        );
 
 
 
@@ -1486,6 +1349,269 @@
 
 
     }
+
+
+
+    /* ==================================================
+       PULAR
+    ================================================== */
+
+    function pularAbertura() {
+
+
+      mostrarFinal();
+
+
+    }
+
+
+
+    /* ==================================================
+       PAUSAR QUANDO SAI DO CONVITE
+    ================================================== */
+
+    function pausarMidiaAoSair() {
+
+
+      /*
+         GUARDA SE A MÚSICA
+         ESTAVA TOCANDO.
+      */
+
+      retomarMusicaAoVoltar =
+        !musica.paused;
+
+
+
+      /*
+         GUARDA SE O VÍDEO
+         ESTAVA TOCANDO.
+      */
+
+      retomarVideoAoVoltar =
+
+        !video.paused
+
+        &&
+
+        !video.ended;
+
+
+
+      if (
+        retomarMusicaAoVoltar
+      ) {
+
+
+        musica.pause();
+
+
+      }
+
+
+
+      if (
+        retomarVideoAoVoltar
+      ) {
+
+
+        video.pause();
+
+
+      }
+
+
+    }
+
+
+
+    /* ==================================================
+       RETOMAR QUANDO VOLTA
+    ================================================== */
+
+    function retomarMidiaAoVoltar() {
+
+
+      if (
+        document.hidden
+      ) {
+
+
+        return;
+
+
+      }
+
+
+
+      /*
+         SE JÁ ESTÁ NO CARD FINAL:
+         RETOMA SÓ A MÚSICA.
+      */
+
+      if (
+        conviteFinalAberto
+      ) {
+
+
+        if (
+          retomarMusicaAoVoltar
+        ) {
+
+
+          musica.volume =
+            CONFIG.volumeMusica;
+
+
+          musica
+            .play()
+            .catch(
+              function() {
+                /* sem ação */
+              }
+            );
+
+
+        }
+
+
+        retomarMusicaAoVoltar =
+          false;
+
+
+        retomarVideoAoVoltar =
+          false;
+
+
+        return;
+
+
+      }
+
+
+
+      /*
+         SE AINDA ESTAVA NO VÍDEO:
+         RETOMA OS DOIS.
+      */
+
+      if (
+        videoTela.style.display ===
+        "block"
+      ) {
+
+
+        if (
+          retomarMusicaAoVoltar
+        ) {
+
+
+          sincronizarMusica();
+
+
+          musica.volume =
+            0.001;
+
+
+          musica
+            .play()
+            .catch(
+              function() {
+                /* sem ação */
+              }
+            );
+
+
+        }
+
+
+
+        if (
+          retomarVideoAoVoltar
+        ) {
+
+
+          video
+            .play()
+            .catch(
+              function() {
+                /* sem ação */
+              }
+            );
+
+
+        }
+
+
+      }
+
+
+
+      retomarMusicaAoVoltar =
+        false;
+
+
+      retomarVideoAoVoltar =
+        false;
+
+
+    }
+
+
+
+    /* ==================================================
+       DETECTAR TROCA DE APP / ABA
+    ================================================== */
+
+    document.addEventListener(
+
+      "visibilitychange",
+
+      function() {
+
+
+        if (
+          document.hidden
+        ) {
+
+
+          pausarMidiaAoSair();
+
+
+        }
+        else {
+
+
+          retomarMidiaAoVoltar();
+
+
+        }
+
+
+      }
+
+    );
+
+
+
+    /*
+       AJUDA QUANDO O NAVEGADOR
+       RESTAURA A PÁGINA AO VOLTAR.
+    */
+
+    window.addEventListener(
+
+      "pageshow",
+
+      function() {
+
+
+        retomarMidiaAoVoltar();
+
+
+      }
+
+    );
 
 
 
@@ -1529,20 +1655,6 @@
       }
 
     );
-
-
-
-    /* ==================================================
-       PULAR ABERTURA
-    ================================================== */
-
-    function pularAbertura() {
-
-
-      mostrarFinal();
-
-
-    }
 
 
 

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
@@ -11,78 +10,234 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
+  <meta
+    name="theme-color"
+    content="#000000"
+  >
+
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║                                                              ║
+  ║             🌸 PRÉVIA DO WHATSAPP / REDES 🌸                ║
+  ║                                                              ║
+  ║  ESTES CAMPOS PRECISAM FICAR DIRETAMENTE NO HTML.            ║
+  ║  EDITE TAMBÉM O ?v= QUANDO TROCAR versaoArquivos.            ║
+  ║                                                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+  -->
+
+  <meta
+    property="og:title"
+    content="Helena | 1 aninho"
+  >
+
+  <meta
+    property="og:description"
+    content="Você recebeu um convite muito especial 💕"
+  >
+
+  <meta
+    property="og:image"
+    content="https://libriconvites.com.br/helena/imagens/preview.png?v=1"
+  >
+
+  <meta
+    property="og:url"
+    content="https://libriconvites.com.br/helena/"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:locale"
+    content="pt_BR"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Helena | 1 aninho"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Você recebeu um convite muito especial 💕"
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://libriconvites.com.br/helena/imagens/preview.png?v=1"
+  >
+
+
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║                                                              ║
+  ║            🔒 NÃO INDEXAR CONVITE NO GOOGLE                  ║
+  ║                                                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+  -->
+
+  <meta
+    name="robots"
+    content="noindex, nofollow, noarchive, noimageindex"
+  >
+
 
   <!--
   ╔══════════════════════════════════════════════════════════════╗
   ║                                                              ║
   ║            🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸                ║
   ║                                                              ║
-  ║        DADOS QUE MUDAM DE CLIENTE PARA CLIENTE               ║
+  ║           FICHA DO CONVITE / DADOS DO CLIENTE                ║
   ║                                                              ║
   ╚══════════════════════════════════════════════════════════════╝
   -->
-
 
   <script>
 
     const CONFIG = {
 
 
-      /* 🌸 NOME / TÍTULO */
+      /* ==================================================
+         🌸 IDENTIDADE
+         ================================================== */
 
       tituloPagina:
         "Convite da Helena",
 
-
-      /* 🌸 VÍDEO NO R2 */
-
-      videoUrl:
-        "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/abertura.mp4",
+      pastaCliente:
+        "helena",
 
 
-      /* 🌸 MÚSICA NO R2 */
 
-      musicaUrl:
-        "https://pub-d23162ae214a428aa4efb5751e675792.r2.dev/helena/musica-aquarela.mp3",
+      /* ==================================================
+         🌸 ARQUIVOS LOCAIS
+         ================================================== */
+
+      capaArquivo:
+        "imagens/capa.jpg",
+
+      finalArquivo:
+        "imagens/final.jpg",
+
+      presentesArquivo:
+        "imagens/presentes.jpg",
 
 
-      /* 🌸 PONTO INICIAL DA MÚSICA */
+
+      /* ==================================================
+         🌸 VERSÃO DOS ARQUIVOS
+
+         Se trocar capa, final, presentes ou preview
+         e algum celular continuar mostrando a versão antiga:
+
+         "1" → "2"
+         "2" → "3"
+
+         IMPORTANTE:
+         também atualize manualmente o ?v=
+         nos campos og:image e twitter:image acima.
+         ================================================== */
+
+      versaoArquivos:
+        "1",
+
+
+
+      /* ==================================================
+         🌸 SERVIDOR DE VÍDEOS E MÚSICAS
+         ================================================== */
+
+      hostMidia:
+        "https://midia.libriconvites.com.br",
+
+
+
+      /* ==================================================
+         🌸 VÍDEO
+         ================================================== */
+
+      videoArquivo:
+        "abertura.mp4",
+
+
+
+      /* ==================================================
+         🌸 MÚSICA
+         ================================================== */
+
+      musicaArquivo:
+        "musica-aquarela.mp3",
+
+
+      /*
+         Se a música do vídeo começa do início
+         do arquivo MP3:
+      */
 
       inicioMusica:
         0,
 
 
-      /* 🌸 VOLUME DA MÚSICA NO FINAL */
+      /*
+         Volume no card final:
+
+         0.25 = 25%
+         0.35 = 35%
+         0.50 = 50%
+      */
 
       volumeMusica:
         0.35,
 
 
-      /* 🌸 WHATSAPP */
+
+      /* ==================================================
+         🌸 WHATSAPP
+         ================================================== */
 
       numeroWhatsapp:
         "5561995705621",
-
-
-      /* 🌸 MENSAGEM */
 
       mensagemWhatsapp:
         "Olá! Quero confirmar minha presença no aniversário da Helena.",
 
 
-      /* 🌸 MAPA */
+
+      /* ==================================================
+         🌸 LOCALIZAÇÃO
+         ================================================== */
 
       linkMapa:
         "https://www.google.com/maps/search/?api=1&query=Parque+da+Cidade+Sarah+Kubitschek+Brasilia",
 
 
-      /* 🌸 PULAR ABERTURA */
+
+      /* ==================================================
+         🌸 PULAR ABERTURA
+
+         5000 = botão fica disponível por 5 segundos
+         ================================================== */
 
       tempoPular:
         5000,
 
 
-      /* 🌸 POSIÇÃO DOS BOTÕES */
+
+      /* ==================================================
+         🌸 POSIÇÃO DOS BOTÕES INVISÍVEIS
+
+         Só altere se a arte final mudar de layout.
+         ================================================== */
 
       botoes: {
 
@@ -115,7 +270,7 @@
   <!--
   ╔══════════════════════════════════════════════════════════════╗
   ║                                                              ║
-  ║          ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔           ║
+  ║            ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔         ║
   ║                                                              ║
   ╚══════════════════════════════════════════════════════════════╝
   -->
@@ -124,10 +279,83 @@
   <title>Convite</title>
 
 
+  <!-- CONEXÃO ANTECIPADA COM A MÍDIA -->
+
+  <link
+    rel="preconnect"
+    href="https://midia.libriconvites.com.br"
+    crossorigin
+  >
+
+  <link
+    rel="dns-prefetch"
+    href="//midia.libriconvites.com.br"
+  >
+
+
+  <!-- PRELOAD AUTOMÁTICO DAS IMAGENS -->
+
+  <script>
+
+    (function prepararImagens() {
+
+      const arquivos = [
+        CONFIG.capaArquivo,
+        CONFIG.finalArquivo,
+        CONFIG.presentesArquivo
+      ];
+
+
+      arquivos.forEach(function(arquivo) {
+
+        const link =
+          document.createElement("link");
+
+        link.rel =
+          "preload";
+
+        link.as =
+          "image";
+
+        link.href =
+          arquivo +
+          "?v=" +
+          encodeURIComponent(
+            CONFIG.versaoArquivos
+          );
+
+        document.head.appendChild(link);
+
+      });
+
+    })();
+
+  </script>
+
+
   <style>
+
+
+    /* ==================================================
+       BASE
+       ================================================== */
 
     * {
       box-sizing: border-box;
+    }
+
+
+    :root {
+      --altura-app: 100vh;
+    }
+
+
+    @supports (height: 100dvh) {
+
+      :root {
+        --altura-app: 100dvh;
+      }
+
     }
 
 
@@ -140,114 +368,207 @@
       width: 100%;
       height: 100%;
 
-      background: black;
+      min-height:
+        var(--altura-app);
 
-      overflow: hidden;
+      background:
+        black;
 
-      font-family: Arial, sans-serif;
+      overflow:
+        hidden;
 
-      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior:
+        none;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      -webkit-tap-highlight-color:
+        transparent;
+
+      -webkit-user-select:
+        none;
+
+      user-select:
+        none;
+
+      -webkit-touch-callout:
+        none;
 
     }
 
 
-    /* ===============================
+    img,
+    video {
+
+      -webkit-user-drag:
+        none;
+
+      user-drag:
+        none;
+
+      -webkit-touch-callout:
+        none;
+
+      user-select:
+        none;
+
+    }
+
+
+
+    /* ==================================================
        CAPA
-    =============================== */
+       ================================================== */
 
     #capa {
 
-      position: fixed;
-      inset: 0;
+      position:
+        fixed;
 
-      width: 100vw;
-      height: 100vh;
+      inset:
+        0;
 
-      object-fit: cover;
+      width:
+        100vw;
 
-      display: block;
+      height:
+        var(--altura-app);
 
-      cursor: pointer;
+      object-fit:
+        cover;
 
-      z-index: 10;
+      display:
+        block;
+
+      cursor:
+        pointer;
+
+      z-index:
+        10;
 
     }
 
 
-    /* ===============================
+
+    /* ==================================================
        VÍDEO
-    =============================== */
+       ================================================== */
 
     #videoTela {
 
-      display: none;
+      display:
+        none;
 
-      position: fixed;
-      inset: 0;
+      position:
+        fixed;
 
-      width: 100vw;
-      height: 100vh;
+      inset:
+        0;
 
-      background: black;
+      width:
+        100vw;
 
-      z-index: 20;
+      height:
+        var(--altura-app);
+
+      background:
+        black;
+
+      z-index:
+        20;
 
     }
 
 
     #video {
 
-      width: 100%;
-      height: 100%;
+      width:
+        100%;
 
-      object-fit: cover;
+      height:
+        100%;
 
-      display: block;
+      object-fit:
+        cover;
+
+      display:
+        block;
 
     }
 
 
-    /* ===============================
+
+    /* ==================================================
        CARREGAMENTO
-    =============================== */
+       ================================================== */
 
     #carregando {
 
-      display: none;
+      display:
+        none;
 
-      position: absolute;
-      inset: 0;
+      position:
+        absolute;
+
+      inset:
+        0;
 
       background:
-        rgba(0, 0, 0, 0.72);
+        rgba(
+          0,
+          0,
+          0,
+          0.72
+        );
 
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      align-items:
+        center;
 
-      color: white;
+      justify-content:
+        center;
 
-      font-size: 14px;
+      flex-direction:
+        column;
 
-      z-index: 40;
+      color:
+        white;
+
+      font-size:
+        14px;
+
+      z-index:
+        40;
 
     }
 
 
     #spinner {
 
-      width: 38px;
-      height: 38px;
+      width:
+        38px;
 
-      margin-bottom: 15px;
+      height:
+        38px;
+
+      margin-bottom:
+        15px;
 
       border:
         4px solid
-        rgba(255,255,255,0.25);
+        rgba(
+          255,
+          255,
+          255,
+          0.25
+        );
 
-      border-top-color: white;
+      border-top-color:
+        white;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
 
       animation:
         girar
@@ -261,21 +582,25 @@
     @keyframes girar {
 
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
 
     }
 
 
-    /* ===============================
+
+    /* ==================================================
        PULAR ABERTURA
-    =============================== */
+       ================================================== */
 
     #pular {
 
-      display: none;
+      display:
+        none;
 
-      position: absolute;
+      position:
+        absolute;
 
       right:
         max(
@@ -293,16 +618,28 @@
         );
 
       padding:
-        10px 17px;
+        10px
+        17px;
 
       background:
-        rgba(0, 0, 0, 0.48);
+        rgba(
+          0,
+          0,
+          0,
+          0.48
+        );
 
-      color: white;
+      color:
+        white;
 
       border:
         1px solid
-        rgba(255,255,255,0.48);
+        rgba(
+          255,
+          255,
+          255,
+          0.48
+        );
 
       border-radius:
         999px;
@@ -316,40 +653,62 @@
       -webkit-backdrop-filter:
         blur(5px);
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      z-index: 60;
+      z-index:
+        60;
 
-      user-select: none;
+      user-select:
+        none;
 
     }
 
 
-    /* ===============================
-       ERRO
-    =============================== */
+
+    /* ==================================================
+       ERRO DO VÍDEO
+       ================================================== */
 
     #erroVideo {
 
-      display: none;
+      display:
+        none;
 
-      position: absolute;
-      inset: 0;
+      position:
+        absolute;
+
+      inset:
+        0;
 
       background:
-        rgba(0,0,0,0.88);
+        rgba(
+          0,
+          0,
+          0,
+          0.88
+        );
 
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      align-items:
+        center;
 
-      text-align: center;
+      justify-content:
+        center;
 
-      color: white;
+      flex-direction:
+        column;
 
-      padding: 30px;
+      text-align:
+        center;
 
-      z-index: 80;
+      color:
+        white;
+
+      padding:
+        30px;
+
+      z-index:
+        80;
 
     }
 
@@ -357,7 +716,9 @@
     #erroVideo p {
 
       margin:
-        0 0 18px;
+        0
+        0
+        18px;
 
       line-height:
         1.5;
@@ -365,15 +726,20 @@
       font-size:
         14px;
 
+      max-width:
+        320px;
+
     }
 
 
     #irParaConvite {
 
-      border: 0;
+      border:
+        0;
 
       padding:
-        11px 20px;
+        11px
+        20px;
 
       border-radius:
         999px;
@@ -393,171 +759,304 @@
     }
 
 
-    /* ===============================
+
+    /* ==================================================
        CARD FINAL
-    =============================== */
+       ================================================== */
 
     #finalTela {
 
-      display: none;
+      display:
+        none;
 
-      position: fixed;
-      inset: 0;
+      position:
+        fixed;
 
-      width: 100vw;
-      height: 100vh;
+      inset:
+        0;
 
-      overflow: hidden;
+      width:
+        100vw;
 
-      background: black;
+      height:
+        var(--altura-app);
 
-      z-index: 70;
+      overflow:
+        hidden;
+
+      background:
+        black;
+
+      z-index:
+        70;
 
     }
 
 
     #arteFinal {
 
-      position: absolute;
+      position:
+        absolute;
 
-      top: 50%;
-      left: 50%;
+      top:
+        50%;
+
+      left:
+        50%;
 
       width:
         max(
           100vw,
-          calc(100vh * 9 / 16)
+          calc(
+            var(--altura-app)
+            * 9
+            / 16
+          )
         );
 
       aspect-ratio:
         9 / 16;
 
       transform:
-        translate(-50%, -50%);
+        translate(
+          -50%,
+          -50%
+        );
 
     }
 
 
     #final {
 
-      position: absolute;
-      inset: 0;
+      position:
+        absolute;
 
-      width: 100%;
-      height: 100%;
+      inset:
+        0;
 
-      object-fit: cover;
+      width:
+        100%;
 
-      display: block;
+      height:
+        100%;
 
-      pointer-events: none;
+      object-fit:
+        cover;
+
+      display:
+        block;
+
+      pointer-events:
+        none;
 
     }
 
 
-    /* ===============================
+
+    /* ==================================================
        BOTÕES INVISÍVEIS
-    =============================== */
+       ================================================== */
 
     .botaoInvisivel {
 
-      position: absolute;
+      position:
+        absolute;
 
-      padding: 0;
-      margin: 0;
+      padding:
+        0;
 
-      border: 0;
-      outline: 0;
+      margin:
+        0;
+
+      border:
+        0;
+
+      outline:
+        0;
 
       background:
         transparent;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      z-index: 10;
+      z-index:
+        10;
 
     }
 
 
-    /* ===============================
-       CONTROLE DE SOM
 
-       APARECE SOMENTE NO FINAL
-    =============================== */
+    /* ==================================================
+       CONTROLE DE SOM PREMIUM
+
+       SÓ APARECE NO FINAL
+       ================================================== */
 
     #controleSom {
 
-      display: none;
+      display:
+        none;
 
-      position: fixed;
+      position:
+        fixed;
 
-      left:
+      top:
         max(
-          16px,
-          env(safe-area-inset-left)
-        );
-
-      bottom:
-        max(
-          90px,
+          18px,
           calc(
-            env(safe-area-inset-bottom)
-            + 70px
+            env(safe-area-inset-top)
+            + 12px
           )
         );
 
-      width: 42px;
-      height: 42px;
+      right:
+        max(
+          18px,
+          env(safe-area-inset-right)
+        );
 
-      padding: 0;
+      width:
+        38px;
+
+      height:
+        38px;
+
+      padding:
+        0;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       border:
         1px solid
-        rgba(255,255,255,0.38);
+        rgba(
+          255,
+          255,
+          255,
+          0.26
+        );
 
       border-radius:
         50%;
 
       background:
-        rgba(0,0,0,0.50);
+        rgba(
+          0,
+          0,
+          0,
+          0.22
+        );
 
       color:
         white;
-
-      align-items: center;
-      justify-content: center;
-
-      font-size:
-        19px;
 
       cursor:
         pointer;
 
       backdrop-filter:
-        blur(5px);
+        blur(8px);
 
       -webkit-backdrop-filter:
-        blur(5px);
+        blur(8px);
+
+      box-shadow:
+        0 3px 14px
+        rgba(
+          0,
+          0,
+          0,
+          0.16
+        );
 
       z-index:
-        250;
+        260;
+
+      transition:
+        transform 0.15s ease,
+        background 0.2s ease,
+        opacity 0.2s ease;
 
     }
 
 
-    /* ===============================
+    #controleSom:active {
+
+      transform:
+        scale(0.91);
+
+      background:
+        rgba(
+          0,
+          0,
+          0,
+          0.38
+        );
+
+    }
+
+
+    #controleSom svg {
+
+      width:
+        18px;
+
+      height:
+        18px;
+
+      fill:
+        none;
+
+      stroke:
+        currentColor;
+
+      stroke-width:
+        1.8;
+
+      stroke-linecap:
+        round;
+
+      stroke-linejoin:
+        round;
+
+      pointer-events:
+        none;
+
+    }
+
+
+    #iconeSomDesligado {
+
+      display:
+        none;
+
+    }
+
+
+
+    /* ==================================================
        POP-UP PRESENTES
-    =============================== */
+       ================================================== */
 
     #popupPresentes {
 
-      display: none;
+      display:
+        none;
 
-      position: fixed;
-      inset: 0;
+      position:
+        fixed;
 
-      width: 100vw;
-      height: 100vh;
+      inset:
+        0;
+
+      width:
+        100vw;
+
+      height:
+        var(--altura-app);
 
       padding:
 
@@ -574,87 +1073,151 @@
         );
 
       background:
-        rgba(0,0,0,0.82);
+        rgba(
+          0,
+          0,
+          0,
+          0.84
+        );
 
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
 
-      z-index: 200;
+      justify-content:
+        center;
+
+      z-index:
+        200;
 
     }
 
 
     #conteudoPresentes {
 
-      position: relative;
+      position:
+        relative;
 
-      display: flex;
+      display:
+        flex;
 
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
 
-      width: 100%;
-      height: 100%;
+      justify-content:
+        center;
+
+      width:
+        100%;
+
+      height:
+        100%;
 
     }
 
 
     #imagemPresentes {
 
-      display: block;
+      display:
+        block;
 
-      width: auto;
-      height: auto;
+      width:
+        auto;
 
-      max-width: 94vw;
-      max-height: 92vh;
+      height:
+        auto;
 
-      object-fit: contain;
+      max-width:
+        94vw;
 
-      border-radius: 16px;
+      max-height:
+        calc(
+          var(--altura-app)
+          - 36px
+        );
+
+      object-fit:
+        contain;
+
+      border-radius:
+        16px;
 
       box-shadow:
-        0 12px 45px
-        rgba(0,0,0,0.35);
+        0
+        12px
+        45px
+        rgba(
+          0,
+          0,
+          0,
+          0.35
+        );
 
     }
 
 
     #fecharPresentes {
 
-      position: absolute;
+      position:
+        absolute;
 
-      top: 12px;
-      right: 12px;
+      top:
+        12px;
 
-      width: 42px;
-      height: 42px;
+      right:
+        12px;
 
-      padding: 0;
+      width:
+        42px;
+
+      height:
+        42px;
+
+      padding:
+        0;
 
       border:
         1px solid
-        rgba(255,255,255,0.35);
+        rgba(
+          255,
+          255,
+          255,
+          0.35
+        );
 
       border-radius:
         50%;
 
       background:
-        rgba(0,0,0,0.62);
+        rgba(
+          0,
+          0,
+          0,
+          0.62
+        );
 
       color:
         white;
 
-      display: flex;
+      display:
+        flex;
 
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
 
-      font-size: 26px;
+      justify-content:
+        center;
 
-      cursor: pointer;
+      font-size:
+        26px;
 
-      z-index: 210;
+      line-height:
+        1;
+
+      cursor:
+        pointer;
+
+      z-index:
+        210;
 
     }
 
@@ -670,10 +1233,11 @@
 
   <img
     id="capa"
-    src="imagens/capa.jpg"
     alt="Abrir convite"
+    draggable="false"
     onclick="abrirConvite()"
   >
+
 
 
   <!-- VÍDEO -->
@@ -682,27 +1246,18 @@
 
 
     <video
-
       id="video"
-
       playsinline
-
       webkit-playsinline
-
       preload="auto"
-
+      disablepictureinpicture
+      controlslist="nodownload noplaybackrate"
       onplaying="aoVideoTocar()"
-
       oncanplay="esconderCarregando()"
-
       onwaiting="aoVideoEsperar()"
-
       onstalled="aoVideoEsperar()"
-
       onended="mostrarFinal()"
-
       onerror="erroAoCarregarVideo()"
-
     ></video>
 
 
@@ -728,8 +1283,7 @@
     <div id="erroVideo">
 
       <p>
-        Não foi possível carregar
-        a animação do convite.
+        Não foi possível carregar a animação do convite.
       </p>
 
       <button
@@ -741,8 +1295,8 @@
 
     </div>
 
-
   </div>
+
 
 
   <!-- MÚSICA -->
@@ -753,18 +1307,17 @@
   ></audio>
 
 
+
   <!-- CARD FINAL -->
 
   <div id="finalTela">
 
-
     <div id="arteFinal">
-
 
       <img
         id="final"
-        src="imagens/final.jpg"
         alt="Convite"
+        draggable="false"
       >
 
 
@@ -791,11 +1344,10 @@
         onclick="abrirLocalizacao()"
       ></button>
 
-
     </div>
 
-
   </div>
+
 
 
   <!-- CONTROLE DE SOM -->
@@ -805,8 +1357,50 @@
     aria-label="Silenciar música"
     onclick="alternarSom()"
   >
-    🔊
+
+    <svg
+      id="iconeSomLigado"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+
+      <path
+        d="M11 5 6.5 9H3v6h3.5L11 19V5Z"
+      ></path>
+
+      <path
+        d="M15 9.2c1.1 1.5 1.1 4.1 0 5.6"
+      ></path>
+
+      <path
+        d="M18 6.5c2.7 3 2.7 8 0 11"
+      ></path>
+
+    </svg>
+
+
+    <svg
+      id="iconeSomDesligado"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+
+      <path
+        d="M11 5 6.5 9H3v6h3.5L11 19V5Z"
+      ></path>
+
+      <path
+        d="m15.5 9.5 5 5"
+      ></path>
+
+      <path
+        d="m20.5 9.5-5 5"
+      ></path>
+
+    </svg>
+
   </button>
+
 
 
   <!-- POP-UP PRESENTES -->
@@ -816,14 +1410,12 @@
     onclick="fecharAoClicarFora(event)"
   >
 
-
     <div id="conteudoPresentes">
-
 
       <img
         id="imagemPresentes"
-        src="imagens/presentes.jpg"
         alt="Sugestões de presentes"
+        draggable="false"
       >
 
 
@@ -835,117 +1427,221 @@
         ×
       </button>
 
-
     </div>
 
-
   </div>
+
 
 
   <script>
 
 
-    /* ===============================
+    /* ==================================================
        MOTOR DO CONVITE
-    =============================== */
+       ================================================== */
 
 
     document.title =
       CONFIG.tituloPagina;
 
 
+
+    /* ELEMENTOS */
+
     const capa =
       document.getElementById("capa");
-
 
     const video =
       document.getElementById("video");
 
-
     const musica =
       document.getElementById("musica");
-
 
     const videoTela =
       document.getElementById("videoTela");
 
-
     const carregando =
       document.getElementById("carregando");
-
 
     const pular =
       document.getElementById("pular");
 
-
     const erroVideo =
       document.getElementById("erroVideo");
-
 
     const finalTela =
       document.getElementById("finalTela");
 
+    const final =
+      document.getElementById("final");
 
     const popupPresentes =
       document.getElementById("popupPresentes");
 
+    const imagemPresentes =
+      document.getElementById("imagemPresentes");
 
     const botaoPresentes =
       document.getElementById("botaoPresentes");
 
-
     const botaoConfirmar =
       document.getElementById("botaoConfirmar");
-
 
     const botaoLocalizacao =
       document.getElementById("botaoLocalizacao");
 
-
     const controleSom =
       document.getElementById("controleSom");
 
+    const iconeSomLigado =
+      document.getElementById("iconeSomLigado");
 
+    const iconeSomDesligado =
+      document.getElementById("iconeSomDesligado");
+
+
+
+    /* ESTADO */
 
     let temporizadorPularIniciado =
       false;
 
-
     let conviteFinalAberto =
       false;
 
+    let musicaSilenciadaPeloUsuario =
+      false;
+
+    let musicaDisponivel =
+      true;
 
     let retomarMusicaAoVoltar =
       false;
-
 
     let retomarVideoAoVoltar =
       false;
 
 
-    let musicaSilenciadaPeloUsuario =
-      false;
+
+    /* ==================================================
+       URLS
+       ================================================== */
+
+    function arquivoLocal(arquivo) {
+
+      const separador =
+        arquivo.includes("?")
+          ? "&"
+          : "?";
+
+
+      return (
+        arquivo
+        +
+        separador
+        +
+        "v="
+        +
+        encodeURIComponent(
+          CONFIG.versaoArquivos
+        )
+      );
+
+    }
 
 
 
-    /* ===============================
+    function caminhoSeguro(valor) {
+
+      return String(valor)
+        .split("/")
+        .filter(Boolean)
+        .map(
+          function(parte) {
+
+            return encodeURIComponent(parte);
+
+          }
+        )
+        .join("/");
+
+    }
+
+
+
+    function urlMidia(arquivo) {
+
+      const host =
+        CONFIG.hostMidia
+          .replace(/\/+$/, "");
+
+
+      const pasta =
+        caminhoSeguro(
+          CONFIG.pastaCliente
+        );
+
+
+      const nome =
+        caminhoSeguro(
+          arquivo
+        );
+
+
+      return (
+        host
+        +
+        "/"
+        +
+        pasta
+        +
+        "/"
+        +
+        nome
+      );
+
+    }
+
+
+
+    /* ==================================================
        CONFIGURAÇÕES
-    =============================== */
+       ================================================== */
 
     function aplicarConfiguracoes() {
 
+      capa.src =
+        arquivoLocal(
+          CONFIG.capaArquivo
+        );
+
+
+      final.src =
+        arquivoLocal(
+          CONFIG.finalArquivo
+        );
+
+
+      imagemPresentes.src =
+        arquivoLocal(
+          CONFIG.presentesArquivo
+        );
+
 
       video.src =
-        CONFIG.videoUrl;
+        urlMidia(
+          CONFIG.videoArquivo
+        );
 
 
       musica.src =
-        CONFIG.musicaUrl;
+        urlMidia(
+          CONFIG.musicaArquivo
+        );
 
 
       musica.volume =
         0.001;
-
 
 
       const botoes =
@@ -967,18 +1663,14 @@
 
         function(botao) {
 
-
           botao.style.left =
             botoes.esquerda;
-
 
           botao.style.width =
             botoes.largura;
 
-
           botao.style.height =
             botoes.altura;
-
 
         }
 
@@ -996,7 +1688,6 @@
       botaoLocalizacao.style.top =
         botoes.localizacaoTopo;
 
-
     }
 
 
@@ -1004,12 +1695,87 @@
 
 
 
-    /* ===============================
+    /* ==================================================
+       PRELOAD EXTRA
+       ================================================== */
+
+    function prepararImagensFinais() {
+
+      const imagens = [
+
+        arquivoLocal(
+          CONFIG.finalArquivo
+        ),
+
+        arquivoLocal(
+          CONFIG.presentesArquivo
+        )
+
+      ];
+
+
+      imagens.forEach(
+
+        function(src) {
+
+          const imagem =
+            new Image();
+
+          imagem.src =
+            src;
+
+        }
+
+      );
+
+    }
+
+
+    prepararImagensFinais();
+
+
+
+    /* ==================================================
+       DISPONIBILIDADE DO ÁUDIO
+       ================================================== */
+
+    musica.addEventListener(
+
+      "error",
+
+      function() {
+
+        musicaDisponivel =
+          false;
+
+        controleSom.style.display =
+          "none";
+
+      }
+
+    );
+
+
+    musica.addEventListener(
+
+      "canplay",
+
+      function() {
+
+        musicaDisponivel =
+          true;
+
+      }
+
+    );
+
+
+
+    /* ==================================================
        TEMPO DA MÚSICA
-    =============================== */
+       ================================================== */
 
     function tempoDaMusica() {
-
 
       let tempo =
         CONFIG.inicioMusica
@@ -1018,17 +1784,12 @@
 
 
       if (
-
         Number.isFinite(
           musica.duration
         )
-
         &&
-
         musica.duration > 0
-
       ) {
-
 
         const trechoDisponivel =
           musica.duration
@@ -1041,7 +1802,6 @@
           &&
           tempo >= musica.duration
         ) {
-
 
           tempo =
             CONFIG.inicioMusica
@@ -1056,25 +1816,30 @@
               trechoDisponivel
             );
 
-
         }
-
 
       }
 
 
       return tempo;
 
-
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        SINCRONIZAÇÃO
-    =============================== */
+       ================================================== */
 
     function sincronizarMusica() {
+
+      if (
+        !musicaDisponivel
+      ) {
+
+        return;
+
+      }
 
 
       const tempo =
@@ -1093,33 +1858,27 @@
         diferenca > 0.30
       ) {
 
-
         try {
-
 
           musica.currentTime =
             tempo;
-
 
         }
         catch (erro) {
 
         }
 
-
       }
-
 
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        ABRIR CONVITE
-    =============================== */
+       ================================================== */
 
     function abrirConvite() {
-
 
       capa.style.display =
         "none";
@@ -1138,7 +1897,6 @@
 
       try {
 
-
         video.currentTime =
           0;
 
@@ -1146,23 +1904,29 @@
         musica.currentTime =
           CONFIG.inicioMusica;
 
-
       }
       catch (erro) {
 
       }
 
 
-      musica.volume =
-        0.001;
+      if (
+        musicaDisponivel
+      ) {
+
+        musica.volume =
+          0.001;
 
 
-      musica
-        .play()
-        .catch(
-          function() {
-          }
-        );
+        musica
+          .play()
+          .catch(
+            function() {
+
+            }
+          );
+
+      }
 
 
       video
@@ -1171,52 +1935,53 @@
 
           function() {
 
-
             esconderCarregando();
 
 
             erroVideo.style.display =
               "flex";
 
-
           }
 
         );
-
 
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        VÍDEO TOCANDO
-    =============================== */
+       ================================================== */
 
     function aoVideoTocar() {
-
 
       esconderCarregando();
 
 
-      sincronizarMusica();
-
-
-      musica.volume =
-        0.001;
-
-
       if (
-        musica.paused
+        musicaDisponivel
       ) {
 
+        sincronizarMusica();
 
-        musica
-          .play()
-          .catch(
-            function() {
-            }
-          );
 
+        musica.volume =
+          0.001;
+
+
+        if (
+          musica.paused
+        ) {
+
+          musica
+            .play()
+            .catch(
+              function() {
+
+              }
+            );
+
+        }
 
       }
 
@@ -1224,7 +1989,6 @@
       if (
         !temporizadorPularIniciado
       ) {
-
 
         temporizadorPularIniciado =
           true;
@@ -1238,10 +2002,8 @@
 
           function() {
 
-
             pular.style.display =
               "none";
-
 
           },
 
@@ -1249,55 +2011,47 @@
 
         );
 
-
       }
-
 
     }
 
 
+
+    /* ==================================================
+       VÍDEO CARREGANDO
+       ================================================== */
 
     function aoVideoEsperar() {
 
-
       mostrarCarregando();
-
 
     }
 
 
 
-    /* ===============================
-       CARREGAMENTO
-    =============================== */
-
     function mostrarCarregando() {
-
 
       carregando.style.display =
         "flex";
 
-
     }
+
 
 
     function esconderCarregando() {
 
-
       carregando.style.display =
         "none";
-
 
     }
 
 
 
-    /* ===============================
-       ERRO
-    =============================== */
+    /* ==================================================
+       ERRO DO VÍDEO
+       ================================================== */
 
     function erroAoCarregarVideo() {
-
 
       esconderCarregando();
 
@@ -1306,23 +2060,27 @@
         "none";
 
 
-      musica.pause();
+      if (
+        musicaDisponivel
+      ) {
+
+        musica.pause();
+
+      }
 
 
       erroVideo.style.display =
         "flex";
 
-
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        CARD FINAL
-    =============================== */
+       ================================================== */
 
     function mostrarFinal() {
-
 
       if (
         conviteFinalAberto
@@ -1344,46 +2102,67 @@
       video.pause();
 
 
-      try {
-
-
-        musica.currentTime =
-          pontoExato;
-
-
-      }
-      catch (erro) {
-
-      }
-
-
-
       if (
-        musicaSilenciadaPeloUsuario
+        musicaDisponivel
       ) {
+
+        try {
+
+          musica.currentTime =
+            pontoExato;
+
+        }
+        catch (erro) {
+
+        }
 
 
         musica.volume =
-          0;
+          musicaSilenciadaPeloUsuario
+            ? 0
+            : CONFIG.volumeMusica;
 
+
+        musica
+          .play()
+          .then(
+
+            function() {
+
+              if (
+                musicaDisponivel
+              ) {
+
+                controleSom.style.display =
+                  "flex";
+
+              }
+
+            }
+
+          )
+          .catch(
+
+            function() {
+
+              musicaDisponivel =
+                false;
+
+
+              controleSom.style.display =
+                "none";
+
+            }
+
+          );
 
       }
       else {
 
-
-        musica.volume =
-          CONFIG.volumeMusica;
-
+        controleSom.style.display =
+          "none";
 
       }
-
-
-      musica
-        .play()
-        .catch(
-          function() {
-          }
-        );
 
 
       esconderCarregando();
@@ -1404,24 +2183,79 @@
       finalTela.style.display =
         "block";
 
+    }
 
-      /*
-         CONTROLE DE SOM SÓ NASCE AQUI.
-      */
 
-      controleSom.style.display =
-        "flex";
 
+    /* ==================================================
+       PULAR ABERTURA
+       ================================================== */
+
+    function pularAbertura() {
+
+      mostrarFinal();
 
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        CONTROLE DE SOM
-    =============================== */
+       ================================================== */
+
+    function atualizarIconeSom() {
+
+      if (
+        musicaSilenciadaPeloUsuario
+      ) {
+
+        iconeSomLigado.style.display =
+          "none";
+
+
+        iconeSomDesligado.style.display =
+          "block";
+
+
+        controleSom.setAttribute(
+          "aria-label",
+          "Ativar música"
+        );
+
+      }
+      else {
+
+        iconeSomLigado.style.display =
+          "block";
+
+
+        iconeSomDesligado.style.display =
+          "none";
+
+
+        controleSom.setAttribute(
+          "aria-label",
+          "Silenciar música"
+        );
+
+      }
+
+    }
+
+
 
     function alternarSom() {
+
+      if (
+        !musicaDisponivel
+      ) {
+
+        controleSom.style.display =
+          "none";
+
+        return;
+
+      }
 
 
       musicaSilenciadaPeloUsuario =
@@ -1432,100 +2266,63 @@
         musicaSilenciadaPeloUsuario
       ) {
 
-
-        /*
-           A música NÃO pausa.
-
-           Continua avançando
-           silenciosamente.
-        */
-
         musica.volume =
           0;
-
-
-        controleSom.textContent =
-          "🔇";
-
-
-        controleSom.setAttribute(
-          "aria-label",
-          "Ativar música"
-        );
-
 
       }
       else {
 
-
         musica.volume =
           CONFIG.volumeMusica;
-
-
-        controleSom.textContent =
-          "🔊";
-
-
-        controleSom.setAttribute(
-          "aria-label",
-          "Silenciar música"
-        );
 
 
         if (
           musica.paused
         ) {
 
-
           musica
             .play()
             .catch(
+
               function() {
+
+                musicaDisponivel =
+                  false;
+
+
+                controleSom.style.display =
+                  "none";
+
               }
+
             );
 
-
         }
-
 
       }
 
 
-    }
-
-
-
-    /* ===============================
-       PULAR
-    =============================== */
-
-    function pularAbertura() {
-
-
-      mostrarFinal();
-
+      atualizarIconeSom();
 
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        SEGUNDO PLANO
-    =============================== */
+       ================================================== */
 
     function pausarMidiaAoSair() {
 
-
       retomarMusicaAoVoltar =
+        musicaDisponivel
+        &&
         !musica.paused;
 
 
       retomarVideoAoVoltar =
-
         !video.paused
-
         &&
-
         !video.ended;
 
 
@@ -1533,9 +2330,7 @@
         retomarMusicaAoVoltar
       ) {
 
-
         musica.pause();
-
 
       }
 
@@ -1544,19 +2339,15 @@
         retomarVideoAoVoltar
       ) {
 
-
         video.pause();
 
-
       }
-
 
     }
 
 
 
     function retomarMidiaAoVoltar() {
-
 
       if (
         document.hidden
@@ -1571,39 +2362,34 @@
         conviteFinalAberto
       ) {
 
-
         if (
           retomarMusicaAoVoltar
+          &&
+          musicaDisponivel
         ) {
 
-
-          if (
+          musica.volume =
             musicaSilenciadaPeloUsuario
-          ) {
-
-
-            musica.volume =
-              0;
-
-
-          }
-          else {
-
-
-            musica.volume =
-              CONFIG.volumeMusica;
-
-
-          }
+              ? 0
+              : CONFIG.volumeMusica;
 
 
           musica
             .play()
             .catch(
-              function() {
-              }
-            );
 
+              function() {
+
+                musicaDisponivel =
+                  false;
+
+
+                controleSom.style.display =
+                  "none";
+
+              }
+
+            );
 
         }
 
@@ -1618,7 +2404,6 @@
 
         return;
 
-
       }
 
 
@@ -1627,11 +2412,11 @@
         "block"
       ) {
 
-
         if (
           retomarMusicaAoVoltar
+          &&
+          musicaDisponivel
         ) {
-
 
           sincronizarMusica();
 
@@ -1643,10 +2428,15 @@
           musica
             .play()
             .catch(
-              function() {
-              }
-            );
 
+              function() {
+
+                musicaDisponivel =
+                  false;
+
+              }
+
+            );
 
         }
 
@@ -1655,17 +2445,15 @@
           retomarVideoAoVoltar
         ) {
 
-
           video
             .play()
             .catch(
               function() {
+
               }
             );
 
-
         }
-
 
       }
 
@@ -1677,7 +2465,6 @@
       retomarVideoAoVoltar =
         false;
 
-
     }
 
 
@@ -1688,24 +2475,18 @@
 
       function() {
 
-
         if (
           document.hidden
         ) {
 
-
           pausarMidiaAoSair();
-
 
         }
         else {
 
-
           retomarMidiaAoVoltar();
 
-
         }
-
 
       }
 
@@ -1719,9 +2500,7 @@
 
       function() {
 
-
         retomarMidiaAoVoltar();
-
 
       }
 
@@ -1729,9 +2508,9 @@
 
 
 
-    /* ===============================
+    /* ==================================================
        LOOP DA MÚSICA
-    =============================== */
+       ================================================== */
 
     musica.addEventListener(
 
@@ -1739,13 +2518,19 @@
 
       function() {
 
+        if (
+          !musicaDisponivel
+        ) {
+
+          return;
+
+        }
+
 
         try {
 
-
           musica.currentTime =
             CONFIG.inicioMusica;
-
 
         }
         catch (erro) {
@@ -1756,10 +2541,19 @@
         musica
           .play()
           .catch(
-            function() {
-            }
-          );
 
+            function() {
+
+              musicaDisponivel =
+                false;
+
+
+              controleSom.style.display =
+                "none";
+
+            }
+
+          );
 
       }
 
@@ -1767,28 +2561,28 @@
 
 
 
-    /* ===============================
+    /* ==================================================
        PRESENTES
-    =============================== */
+       ================================================== */
 
     function abrirPresentes() {
-
 
       popupPresentes.style.display =
         "flex";
 
 
+      controleSom.style.display =
+        "none";
+
     }
+
 
 
     function fecharPresentes(event) {
 
-
       if (event) {
 
-
         event.stopPropagation();
-
 
       }
 
@@ -1797,39 +2591,49 @@
         "none";
 
 
+      if (
+        conviteFinalAberto
+        &&
+        musicaDisponivel
+      ) {
+
+        controleSom.style.display =
+          "flex";
+
+      }
+
     }
 
 
-    function fecharAoClicarFora(event) {
 
+    function fecharAoClicarFora(event) {
 
       if (
         event.target ===
         popupPresentes
       ) {
 
-
         fecharPresentes();
 
-
       }
-
 
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        WHATSAPP
-    =============================== */
+       ================================================== */
 
     function abrirWhatsApp() {
 
-
       const link =
-        "https://wa.me/" +
-        CONFIG.numeroWhatsapp +
-        "?text=" +
+        "https://wa.me/"
+        +
+        CONFIG.numeroWhatsapp
+        +
+        "?text="
+        +
         encodeURIComponent(
           CONFIG.mensagemWhatsapp
         );
@@ -1838,27 +2642,52 @@
       window.location.href =
         link;
 
-
     }
 
 
 
-    /* ===============================
+    /* ==================================================
        MAPA
-    =============================== */
+       ================================================== */
 
     function abrirLocalizacao() {
-
 
       window.location.href =
         CONFIG.linkMapa;
 
-
     }
 
 
-  </script>
 
+    /* ==================================================
+       EVITAR MENU DE LONG PRESS
+       ================================================== */
+
+    document.addEventListener(
+
+      "contextmenu",
+
+      function(event) {
+
+        const alvo =
+          event.target;
+
+
+        if (
+          alvo instanceof HTMLImageElement
+          ||
+          alvo instanceof HTMLVideoElement
+        ) {
+
+          event.preventDefault();
+
+        }
+
+      }
+
+    );
+
+  </script>
 
 </body>
 

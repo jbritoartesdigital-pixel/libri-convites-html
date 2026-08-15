@@ -57,12 +57,12 @@
 
   <meta
     property="og:image"
-    content="https://libriconvites.com.br/mayara-15-anos/imagens/preview-otimizada.jpg?v=1"
+    content="https://libriconvites.com.br/mayara-15-anos/imagens/preview-otimizada.jpg?v=2"
   >
 
   <meta
     property="og:image:secure_url"
-    content="https://libriconvites.com.br/mayara-15-anos/imagens/preview-otimizada.jpg?v=1"
+    content="https://libriconvites.com.br/mayara-15-anos/imagens/preview-otimizada.jpg?v=2"
   >
 
   <meta
@@ -87,7 +87,7 @@
 
   <meta
     name="twitter:image"
-    content="https://libriconvites.com.br/mayara-15-anos/imagens/preview-otimizada.jpg?v=1"
+    content="https://libriconvites.com.br/mayara-15-anos/imagens/preview-otimizada.jpg?v=2"
   >
 
 
@@ -108,7 +108,7 @@
       ========================= */
 
       versao:
-        "1",
+        "2",
 
 
       /* =========================
@@ -116,10 +116,10 @@
       ========================= */
 
       video:
-        "https://midia.libriconvites.com.br/mayara-15-anos/abertura.mp4?v=1",
+        "https://midia.libriconvites.com.br/mayara-15-anos/abertura.mp4?v=2",
 
       musica:
-        "https://midia.libriconvites.com.br/mayara-15-anos/valsacinderela.mp3?v=1",
+        "https://midia.libriconvites.com.br/mayara-15-anos/valsacinderela.mp3?v=2",
 
 
       /* =========================
@@ -131,6 +131,15 @@
 
       volumeMusica:
         0.35,
+
+
+      /*
+         Duração da troca suave entre
+         o áudio do vídeo e o MP3.
+      */
+
+      transicaoAudio:
+        260,
 
 
       /* =========================
@@ -540,8 +549,6 @@
 
     /* ==================================================
        FINAL
-
-       Fica atrás do vídeo desde o início.
     ================================================== */
 
     #finalTela {
@@ -828,7 +835,7 @@
 
 
     /* ==================================================
-       POPUPS INTERNOS
+       POPUPS
     ================================================== */
 
     .popup {
@@ -1131,7 +1138,7 @@
 
       <video
         id="video"
-        src="https://midia.libriconvites.com.br/mayara-15-anos/abertura.mp4?v=1"
+        src="https://midia.libriconvites.com.br/mayara-15-anos/abertura.mp4?v=2"
         playsinline
         webkit-playsinline
         preload="auto"
@@ -1215,7 +1222,7 @@
 
 
   <!-- ==================================================
-       POPUP PEDIDO ESPECIAL
+       POPUP PEDIDO
   ================================================== -->
 
   <section
@@ -1251,7 +1258,7 @@
 
   <audio
     id="musica"
-    src="https://midia.libriconvites.com.br/mayara-15-anos/valsacinderela.mp3?v=1"
+    src="https://midia.libriconvites.com.br/mayara-15-anos/valsacinderela.mp3?v=2"
     preload="auto"
     loop
   ></audio>
@@ -1420,6 +1427,14 @@
         null;
 
 
+      let rafAudio =
+        null;
+
+
+      let ultimoAjusteSincronia =
+        0;
+
+
       let videoEstavaTocando =
         false;
 
@@ -1429,8 +1444,7 @@
 
 
       /* ==================================================
-         IMAGENS FLEXÍVEIS
-         PNG / JPG / JPEG
+         IMAGENS PNG / JPG / JPEG
       ================================================== */
 
       const EXTENSOES =
@@ -1495,8 +1509,7 @@
 
 
                     if (
-                      typeof elemento.decode
-                      ===
+                      typeof elemento.decode ===
                       "function"
                     ) {
 
@@ -1673,13 +1686,34 @@
 
 
       /* ==================================================
-         ÁUDIO
+         MÚSICA CONTÍNUA
+
+         O MP3 começa junto com o vídeo e NÃO PARA.
+         Enquanto o vídeo toca, fica em 0.001.
       ================================================== */
 
       function iniciarMusicaSilenciosa() {
 
         musica.volume =
           0.001;
+
+
+        /*
+           Sincronizamos uma única vez
+           ANTES de começar.
+        */
+
+        try {
+
+          musica.currentTime =
+            Math.max(
+              0,
+              CONFIG.inicioMusica
+            );
+
+        }
+
+        catch (_) {}
 
 
         const tentativa =
@@ -1707,12 +1741,27 @@
       }
 
 
-      function continuarMusica(
-        tempoVideo
-      ) {
+      /* ==================================================
+         SINCRONIA DURANTE O VÍDEO
+
+         Se houver alguma diferença grande,
+         corrigimos enquanto o MP3 está inaudível.
+
+         NÃO fazemos seek na entrada do card.
+      ================================================== */
+
+      function manterSincronia() {
 
         if (
           !audioDisponivel
+          ||
+          finalAtivo
+          ||
+          finalizando
+          ||
+          video.paused
+          ||
+          musica.paused
         ) {
 
           return;
@@ -1720,40 +1769,134 @@
         }
 
 
-        let tempo =
-          Math.max(
-            0,
-            tempoVideo
-            +
-            CONFIG.inicioMusica
+        const agora =
+          performance.now();
+
+
+        /*
+           Checamos no máximo uma vez por segundo.
+        */
+
+        if (
+          agora
+          -
+          ultimoAjusteSincronia
+          <
+          1000
+        ) {
+
+          return;
+
+        }
+
+
+        ultimoAjusteSincronia =
+          agora;
+
+
+        const tempoEsperado =
+          video.currentTime
+          +
+          CONFIG.inicioMusica;
+
+
+        const diferenca =
+          Math.abs(
+            musica.currentTime
+            -
+            tempoEsperado
           );
 
 
+        /*
+           Só corrige se realmente saiu
+           perceptivelmente de sincronia.
+        */
+
         if (
-          Number.isFinite(
-            musica.duration
-          )
-          &&
-          musica.duration > 0
+          diferenca > 0.35
         ) {
 
-          tempo %=
-            musica.duration;
+          try {
+
+            musica.currentTime =
+              tempoEsperado;
+
+          }
+
+          catch (_) {}
+
+        }
+
+      }
+
+
+      /* ==================================================
+         CROSSFADE DE ÁUDIO
+
+         AQUI ESTÁ A CORREÇÃO PRINCIPAL.
+
+         Antes:
+         vídeo acaba
+         -> seek no MP3
+         -> play()
+         -> pequena cortada
+
+         Agora:
+         vídeo continua
+         MP3 continua
+         ↓
+         abaixa áudio do vídeo
+         enquanto aumenta o MP3
+         ↓
+         pausa vídeo só no final
+      ================================================== */
+
+      function transicaoSuaveAudio(
+        aoFinalizar
+      ) {
+
+        cancelAnimationFrame(
+          rafAudio
+        );
+
+
+        if (
+          !audioDisponivel
+        ) {
+
+          video.volume =
+            0;
+
+
+          aoFinalizar();
+
+
+          return;
 
         }
 
 
-        try {
-
-          musica.currentTime =
-            tempo;
-
-        }
-
-        catch (_) {}
+        const duracao =
+          Math.max(
+            120,
+            CONFIG.transicaoAudio
+          );
 
 
-        musica.volume =
+        const inicio =
+          performance.now();
+
+
+        const volumeVideoInicial =
+          video.volume;
+
+
+        const volumeMusicaInicial =
+          musica.volume;
+
+
+        const volumeMusicaFinal =
           somLigado
             ?
             CONFIG.volumeMusica
@@ -1761,22 +1904,96 @@
             0;
 
 
-        musica
-          .play()
-          .catch(
-            () => {
+        const animar =
+          agora => {
 
-              audioDisponivel =
-                false;
+            const progresso =
+              Math.min(
+                1,
+                (
+                  agora
+                  -
+                  inicio
+                )
+                /
+                duracao
+              );
 
 
-              controleSom
-                .classList
-                .remove(
-                  "visivel"
+            /*
+               Curva suave.
+            */
+
+            const suave =
+              progresso
+              *
+              progresso
+              *
+              (
+                3
+                -
+                2
+                *
+                progresso
+              );
+
+
+            video.volume =
+              Math.max(
+                0,
+                volumeVideoInicial
+                *
+                (
+                  1
+                  -
+                  suave
+                )
+              );
+
+
+            musica.volume =
+              volumeMusicaInicial
+              +
+              (
+                volumeMusicaFinal
+                -
+                volumeMusicaInicial
+              )
+              *
+              suave;
+
+
+            if (
+              progresso < 1
+            ) {
+
+              rafAudio =
+                requestAnimationFrame(
+                  animar
                 );
 
+
+              return;
+
             }
+
+
+            video.volume =
+              0;
+
+
+            musica.volume =
+              volumeMusicaFinal;
+
+
+            aoFinalizar();
+
+          };
+
+
+        rafAudio =
+          requestAnimationFrame(
+            animar
           );
 
       }
@@ -1813,12 +2030,33 @@
 
         videoTela
           .classList
+          .remove(
+            "saindo"
+          );
+
+
+        videoTela
+          .classList
           .add(
             "ativo"
           );
 
 
+        /*
+           Começa o MP3 no mesmo gesto
+           que inicia o vídeo.
+        */
+
         iniciarMusicaSilenciosa();
+
+
+        /*
+           Garante volume normal
+           do áudio embutido no vídeo.
+        */
+
+        video.volume =
+          1;
 
 
         try {
@@ -1874,7 +2112,7 @@
 
 
       /* ==================================================
-         VÍDEO → FINAL SEM QUEBRA PRETA
+         VÍDEO → FINAL
       ================================================== */
 
       function acompanharFinal() {
@@ -1898,6 +2136,14 @@
             }
 
 
+            /*
+               Mantém o MP3 alinhado enquanto
+               ele ainda está praticamente inaudível.
+            */
+
+            manterSincronia();
+
+
             if (
               Number.isFinite(
                 video.duration
@@ -1915,7 +2161,7 @@
               if (
                 restante > 0
                 &&
-                restante <= 0.40
+                restante <= 0.45
               ) {
 
                 finalizarVideo();
@@ -1942,6 +2188,10 @@
 
       }
 
+
+      /* ==================================================
+         FINAL SEM CORTE DE MÚSICA
+      ================================================== */
 
       async function finalizarVideo() {
 
@@ -1983,6 +2233,10 @@
           );
 
 
+        /*
+           Card já está atrás do vídeo.
+        */
+
         finalTela
           .classList
           .add(
@@ -1990,15 +2244,9 @@
           );
 
 
-        const tempoVideo =
-          Number.isFinite(
-            video.currentTime
-          )
-            ?
-            video.currentTime
-            :
-            0;
-
+        /*
+           Fade visual do vídeo.
+        */
 
         videoTela
           .classList
@@ -2007,7 +2255,19 @@
           );
 
 
-        setTimeout(
+        /*
+           MUITO IMPORTANTE:
+
+           Aqui NÃO:
+           - mudamos musica.currentTime
+           - chamamos musica.play()
+
+           O MP3 já está tocando.
+
+           Apenas cruzamos os volumes.
+        */
+
+        transicaoSuaveAudio(
           () => {
 
             video.pause();
@@ -2031,17 +2291,22 @@
               "hidden";
 
 
+            /*
+               Restauramos o volume do vídeo
+               apenas internamente.
+               Ele já está pausado.
+            */
+
+            video.volume =
+              1;
+
+
             finalAtivo =
               true;
 
 
             finalizando =
               false;
-
-
-            continuarMusica(
-              tempoVideo
-            );
 
 
             if (
@@ -2056,8 +2321,7 @@
 
             }
 
-          },
-          250
+          }
         );
 
       }
@@ -2241,6 +2505,11 @@
           !finalAtivo
         ) {
 
+          /*
+             Ao voltar durante o vídeo,
+             retomamos ambos.
+          */
+
           video
             .play()
             .then(
@@ -2319,6 +2588,9 @@
             }
 
 
+            manterSincronia();
+
+
             if (
               Number.isFinite(
                 video.duration
@@ -2332,7 +2604,7 @@
                 video.currentTime
               )
               <=
-              0.40
+              0.45
             ) {
 
               finalizarVideo();
@@ -2350,7 +2622,9 @@
         );
 
 
-      /* CONFIRMAR */
+      /* ==================================================
+         CARD FINAL
+      ================================================== */
 
       hotspotConfirmar
         .addEventListener(
@@ -2370,8 +2644,6 @@
         );
 
 
-      /* LOCALIZAÇÃO */
-
       hotspotLocalizacao
         .addEventListener(
           "click",
@@ -2389,8 +2661,6 @@
           }
         );
 
-
-      /* PRESENTES */
 
       hotspotPresentes
         .addEventListener(
@@ -2411,8 +2681,6 @@
         );
 
 
-      /* PEDIDO */
-
       hotspotPedido
         .addEventListener(
           "click",
@@ -2432,7 +2700,9 @@
         );
 
 
-      /* VOLTAR */
+      /* ==================================================
+         VOLTAR
+      ================================================== */
 
       voltarPresentes
         .addEventListener(
@@ -2448,7 +2718,9 @@
         );
 
 
-      /* SOM */
+      /* ==================================================
+         SOM
+      ================================================== */
 
       controleSom
         .addEventListener(
@@ -2457,7 +2729,9 @@
         );
 
 
-      /* APP */
+      /* ==================================================
+         APP
+      ================================================== */
 
       document
         .addEventListener(
@@ -2466,7 +2740,9 @@
         );
 
 
-      /* BLOQUEIOS CASUAIS */
+      /* ==================================================
+         BLOQUEIOS CASUAIS
+      ================================================== */
 
       document
         .addEventListener(

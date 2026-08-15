@@ -1,2134 +1,974 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
+  <!-- ==================================================
+       🌸 ALTERE SOMENTE AQUI | METADADOS ESTÁTICOS 🌸
+  ================================================== -->
+  <title>Helena | 1 aninho</title>
+  <meta name="description" content="Você recebeu um convite muito especial para celebrar o primeiro aninho da Helena. 🌸">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#eed5cc">
 
-  <meta
-    name="theme-color"
-    content="#000000"
-  >
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Helena | 1 aninho">
+  <meta property="og:description" content="Você recebeu um convite muito especial 🌸">
+  <meta property="og:url" content="https://libriconvites.com.br/helena/">
+  <meta property="og:image" content="https://libriconvites.com.br/helena/imagens/preview-otimizada.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/helena/imagens/preview-otimizada.jpg?v=2">
+  <meta property="og:image:type" content="image/jpeg">
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Helena | 1 aninho">
+  <meta name="twitter:description" content="Você recebeu um convite muito especial 🌸">
+  <meta name="twitter:image" content="https://libriconvites.com.br/helena/imagens/preview-otimizada.jpg?v=2">
 
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║                                                              ║
-  ║             🌸 PRÉVIA DO WHATSAPP / REDES 🌸                ║
-  ║                                                              ║
-  ║  A IMAGEM É OTIMIZADA AUTOMATICAMENTE PELO GITHUB.           ║
-  ║                                                              ║
-  ║  VOCÊ PODE SUBIR:                                            ║
-  ║  preview.png                                                  ║
-  ║  preview.jpg                                                  ║
-  ║  preview.jpeg                                                 ║
-  ║                                                              ║
-  ║  O SISTEMA PUBLICA:                                          ║
-  ║  preview-otimizada.jpg                                       ║
-  ║                                                              ║
-  ╚══════════════════════════════════════════════════════════════╝
-  -->
-
-  <meta
-    property="og:title"
-    content="Helena | 1 aninho"
-  >
-
-  <meta
-    property="og:description"
-    content="Você recebeu um convite muito especial 💕"
-  >
-
-  <meta
-    property="og:image"
-    content="https://libriconvites.com.br/helena/imagens/preview-otimizada.jpg?v=2"
-  >
-
-  <meta
-    property="og:image:type"
-    content="image/jpeg"
-  >
-
-  <meta
-    property="og:url"
-    content="https://libriconvites.com.br/helena/"
-  >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:locale"
-    content="pt_BR"
-  >
-
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <meta
-    name="twitter:title"
-    content="Helena | 1 aninho"
-  >
-
-  <meta
-    name="twitter:description"
-    content="Você recebeu um convite muito especial 💕"
-  >
-
-  <meta
-    name="twitter:image"
-    content="https://libriconvites.com.br/helena/imagens/preview-otimizada.jpg?v=2"
-  >
-
-
-
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║                                                              ║
-  ║            🔒 NÃO INDEXAR CONVITE NO GOOGLE                  ║
-  ║                                                              ║
-  ╚══════════════════════════════════════════════════════════════╝
-  -->
-
-  <meta
-    name="robots"
-    content="noindex, nofollow, noarchive, noimageindex"
-  >
-
-
-
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║                                                              ║
-  ║            🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸                ║
-  ║                                                              ║
-  ║           FICHA DO CONVITE / DADOS DO CLIENTE                ║
-  ║                                                              ║
-  ╚══════════════════════════════════════════════════════════════╝
-  -->
+  <link rel="preload" as="image" href="imagens/capa.jpg?v=2">
+  <link rel="preload" as="image" href="imagens/final.jpg?v=2">
+  <link rel="preload" as="image" href="imagens/presentes.jpg?v=2">
 
   <script>
+    /* ==================================================
+       🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸
+    ================================================== */
 
     const CONFIG = {
+      titulo: "Convite da Helena",
 
+      pastaCliente: "helena",
+      hostMidia: "https://midia.libriconvites.com.br",
 
-      /* ==================================================
-         🌸 IDENTIDADE
-         ================================================== */
+      videoArquivo: "abertura.mp4",
+      musicaArquivo: "musica-aquarela.mp3",
 
-      tituloPagina:
-        "Convite da Helena",
+      inicioMusica: 0,
+      volumeMusica: 0.35,
+      transicaoAudio: 260,
+      tempoPular: 5000,
 
-      pastaCliente:
-        "helena",
+      versaoArquivos: "2",
+      versaoMidia: "2",
 
+      /* CONFIRMAÇÃO | NÚMERO CORRETO */
+      numeroWhatsapp: "5511979887589",
+      mensagemWhatsapp: "Olá! Quero confirmar minha presença no aniversário da Helena.",
 
+      /* LOCALIZAÇÃO | LINK CORRETO */
+      linkLocalizacao: "https://maps.app.goo.gl/iiWcKNXRWAT28CEz5",
 
-      /* ==================================================
-         🌸 ARQUIVOS LOCAIS
-         ================================================== */
+      /*
+         Imagens web-safe atuais da Helena.
+         O motor também aceita PNG/JPG/JPEG caso a extensão mude.
+      */
+      imagens: {
+        capa: "imagens/capa",
+        final: "imagens/final",
+        presentes: "imagens/presentes"
+      },
 
-      capaArquivo:
-        "imagens/capa.jpg",
+      hotspotsFinal: {
+        presentes: {
+          left: "44%",
+          top: "56%",
+          width: "40%",
+          height: "8%"
+        },
 
-      finalArquivo:
-        "imagens/final.jpg",
+        confirmar: {
+          left: "44%",
+          top: "65.5%",
+          width: "40%",
+          height: "8%"
+        },
 
-      presentesArquivo:
-        "imagens/presentes.jpg",
-
-
-
-      /* ==================================================
-         🌸 VERSÃO DOS ARQUIVOS
-         ================================================== */
-
-      versaoArquivos:
-        "2",
-
-
-
-      /* ==================================================
-         🌸 SERVIDOR DE MÍDIA
-         ================================================== */
-
-      hostMidia:
-        "https://midia.libriconvites.com.br",
-
-
-
-      /* ==================================================
-         🌸 VÍDEO
-         ================================================== */
-
-      videoArquivo:
-        "abertura.mp4",
-
-
-
-      /* ==================================================
-         🌸 MÚSICA
-         ================================================== */
-
-      musicaArquivo:
-        "musica-aquarela.mp3",
-
-      inicioMusica:
-        0,
-
-      volumeMusica:
-        0.35,
-
-
-
-      /* ==================================================
-         🌸 WHATSAPP
-         ================================================== */
-
-      numeroWhatsapp:
-        "5511979887589",
-
-      mensagemWhatsapp:
-        "Olá! Quero confirmar minha presença no aniversário da Helena.",
-
-
-
-      /* ==================================================
-         🌸 LOCALIZAÇÃO
-         ================================================== */
-
-      linkMapa:
-        "https://maps.app.goo.gl/iiWcKNXRWAT28CEz5",
-
-
-
-      /* ==================================================
-         🌸 PULAR ABERTURA
-         ================================================== */
-
-      tempoPular:
-        6000,
-
-
-
-      /* ==================================================
-         🌸 POSIÇÃO DOS BOTÕES
-         ================================================== */
-
-      botoes: {
-
-        esquerda:
-          "44%",
-
-        largura:
-          "40%",
-
-        altura:
-          "8%",
-
-        presentesTopo:
-          "56%",
-
-        confirmarTopo:
-          "65.5%",
-
-        localizacaoTopo:
-          "75.5%"
-
+        localizacao: {
+          left: "44%",
+          top: "75.5%",
+          width: "40%",
+          height: "8%"
+        }
       }
-
-
     };
 
+    /* ==================================================
+       ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔
+    ================================================== */
   </script>
 
-
-
-  <!--
-  ╔══════════════════════════════════════════════════════════════╗
-  ║                                                              ║
-  ║            ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔         ║
-  ║                                                              ║
-  ╚══════════════════════════════════════════════════════════════╝
-  -->
-
-
-  <title>Convite</title>
-
-
-  <link
-    rel="preconnect"
-    href="https://midia.libriconvites.com.br"
-    crossorigin
-  >
-
-  <link
-    rel="dns-prefetch"
-    href="//midia.libriconvites.com.br"
-  >
-
-
-
   <style>
+    :root {
+      --fundo: #000;
+      --transicao-video: 240ms;
+    }
 
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
-
-
-    :root {
-      --altura-app: 100vh;
-    }
-
-
-    @supports (height: 100dvh) {
-
-      :root {
-        --altura-app: 100dvh;
-      }
-
-    }
-
 
     html,
     body {
-
       margin: 0;
       padding: 0;
-
       width: 100%;
       height: 100%;
-
-      min-height:
-        var(--altura-app);
-
-      background:
-        black;
-
-      overflow:
-        hidden;
-
-      overscroll-behavior:
-        none;
-
-      font-family:
-        Arial,
-        sans-serif;
-
-      -webkit-tap-highlight-color:
-        transparent;
-
-      -webkit-user-select:
-        none;
-
-      user-select:
-        none;
-
-      -webkit-touch-callout:
-        none;
-
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
     }
 
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
 
     img,
-    video,
-    audio {
-
-      -webkit-user-drag:
-        none;
-
-      -webkit-touch-callout:
-        none;
-
-      user-select:
-        none;
-
+    video {
+      display: block;
+      -webkit-user-drag: none;
+      user-drag: none;
     }
 
-
-
-    /* ==================================================
-       CAPA
-       ================================================== */
-
-    #capa {
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        var(--altura-app);
-
-      object-fit:
-        cover;
-
-      display:
-        block;
-
-      cursor:
-        pointer;
-
-      z-index:
-        10;
-
+    button {
+      font: inherit;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--fundo);
+    }
 
+    @supports (height: 100dvh) {
+      .tela {
+        height: 100dvh;
+      }
+    }
 
-    /* ==================================================
-       VÍDEO
-       ================================================== */
+    /* 9:16 em COVER para preencher a tela inteira */
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Card final fica pronto atrás do vídeo desde o início */
+    #finalTela {
+      z-index: 20;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    #finalTela.ativo {
+      pointer-events: auto;
+    }
 
     #videoTela {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        var(--altura-app);
-
-      background:
-        black;
-
-      z-index:
-        20;
-
+      z-index: 30;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: transparent;
+      transition: opacity var(--transicao-video) ease;
     }
 
+    #videoTela.ativo {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #videoTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
 
     #video {
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-      object-fit:
-        cover;
-
-      display:
-        block;
-
+      background: transparent;
     }
 
-
-
-    /* ==================================================
-       CARREGAMENTO
-       ================================================== */
-
-    #carregando {
-
-      display:
-        none;
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.72
-        );
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      flex-direction:
-        column;
-
-      color:
-        white;
-
-      font-size:
-        14px;
-
-      z-index:
-        40;
-
+    #capaTela {
+      z-index: 50;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 180ms ease;
     }
 
-
-    #spinner {
-
-      width:
-        38px;
-
-      height:
-        38px;
-
-      margin-bottom:
-        15px;
-
-      border:
-        4px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.25
-        );
-
-      border-top-color:
-        white;
-
-      border-radius:
-        50%;
-
-      animation:
-        girar
-        0.9s
-        linear
-        infinite;
-
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
     }
 
-
-    @keyframes girar {
-
-      to {
-        transform:
-          rotate(360deg);
-      }
-
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
     }
-
-
-
-    /* ==================================================
-       PULAR
-       ================================================== */
 
     #pular {
-
-      display:
-        none;
-
-      position:
-        absolute;
-
-      right:
-        max(
-          16px,
-          env(safe-area-inset-right)
-        );
-
-      bottom:
-        max(
-          90px,
-          calc(
-            env(safe-area-inset-bottom)
-            + 70px
-          )
-        );
-
-      padding:
-        10px
-        17px;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.48
-        );
-
-      color:
-        white;
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.48
-        );
-
-      border-radius:
-        999px;
-
-      font-size:
-        13px;
-
-      cursor:
-        pointer;
-
-      z-index:
-        60;
-
-      user-select:
-        none;
-
+      position: absolute;
+      right: 18px;
+      bottom: max(90px, calc(env(safe-area-inset-bottom) + 70px));
+      z-index: 200;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(0, 0, 0, 0.48);
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
     }
 
-
-
-    /* ==================================================
-       ERRO
-       ================================================== */
-
-    #erroVideo {
-
-      display:
-        none;
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.88
-        );
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      flex-direction:
-        column;
-
-      text-align:
-        center;
-
-      color:
-        white;
-
-      padding:
-        30px;
-
-      z-index:
-        80;
-
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
     }
 
-
-    #erroVideo p {
-
-      margin:
-        0
-        0
-        18px;
-
-      line-height:
-        1.5;
-
-      font-size:
-        14px;
-
-      max-width:
-        320px;
-
+    .hotspot {
+      position: absolute;
+      z-index: 300;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+      touch-action: manipulation;
     }
 
-
-    #irParaConvite {
-
-      border:
-        0;
-
-      padding:
-        11px
-        20px;
-
-      border-radius:
-        999px;
-
-      background:
-        white;
-
-      color:
-        black;
-
-      font-size:
-        14px;
-
-      cursor:
-        pointer;
-
-    }
-
-
-
-    /* ==================================================
-       FINAL
-       ================================================== */
-
-    #finalTela {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        var(--altura-app);
-
-      overflow:
-        hidden;
-
-      background:
-        black;
-
-      z-index:
-        70;
-
-    }
-
-
-    #arteFinal {
-
-      position:
-        absolute;
-
-      top:
-        50%;
-
-      left:
-        50%;
-
-      width:
-        max(
-          100vw,
-          calc(
-            var(--altura-app)
-            * 9
-            / 16
-          )
-        );
-
-      aspect-ratio:
-        9 / 16;
-
-      transform:
-        translate(
-          -50%,
-          -50%
-        );
-
-    }
-
-
-    #final {
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      width:
-        100%;
-
-      height:
-        100%;
-
-      object-fit:
-        cover;
-
-      display:
-        block;
-
-      pointer-events:
-        none;
-
-    }
-
-
-
-    /* ==================================================
-       BOTÕES
-       ================================================== */
-
-    .botaoInvisivel {
-
-      position:
-        absolute;
-
-      padding:
-        0;
-
-      margin:
-        0;
-
-      border:
-        0;
-
-      outline:
-        0;
-
-      background:
-        transparent;
-
-      cursor:
-        pointer;
-
-      z-index:
-        10;
-
-    }
-
-
-
-    /* ==================================================
-       SOM
-       ================================================== */
-
-    #controleSom {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      top:
-        max(
-          18px,
-          calc(
-            env(safe-area-inset-top)
-            + 12px
-          )
-        );
-
-      right:
-        max(
-          18px,
-          env(safe-area-inset-right)
-        );
-
-      width:
-        38px;
-
-      height:
-        38px;
-
-      padding:
-        0;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.26
-        );
-
-      border-radius:
-        50%;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.22
-        );
-
-      color:
-        white;
-
-      cursor:
-        pointer;
-
-      backdrop-filter:
-        blur(8px);
-
-      -webkit-backdrop-filter:
-        blur(8px);
-
-      z-index:
-        260;
-
-    }
-
-
-    #controleSom svg {
-
-      width:
-        18px;
-
-      height:
-        18px;
-
-      fill:
-        none;
-
-      stroke:
-        currentColor;
-
-      stroke-width:
-        1.8;
-
-      stroke-linecap:
-        round;
-
-      stroke-linejoin:
-        round;
-
-      pointer-events:
-        none;
-
-    }
-
-
-    #iconeSomDesligado {
-
-      display:
-        none;
-
-    }
-
-
-
-    /* ==================================================
-       PRESENTES
-       ================================================== */
-
+    /* POPUP DE PRESENTES */
     #popupPresentes {
-
-      display:
-        none;
-
-      position:
-        fixed;
-
-      inset:
-        0;
-
-      width:
-        100vw;
-
-      height:
-        var(--altura-app);
-
-      padding:
-        18px;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.84
-        );
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      z-index:
-        200;
-
+      z-index: 500;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: rgba(0, 0, 0, 0.78);
+      transition: opacity 180ms ease;
     }
 
-
-    #conteudoPresentes {
-
-      position:
-        relative;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      width:
-        100%;
-
-      height:
-        100%;
-
+    #popupPresentes.ativo {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
     }
 
+    #popupPresentes .quadro {
+      background: transparent;
+    }
+
+    #presenteMoldura {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4%;
+    }
 
     #imagemPresentes {
-
-      display:
-        block;
-
-      width:
-        auto;
-
-      height:
-        auto;
-
-      max-width:
-        94vw;
-
-      max-height:
-        calc(
-          var(--altura-app)
-          - 36px
-        );
-
-      object-fit:
-        contain;
-
-      border-radius:
-        16px;
-
+      max-width: 92%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 16px;
     }
-
 
     #fecharPresentes {
-
-      position:
-        absolute;
-
-      top:
-        12px;
-
-      right:
-        12px;
-
-      width:
-        42px;
-
-      height:
-        42px;
-
-      padding:
-        0;
-
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.35
-        );
-
-      border-radius:
-        50%;
-
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.62
-        );
-
-      color:
-        white;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      font-size:
-        26px;
-
-      cursor:
-        pointer;
-
-      z-index:
-        210;
-
+      position: absolute;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: 14px;
+      z-index: 620;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 50%;
+      background: rgba(0,0,0,.52);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
     }
 
+    /* CONTROLE DE SOM */
+    #controleSom {
+      position: absolute;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: 14px;
+      z-index: 400;
+      width: 38px;
+      height: 38px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+    #controleSom.visivel {
+      display: flex;
+    }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeMudo {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSom {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeMudo {
+      display: block;
+    }
   </style>
-
 </head>
-
 
 <body>
 
-
-  <img
-    id="capa"
-    alt="Abrir convite"
-    draggable="false"
-    onclick="abrirConvite()"
-  >
-
-
-  <div id="videoTela">
-
-
-    <video
-      id="video"
-      playsinline
-      webkit-playsinline
-      preload="auto"
-      disablepictureinpicture
-      controlslist="nodownload noplaybackrate"
-      onplaying="aoVideoTocar()"
-      oncanplay="esconderCarregando()"
-      onwaiting="mostrarCarregando()"
-      onstalled="mostrarCarregando()"
-      onended="mostrarFinal()"
-      onerror="erroAoCarregarVideo()"
-    ></video>
-
-
-    <div id="carregando">
-
-      <div id="spinner"></div>
-
-      <div>
-        Carregando convite...
-      </div>
-
-    </div>
-
-
-    <div
-      id="pular"
-      onclick="mostrarFinal()"
-    >
-      Pular abertura
-    </div>
-
-
-    <div id="erroVideo">
-
-      <p>
-        Não foi possível carregar a animação do convite.
-      </p>
+  <!-- CARD FINAL já fica carregado atrás do vídeo -->
+  <section id="finalTela" class="tela" aria-label="Convite final">
+    <div class="quadro">
+      <img
+        id="finalImagem"
+        class="arte"
+        alt="Convite de aniversário da Helena"
+        draggable="false"
+      >
 
       <button
-        id="irParaConvite"
-        onclick="mostrarFinal()"
+        id="hotspotPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Sugestões de presentes"
+      ></button>
+
+      <button
+        id="hotspotConfirmar"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar presença"
+      ></button>
+
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Localização"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ativar ou silenciar música"
       >
-        Abrir convite
+        <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+          <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+        </svg>
+
+        <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
       </button>
-
     </div>
+  </section>
 
-  </div>
+  <!-- VÍDEO -->
+  <section id="videoTela" class="tela" aria-label="Vídeo de abertura">
+    <div class="quadro">
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
 
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
+    </div>
+  </section>
 
-  <audio
-    id="musica"
-    preload="auto"
-  ></audio>
-
-
-  <div id="finalTela">
-
-    <div id="arteFinal">
-
+  <!-- CAPA -->
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
       <img
-        id="final"
-        alt="Convite"
+        id="capaImagem"
+        class="arte"
+        alt="Jardim Encantado da Helena"
         draggable="false"
       >
 
-
       <button
-        id="botaoPresentes"
-        class="botaoInvisivel"
-        onclick="abrirPresentes()"
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
       ></button>
-
-
-      <button
-        id="botaoConfirmar"
-        class="botaoInvisivel"
-        onclick="abrirWhatsApp()"
-      ></button>
-
-
-      <button
-        id="botaoLocalizacao"
-        class="botaoInvisivel"
-        onclick="abrirLocalizacao()"
-      ></button>
-
     </div>
+  </section>
 
-  </div>
-
-
-  <button
-    id="controleSom"
-    onclick="alternarSom()"
-  >
-
-
-    <svg
-      id="iconeSomLigado"
-      viewBox="0 0 24 24"
-    >
-
-      <path
-        d="M11 5 6.5 9H3v6h3.5L11 19V5Z"
-      ></path>
-
-      <path
-        d="M15 9.2c1.1 1.5 1.1 4.1 0 5.6"
-      ></path>
-
-      <path
-        d="M18 6.5c2.7 3 2.7 8 0 11"
-      ></path>
-
-    </svg>
-
-
-    <svg
-      id="iconeSomDesligado"
-      viewBox="0 0 24 24"
-    >
-
-      <path
-        d="M11 5 6.5 9H3v6h3.5L11 19V5Z"
-      ></path>
-
-      <path
-        d="m15.5 9.5 5 5"
-      ></path>
-
-      <path
-        d="m20.5 9.5-5 5"
-      ></path>
-
-    </svg>
-
-  </button>
-
-
-  <div
-    id="popupPresentes"
-    onclick="fecharAoClicarFora(event)"
-  >
-
-    <div id="conteudoPresentes">
-
-      <img
-        id="imagemPresentes"
-        draggable="false"
-      >
-
+  <!-- POPUP PRESENTES -->
+  <section id="popupPresentes" class="tela" aria-label="Sugestões de presentes">
+    <div class="quadro">
+      <div id="presenteMoldura">
+        <img
+          id="imagemPresentes"
+          alt="Sugestões de presentes para Helena"
+          draggable="false"
+        >
+      </div>
 
       <button
         id="fecharPresentes"
-        onclick="fecharPresentes(event)"
-      >
-        ×
-      </button>
-
+        type="button"
+        aria-label="Fechar sugestões de presentes"
+      >×</button>
     </div>
+  </section>
 
-  </div>
-
-
+  <audio id="musica" preload="auto" loop></audio>
 
   <script>
+    (() => {
+      "use strict";
 
+      const capaTela = document.getElementById("capaTela");
+      const videoTela = document.getElementById("videoTela");
+      const finalTela = document.getElementById("finalTela");
+      const popupPresentes = document.getElementById("popupPresentes");
 
-    document.title =
-      CONFIG.tituloPagina;
+      const capaImagem = document.getElementById("capaImagem");
+      const finalImagem = document.getElementById("finalImagem");
+      const imagemPresentes = document.getElementById("imagemPresentes");
 
+      const video = document.getElementById("video");
+      const musica = document.getElementById("musica");
 
-    const capa =
-      document.getElementById("capa");
+      const abrirConvite = document.getElementById("abrirConvite");
+      const pular = document.getElementById("pular");
+      const controleSom = document.getElementById("controleSom");
 
-    const video =
-      document.getElementById("video");
+      const hotspotPresentes = document.getElementById("hotspotPresentes");
+      const hotspotConfirmar = document.getElementById("hotspotConfirmar");
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const fecharPresentes = document.getElementById("fecharPresentes");
 
-    const musica =
-      document.getElementById("musica");
+      let conviteAberto = false;
+      let finalAtivo = false;
+      let finalizando = false;
+      let somLigado = true;
+      let audioDisponivel = true;
 
-    const videoTela =
-      document.getElementById("videoTela");
+      let timerPular = null;
+      let rafFim = null;
+      let rafAudio = null;
+      let ultimoAjusteSincronia = 0;
 
-    const carregando =
-      document.getElementById("carregando");
+      let videoEstavaTocando = false;
+      let musicaEstavaTocando = false;
 
-    const pular =
-      document.getElementById("pular");
+      const EXTENSOES_IMAGEM = [".png", ".jpg", ".jpeg"];
 
-    const erroVideo =
-      document.getElementById("erroVideo");
+      const urlLocal = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
 
-    const finalTela =
-      document.getElementById("finalTela");
+      function urlMidia(arquivo) {
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
 
-    const final =
-      document.getElementById("final");
+        return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+      }
 
-    const popupPresentes =
-      document.getElementById("popupPresentes");
+      function carregarImagemFlexivel(elemento, base) {
+        return new Promise((resolve) => {
+          let indice = 0;
 
-    const imagemPresentes =
-      document.getElementById("imagemPresentes");
+          const tentar = () => {
+            if (indice >= EXTENSOES_IMAGEM.length) {
+              elemento.onload = null;
+              elemento.onerror = null;
+              console.error("Imagem não encontrada:", base);
+              resolve(false);
+              return;
+            }
 
-    const botaoPresentes =
-      document.getElementById("botaoPresentes");
+            const caminho = `${base}${EXTENSOES_IMAGEM[indice++]}`;
 
-    const botaoConfirmar =
-      document.getElementById("botaoConfirmar");
+            elemento.onload = async () => {
+              elemento.onload = null;
+              elemento.onerror = null;
 
-    const botaoLocalizacao =
-      document.getElementById("botaoLocalizacao");
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
 
-    const controleSom =
-      document.getElementById("controleSom");
+              resolve(true);
+            };
 
-    const iconeSomLigado =
-      document.getElementById("iconeSomLigado");
+            elemento.onerror = tentar;
+            elemento.src = urlLocal(caminho);
+          };
 
-    const iconeSomDesligado =
-      document.getElementById("iconeSomDesligado");
+          tentar();
+        });
+      }
 
+      const imagensCarregadas = {
+        capa: carregarImagemFlexivel(capaImagem, CONFIG.imagens.capa),
+        final: carregarImagemFlexivel(finalImagem, CONFIG.imagens.final),
+        presentes: carregarImagemFlexivel(imagemPresentes, CONFIG.imagens.presentes)
+      };
 
-    let temporizadorPularIniciado =
-      false;
+      video.src = urlMidia(CONFIG.videoArquivo);
+      musica.src = urlMidia(CONFIG.musicaArquivo);
+      video.load();
+      musica.load();
 
-    let conviteFinalAberto =
-      false;
+      function posicionar(elemento, dados) {
+        elemento.style.left = dados.left;
+        elemento.style.top = dados.top;
+        elemento.style.width = dados.width;
+        elemento.style.height = dados.height;
+      }
 
-    let musicaSilenciada =
-      false;
+      posicionar(hotspotPresentes, CONFIG.hotspotsFinal.presentes);
+      posicionar(hotspotConfirmar, CONFIG.hotspotsFinal.confirmar);
+      posicionar(hotspotLocalizacao, CONFIG.hotspotsFinal.localizacao);
 
-    let musicaDisponivel =
-      true;
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
 
-    let retomarMusica =
-      false;
+        capaTela.classList.add("saindo");
 
-    let retomarVideo =
-      false;
+        setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
 
-
-
-    function arquivoLocal(arquivo) {
-
-      return (
-        arquivo
-        +
-        "?v="
-        +
-        encodeURIComponent(
-          CONFIG.versaoArquivos
-        )
-      );
-
-    }
-
-
-
-    function caminhoSeguro(valor) {
-
-      return String(valor)
-        .split("/")
-        .filter(Boolean)
-        .map(
-          function(parte) {
-
-            return encodeURIComponent(
-              parte
-            );
-
-          }
-        )
-        .join("/");
-
-    }
-
-
-
-    function urlMidia(arquivo) {
-
-      return (
-
-        CONFIG.hostMidia
-          .replace(/\/+$/, "")
-
-        +
-
-        "/"
-
-        +
-
-        caminhoSeguro(
-          CONFIG.pastaCliente
-        )
-
-        +
-
-        "/"
-
-        +
-
-        caminhoSeguro(
-          arquivo
-        )
-
-      );
-
-    }
-
-
-
-    function aplicarConfiguracoes() {
-
-      capa.src =
-        arquivoLocal(
-          CONFIG.capaArquivo
+      function tempoEsperadoMusica() {
+        let esperado = Math.max(
+          0,
+          video.currentTime + CONFIG.inicioMusica
         );
 
-
-      final.src =
-        arquivoLocal(
-          CONFIG.finalArquivo
-        );
-
-
-      imagemPresentes.src =
-        arquivoLocal(
-          CONFIG.presentesArquivo
-        );
-
-
-      video.src =
-        urlMidia(
-          CONFIG.videoArquivo
-        );
-
-
-      musica.src =
-        urlMidia(
-          CONFIG.musicaArquivo
-        );
-
-
-      musica.volume =
-        0.001;
-
-
-      const botoes =
-        CONFIG.botoes;
-
-
-      [
-        botaoPresentes,
-        botaoConfirmar,
-        botaoLocalizacao
-      ].forEach(
-
-        function(botao) {
-
-          botao.style.left =
-            botoes.esquerda;
-
-          botao.style.width =
-            botoes.largura;
-
-          botao.style.height =
-            botoes.altura;
-
+        if (
+          Number.isFinite(musica.duration) &&
+          musica.duration > 0
+        ) {
+          esperado %= musica.duration;
         }
 
-      );
-
-
-      botaoPresentes.style.top =
-        botoes.presentesTopo;
-
-
-      botaoConfirmar.style.top =
-        botoes.confirmarTopo;
-
-
-      botaoLocalizacao.style.top =
-        botoes.localizacaoTopo;
-
-    }
-
-
-    aplicarConfiguracoes();
-
-
-
-    musica.addEventListener(
-
-      "error",
-
-      function() {
-
-        musicaDisponivel =
-          false;
-
-        controleSom.style.display =
-          "none";
-
+        return esperado;
       }
 
-    );
-
-
-
-    function tempoDaMusica() {
-
-      return (
-        CONFIG.inicioMusica
-        +
-        video.currentTime
-      );
-
-    }
-
-
-
-    function sincronizarMusica() {
-
-      if (
-        !musicaDisponivel
-      ) {
-        return;
-      }
-
-
-      const diferenca =
-        Math.abs(
-          musica.currentTime
-          -
-          tempoDaMusica()
-        );
-
-
-      if (
-        diferenca > 0.30
-      ) {
+      /*
+         O MP3 nasce no MESMO gesto que o vídeo.
+         Ele continua tocando durante toda a abertura em 0.001.
+      */
+      function iniciarMusicaSilenciosa() {
+        musica.volume = 0.001;
 
         try {
+          musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+        } catch (_) {}
 
-          musica.currentTime =
-            tempoDaMusica();
+        const tentativa = musica.play();
 
+        if (tentativa && typeof tentativa.catch === "function") {
+          tentativa.catch(() => {
+            audioDisponivel = false;
+            controleSom.classList.remove("visivel");
+          });
         }
-        catch (erro) {
+      }
 
+      /*
+         Se houver drift, corrige DURANTE o vídeo,
+         quando o MP3 ainda está praticamente inaudível.
+         Nunca faz seek na entrada do card.
+      */
+      function manterSincronia() {
+        if (
+          !audioDisponivel ||
+          finalAtivo ||
+          finalizando ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
         }
 
+        const agora = performance.now();
+
+        if (agora - ultimoAjusteSincronia < 1000) {
+          return;
+        }
+
+        ultimoAjusteSincronia = agora;
+
+        const esperado = tempoEsperadoMusica();
+        const diferenca = Math.abs(musica.currentTime - esperado);
+
+        if (diferenca > 0.35) {
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
+        }
       }
 
-    }
+      /*
+         Troca suave:
+         áudio do vídeo desce e MP3 sobe.
+         Sem currentTime e sem novo play() no momento da troca.
+      */
+      function transicaoSuaveAudio(aoFinalizar) {
+        cancelAnimationFrame(rafAudio);
 
+        if (!audioDisponivel || musica.paused) {
+          aoFinalizar();
+          return;
+        }
 
+        const duracao = Math.max(120, CONFIG.transicaoAudio);
+        const inicio = performance.now();
+        const volumeVideoInicial = video.volume;
+        const volumeMusicaInicial = musica.volume;
+        const volumeMusicaFinal = somLigado ? CONFIG.volumeMusica : 0;
 
-    function abrirConvite() {
+        const animar = (agora) => {
+          const progresso = Math.min(1, (agora - inicio) / duracao);
+          const suave = progresso * progresso * (3 - 2 * progresso);
 
-      capa.style.display =
-        "none";
-
-
-      videoTela.style.display =
-        "block";
-
-
-      mostrarCarregando();
-
-
-      try {
-
-        video.currentTime =
-          0;
-
-        musica.currentTime =
-          CONFIG.inicioMusica;
-
-      }
-      catch (erro) {
-
-      }
-
-
-      if (
-        musicaDisponivel
-      ) {
-
-        musica.volume =
-          0.001;
-
-
-        musica
-          .play()
-          .catch(
-            function() {
-            }
+          video.volume = Math.max(
+            0,
+            volumeVideoInicial * (1 - suave)
           );
 
-      }
+          musica.volume =
+            volumeMusicaInicial +
+            (volumeMusicaFinal - volumeMusicaInicial) * suave;
 
-
-      video
-        .play()
-        .catch(
-
-          function() {
-
-            esconderCarregando();
-
-            erroVideo.style.display =
-              "flex";
-
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+            return;
           }
 
-        );
+          video.volume = 0;
+          musica.volume = volumeMusicaFinal;
+          aoFinalizar();
+        };
 
-    }
-
-
-
-    function aoVideoTocar() {
-
-      esconderCarregando();
-
-
-      sincronizarMusica();
-
-
-      if (
-        !temporizadorPularIniciado
-      ) {
-
-        temporizadorPularIniciado =
-          true;
-
-
-        pular.style.display =
-          "block";
-
-
-        setTimeout(
-
-          function() {
-
-            pular.style.display =
-              "none";
-
-          },
-
-          CONFIG.tempoPular
-
-        );
-
+        rafAudio = requestAnimationFrame(animar);
       }
 
-    }
+      async function iniciarConvite() {
+        if (conviteAberto) return;
 
+        conviteAberto = true;
 
+        await imagensCarregadas.final.catch(() => false);
 
-    function mostrarCarregando() {
+        videoTela.style.visibility = "visible";
+        videoTela.classList.remove("saindo");
+        videoTela.classList.add("ativo");
 
-      carregando.style.display =
-        "flex";
+        iniciarMusicaSilenciosa();
+        video.volume = 1;
 
-    }
-
-
-
-    function esconderCarregando() {
-
-      carregando.style.display =
-        "none";
-
-    }
-
-
-
-    function erroAoCarregarVideo() {
-
-      esconderCarregando();
-
-      pular.style.display =
-        "none";
-
-      musica.pause();
-
-      erroVideo.style.display =
-        "flex";
-
-    }
-
-
-
-    function mostrarFinal() {
-
-      if (
-        conviteFinalAberto
-      ) {
-        return;
-      }
-
-
-      conviteFinalAberto =
-        true;
-
-
-      const ponto =
-        tempoDaMusica();
-
-
-      video.pause();
-
-
-      try {
-
-        musica.currentTime =
-          ponto;
-
-      }
-      catch (erro) {
-
-      }
-
-
-      if (
-        musicaDisponivel
-      ) {
-
-        musica.volume =
-          musicaSilenciada
-            ? 0
-            : CONFIG.volumeMusica;
-
-
-        musica
-          .play()
-          .then(
-
-            function() {
-
-              controleSom.style.display =
-                "flex";
-
-            }
-
-          )
-          .catch(
-
-            function() {
-
-              musicaDisponivel =
-                false;
-
-              controleSom.style.display =
-                "none";
-
-            }
-
-          );
-
-      }
-
-
-      esconderCarregando();
-
-      erroVideo.style.display =
-        "none";
-
-      pular.style.display =
-        "none";
-
-      videoTela.style.display =
-        "none";
-
-      finalTela.style.display =
-        "block";
-
-    }
-
-
-
-    function alternarSom() {
-
-      musicaSilenciada =
-        !musicaSilenciada;
-
-
-      musica.volume =
-        musicaSilenciada
-          ? 0
-          : CONFIG.volumeMusica;
-
-
-      iconeSomLigado.style.display =
-        musicaSilenciada
-          ? "none"
-          : "block";
-
-
-      iconeSomDesligado.style.display =
-        musicaSilenciada
-          ? "block"
-          : "none";
-
-    }
-
-
-
-    function pausarMidiaAoSair() {
-
-      retomarMusica =
-        !musica.paused;
-
-
-      retomarVideo =
-        !video.paused
-        &&
-        !video.ended;
-
-
-      if (
-        retomarMusica
-      ) {
-
-        musica.pause();
-
-      }
-
-
-      if (
-        retomarVideo
-      ) {
-
-        video.pause();
-
-      }
-
-    }
-
-
-
-    function retomarMidiaAoVoltar() {
-
-      if (
-        document.hidden
-      ) {
-        return;
-      }
-
-
-      if (
-        conviteFinalAberto
-      ) {
-
-        if (
-          retomarMusica
-          &&
-          musicaDisponivel
-        ) {
-
-          musica.volume =
-            musicaSilenciada
-              ? 0
-              : CONFIG.volumeMusica;
-
-
-          musica
-            .play()
-            .catch(
-              function() {
-              }
-            );
-
+        try {
+          await video.play();
+        } catch (_) {
+          finalizarVideo();
+          esconderCapa();
+          return;
         }
 
+        esconderCapa();
+
+        pular.classList.add("visivel");
+
+        clearTimeout(timerPular);
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, CONFIG.tempoPular);
+
+        acompanharFinal();
       }
-      else {
 
-        if (
-          retomarMusica
-          &&
-          musicaDisponivel
-        ) {
+      function acompanharFinal() {
+        cancelAnimationFrame(rafFim);
 
-          sincronizarMusica();
+        const verificar = () => {
+          if (finalizando || finalAtivo) return;
 
+          manterSincronia();
 
-          musica.volume =
-            0.001;
+          if (
+            Number.isFinite(video.duration) &&
+            video.duration > 0
+          ) {
+            const restante = video.duration - video.currentTime;
 
+            if (restante > 0 && restante <= 0.45) {
+              finalizarVideo();
+              return;
+            }
+          }
 
-          musica
-            .play()
-            .catch(
-              function() {
-              }
-            );
+          rafFim = requestAnimationFrame(verificar);
+        };
 
+        rafFim = requestAnimationFrame(verificar);
+      }
+
+      async function finalizarVideo() {
+        if (finalizando || finalAtivo) return;
+
+        finalizando = true;
+
+        clearTimeout(timerPular);
+        cancelAnimationFrame(rafFim);
+        pular.classList.remove("visivel");
+
+        await imagensCarregadas.final.catch(() => false);
+
+        /* Card já está pronto atrás do vídeo */
+        finalTela.classList.add("ativo");
+
+        /* Fade visual do vídeo */
+        videoTela.classList.add("saindo");
+
+        /* Crossfade sonoro sem reiniciar o MP3 */
+        transicaoSuaveAudio(() => {
+          video.pause();
+
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          video.volume = 1;
+          finalAtivo = true;
+          finalizando = false;
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
+        });
+      }
+
+      async function abrirPopupPresentes() {
+        await imagensCarregadas.presentes.catch(() => false);
+
+        popupPresentes.classList.add("ativo");
+        controleSom.classList.remove("visivel");
+      }
+
+      function fecharPopupPresentes() {
+        popupPresentes.classList.remove("ativo");
+
+        if (finalAtivo && audioDisponivel) {
+          controleSom.classList.add("visivel");
+        }
+      }
+
+      function abrirWhatsApp() {
+        const link =
+          "https://wa.me/" +
+          CONFIG.numeroWhatsapp +
+          "?text=" +
+          encodeURIComponent(CONFIG.mensagemWhatsapp);
+
+        window.location.href = link;
+      }
+
+      function abrirLocalizacao() {
+        window.location.href = CONFIG.linkLocalizacao;
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+
+        controleSom.classList.toggle(
+          "mudo",
+          !somLigado
+        );
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando =
+            !video.paused &&
+            !finalAtivo &&
+            !finalizando;
+
+          musicaEstavaTocando = !musica.paused;
+
+          if (videoEstavaTocando) video.pause();
+          if (musicaEstavaTocando) musica.pause();
+          return;
         }
 
-
-        if (
-          retomarVideo
-        ) {
-
+        if (videoEstavaTocando && !finalAtivo) {
           video
             .play()
-            .catch(
-              function() {
-              }
-            );
-
+            .then(acompanharFinal)
+            .catch(() => {});
         }
 
+        if (musicaEstavaTocando && audioDisponivel) {
+          musica.play().catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+        musicaEstavaTocando = false;
       }
 
+      abrirConvite.addEventListener("click", iniciarConvite);
+      pular.addEventListener("click", finalizarVideo);
 
-      retomarMusica =
-        false;
+      video.addEventListener("playing", esconderCapa);
 
+      video.addEventListener("timeupdate", () => {
+        if (finalizando || finalAtivo) return;
 
-      retomarVideo =
-        false;
-
-    }
-
-
-
-    document.addEventListener(
-
-      "visibilitychange",
-
-      function() {
+        manterSincronia();
 
         if (
-          document.hidden
+          Number.isFinite(video.duration) &&
+          video.duration > 0 &&
+          (video.duration - video.currentTime) <= 0.45
         ) {
-
-          pausarMidiaAoSair();
-
+          finalizarVideo();
         }
-        else {
+      });
 
-          retomarMidiaAoVoltar();
+      video.addEventListener("ended", finalizarVideo);
 
+      video.addEventListener("error", () => {
+        if (conviteAberto && !finalAtivo) {
+          finalizarVideo();
+          esconderCapa();
         }
+      });
 
-      }
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
 
-    );
+      hotspotPresentes.addEventListener("click", abrirPopupPresentes);
+      hotspotConfirmar.addEventListener("click", abrirWhatsApp);
+      hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
 
-
-
-    musica.addEventListener(
-
-      "ended",
-
-      function() {
-
-        try {
-
-          musica.currentTime =
-            CONFIG.inicioMusica;
-
-        }
-        catch (erro) {
-
-        }
-
-
-        musica
-          .play()
-          .catch(
-            function() {
-            }
-          );
-
-      }
-
-    );
-
-
-
-    function abrirPresentes() {
-
-      popupPresentes.style.display =
-        "flex";
-
-      controleSom.style.display =
-        "none";
-
-    }
-
-
-
-    function fecharPresentes(event) {
-
-      if (event) {
-
+      fecharPresentes.addEventListener("click", (event) => {
         event.stopPropagation();
+        fecharPopupPresentes();
+      });
 
-      }
-
-
-      popupPresentes.style.display =
-        "none";
-
-
-      if (
-        conviteFinalAberto
-        &&
-        musicaDisponivel
-      ) {
-
-        controleSom.style.display =
-          "flex";
-
-      }
-
-    }
-
-
-
-    function fecharAoClicarFora(event) {
-
-      if (
-        event.target ===
-        popupPresentes
-      ) {
-
-        fecharPresentes();
-
-      }
-
-    }
-
-
-
-    function abrirWhatsApp() {
-
-      window.location.href =
-
-        "https://wa.me/"
-
-        +
-
-        CONFIG.numeroWhatsapp
-
-        +
-
-        "?text="
-
-        +
-
-        encodeURIComponent(
-          CONFIG.mensagemWhatsapp
-        );
-
-    }
-
-
-
-    function abrirLocalizacao() {
-
-      window.location.href =
-        CONFIG.linkMapa;
-
-    }
-
-
-
-    document.addEventListener(
-
-      "contextmenu",
-
-      function(event) {
-
-        if (
-          event.target
-          instanceof
-          HTMLImageElement
-
-          ||
-
-          event.target
-          instanceof
-          HTMLVideoElement
-
-          ||
-
-          event.target
-          instanceof
-          HTMLAudioElement
-        ) {
-
-          event.preventDefault();
-
+      popupPresentes.addEventListener("click", (event) => {
+        if (event.target === popupPresentes) {
+          fecharPopupPresentes();
         }
+      });
 
-      }
+      controleSom.addEventListener("click", alternarSom);
+      document.addEventListener("visibilitychange", tratarVisibilidade);
 
-    );
+      window.addEventListener("pageshow", (event) => {
+        if (
+          event.persisted &&
+          finalAtivo &&
+          audioDisponivel
+        ) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
 
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      document.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    })();
   </script>
-
 </body>
-
 </html>

@@ -18,8 +18,8 @@
   <meta property="og:title" content="Cecília | 1 aninho">
   <meta property="og:description" content="Você recebeu um convite muito especial 🍒">
   <meta property="og:url" content="https://libriconvites.com.br/cecilia/">
-  <meta property="og:image" content="https://libriconvites.com.br/cecilia/imagens/preview-otimizada.jpg?v=1">
-  <meta property="og:image:secure_url" content="https://libriconvites.com.br/cecilia/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image" content="https://libriconvites.com.br/cecilia/imagens/preview-otimizada.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/cecilia/imagens/preview-otimizada.jpg?v=2">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -27,7 +27,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cecília | 1 aninho">
   <meta name="twitter:description" content="Você recebeu um convite muito especial 🍒">
-  <meta name="twitter:image" content="https://libriconvites.com.br/cecilia/imagens/preview-otimizada.jpg?v=1">
+  <meta name="twitter:image" content="https://libriconvites.com.br/cecilia/imagens/preview-otimizada.jpg?v=2">
 
   <script>
     /* ==================================================
@@ -47,24 +47,39 @@
       volumeMusica: 0.35,
       tempoPular: 5000,
 
-      versaoArquivos: "1",
-      versaoMidia: "1",
+      versaoArquivos: "3",
+      versaoMidia: "3",
 
       linkConfirmacao: "https://confirmar-libriconvites-com-br-235139281365.us-east1.run.app/confirmar/cecilia-1-aninho",
       linkLocalizacao: "https://maps.app.goo.gl/WRfgrEp4aG5ks3Kw6",
 
       /*
-         IMPORTANTE:
-         Informe SOMENTE o nome-base, sem .png ou .jpg.
-         O motor procura automaticamente nesta ordem:
-         .png → .jpg → .jpeg
+         IMAGENS:
+         O motor aceita PNG, JPG e JPEG sem conversão.
+         Também aceita os nomes originais deste projeto caso você
+         tenha subido os arquivos sem renomear.
       */
       imagens: {
-        capa: "imagens/capa",
-        final: "imagens/final",
-        presentes: "imagens/presentes",
-        confirmacao: "imagens/confirmacao",
-        localizacao: "imagens/localizacao"
+        capa: [
+          "imagens/capa",
+          "imagens/1000959568.png"
+        ],
+        final: [
+          "imagens/final",
+          "imagens/1000959756.png"
+        ],
+        presentes: [
+          "imagens/presentes",
+          "imagens/1000959838.png"
+        ],
+        confirmacao: [
+          "imagens/confirmacao",
+          "imagens/1000959760.png"
+        ],
+        localizacao: [
+          "imagens/localizacao",
+          "imagens/1000959757.png"
+        ]
       },
 
       hotspotsFinal: {
@@ -145,8 +160,8 @@
 
     .quadro {
       position: relative;
-      width: min(100vw, calc(100vh * 9 / 16));
-      height: min(100vh, calc(100vw * 16 / 9));
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
       overflow: hidden;
       background: #000;
       flex: 0 0 auto;
@@ -154,8 +169,8 @@
 
     @supports (height: 100dvh) {
       .quadro {
-        width: min(100vw, calc(100dvh * 9 / 16));
-        height: min(100dvh, calc(100vw * 16 / 9));
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
       }
     }
 
@@ -514,7 +529,7 @@
         `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
 
       const urlMidia = (arquivo) =>
-        `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${arquivo}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+        `${CONFIG.hostMidia}/${encodeURIComponent(CONFIG.pastaCliente)}/${encodeURIComponent(arquivo)}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
 
       function aplicarPosicao(elemento, posicao) {
         elemento.style.left = posicao.left;
@@ -523,21 +538,46 @@
         elemento.style.height = posicao.height;
       }
 
-      function carregarImagemFlexivel(elemento, caminhoBase) {
+      function montarCandidatosImagem(configuracao) {
+        const entradas = Array.isArray(configuracao)
+          ? configuracao
+          : [configuracao];
+
+        const candidatos = [];
+
+        entradas.forEach((entrada) => {
+          if (!entrada) return;
+
+          const temExtensaoConhecida = /\.(png|jpe?g)$/i.test(entrada);
+
+          if (temExtensaoConhecida) {
+            candidatos.push(entrada);
+            return;
+          }
+
+          EXTENSOES_IMAGEM.forEach((extensao) => {
+            candidatos.push(`${entrada}${extensao}`);
+          });
+        });
+
+        return [...new Set(candidatos)];
+      }
+
+      function carregarImagemFlexivel(elemento, configuracao) {
         return new Promise((resolve) => {
+          const candidatos = montarCandidatosImagem(configuracao);
           let indice = 0;
 
           const tentarProxima = () => {
-            if (indice >= EXTENSOES_IMAGEM.length) {
+            if (indice >= candidatos.length) {
               elemento.onload = null;
               elemento.onerror = null;
-              console.error(`Imagem não encontrada: ${caminhoBase} (.png/.jpg/.jpeg)`);
+              console.error("Imagem não encontrada. Tentativas:", candidatos);
               resolve(false);
               return;
             }
 
-            const extensao = EXTENSOES_IMAGEM[indice++];
-            const caminho = `${caminhoBase}${extensao}`;
+            const caminho = candidatos[indice++];
 
             elemento.onload = async () => {
               elemento.onload = null;

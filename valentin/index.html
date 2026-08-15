@@ -36,15 +36,9 @@
        PREVIEW WHATSAPP
   ================================================== -->
 
-  <meta
-    property="og:type"
-    content="website"
-  >
+  <meta property="og:type" content="website">
 
-  <meta
-    property="og:locale"
-    content="pt_BR"
-  >
+  <meta property="og:locale" content="pt_BR">
 
   <meta
     property="og:title"
@@ -63,12 +57,12 @@
 
   <meta
     property="og:image"
-    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=3"
+    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=5"
   >
 
   <meta
     property="og:image:secure_url"
-    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=3"
+    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=5"
   >
 
   <meta
@@ -93,7 +87,7 @@
 
   <meta
     name="twitter:image"
-    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=3"
+    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=5"
   >
 
 
@@ -104,13 +98,31 @@
   <link
     rel="preload"
     as="image"
-    href="imagens/capa.jpg?v=3"
+    href="imagens/capa.jpg?v=5"
   >
 
   <link
     rel="preload"
     as="image"
-    href="imagens/final.png?v=3"
+    href="imagens/final.png?v=5"
+  >
+
+  <link
+    rel="preload"
+    as="image"
+    href="imagens/localizacao.png?v=5"
+  >
+
+  <link
+    rel="preload"
+    as="image"
+    href="imagens/confirmacao.png?v=5"
+  >
+
+  <link
+    rel="preload"
+    as="image"
+    href="imagens/presentes.png?v=5"
   >
 
 
@@ -127,22 +139,14 @@
 
 
       /* =========================
-         CACHE
-      ========================= */
-
-      versao:
-        "3",
-
-
-      /* =========================
          MÍDIA
       ========================= */
 
       video:
-        "https://midia.libriconvites.com.br/valentin/abertura.mp4",
+        "https://midia.libriconvites.com.br/valentin/abertura.mp4?v=5",
 
       musica:
-        "https://midia.libriconvites.com.br/valentin/musica-pooh.mp3",
+        "https://midia.libriconvites.com.br/valentin/musica-pooh.mp3?v=5",
 
 
       /* =========================
@@ -200,16 +204,16 @@
         localizacao: {
 
           left:
-            "20%",
+            "17%",
 
           top:
-            "71%",
+            "72%",
 
           width:
-            "61%",
+            "66%",
 
           height:
-            "7%"
+            "7.2%"
 
         },
 
@@ -217,13 +221,13 @@
         confirmacao: {
 
           left:
-            "20%",
+            "17%",
 
           top:
-            "78.3%",
+            "79.2%",
 
           width:
-            "61%",
+            "66%",
 
           height:
             "7%"
@@ -234,16 +238,16 @@
         presentes: {
 
           left:
-            "20%",
+            "17%",
 
           top:
-            "85.5%",
+            "86.2%",
 
           width:
-            "61%",
+            "66%",
 
           height:
-            "7%"
+            "7.2%"
 
         }
 
@@ -259,16 +263,16 @@
         voltar: {
 
           left:
-            "3%",
+            "2%",
 
           top:
-            "1%",
+            "0.5%",
 
           width:
-            "28%",
+            "31%",
 
           height:
-            "8%"
+            "9%"
 
         },
 
@@ -276,16 +280,16 @@
         abrir: {
 
           left:
-            "18%",
+            "17%",
 
           top:
-            "54%",
+            "53%",
 
           width:
-            "65%",
+            "68%",
 
           height:
-            "10%"
+            "12%"
 
         }
 
@@ -301,16 +305,16 @@
         voltar: {
 
           left:
-            "3%",
+            "2%",
 
           top:
-            "1%",
+            "0.5%",
 
           width:
-            "28%",
+            "31%",
 
           height:
-            "8%"
+            "9%"
 
         },
 
@@ -318,16 +322,16 @@
         abrir: {
 
           left:
-            "17%",
+            "15%",
 
           top:
-            "58%",
+            "57%",
 
           width:
-            "67%",
+            "70%",
 
           height:
-            "11%"
+            "13%"
 
         }
 
@@ -343,16 +347,16 @@
         voltar: {
 
           left:
-            "34%",
+            "32%",
 
           top:
             "0%",
 
           width:
-            "33%",
+            "36%",
 
           height:
-            "8%"
+            "9%"
 
         },
 
@@ -360,16 +364,16 @@
         pix: {
 
           left:
-            "13%",
+            "12%",
 
           top:
-            "66.5%",
+            "66%",
 
           width:
-            "74%",
+            "76%",
 
           height:
-            "13%"
+            "14%"
 
         }
 
@@ -389,11 +393,11 @@
 
     :root {
 
-      --preto:
+      --fundo:
         #000;
 
-      --transicao:
-        220ms;
+      --transicao-video:
+        240ms;
 
     }
 
@@ -444,6 +448,11 @@
       inset:
         0;
 
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       user-select:
         none;
 
@@ -452,11 +461,6 @@
 
       -webkit-touch-callout:
         none;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
 
     }
 
@@ -480,6 +484,12 @@
 
       font:
         inherit;
+
+      appearance:
+        none;
+
+      -webkit-appearance:
+        none;
 
     }
 
@@ -533,10 +543,7 @@
 
 
     /* ==================================================
-       QUADRO 9:16 EM COVER
-
-       Preenche completamente o celular.
-       O excesso é cortado nas bordas.
+       QUADRO 9:16 COVER
     ================================================== */
 
     .quadro {
@@ -611,6 +618,104 @@
 
 
     /* ==================================================
+       CARD FINAL
+
+       FICA ATRÁS DO VÍDEO DESDE O INÍCIO.
+    ================================================== */
+
+    #finalTela {
+
+      z-index:
+        20;
+
+      visibility:
+        visible;
+
+      opacity:
+        1;
+
+      pointer-events:
+        none;
+
+      background:
+        #000;
+
+    }
+
+
+    #finalTela.ativo {
+
+      pointer-events:
+        auto;
+
+    }
+
+
+    /* ==================================================
+       VÍDEO
+
+       FICA POR CIMA DO CARD.
+    ================================================== */
+
+    #videoTela {
+
+      z-index:
+        30;
+
+      visibility:
+        hidden;
+
+      opacity:
+        0;
+
+      pointer-events:
+        none;
+
+      background:
+        transparent;
+
+      transition:
+        opacity
+        var(--transicao-video)
+        ease;
+
+    }
+
+
+    #videoTela.ativo {
+
+      visibility:
+        visible;
+
+      opacity:
+        1;
+
+      pointer-events:
+        auto;
+
+    }
+
+
+    #videoTela.saindo {
+
+      opacity:
+        0;
+
+      pointer-events:
+        none;
+
+    }
+
+
+    #video {
+
+      background:
+        transparent;
+
+    }
+
+
+    /* ==================================================
        CAPA
     ================================================== */
 
@@ -619,11 +724,11 @@
       z-index:
         50;
 
-      opacity:
-        1;
-
       visibility:
         visible;
+
+      opacity:
+        1;
 
       transition:
         opacity
@@ -653,7 +758,7 @@
         0;
 
       z-index:
-        10;
+        100;
 
       width:
         100%;
@@ -661,62 +766,20 @@
       height:
         100%;
 
-      margin:
+      border:
         0;
 
       padding:
         0;
 
-      border:
-        none;
+      margin:
+        0;
 
       background:
         transparent;
 
       cursor:
         pointer;
-
-    }
-
-
-    /* ==================================================
-       VÍDEO
-    ================================================== */
-
-    #videoTela {
-
-      z-index:
-        20;
-
-      opacity:
-        0;
-
-      visibility:
-        hidden;
-
-      transition:
-        opacity
-        160ms
-        ease;
-
-    }
-
-
-    #videoTela.ativo {
-
-      opacity:
-        1;
-
-      visibility:
-        visible;
-
-    }
-
-
-    #video {
-
-      background:
-        #000;
 
     }
 
@@ -744,7 +807,7 @@
         );
 
       z-index:
-        30;
+        200;
 
       border:
         1px solid
@@ -810,52 +873,6 @@
 
 
     /* ==================================================
-       FINAL
-    ================================================== */
-
-    #finalTela {
-
-      z-index:
-        30;
-
-      opacity:
-        0;
-
-      visibility:
-        hidden;
-
-      pointer-events:
-        none;
-
-      transition:
-        opacity
-        var(--transicao)
-        ease;
-
-    }
-
-
-    #finalTela.preparado,
-    #finalTela.ativo {
-
-      opacity:
-        1;
-
-      visibility:
-        visible;
-
-    }
-
-
-    #finalTela.ativo {
-
-      pointer-events:
-        auto;
-
-    }
-
-
-    /* ==================================================
        HOTSPOTS
     ================================================== */
 
@@ -865,7 +882,10 @@
         absolute;
 
       z-index:
-        20;
+        300;
+
+      display:
+        block;
 
       padding:
         0;
@@ -874,13 +894,16 @@
         0;
 
       border:
-        none;
+        0;
 
       background:
         transparent;
 
       cursor:
         pointer;
+
+      pointer-events:
+        auto;
 
       touch-action:
         manipulation;
@@ -895,20 +918,23 @@
     .paginaInterna {
 
       z-index:
-        100;
-
-      opacity:
-        0;
+        500;
 
       visibility:
         hidden;
 
+      opacity:
+        0;
+
       pointer-events:
         none;
 
+      background:
+        #000;
+
       transition:
         opacity
-        180ms
+        160ms
         ease;
 
     }
@@ -916,11 +942,11 @@
 
     .paginaInterna.ativa {
 
-      opacity:
-        1;
-
       visibility:
         visible;
+
+      opacity:
+        1;
 
       pointer-events:
         auto;
@@ -929,7 +955,7 @@
 
 
     /* ==================================================
-       SOM
+       CONTROLE DE SOM
     ================================================== */
 
     #controleSom {
@@ -951,7 +977,7 @@
         14px;
 
       z-index:
-        50;
+        400;
 
       width:
         38px;
@@ -1067,7 +1093,7 @@
 
 
     /* ==================================================
-       PIX COPIADO
+       AVISO PIX
     ================================================== */
 
     #avisoPix {
@@ -1089,7 +1115,7 @@
         );
 
       z-index:
-        500;
+        1000;
 
       transform:
         translate(
@@ -1136,12 +1162,6 @@
       text-align:
         center;
 
-      backdrop-filter:
-        blur(8px);
-
-      -webkit-backdrop-filter:
-        blur(8px);
-
       opacity:
         0;
 
@@ -1183,71 +1203,8 @@
 
 
   <!-- ==================================================
-       CAPA
-  ================================================== -->
-
-  <section
-    id="capaTela"
-    class="tela"
-  >
-
-    <div class="quadro">
-
-      <img
-        id="capa"
-        class="arte"
-        src="imagens/capa.jpg?v=3"
-        alt="O Bosque Encantado do Valentin"
-        draggable="false"
-      >
-
-      <button
-        id="abrirConvite"
-        type="button"
-        aria-label="Abrir convite"
-      ></button>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       VÍDEO
-  ================================================== -->
-
-  <section
-    id="videoTela"
-    class="tela"
-  >
-
-    <div class="quadro">
-
-      <video
-        id="video"
-        src="https://midia.libriconvites.com.br/valentin/abertura.mp4?v=3"
-        playsinline
-        webkit-playsinline
-        preload="auto"
-        disablepictureinpicture
-        controlslist="nodownload noplaybackrate noremoteplayback"
-      ></video>
-
-
-      <button
-        id="pular"
-        type="button"
-      >
-        Pular abertura
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       FINAL
+       CARD FINAL
+       JÁ EXISTE ATRÁS DO VÍDEO.
   ================================================== -->
 
   <section
@@ -1258,9 +1215,9 @@
     <div class="quadro">
 
       <img
-        id="final"
+        id="finalImagem"
         class="arte"
-        src="imagens/final.png?v=3"
+        src="imagens/final.png?v=5"
         alt="Convite do Valentin"
         draggable="false"
       >
@@ -1343,6 +1300,70 @@
 
 
   <!-- ==================================================
+       VÍDEO
+  ================================================== -->
+
+  <section
+    id="videoTela"
+    class="tela"
+  >
+
+    <div class="quadro">
+
+      <video
+        id="video"
+        src="https://midia.libriconvites.com.br/valentin/abertura.mp4?v=5"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+
+      <button
+        id="pular"
+        type="button"
+      >
+        Pular abertura
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       CAPA
+  ================================================== -->
+
+  <section
+    id="capaTela"
+    class="tela"
+  >
+
+    <div class="quadro">
+
+      <img
+        class="arte"
+        src="imagens/capa.jpg?v=5"
+        alt="O Bosque Encantado do Valentin"
+        draggable="false"
+      >
+
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
        LOCALIZAÇÃO
   ================================================== -->
 
@@ -1355,7 +1376,7 @@
 
       <img
         class="arte"
-        src="imagens/localizacao.png?v=3"
+        src="imagens/localizacao.png?v=5"
         alt="Local da festa"
         draggable="false"
       >
@@ -1383,6 +1404,7 @@
 
   <!-- ==================================================
        CONFIRMAÇÃO
+       V5 FORÇA NOVA CÓPIA DO ARQUIVO.
   ================================================== -->
 
   <section
@@ -1393,8 +1415,9 @@
     <div class="quadro">
 
       <img
+        id="imagemConfirmacao"
         class="arte"
-        src="imagens/confirmacao.png?v=3"
+        src="imagens/confirmacao.png?v=5"
         alt="Confirmar presença"
         draggable="false"
       >
@@ -1433,7 +1456,7 @@
 
       <img
         class="arte"
-        src="imagens/presentes.png?v=3"
+        src="imagens/presentes.png?v=5"
         alt="Presentinhos para Valentin"
         draggable="false"
       >
@@ -1473,12 +1496,12 @@
 
 
   <!-- ==================================================
-       ÁUDIO
+       MÚSICA
   ================================================== -->
 
   <audio
     id="musica"
-    src="https://midia.libriconvites.com.br/valentin/musica-pooh.mp3?v=3"
+    src="https://midia.libriconvites.com.br/valentin/musica-pooh.mp3?v=5"
     preload="auto"
     loop
   ></audio>
@@ -1510,6 +1533,18 @@
       const finalTela =
         document.getElementById(
           "finalTela"
+        );
+
+
+      const finalImagem =
+        document.getElementById(
+          "finalImagem"
+        );
+
+
+      const imagemConfirmacao =
+        document.getElementById(
+          "imagemConfirmacao"
         );
 
 
@@ -1621,21 +1656,19 @@
         );
 
 
-      const finalImagem =
-        document.getElementById(
-          "final"
-        );
-
-
       /* ==================================================
          ESTADO
       ================================================== */
 
-      let conviteJaAberto =
+      let conviteAberto =
         false;
 
 
       let finalAtivo =
+        false;
+
+
+      let finalizando =
         false;
 
 
@@ -1655,7 +1688,7 @@
         null;
 
 
-      let rafVideo =
+      let rafFim =
         null;
 
 
@@ -1665,6 +1698,41 @@
 
       let musicaEstavaTocando =
         false;
+
+
+      /* ==================================================
+         PRÉ-DECODIFICAR AS ARTES IMPORTANTES
+      ================================================== */
+
+      function decodificarImagem(
+        imagem
+      ) {
+
+        if (
+          imagem &&
+          typeof imagem.decode ===
+          "function"
+        ) {
+
+          imagem
+            .decode()
+            .catch(
+              () => {}
+            );
+
+        }
+
+      }
+
+
+      decodificarImagem(
+        finalImagem
+      );
+
+
+      decodificarImagem(
+        imagemConfirmacao
+      );
 
 
       /* ==================================================
@@ -1749,42 +1817,7 @@
 
 
       /* ==================================================
-         CAPA
-      ================================================== */
-
-      function esconderCapa() {
-
-        if (
-          capaTela.classList.contains(
-            "saindo"
-          )
-        ) {
-
-          return;
-
-        }
-
-
-        capaTela.classList.add(
-          "saindo"
-        );
-
-
-        setTimeout(
-          () => {
-
-            capaTela.style.visibility =
-              "hidden";
-
-          },
-          200
-        );
-
-      }
-
-
-      /* ==================================================
-         ÁUDIO SILENCIOSO DURANTE VÍDEO
+         ÁUDIO SILENCIOSO
       ================================================== */
 
       function iniciarMusicaSilenciosa() {
@@ -1818,13 +1851,17 @@
 
 
       /* ==================================================
-         ABRIR CONVITE
+         CAPA
       ================================================== */
 
-      async function iniciarConvite() {
+      function esconderCapa() {
 
         if (
-          conviteJaAberto
+          capaTela
+            .classList
+            .contains(
+              "saindo"
+            )
         ) {
 
           return;
@@ -1832,13 +1869,61 @@
         }
 
 
-        conviteJaAberto =
+        capaTela
+          .classList
+          .add(
+            "saindo"
+          );
+
+
+        setTimeout(
+          () => {
+
+            capaTela.style.visibility =
+              "hidden";
+
+          },
+          200
+        );
+
+      }
+
+
+      /* ==================================================
+         ABRIR CONVITE
+      ================================================== */
+
+      async function iniciarConvite() {
+
+        if (
+          conviteAberto
+        ) {
+
+          return;
+
+        }
+
+
+        conviteAberto =
           true;
 
 
-        videoTela.classList.add(
-          "ativo"
-        );
+        videoTela.style.visibility =
+          "visible";
+
+
+        videoTela
+          .classList
+          .remove(
+            "saindo"
+          );
+
+
+        videoTela
+          .classList
+          .add(
+            "ativo"
+          );
 
 
         iniciarMusicaSilenciosa();
@@ -1852,7 +1937,7 @@
 
         catch (_) {
 
-          mostrarFinal();
+          finalizarVideo();
 
           esconderCapa();
 
@@ -1864,9 +1949,11 @@
         esconderCapa();
 
 
-        pular.classList.add(
-          "visivel"
-        );
+        pular
+          .classList
+          .add(
+            "visivel"
+          );
 
 
         clearTimeout(
@@ -1878,105 +1965,38 @@
           setTimeout(
             () => {
 
-              pular.classList.remove(
-                "visivel"
-              );
+              pular
+                .classList
+                .remove(
+                  "visivel"
+                );
 
             },
             CONFIG.tempoPular
           );
 
 
-        acompanharVideo();
+        acompanharFinalVideo();
 
       }
 
 
       /* ==================================================
-         GARANTIR FINAL CARREGADO
+         TRANSIÇÃO SEM PRETO
       ================================================== */
 
-      async function garantirFinal() {
-
-        if (
-          finalImagem.complete &&
-          finalImagem.naturalWidth > 0
-        ) {
-
-          if (
-            typeof finalImagem.decode ===
-            "function"
-          ) {
-
-            await finalImagem
-              .decode()
-              .catch(
-                () => {}
-              );
-
-          }
-
-
-          return;
-
-        }
-
-
-        await new Promise(
-          resolve => {
-
-            const terminar =
-              () => {
-
-                finalImagem.removeEventListener(
-                  "load",
-                  terminar
-                );
-
-
-                finalImagem.removeEventListener(
-                  "error",
-                  terminar
-                );
-
-
-                resolve();
-
-              };
-
-
-            finalImagem.addEventListener(
-              "load",
-              terminar
-            );
-
-
-            finalImagem.addEventListener(
-              "error",
-              terminar
-            );
-
-          }
-        );
-
-      }
-
-
-      /* ==================================================
-         MONITORAR FIM
-      ================================================== */
-
-      function acompanharVideo() {
+      function acompanharFinalVideo() {
 
         cancelAnimationFrame(
-          rafVideo
+          rafFim
         );
 
 
-        const observar =
-          async () => {
+        const verificar =
+          () => {
 
             if (
+              finalizando ||
               finalAtivo
             ) {
 
@@ -1986,15 +2006,11 @@
 
 
             if (
-
               Number.isFinite(
                 video.duration
               )
-
               &&
-
               video.duration > 0
-
             ) {
 
               const restante =
@@ -2003,50 +2019,167 @@
                 video.currentTime;
 
 
+              /*
+                 Começamos ANTES do último frame.
+                 O vídeo continua rodando durante o fade.
+              */
+
               if (
-
                 restante > 0
-
                 &&
-
-                restante <= 0.25
-
+                restante <= 0.40
               ) {
 
-                await garantirFinal();
+                finalizarVideo();
 
-
-                finalTela.style.visibility =
-                  "visible";
-
-
-                finalTela.classList.add(
-                  "preparado"
-                );
+                return;
 
               }
 
             }
 
 
-            rafVideo =
+            rafFim =
               requestAnimationFrame(
-                observar
+                verificar
               );
 
           };
 
 
-        rafVideo =
+        rafFim =
           requestAnimationFrame(
-            observar
+            verificar
           );
 
       }
 
 
+      function finalizarVideo() {
+
+        if (
+          finalizando ||
+          finalAtivo
+        ) {
+
+          return;
+
+        }
+
+
+        finalizando =
+          true;
+
+
+        clearTimeout(
+          timerPular
+        );
+
+
+        cancelAnimationFrame(
+          rafFim
+        );
+
+
+        pular
+          .classList
+          .remove(
+            "visivel"
+          );
+
+
+        /*
+           O card já está visível atrás.
+           Aqui só ativamos os botões.
+        */
+
+        finalTela
+          .classList
+          .add(
+            "ativo"
+          );
+
+
+        /*
+           Fazemos o VÍDEO sumir suavemente.
+           Não pausamos antes.
+        */
+
+        videoTela
+          .classList
+          .add(
+            "saindo"
+          );
+
+
+        const tempoVideo =
+          Number.isFinite(
+            video.currentTime
+          )
+            ?
+            video.currentTime
+            :
+            0;
+
+
+        setTimeout(
+          () => {
+
+            video.pause();
+
+
+            videoTela
+              .classList
+              .remove(
+                "ativo"
+              );
+
+
+            videoTela
+              .classList
+              .remove(
+                "saindo"
+              );
+
+
+            videoTela.style.visibility =
+              "hidden";
+
+
+            finalAtivo =
+              true;
+
+
+            finalizando =
+              false;
+
+
+            continuarMusica(
+              tempoVideo
+            );
+
+
+            if (
+              audioDisponivel
+            ) {
+
+              controleSom
+                .classList
+                .add(
+                  "visivel"
+                );
+
+            }
+
+          },
+          250
+        );
+
+      }
+
+
       /* ==================================================
-         MÚSICA NO FINAL
+         CONTINUAR MÚSICA
       ================================================== */
 
       function continuarMusica(
@@ -2072,15 +2205,11 @@
 
 
         if (
-
           Number.isFinite(
             musica.duration
           )
-
           &&
-
           musica.duration > 0
-
         ) {
 
           tempo %=
@@ -2116,9 +2245,11 @@
                 false;
 
 
-              controleSom.classList.remove(
-                "visivel"
-              );
+              controleSom
+                .classList
+                .remove(
+                  "visivel"
+                );
 
             }
           );
@@ -2127,124 +2258,30 @@
 
 
       /* ==================================================
-         FINAL SEM FLASH PRETO
-      ================================================== */
-
-      async function mostrarFinal() {
-
-        if (
-          finalAtivo
-        ) {
-
-          return;
-
-        }
-
-
-        finalAtivo =
-          true;
-
-
-        clearTimeout(
-          timerPular
-        );
-
-
-        cancelAnimationFrame(
-          rafVideo
-        );
-
-
-        pular.classList.remove(
-          "visivel"
-        );
-
-
-        const tempoVideo =
-          Number.isFinite(
-            video.currentTime
-          )
-            ?
-            video.currentTime
-            :
-            0;
-
-
-        await garantirFinal();
-
-
-        finalTela.style.visibility =
-          "visible";
-
-
-        requestAnimationFrame(
-          () => {
-
-            finalTela.classList.add(
-              "preparado",
-              "ativo"
-            );
-
-          }
-        );
-
-
-        continuarMusica(
-          tempoVideo
-        );
-
-
-        if (
-          audioDisponivel
-        ) {
-
-          controleSom.classList.add(
-            "visivel"
-          );
-
-        }
-
-
-        setTimeout(
-          () => {
-
-            video.pause();
-
-
-            videoTela.classList.remove(
-              "ativo"
-            );
-
-
-            videoTela.style.visibility =
-              "hidden";
-
-          },
-          260
-        );
-
-      }
-
-
-      /* ==================================================
-         PÁGINAS INTERNAS
+         PÁGINAS
       ================================================== */
 
       function fecharPaginas() {
 
-        paginaLocalizacao.classList.remove(
-          "ativa"
-        );
+        paginaLocalizacao
+          .classList
+          .remove(
+            "ativa"
+          );
 
 
-        paginaConfirmacao.classList.remove(
-          "ativa"
-        );
+        paginaConfirmacao
+          .classList
+          .remove(
+            "ativa"
+          );
 
 
-        paginaPresentes.classList.remove(
-          "ativa"
-        );
+        paginaPresentes
+          .classList
+          .remove(
+            "ativa"
+          );
 
 
         if (
@@ -2252,9 +2289,11 @@
           audioDisponivel
         ) {
 
-          controleSom.classList.add(
-            "visivel"
-          );
+          controleSom
+            .classList
+            .add(
+              "visivel"
+            );
 
         }
 
@@ -2265,17 +2304,39 @@
         pagina
       ) {
 
-        fecharPaginas();
+        paginaLocalizacao
+          .classList
+          .remove(
+            "ativa"
+          );
 
 
-        pagina.classList.add(
-          "ativa"
-        );
+        paginaConfirmacao
+          .classList
+          .remove(
+            "ativa"
+          );
 
 
-        controleSom.classList.remove(
-          "visivel"
-        );
+        paginaPresentes
+          .classList
+          .remove(
+            "ativa"
+          );
+
+
+        pagina
+          .classList
+          .add(
+            "ativa"
+          );
+
+
+        controleSom
+          .classList
+          .remove(
+            "visivel"
+          );
 
       }
 
@@ -2317,9 +2378,11 @@
 
       function mostrarAvisoPix() {
 
-        avisoPix.classList.add(
-          "visivel"
-        );
+        avisoPix
+          .classList
+          .add(
+            "visivel"
+          );
 
 
         clearTimeout(
@@ -2331,9 +2394,11 @@
           setTimeout(
             () => {
 
-              avisoPix.classList.remove(
-                "visivel"
-              );
+              avisoPix
+                .classList
+                .remove(
+                  "visivel"
+                );
 
             },
             2200
@@ -2371,7 +2436,6 @@
 
         campo.focus();
 
-
         campo.select();
 
 
@@ -2404,13 +2468,16 @@
         try {
 
           if (
-            navigator.clipboard &&
+            navigator.clipboard
+            &&
             window.isSecureContext
           ) {
 
-            await navigator.clipboard.writeText(
-              CONFIG.chavePix
-            );
+            await navigator
+              .clipboard
+              .writeText(
+                CONFIG.chavePix
+              );
 
 
             mostrarAvisoPix();
@@ -2425,14 +2492,10 @@
         catch (_) {}
 
 
-        const copiado =
+        if (
           copiarFallback(
             CONFIG.chavePix
-          );
-
-
-        if (
-          copiado
+          )
         ) {
 
           mostrarAvisoPix();
@@ -2469,27 +2532,32 @@
             0;
 
 
-        controleSom.classList.toggle(
-          "mudo",
-          !somLigado
-        );
+        controleSom
+          .classList
+          .toggle(
+            "mudo",
+            !somLigado
+          );
 
       }
 
 
       /* ==================================================
-         SAIR / VOLTAR DO APP
+         VISIBILIDADE
       ================================================== */
 
-      function visibilidade() {
+      function tratarVisibilidade() {
 
         if (
           document.hidden
         ) {
 
           videoEstavaTocando =
-            !video.paused &&
-            !finalAtivo;
+            !video.paused
+            &&
+            !finalAtivo
+            &&
+            !finalizando;
 
 
           musicaEstavaTocando =
@@ -2520,14 +2588,15 @@
 
 
         if (
-          videoEstavaTocando &&
+          videoEstavaTocando
+          &&
           !finalAtivo
         ) {
 
           video
             .play()
             .then(
-              acompanharVideo
+              acompanharFinalVideo
             )
             .catch(
               () => {}
@@ -2537,7 +2606,8 @@
 
 
         if (
-          musicaEstavaTocando &&
+          musicaEstavaTocando
+          &&
           audioDisponivel
         ) {
 
@@ -2564,141 +2634,220 @@
          EVENTOS
       ================================================== */
 
-      abrirConvite.addEventListener(
-        "click",
-        iniciarConvite
-      );
+      abrirConvite
+        .addEventListener(
+          "click",
+          iniciarConvite
+        );
 
 
-      pular.addEventListener(
-        "click",
-        mostrarFinal
-      );
+      pular
+        .addEventListener(
+          "click",
+          finalizarVideo
+        );
 
 
-      video.addEventListener(
-        "ended",
-        mostrarFinal
-      );
+      video
+        .addEventListener(
+          "playing",
+          esconderCapa
+        );
 
 
-      video.addEventListener(
-        "playing",
-        esconderCapa
-      );
+      video
+        .addEventListener(
+          "timeupdate",
+          () => {
+
+            if (
+              finalizando ||
+              finalAtivo
+            ) {
+
+              return;
+
+            }
 
 
-      hotspotLocalizacao.addEventListener(
-        "click",
-        () => {
+            if (
+              Number.isFinite(
+                video.duration
+              )
+              &&
+              video.duration > 0
+            ) {
 
-          abrirPagina(
-            paginaLocalizacao
-          );
-
-        }
-      );
-
-
-      hotspotConfirmacao.addEventListener(
-        "click",
-        () => {
-
-          abrirPagina(
-            paginaConfirmacao
-          );
-
-        }
-      );
+              const restante =
+                video.duration
+                -
+                video.currentTime;
 
 
-      hotspotPresentes.addEventListener(
-        "click",
-        () => {
+              if (
+                restante <= 0.40
+              ) {
 
-          abrirPagina(
-            paginaPresentes
-          );
+                finalizarVideo();
 
-        }
-      );
+              }
 
+            }
 
-      voltarLocalizacao.addEventListener(
-        "click",
-        fecharPaginas
-      );
+          }
+        );
 
 
-      voltarConfirmacao.addEventListener(
-        "click",
-        fecharPaginas
-      );
+      video
+        .addEventListener(
+          "ended",
+          finalizarVideo
+        );
 
 
-      voltarPresentes.addEventListener(
-        "click",
-        fecharPaginas
-      );
+      hotspotLocalizacao
+        .addEventListener(
+          "click",
+          event => {
+
+            event.preventDefault();
+
+            event.stopPropagation();
 
 
-      abrirLocalizacao.addEventListener(
-        "click",
-        () => {
+            abrirPagina(
+              paginaLocalizacao
+            );
 
-          window.location.href =
-            CONFIG.linkLocalizacao;
-
-        }
-      );
+          }
+        );
 
 
-      abrirWhatsapp.addEventListener(
-        "click",
-        irWhatsapp
-      );
+      hotspotConfirmacao
+        .addEventListener(
+          "click",
+          event => {
+
+            event.preventDefault();
+
+            event.stopPropagation();
 
 
-      copiarPixBtn.addEventListener(
-        "click",
-        copiarPix
-      );
+            /*
+               A imagem já está carregada com v=5.
+            */
+
+            abrirPagina(
+              paginaConfirmacao
+            );
+
+          }
+        );
 
 
-      controleSom.addEventListener(
-        "click",
-        alternarSom
-      );
+      hotspotPresentes
+        .addEventListener(
+          "click",
+          event => {
+
+            event.preventDefault();
+
+            event.stopPropagation();
 
 
-      document.addEventListener(
-        "visibilitychange",
-        visibilidade
-      );
+            abrirPagina(
+              paginaPresentes
+            );
+
+          }
+        );
+
+
+      voltarLocalizacao
+        .addEventListener(
+          "click",
+          fecharPaginas
+        );
+
+
+      voltarConfirmacao
+        .addEventListener(
+          "click",
+          fecharPaginas
+        );
+
+
+      voltarPresentes
+        .addEventListener(
+          "click",
+          fecharPaginas
+        );
+
+
+      abrirLocalizacao
+        .addEventListener(
+          "click",
+          () => {
+
+            window.location.href =
+              CONFIG.linkLocalizacao;
+
+          }
+        );
+
+
+      abrirWhatsapp
+        .addEventListener(
+          "click",
+          irWhatsapp
+        );
+
+
+      copiarPixBtn
+        .addEventListener(
+          "click",
+          copiarPix
+        );
+
+
+      controleSom
+        .addEventListener(
+          "click",
+          alternarSom
+        );
+
+
+      document
+        .addEventListener(
+          "visibilitychange",
+          tratarVisibilidade
+        );
 
 
       /* ==================================================
          BLOQUEIOS CASUAIS
       ================================================== */
 
-      document.addEventListener(
-        "contextmenu",
-        event => {
+      document
+        .addEventListener(
+          "contextmenu",
+          event => {
 
-          event.preventDefault();
+            event.preventDefault();
 
-        }
-      );
+          }
+        );
 
 
-      document.addEventListener(
-        "dragstart",
-        event => {
+      document
+        .addEventListener(
+          "dragstart",
+          event => {
 
-          event.preventDefault();
+            event.preventDefault();
 
-        }
-      );
+          }
+        );
 
 
     })();

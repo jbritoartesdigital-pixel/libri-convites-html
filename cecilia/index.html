@@ -45,6 +45,7 @@
 
       inicioMusica: 0,
       volumeMusica: 0.35,
+      transicaoAudio: 260,
       tempoPular: 5000,
 
       versaoArquivos: "3",
@@ -518,7 +519,9 @@
       let somLigado = true;
       let audioDisponivel = true;
       let rafFimVideo = null;
+      let rafAudio = null;
       let timerPular = null;
+      let ultimoAjusteSincronia = 0;
 
       let videoEstavaTocando = false;
       let musicaEstavaTocando = false;
@@ -655,6 +658,10 @@
       function iniciarAudioSilencioso() {
         musica.volume = 0.001;
 
+        try {
+          musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+        } catch (_) {}
+
         const tentativa = musica.play();
 
         if (tentativa && typeof tentativa.catch === "function") {
@@ -700,108 +707,207 @@
         }, CONFIG.tempoPular);
       }
 
+      function tempoEsperadoMusica() {
+        let esperado = Math.max(
+          0,
+          video.currentTime + CONFIG.inicioMusica
+        );
+
+        if (
+          Number.isFinite(musica.duration) &&
+          musica.duration > 0
+        ) {
+          esperado %= musica.duration;
+        }
+
+        return esperado;
+      }
+
+      function manterSincronia(forcar = false) {
+        if (
+          !audioDisponivel ||
+          finalMostrado ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
+        }
+
+        const agora = performance.now();
+
+        if (
+          !forcar &&
+          agora - ultimoAjusteSincronia < 750
+        ) {
+          return;
+        }
+
+        ultimoAjusteSincronia = agora;
+
+        const esperado = tempoEsperadoMusica();
+        const diferenca = Math.abs(
+          musica.currentTime - esperado
+        );
+
+        /*
+           O ajuste acontece enquanto o MP3 está praticamente
+           inaudível. Na entrada do card não existe seek.
+        */
+        if (diferenca > 0.30) {
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
+        }
+      }
+
+      function transicaoSuaveAudio(aoFinalizar) {
+        cancelAnimationFrame(rafAudio);
+
+        if (
+          !audioDisponivel ||
+          musica.paused
+        ) {
+          aoFinalizar();
+          return;
+        }
+
+        const duracao = Math.max(
+          120,
+          CONFIG.transicaoAudio
+        );
+
+        const inicio = performance.now();
+        const volumeVideoInicial = video.volume;
+        const volumeMusicaInicial = musica.volume;
+        const volumeMusicaFinal =
+          somLigado
+            ? CONFIG.volumeMusica
+            : 0;
+
+        const animar = (agora) => {
+          const progresso = Math.min(
+            1,
+            (agora - inicio) / duracao
+          );
+
+          const suave =
+            progresso *
+            progresso *
+            (3 - 2 * progresso);
+
+          video.volume = Math.max(
+            0,
+            volumeVideoInicial * (1 - suave)
+          );
+
+          musica.volume =
+            volumeMusicaInicial +
+            (
+              volumeMusicaFinal -
+              volumeMusicaInicial
+            ) *
+            suave;
+
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+            return;
+          }
+
+          video.volume = 0;
+          musica.volume = volumeMusicaFinal;
+
+          aoFinalizar();
+        };
+
+        rafAudio = requestAnimationFrame(animar);
+      }
+
       function monitorarFimDoVideo() {
         cancelAnimationFrame(rafFimVideo);
 
         const observar = () => {
           if (finalMostrado) return;
 
+          manterSincronia();
+
           if (
             Number.isFinite(video.duration) &&
             video.duration > 0 &&
             !video.paused
           ) {
-            const restante = video.duration - video.currentTime;
+            const restante =
+              video.duration - video.currentTime;
 
-            // O card começa a entrar ANTES do ended.
-            // Isso elimina o frame preto que alguns celulares mostram no fim do vídeo.
-            if (restante > 0 && restante <= 0.22) {
-              preRevelarFinal();
+            /*
+               A troca começa antes do último frame para que
+               vídeo e MP3 façam um crossfade real.
+            */
+            if (
+              restante > 0 &&
+              restante <= 0.45
+            ) {
+              ativarFinal(false);
+              return;
             }
           }
 
-          rafFimVideo = requestAnimationFrame(observar);
+          rafFimVideo =
+            requestAnimationFrame(observar);
         };
 
-        rafFimVideo = requestAnimationFrame(observar);
-      }
-
-      async function preRevelarFinal() {
-        if (preRevelacaoFeita || finalMostrado) return;
-        preRevelacaoFeita = true;
-
-        await esperarImagemFinal();
-        if (finalMostrado) return;
-
-        finalTela.style.visibility = "visible";
-        finalTela.classList.add("preRevelado");
-      }
-
-      function tempoCorrespondenteDaMusica(tempoVideo) {
-        let tempo = Math.max(0, tempoVideo + CONFIG.inicioMusica);
-
-        if (Number.isFinite(musica.duration) && musica.duration > 0) {
-          tempo %= musica.duration;
-        }
-
-        return tempo;
-      }
-
-      function sincronizarMusica(tempoVideo) {
-        if (!audioDisponivel) return;
-
-        try {
-          musica.currentTime = tempoCorrespondenteDaMusica(tempoVideo);
-        } catch (_) {}
-
-        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-
-        const tentativa = musica.play();
-
-        if (tentativa && typeof tentativa.catch === "function") {
-          tentativa.catch(() => {
-            audioDisponivel = false;
-            controleSom.classList.remove("visivel");
-          });
-        }
+        rafFimVideo =
+          requestAnimationFrame(observar);
       }
 
       async function ativarFinal(foiPulado = false) {
         if (finalMostrado) return;
+
+        /*
+           Se o convidado pulou, fazemos uma última conferência
+           enquanto o MP3 ainda está em volume técnico.
+        */
+        if (foiPulado) {
+          manterSincronia(true);
+        }
+
         finalMostrado = true;
 
         cancelAnimationFrame(rafFimVideo);
         clearTimeout(timerPular);
+
         pularBtn.classList.remove("visivel");
 
-        const tempoVideo = Number.isFinite(video.currentTime)
-          ? video.currentTime
-          : 0;
-
-        // Mantém o vídeo/último frame na tela até a arte final estar realmente pronta.
-        // Isso evita tanto o flash preto quanto um flash de imagem vazia.
         await esperarImagemFinal();
 
-        video.pause();
-
-        // O final já está decodificado e entra POR CIMA do vídeo.
-        // Não existe display:none entre uma tela e outra.
+        /*
+           O vídeo continua tocando durante a transição.
+           O card entra por cima dele e o áudio faz crossfade.
+        */
         finalTela.style.visibility = "visible";
 
         requestAnimationFrame(() => {
-          finalTela.classList.add("preRevelado", "ativo");
+          finalTela.classList.add(
+            "preRevelado",
+            "ativo"
+          );
         });
 
-        sincronizarMusica(tempoVideo);
+        /*
+           IMPORTANTE:
+           não existe currentTime nem novo play() do MP3 aqui.
+           A música já está tocando desde a abertura.
+        */
+        transicaoSuaveAudio(() => {
+          video.pause();
+          video.volume = 1;
 
-        if (audioDisponivel) {
-          controleSom.classList.add("visivel");
-        }
-
-        window.setTimeout(() => {
           videoTela.classList.remove("ativo");
           videoTela.style.visibility = "hidden";
-        }, 260);
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
+        });
       }
 
       function pularAbertura() {

@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   >
 
-  <title>Save the Date | Uma celebração encantada</title>
+  <title>Gabriel | Save the Date</title>
 
   <meta
     name="robots"
@@ -20,12 +20,11 @@
   <!-- OPEN GRAPH -->
 
   <meta property="og:type" content="website">
-
   <meta property="og:locale" content="pt_BR">
 
   <meta
     property="og:title"
-    content="Save the Date"
+    content="Gabriel | Save the Date"
   >
 
   <meta
@@ -43,9 +42,6 @@
     content="https://libriconvites.com.br/save-disney100/"
   >
 
-
-  <!-- TWITTER -->
-
   <meta
     name="twitter:card"
     content="summary_large_image"
@@ -53,7 +49,7 @@
 
   <meta
     name="twitter:title"
-    content="Save the Date"
+    content="Gabriel | Save the Date"
   >
 
   <meta
@@ -70,12 +66,8 @@
   <style>
 
     * {
-
       box-sizing: border-box;
-
-      -webkit-tap-highlight-color:
-        transparent;
-
+      -webkit-tap-highlight-color: transparent;
     }
 
 
@@ -83,11 +75,9 @@
     body {
 
       margin: 0;
-
       padding: 0;
 
       width: 100%;
-
       height: 100%;
 
       background: #040611;
@@ -95,7 +85,6 @@
       overflow: hidden;
 
       user-select: none;
-
       -webkit-user-select: none;
 
       overscroll-behavior: none;
@@ -105,48 +94,28 @@
 
     body {
 
-      display: flex;
+      width: 100vw;
 
-      align-items: center;
-
-      justify-content: center;
+      height: 100vh;
+      height: 100dvh;
 
     }
 
 
-    /* ==========================================
-       PALCO 9:16
-    ========================================== */
+    /* ==================================================
+       EXPERIÊNCIA FULLSCREEN
+    ================================================== */
 
     #experiencia {
 
-      position: relative;
+      position: fixed;
 
-      width:
-        min(
-          100vw,
-          56.25vh
-        );
+      inset: 0;
 
-      height:
-        min(
-          177.777vw,
-          100vh
-        );
+      width: 100vw;
 
-
-      width:
-        min(
-          100vw,
-          56.25dvh
-        );
-
-      height:
-        min(
-          177.777vw,
-          100dvh
-        );
-
+      height: 100vh;
+      height: 100dvh;
 
       overflow: hidden;
 
@@ -164,15 +133,16 @@
       inset: 0;
 
       width: 100%;
-
       height: 100%;
+
+      overflow: hidden;
 
     }
 
 
-    /* ==========================================
+    /* ==================================================
        CAPA
-    ========================================== */
+    ================================================== */
 
     #capaTela {
 
@@ -181,7 +151,7 @@
       opacity: 1;
 
       transition:
-        opacity 220ms ease;
+        opacity 250ms ease;
 
     }
 
@@ -202,10 +172,11 @@
       inset: 0;
 
       width: 100%;
-
       height: 100%;
 
       object-fit: cover;
+
+      object-position: center center;
 
       display: block;
 
@@ -216,9 +187,9 @@
     }
 
 
-    /* ==========================================
+    /* ==================================================
        ESTRELA
-    ========================================== */
+    ================================================== */
 
     #estrela {
 
@@ -226,20 +197,12 @@
 
       z-index: 40;
 
-      width: 16%;
-
-      left: 42%;
-
-      top: 78%;
-
       cursor: grab;
 
       touch-action: none;
 
       user-select: none;
-
       -webkit-user-select: none;
-
       -webkit-user-drag: none;
 
       filter:
@@ -285,12 +248,12 @@
         )
 
         drop-shadow(
-          0 0 26px
+          0 0 28px
           rgba(218,205,255,1)
         )
 
         drop-shadow(
-          0 0 45px
+          0 0 46px
           rgba(140,160,255,.95)
         );
 
@@ -314,7 +277,7 @@
         )
 
         drop-shadow(
-          0 0 38px
+          0 0 40px
           rgba(220,205,255,1)
         );
 
@@ -325,26 +288,19 @@
 
       0%,
       100% {
-
-        transform:
-          scale(1);
-
+        transform: scale(1);
       }
 
-
       50% {
-
-        transform:
-          scale(1.08);
-
+        transform: scale(1.08);
       }
 
     }
 
 
-    /* ==========================================
+    /* ==================================================
        ÁREA INVISÍVEL DO CASTELO
-    ========================================== */
+    ================================================== */
 
     #zonaCastelo {
 
@@ -354,22 +310,14 @@
 
       pointer-events: none;
 
-      left: 43%;
-
-      top: 16%;
-
-      width: 14%;
-
-      height: 20%;
-
       border-radius: 50%;
 
     }
 
 
-    /* ==========================================
-       HALO DO CASTELO
-    ========================================== */
+    /* ==================================================
+       HALO
+    ================================================== */
 
     #haloCastelo {
 
@@ -379,21 +327,12 @@
 
       pointer-events: none;
 
-      left: 50%;
-
-      top: 25%;
-
-      width: 15%;
-
-      aspect-ratio: 1;
-
-      transform:
-        translate(-50%, -50%)
-        scale(.7);
-
       border-radius: 50%;
 
       opacity: 0;
+
+      transform:
+        scale(.75);
 
       background:
 
@@ -416,15 +355,14 @@
       opacity: 1;
 
       transform:
-        translate(-50%, -50%)
         scale(1.25);
 
     }
 
 
-    /* ==========================================
+    /* ==================================================
        FLASH
-    ========================================== */
+    ================================================== */
 
     #flash {
 
@@ -434,41 +372,22 @@
 
       pointer-events: none;
 
-      left: 50%;
-
-      top: 25%;
-
-      width: 18%;
-
-      aspect-ratio: 1;
-
       border-radius: 50%;
 
-      transform:
-        translate(-50%, -50%)
-        scale(.05);
-
       opacity: 0;
+
+      transform:
+        scale(.05);
 
       background:
 
         radial-gradient(
           circle,
-
-          rgba(255,255,255,1)
-          0%,
-
-          rgba(230,220,255,.95)
-          15%,
-
-          rgba(190,195,255,.67)
-          36%,
-
-          rgba(155,125,230,.28)
-          55%,
-
-          transparent
-          72%
+          rgba(255,255,255,1) 0%,
+          rgba(230,220,255,.95) 15%,
+          rgba(190,195,255,.67) 36%,
+          rgba(155,125,230,.28) 55%,
+          transparent 72%
         );
 
     }
@@ -492,7 +411,6 @@
         opacity: 0;
 
         transform:
-          translate(-50%, -50%)
           scale(.05);
 
       }
@@ -517,7 +435,6 @@
         opacity: 0;
 
         transform:
-          translate(-50%, -50%)
           scale(9);
 
       }
@@ -525,9 +442,9 @@
     }
 
 
-    /* ==========================================
+    /* ==================================================
        VÍDEO
-    ========================================== */
+    ================================================== */
 
     #videoTela {
 
@@ -535,7 +452,7 @@
 
       z-index: 20;
 
-      background: black;
+      background: #040611;
 
     }
 
@@ -547,31 +464,36 @@
       inset: 0;
 
       width: 100%;
-
       height: 100%;
 
       object-fit: cover;
 
+      object-position: center center;
+
       display: block;
 
-      background: black;
+      background: #040611;
 
     }
 
 
-    /* ==========================================
+    /* ==================================================
        PULAR
-    ========================================== */
+    ================================================== */
 
     #pular {
 
       position: absolute;
 
-      z-index: 60;
+      z-index: 70;
 
       right: 18px;
 
-      bottom: 26px;
+      bottom:
+        calc(
+          22px +
+          env(safe-area-inset-bottom)
+        );
 
       display: none;
 
@@ -597,21 +519,18 @@
 
       color: white;
 
-      font-family:
-        Arial,
+      font:
+        13px Arial,
         sans-serif;
-
-      font-size:
-        13px;
 
       cursor: pointer;
 
     }
 
 
-    /* ==========================================
-       CARREGANDO
-    ========================================== */
+    /* ==================================================
+       CARREGAMENTO
+    ================================================== */
 
     #carregando {
 
@@ -619,7 +538,7 @@
 
       inset: 0;
 
-      z-index: 70;
+      z-index: 75;
 
       display: none;
 
@@ -632,24 +551,14 @@
 
       color: white;
 
-      font-family:
-        Arial,
+      font:
+        14px Arial,
         sans-serif;
-
-      font-size:
-        14px;
-
-      letter-spacing:
-        .04em;
 
       pointer-events: none;
 
     }
 
-
-    /* ==========================================
-       FALLBACK
-    ========================================== */
 
     #continuar {
 
@@ -689,24 +598,18 @@
       background:
         rgba(7,9,24,.67);
 
-      backdrop-filter:
-        blur(6px);
-
       color: white;
 
-      font-family:
-        Arial,
+      font:
+        14px Arial,
         sans-serif;
-
-      font-size:
-        14px;
 
     }
 
 
-    /* ==========================================
+    /* ==================================================
        FINAL
-    ========================================== */
+    ================================================== */
 
     #finalTela {
 
@@ -716,11 +619,10 @@
 
       opacity: 0;
 
-      background:
-        #040611;
+      background: #040611;
 
       transition:
-        opacity 500ms ease;
+        opacity 450ms ease;
 
     }
 
@@ -734,17 +636,44 @@
 
     #final {
 
-      width: 100%;
+      position: absolute;
 
+      inset: 0;
+
+      width: 100%;
       height: 100%;
 
       object-fit: cover;
 
-      display: block;
+      object-position: center center;
 
       pointer-events: none;
 
       -webkit-user-drag: none;
+
+    }
+
+
+    /* ==================================================
+       BOTÕES INVISÍVEIS
+    ================================================== */
+
+    .hotspot {
+
+      position: absolute;
+
+      z-index: 110;
+
+      cursor: pointer;
+
+      background:
+        transparent;
+
+      border: 0;
+
+      outline: 0;
+
+      touch-action: manipulation;
 
     }
 
@@ -793,7 +722,6 @@
         draggable="false"
         role="button"
         tabindex="0"
-        aria-label="Arraste a estrela até o castelo"
       >
 
 
@@ -842,9 +770,7 @@
       <div id="continuar">
 
         <span>
-
           Toque para continuar
-
         </span>
 
       </div>
@@ -863,9 +789,29 @@
 
       <img
         id="final"
-        alt="Save the Date"
+        alt="Save the Date Gabriel"
         draggable="false"
       >
+
+
+      <!-- CONFIRMAÇÃO -->
+
+      <button
+        id="botaoConfirmar"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar presença"
+      ></button>
+
+
+      <!-- LOCALIZAÇÃO -->
+
+      <button
+        id="botaoLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Abrir localização"
+      ></button>
 
 
     </section>
@@ -894,8 +840,6 @@
     const CONFIG = {
 
 
-      /* PASTA */
-
       pastaCliente:
         "save-disney100",
 
@@ -908,7 +852,7 @@
         "1",
 
 
-      /* IMAGENS NO GITHUB */
+      /* IMAGENS */
 
       capaArquivo:
         "capa.jpg",
@@ -922,13 +866,13 @@
         "final.jpg",
 
 
-      /* VÍDEO NO R2 */
+      /* VÍDEO */
 
       videoArquivo:
         "abertura.mp4",
 
 
-      /* MÚSICA NO R2 */
+      /* MÚSICA */
 
       musicaArquivo:
         "Disneyinstrumental.mp3",
@@ -942,7 +886,8 @@
         0.35,
 
 
-      /* POSIÇÃO DA ESTRELA */
+      /* ESTRELA
+         Coordenadas relativas à arte */
 
       estrelaEsquerda:
         42,
@@ -956,7 +901,7 @@
         16,
 
 
-      /* ÁREA DO CASTELO */
+      /* TORRE / ALVO */
 
       casteloEsquerda:
         43,
@@ -972,6 +917,59 @@
 
       casteloAltura:
         20,
+
+
+      /* BOTÃO CONFIRMAÇÃO
+         POSIÇÃO BASEADA NA ARTE ENVIADA */
+
+      confirmarEsquerda:
+        14.5,
+
+
+      confirmarTopo:
+        90.3,
+
+
+      confirmarLargura:
+        35.5,
+
+
+      confirmarAltura:
+        6.2,
+
+
+      /* BOTÃO LOCALIZAÇÃO */
+
+      localizacaoEsquerda:
+        51.5,
+
+
+      localizacaoTopo:
+        90.3,
+
+
+      localizacaoLargura:
+        36.5,
+
+
+      localizacaoAltura:
+        6.2,
+
+
+      /* WHATSAPP */
+
+      whatsappNumero:
+        "5561995705621",
+
+
+      whatsappMensagem:
+        "Olá! Quero confirmar minha presença no aniversário de 2 aninhos do Gabriel.",
+
+
+      /* LOCALIZAÇÃO */
+
+      localizacao:
+        "Walt Disney World Resort, Orlando, FL, USA",
 
 
       /* PULAR */
@@ -1082,9 +1080,16 @@
       );
 
 
-    /* ==========================================
-       URLs
-    ========================================== */
+    const botaoConfirmar =
+      document.getElementById(
+        "botaoConfirmar"
+      );
+
+
+    const botaoLocalizacao =
+      document.getElementById(
+        "botaoLocalizacao"
+      );
 
 
     const versao =
@@ -1098,7 +1103,6 @@
 
     function imagemUrl(nome) {
 
-
       return (
 
         "imagens/" +
@@ -1109,12 +1113,10 @@
 
       );
 
-
     }
 
 
     function midiaUrl(nome) {
-
 
       return (
 
@@ -1132,168 +1134,426 @@
 
       );
 
-
     }
 
 
-    /* ==========================================
+    /* ==================================================
        ARQUIVOS
-    ========================================== */
+    ================================================== */
 
 
     capa.src =
-
       imagemUrl(
         CONFIG.capaArquivo
       );
 
 
     estrela.src =
-
       imagemUrl(
         CONFIG.estrelaArquivo
       );
 
 
     final.src =
-
       imagemUrl(
         CONFIG.finalArquivo
       );
 
 
     video.src =
-
       midiaUrl(
         CONFIG.videoArquivo
       );
 
 
     musica.src =
-
       midiaUrl(
         CONFIG.musicaArquivo
       );
 
 
-    /* ==========================================
-       POSIÇÕES
-    ========================================== */
+    /* ==================================================
+       MAPEAR COORDENADAS NA IMAGEM COM OBJECT-FIT COVER
+    ================================================== */
 
 
-    function aplicarPosicoes() {
+    function obterAreaRenderizada(imagem) {
 
 
-      estrela.style.left =
-
-        CONFIG.estrelaEsquerda +
-
-        "%";
+      const palco =
+        experiencia.getBoundingClientRect();
 
 
-      estrela.style.top =
-
-        CONFIG.estrelaTopo +
-
-        "%";
+      const larguraNatural =
+        imagem.naturalWidth;
 
 
-      estrela.style.width =
-
-        CONFIG.estrelaLargura +
-
-        "%";
+      const alturaNatural =
+        imagem.naturalHeight;
 
 
-      zonaCastelo.style.left =
+      if (
+        !larguraNatural ||
+        !alturaNatural
+      ) {
 
-        CONFIG.casteloEsquerda +
+        return null;
 
-        "%";
-
-
-      zonaCastelo.style.top =
-
-        CONFIG.casteloTopo +
-
-        "%";
+      }
 
 
-      zonaCastelo.style.width =
+      const escala =
 
-        CONFIG.casteloLargura +
+        Math.max(
 
-        "%";
+          palco.width /
+          larguraNatural,
+
+          palco.height /
+          alturaNatural
+
+        );
 
 
-      zonaCastelo.style.height =
+      const largura =
 
-        CONFIG.casteloAltura +
+        larguraNatural *
+        escala;
 
-        "%";
+
+      const altura =
+
+        alturaNatural *
+        escala;
 
 
-      haloCastelo.style.left =
+      const esquerda =
 
         (
-
-          CONFIG.casteloEsquerda +
-
-          CONFIG.casteloLargura / 2
-
-        ) +
-
-        "%";
+          palco.width -
+          largura
+        ) / 2;
 
 
-      haloCastelo.style.top =
+      const topo =
 
         (
-
-          CONFIG.casteloTopo +
-
-          CONFIG.casteloAltura / 2
-
-        ) +
-
-        "%";
+          palco.height -
+          altura
+        ) / 2;
 
 
-      flash.style.left =
+      return {
 
-        (
+        esquerda,
+        topo,
+        largura,
+        altura
 
-          CONFIG.casteloEsquerda +
-
-          CONFIG.casteloLargura / 2
-
-        ) +
-
-        "%";
-
-
-      flash.style.top =
-
-        (
-
-          CONFIG.casteloTopo +
-
-          CONFIG.casteloAltura / 2
-
-        ) +
-
-        "%";
+      };
 
 
     }
 
 
-    aplicarPosicoes();
+    function posicionarNaImagem(
+      elemento,
+      imagem,
+      esquerdaPct,
+      topoPct,
+      larguraPct,
+      alturaPct
+    ) {
 
 
-    /* ==========================================
+      const area =
+        obterAreaRenderizada(
+          imagem
+        );
+
+
+      if (!area) {
+
+        return;
+
+      }
+
+
+      elemento.style.left =
+
+        (
+          area.esquerda +
+
+          area.largura *
+
+          esquerdaPct /
+          100
+
+        ) +
+        "px";
+
+
+      elemento.style.top =
+
+        (
+          area.topo +
+
+          area.altura *
+
+          topoPct /
+          100
+
+        ) +
+        "px";
+
+
+      elemento.style.width =
+
+        (
+          area.largura *
+
+          larguraPct /
+          100
+
+        ) +
+        "px";
+
+
+      if (
+        alturaPct !== null &&
+        alturaPct !== undefined
+      ) {
+
+
+        elemento.style.height =
+
+          (
+            area.altura *
+
+            alturaPct /
+            100
+
+          ) +
+          "px";
+
+
+      }
+
+
+    }
+
+
+    /* ==================================================
+       LAYOUT
+    ================================================== */
+
+
+    function aplicarLayout() {
+
+
+      posicionarNaImagem(
+
+        estrela,
+        capa,
+
+        CONFIG.estrelaEsquerda,
+        CONFIG.estrelaTopo,
+        CONFIG.estrelaLargura,
+        null
+
+      );
+
+
+      posicionarNaImagem(
+
+        zonaCastelo,
+        capa,
+
+        CONFIG.casteloEsquerda,
+        CONFIG.casteloTopo,
+        CONFIG.casteloLargura,
+        CONFIG.casteloAltura
+
+      );
+
+
+      const zona =
+
+        zonaCastelo
+          .getBoundingClientRect();
+
+
+      const palco =
+
+        experiencia
+          .getBoundingClientRect();
+
+
+      if (
+        zona.width &&
+        zona.height
+      ) {
+
+
+        const tamanhoHalo =
+
+          Math.max(
+            zona.width,
+            zona.height
+          ) *
+          1.1;
+
+
+        haloCastelo.style.left =
+
+          (
+            zona.left -
+            palco.left +
+
+            zona.width /
+            2 -
+
+            tamanhoHalo /
+            2
+
+          ) +
+          "px";
+
+
+        haloCastelo.style.top =
+
+          (
+            zona.top -
+            palco.top +
+
+            zona.height /
+            2 -
+
+            tamanhoHalo /
+            2
+
+          ) +
+          "px";
+
+
+        haloCastelo.style.width =
+
+          tamanhoHalo +
+          "px";
+
+
+        haloCastelo.style.height =
+
+          tamanhoHalo +
+          "px";
+
+
+        flash.style.left =
+
+          (
+            zona.left -
+            palco.left +
+
+            zona.width /
+            2 -
+
+            tamanhoHalo /
+            2
+
+          ) +
+          "px";
+
+
+        flash.style.top =
+
+          (
+            zona.top -
+            palco.top +
+
+            zona.height /
+            2 -
+
+            tamanhoHalo /
+            2
+
+          ) +
+          "px";
+
+
+        flash.style.width =
+
+          tamanhoHalo +
+          "px";
+
+
+        flash.style.height =
+
+          tamanhoHalo +
+          "px";
+
+
+      }
+
+
+      posicionarNaImagem(
+
+        botaoConfirmar,
+        final,
+
+        CONFIG.confirmarEsquerda,
+        CONFIG.confirmarTopo,
+        CONFIG.confirmarLargura,
+        CONFIG.confirmarAltura
+
+      );
+
+
+      posicionarNaImagem(
+
+        botaoLocalizacao,
+        final,
+
+        CONFIG.localizacaoEsquerda,
+        CONFIG.localizacaoTopo,
+        CONFIG.localizacaoLargura,
+        CONFIG.localizacaoAltura
+
+      );
+
+
+    }
+
+
+    capa.addEventListener(
+
+      "load",
+
+      aplicarLayout
+
+    );
+
+
+    final.addEventListener(
+
+      "load",
+
+      aplicarLayout
+
+    );
+
+
+    window.addEventListener(
+
+      "resize",
+
+      aplicarLayout
+
+    );
+
+
+    /* ==================================================
        ESTADO
-    ========================================== */
+    ================================================== */
 
 
     let arrastando =
@@ -1320,6 +1580,10 @@
       0;
 
 
+    let timerPular =
+      null;
+
+
     let estavaTocandoAntesDeSair =
       false;
 
@@ -1328,25 +1592,15 @@
       false;
 
 
-    let musicaAtiva =
-      false;
-
-
-    let timerPular =
-      null;
-
-
-    /* ==========================================
-       ARRASTAR ESTRELA
-    ========================================== */
+    /* ==================================================
+       ESTRELA
+    ================================================== */
 
 
     function iniciarArraste(event) {
 
 
-      if (
-        ativado
-      ) {
+      if (ativado) {
 
         return;
 
@@ -1359,20 +1613,19 @@
 
       const rect =
 
-        estrela.getBoundingClientRect();
+        estrela
+          .getBoundingClientRect();
 
 
       offsetX =
 
         event.clientX -
-
         rect.left;
 
 
       offsetY =
 
         event.clientY -
-
         rect.top;
 
 
@@ -1393,11 +1646,9 @@
 
       try {
 
-
         estrela.setPointerCapture(
           event.pointerId
         );
-
 
       }
 
@@ -1414,11 +1665,8 @@
 
 
       if (
-
         !arrastando ||
-
         ativado
-
       ) {
 
         return;
@@ -1428,24 +1676,21 @@
 
       const palco =
 
-        experiencia.getBoundingClientRect();
+        experiencia
+          .getBoundingClientRect();
 
 
       let esquerda =
 
         event.clientX -
-
         palco.left -
-
         offsetX;
 
 
       let topo =
 
         event.clientY -
-
         palco.top -
-
         offsetY;
 
 
@@ -1460,7 +1705,6 @@
             esquerda,
 
             palco.width -
-
             estrela.offsetWidth
 
           )
@@ -1479,7 +1723,6 @@
             topo,
 
             palco.height -
-
             estrela.offsetHeight
 
           )
@@ -1490,14 +1733,12 @@
       estrela.style.left =
 
         esquerda +
-
         "px";
 
 
       estrela.style.top =
 
         topo +
-
         "px";
 
 
@@ -1514,11 +1755,8 @@
 
 
       if (
-
         !arrastando ||
-
         ativado
-
       ) {
 
         return;
@@ -1541,9 +1779,7 @@
 
 
       if (
-
         estrelaSobreCastelo()
-
       ) {
 
 
@@ -1563,11 +1799,9 @@
 
       try {
 
-
         estrela.releasePointerCapture(
           event.pointerId
         );
-
 
       }
 
@@ -1577,36 +1811,35 @@
     }
 
 
-    /* ==========================================
-       DETECTAR CASTELO
-    ========================================== */
-
-
     function estrelaSobreCastelo() {
 
 
       const estrelaRect =
 
-        estrela.getBoundingClientRect();
+        estrela
+          .getBoundingClientRect();
 
 
       const casteloRect =
 
-        zonaCastelo.getBoundingClientRect();
+        zonaCastelo
+          .getBoundingClientRect();
 
 
       const centroX =
 
         estrelaRect.left +
 
-        estrelaRect.width / 2;
+        estrelaRect.width /
+        2;
 
 
       const centroY =
 
         estrelaRect.top +
 
-        estrelaRect.height / 2;
+        estrelaRect.height /
+        2;
 
 
       return (
@@ -1633,15 +1866,15 @@
 
 
       if (
-
         estrelaSobreCastelo()
-
       ) {
 
 
-        haloCastelo.classList.add(
-          "ativo"
-        );
+        haloCastelo
+          .classList
+          .add(
+            "ativo"
+          );
 
 
       }
@@ -1649,20 +1882,17 @@
       else {
 
 
-        haloCastelo.classList.remove(
-          "ativo"
-        );
+        haloCastelo
+          .classList
+          .remove(
+            "ativo"
+          );
 
 
       }
 
 
     }
-
-
-    /* ==========================================
-       VOLTAR ESTRELA
-    ========================================== */
 
 
     function voltarEstrela() {
@@ -1678,14 +1908,12 @@
       estrela.style.left =
 
         inicioLeft +
-
         "px";
 
 
       estrela.style.top =
 
         inicioTop +
-
         "px";
 
 
@@ -1698,12 +1926,12 @@
             "";
 
 
-          aplicarPosicoes();
+          aplicarLayout();
 
 
         },
 
-        440
+        450
 
       );
 
@@ -1711,17 +1939,15 @@
     }
 
 
-    /* ==========================================
-       ATIVAÇÃO
-    ========================================== */
+    /* ==================================================
+       ATIVAR
+    ================================================== */
 
 
     function ativarMagia() {
 
 
-      if (
-        ativado
-      ) {
+      if (ativado) {
 
         return;
 
@@ -1734,34 +1960,38 @@
 
       const palco =
 
-        experiencia.getBoundingClientRect();
+        experiencia
+          .getBoundingClientRect();
 
 
       const destino =
 
-        zonaCastelo.getBoundingClientRect();
+        zonaCastelo
+          .getBoundingClientRect();
 
 
       const esquerdaFinal =
 
         destino.left -
-
         palco.left +
 
-        destino.width / 2 -
+        destino.width /
+        2 -
 
-        estrela.offsetWidth / 2;
+        estrela.offsetWidth /
+        2;
 
 
       const topoFinal =
 
         destino.top -
-
         palco.top +
 
-        destino.height / 2 -
+        destino.height /
+        2 -
 
-        estrela.offsetHeight / 2;
+        estrela.offsetHeight /
+        2;
 
 
       estrela.classList.add(
@@ -1781,14 +2011,12 @@
       estrela.style.left =
 
         esquerdaFinal +
-
         "px";
 
 
       estrela.style.top =
 
         topoFinal +
-
         "px";
 
 
@@ -1797,7 +2025,7 @@
       );
 
 
-      prepararEIniciarVideo();
+      iniciarMidias();
 
 
       flash.classList.add(
@@ -1810,9 +2038,11 @@
         () => {
 
 
-          capaTela.classList.add(
-            "saindo"
-          );
+          capaTela
+            .classList
+            .add(
+              "saindo"
+            );
 
 
         },
@@ -1833,7 +2063,7 @@
 
         },
 
-        360
+        370
 
       );
 
@@ -1841,12 +2071,12 @@
     }
 
 
-    /* ==========================================
+    /* ==================================================
        VÍDEO + MÚSICA
-    ========================================== */
+    ================================================== */
 
 
-    function prepararEIniciarVideo() {
+    function iniciarMidias() {
 
 
       videoTela.style.display =
@@ -1865,11 +2095,6 @@
         1;
 
 
-      /* Música começa no mesmo gesto da estrela.
-         Durante o vídeo fica quase inaudível
-         para não competir com as locuções. */
-
-
       try {
 
 
@@ -1886,68 +2111,15 @@
         0.001;
 
 
-      const tentativaMusica =
-
-        musica.play();
-
-
-      if (
-
-        tentativaMusica &&
-
-        typeof tentativaMusica.catch ===
-        "function"
-
-      ) {
+      musica.play()
+        .catch(
+          () => {}
+        );
 
 
-        tentativaMusica
+      video.play()
 
-          .then(
-            () => {
-
-
-              musicaAtiva =
-                true;
-
-
-            }
-          )
-
-          .catch(
-            () => {
-
-
-              musicaAtiva =
-                false;
-
-
-            }
-          );
-
-
-      }
-
-
-      iniciarTimerPular();
-
-
-      const tentativa =
-
-        video.play();
-
-
-      if (
-
-        tentativa &&
-
-        typeof tentativa.catch ===
-        "function"
-
-      ) {
-
-
-        tentativa.catch(
+        .catch(
 
           () => {
 
@@ -1961,24 +2133,17 @@
         );
 
 
-      }
+      iniciarTimerPular();
 
 
     }
-
-
-    /* ==========================================
-       PULAR
-    ========================================== */
 
 
     function iniciarTimerPular() {
 
 
       if (
-
         !CONFIG.mostrarPular
-
       ) {
 
         return;
@@ -1999,10 +2164,8 @@
 
 
             if (
-
               videoTela.style.display ===
               "block"
-
             ) {
 
 
@@ -2021,11 +2184,6 @@
 
 
     }
-
-
-    /* ==========================================
-       EVENTOS DO VÍDEO
-    ========================================== */
 
 
     video.addEventListener(
@@ -2056,9 +2214,7 @@
 
 
         if (
-
           !video.ended
-
         ) {
 
 
@@ -2119,11 +2275,6 @@
     );
 
 
-    /* ==========================================
-       FALLBACK
-    ========================================== */
-
-
     continuar.addEventListener(
 
       "click",
@@ -2139,25 +2290,11 @@
 
 
           if (
-
             musica.paused
-
           ) {
 
 
-            try {
-
-
-              await musica.play();
-
-
-              musicaAtiva =
-                true;
-
-
-            }
-
-            catch (_) {}
+            await musica.play();
 
 
           }
@@ -2182,9 +2319,9 @@
     );
 
 
-    /* ==========================================
+    /* ==================================================
        FINAL
-    ========================================== */
+    ================================================== */
 
 
     function mostrarFinal() {
@@ -2210,34 +2347,16 @@
       video.pause();
 
 
-      /* A música continua do ponto em que chegou
-         e sobe para o volume final. */
-
-
       musica.volume =
         CONFIG.musicaVolume;
 
 
       if (
-
         musica.paused
-
       ) {
 
 
         musica.play()
-
-          .then(
-            () => {
-
-
-              musicaAtiva =
-                true;
-
-
-            }
-          )
-
           .catch(
             () => {}
           );
@@ -2254,14 +2373,19 @@
         "block";
 
 
+      aplicarLayout();
+
+
       requestAnimationFrame(
 
         () => {
 
 
-          finalTela.classList.add(
-            "ativo"
-          );
+          finalTela
+            .classList
+            .add(
+              "ativo"
+            );
 
 
         }
@@ -2281,9 +2405,73 @@
     );
 
 
-    /* ==========================================
-       PAUSAR AO SAIR DO APP
-    ========================================== */
+    /* ==================================================
+       WHATSAPP
+    ================================================== */
+
+
+    botaoConfirmar.addEventListener(
+
+      "click",
+
+      () => {
+
+
+        const link =
+
+          "https://wa.me/" +
+
+          CONFIG.whatsappNumero +
+
+          "?text=" +
+
+          encodeURIComponent(
+            CONFIG.whatsappMensagem
+          );
+
+
+        window.location.href =
+          link;
+
+
+      }
+
+    );
+
+
+    /* ==================================================
+       LOCALIZAÇÃO
+    ================================================== */
+
+
+    botaoLocalizacao.addEventListener(
+
+      "click",
+
+      () => {
+
+
+        const link =
+
+          "https://www.google.com/maps/search/?api=1&query=" +
+
+          encodeURIComponent(
+            CONFIG.localizacao
+          );
+
+
+        window.location.href =
+          link;
+
+
+      }
+
+    );
+
+
+    /* ==================================================
+       SAIR / VOLTAR AO APP
+    ================================================== */
 
 
     document.addEventListener(
@@ -2294,9 +2482,7 @@
 
 
         if (
-
           document.hidden
-
         ) {
 
 
@@ -2316,9 +2502,7 @@
 
 
           if (
-
             estavaTocandoAntesDeSair
-
           ) {
 
 
@@ -2329,9 +2513,7 @@
 
 
           if (
-
             musicaEstavaTocandoAntesDeSair
-
           ) {
 
 
@@ -2347,17 +2529,13 @@
 
 
           if (
-
             estavaTocandoAntesDeSair
-
           ) {
 
 
             try {
 
-
               await video.play();
-
 
             }
 
@@ -2368,21 +2546,13 @@
 
 
           if (
-
             musicaEstavaTocandoAntesDeSair
-
           ) {
 
 
             try {
 
-
               await musica.play();
-
-
-              musicaAtiva =
-                true;
-
 
             }
 
@@ -2408,9 +2578,9 @@
     );
 
 
-    /* ==========================================
+    /* ==================================================
        EVENTOS DA ESTRELA
-    ========================================== */
+    ================================================== */
 
 
     estrela.addEventListener(
@@ -2453,11 +2623,6 @@
     );
 
 
-    /* ==========================================
-       TECLADO
-    ========================================== */
-
-
     estrela.addEventListener(
 
       "keydown",
@@ -2475,10 +2640,8 @@
 
 
         if (
-
           event.key ===
           "Enter"
-
         ) {
 
 
@@ -2496,9 +2659,9 @@
     );
 
 
-    /* ==========================================
+    /* ==================================================
        BLOQUEIOS CASUAIS
-    ========================================== */
+    ================================================== */
 
 
     document.addEventListener(
@@ -2507,9 +2670,7 @@
 
       event => {
 
-
         event.preventDefault();
-
 
       }
 
@@ -2522,9 +2683,7 @@
 
       event => {
 
-
         event.preventDefault();
-
 
       }
 
@@ -2537,22 +2696,19 @@
 
       event => {
 
-
         event.preventDefault();
-
 
       }
 
     );
 
 
-    /* ==========================================
-       PRÉ-CARREGAMENTO
-    ========================================== */
+    /* ==================================================
+       PRELOAD
+    ================================================== */
 
 
     video.load();
-
 
     musica.load();
 
@@ -2562,7 +2718,6 @@
 
 
     preloadFinal.src =
-
       imagemUrl(
         CONFIG.finalArquivo
       );

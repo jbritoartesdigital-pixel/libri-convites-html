@@ -53,12 +53,18 @@
       linkConfirmacao: "https://confirmar-libriconvites-com-br-235139281365.us-east1.run.app/confirmar/cecilia-1-aninho",
       linkLocalizacao: "https://maps.app.goo.gl/WRfgrEp4aG5ks3Kw6",
 
+      /*
+         IMPORTANTE:
+         Informe SOMENTE o nome-base, sem .png ou .jpg.
+         O motor procura automaticamente nesta ordem:
+         .png → .jpg → .jpeg
+      */
       imagens: {
-        capa: "imagens/capa.png",
-        final: "imagens/final.png",
-        presentes: "imagens/presentes.png",
-        confirmacao: "imagens/confirmacao.png",
-        localizacao: "imagens/localizacao.png"
+        capa: "imagens/capa",
+        final: "imagens/final",
+        presentes: "imagens/presentes",
+        confirmacao: "imagens/confirmacao",
+        localizacao: "imagens/localizacao"
       },
 
       hotspotsFinal: {
@@ -502,6 +508,8 @@
       let videoEstavaTocando = false;
       let musicaEstavaTocando = false;
 
+      const EXTENSOES_IMAGEM = [".png", ".jpg", ".jpeg"];
+
       const urlLocal = (caminho) =>
         `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
 
@@ -515,20 +523,59 @@
         elemento.style.height = posicao.height;
       }
 
+      function carregarImagemFlexivel(elemento, caminhoBase) {
+        return new Promise((resolve) => {
+          let indice = 0;
+
+          const tentarProxima = () => {
+            if (indice >= EXTENSOES_IMAGEM.length) {
+              elemento.onload = null;
+              elemento.onerror = null;
+              console.error(`Imagem não encontrada: ${caminhoBase} (.png/.jpg/.jpeg)`);
+              resolve(false);
+              return;
+            }
+
+            const extensao = EXTENSOES_IMAGEM[indice++];
+            const caminho = `${caminhoBase}${extensao}`;
+
+            elemento.onload = async () => {
+              elemento.onload = null;
+              elemento.onerror = null;
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            elemento.onerror = tentarProxima;
+            elemento.src = urlLocal(caminho);
+          };
+
+          tentarProxima();
+        });
+      }
+
       function configurarArquivos() {
         document.title = CONFIG.titulo;
 
-        capa.src = urlLocal(CONFIG.imagens.capa);
-        final.src = urlLocal(CONFIG.imagens.final);
-        imagemPresentes.src = urlLocal(CONFIG.imagens.presentes);
-        imagemConfirmacao.src = urlLocal(CONFIG.imagens.confirmacao);
-        imagemLocalizacao.src = urlLocal(CONFIG.imagens.localizacao);
+        const carregamentos = {
+          capa: carregarImagemFlexivel(capa, CONFIG.imagens.capa),
+          final: carregarImagemFlexivel(final, CONFIG.imagens.final),
+          presentes: carregarImagemFlexivel(imagemPresentes, CONFIG.imagens.presentes),
+          confirmacao: carregarImagemFlexivel(imagemConfirmacao, CONFIG.imagens.confirmacao),
+          localizacao: carregarImagemFlexivel(imagemLocalizacao, CONFIG.imagens.localizacao)
+        };
 
         video.src = urlMidia(CONFIG.videoArquivo);
         musica.src = urlMidia(CONFIG.musicaArquivo);
 
         video.load();
         musica.load();
+
+        return carregamentos;
       }
 
       function configurarHotspots() {
@@ -544,29 +591,15 @@
         aplicarPosicao(botaoAbrirMapa, CONFIG.hotspotsPaginas.mapa);
       }
 
-      async function prepararImagemFinal() {
-        try {
-          if (!final.complete) {
-            await new Promise((resolve) => {
-              final.addEventListener("load", resolve, { once: true });
-              final.addEventListener("error", resolve, { once: true });
-            });
-          }
+      let carregamentosImagem = null;
 
-          if (typeof final.decode === "function") {
-            await final.decode().catch(() => {});
-          }
-        } catch (_) {
-          // Se decode não estiver disponível, o navegador segue normalmente.
-        }
+      function prepararArquivos() {
+        carregamentosImagem = configurarArquivos();
       }
 
-      function prepararPaginasInternas() {
-        [imagemPresentes, imagemConfirmacao, imagemLocalizacao].forEach((imagem) => {
-          if (typeof imagem.decode === "function") {
-            imagem.decode().catch(() => {});
-          }
-        });
+      async function esperarImagemFinal() {
+        if (!carregamentosImagem) return;
+        await carregamentosImagem.final.catch(() => false);
       }
 
       function esconderCapa() {
@@ -608,8 +641,8 @@
             await tentativaVideo;
           }
         } catch (_) {
+          await ativarFinal(true);
           esconderCapa();
-          ativarFinal(true);
           return;
         }
 
@@ -653,9 +686,12 @@
         rafFimVideo = requestAnimationFrame(observar);
       }
 
-      function preRevelarFinal() {
+      async function preRevelarFinal() {
         if (preRevelacaoFeita || finalMostrado) return;
         preRevelacaoFeita = true;
+
+        await esperarImagemFinal();
+        if (finalMostrado) return;
 
         finalTela.style.visibility = "visible";
         finalTela.classList.add("preRevelado");
@@ -690,7 +726,7 @@
         }
       }
 
-      function ativarFinal(foiPulado = false) {
+      async function ativarFinal(foiPulado = false) {
         if (finalMostrado) return;
         finalMostrado = true;
 
@@ -701,6 +737,10 @@
         const tempoVideo = Number.isFinite(video.currentTime)
           ? video.currentTime
           : 0;
+
+        // Mantém o vídeo/último frame na tela até a arte final estar realmente pronta.
+        // Isso evita tanto o flash preto quanto um flash de imagem vazia.
+        await esperarImagemFinal();
 
         video.pause();
 
@@ -783,10 +823,10 @@
 
       video.addEventListener("playing", esconderCapa);
       video.addEventListener("ended", () => ativarFinal(false));
-      video.addEventListener("error", () => {
+      video.addEventListener("error", async () => {
         if (conviteAberto && !finalMostrado) {
+          await ativarFinal(true);
           esconderCapa();
-          ativarFinal(true);
         }
       });
 
@@ -830,10 +870,8 @@
       // INICIALIZAÇÃO
       // =========================
 
-      configurarArquivos();
+      prepararArquivos();
       configurarHotspots();
-      prepararImagemFinal();
-      prepararPaginasInternas();
     })();
   </script>
 </body>

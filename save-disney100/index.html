@@ -17,9 +17,7 @@
     content="noindex,nofollow,noarchive,noimageindex"
   >
 
-  <!-- ==========================================
-       OPEN GRAPH
-  =========================================== -->
+  <!-- OPEN GRAPH -->
 
   <meta property="og:type" content="website">
 
@@ -46,9 +44,7 @@
   >
 
 
-  <!-- ==========================================
-       TWITTER / WHATSAPP PREVIEW
-  =========================================== -->
+  <!-- TWITTER -->
 
   <meta
     name="twitter:card"
@@ -74,10 +70,12 @@
   <style>
 
     * {
+
       box-sizing: border-box;
 
       -webkit-tap-highlight-color:
         transparent;
+
     }
 
 
@@ -117,8 +115,8 @@
 
 
     /* ==========================================
-       PALCO VERTICAL 9:16
-    =========================================== */
+       PALCO 9:16
+    ========================================== */
 
     #experiencia {
 
@@ -174,7 +172,7 @@
 
     /* ==========================================
        CAPA
-    =========================================== */
+    ========================================== */
 
     #capaTela {
 
@@ -220,7 +218,7 @@
 
     /* ==========================================
        ESTRELA
-    =========================================== */
+    ========================================== */
 
     #estrela {
 
@@ -276,7 +274,8 @@
 
       animation: none;
 
-      transform: scale(1.13);
+      transform:
+        scale(1.13);
 
       filter:
 
@@ -304,7 +303,8 @@
 
       pointer-events: none;
 
-      transform: scale(.92);
+      transform:
+        scale(.92);
 
       filter:
 
@@ -326,14 +326,16 @@
       0%,
       100% {
 
-        transform: scale(1);
+        transform:
+          scale(1);
 
       }
 
 
       50% {
 
-        transform: scale(1.08);
+        transform:
+          scale(1.08);
 
       }
 
@@ -341,8 +343,8 @@
 
 
     /* ==========================================
-       ÁREA INVISÍVEL DA TORRE
-    =========================================== */
+       ÁREA INVISÍVEL DO CASTELO
+    ========================================== */
 
     #zonaCastelo {
 
@@ -366,8 +368,8 @@
 
 
     /* ==========================================
-       BRILHO DO ALVO
-    =========================================== */
+       HALO DO CASTELO
+    ========================================== */
 
     #haloCastelo {
 
@@ -421,8 +423,8 @@
 
 
     /* ==========================================
-       FLASH MÁGICO
-    =========================================== */
+       FLASH
+    ========================================== */
 
     #flash {
 
@@ -525,7 +527,7 @@
 
     /* ==========================================
        VÍDEO
-    =========================================== */
+    ========================================== */
 
     #videoTela {
 
@@ -559,7 +561,7 @@
 
     /* ==========================================
        PULAR
-    =========================================== */
+    ========================================== */
 
     #pular {
 
@@ -573,14 +575,16 @@
 
       display: none;
 
-      padding: 9px 15px;
+      padding:
+        9px 15px;
 
       border:
 
         1px solid
         rgba(255,255,255,.55);
 
-      border-radius: 22px;
+      border-radius:
+        22px;
 
       background:
         rgba(3,5,17,.52);
@@ -597,7 +601,8 @@
         Arial,
         sans-serif;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
       cursor: pointer;
 
@@ -606,7 +611,7 @@
 
     /* ==========================================
        CARREGANDO
-    =========================================== */
+    ========================================== */
 
     #carregando {
 
@@ -631,9 +636,11 @@
         Arial,
         sans-serif;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      letter-spacing: .04em;
+      letter-spacing:
+        .04em;
 
       pointer-events: none;
 
@@ -641,8 +648,8 @@
 
 
     /* ==========================================
-       FALLBACK DO PLAY
-    =========================================== */
+       FALLBACK
+    ========================================== */
 
     #continuar {
 
@@ -668,14 +675,16 @@
 
     #continuar span {
 
-      padding: 12px 20px;
+      padding:
+        12px 20px;
 
       border:
 
         1px solid
         rgba(255,255,255,.55);
 
-      border-radius: 25px;
+      border-radius:
+        25px;
 
       background:
         rgba(7,9,24,.67);
@@ -689,14 +698,15 @@
         Arial,
         sans-serif;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
     }
 
 
     /* ==========================================
-       CARD FINAL
-    =========================================== */
+       FINAL
+    ========================================== */
 
     #finalTela {
 
@@ -706,7 +716,8 @@
 
       opacity: 0;
 
-      background: #040611;
+      background:
+        #040611;
 
       transition:
         opacity 500ms ease;
@@ -749,9 +760,7 @@
   <main id="experiencia">
 
 
-    <!-- ======================================
-         CAPA
-    ======================================= -->
+    <!-- CAPA -->
 
     <section
       id="capaTela"
@@ -766,23 +775,17 @@
       >
 
 
-      <!-- ZONA INVISÍVEL DO CASTELO -->
-
       <div
         id="zonaCastelo"
         aria-hidden="true"
       ></div>
 
 
-      <!-- HALO DE PROXIMIDADE -->
-
       <div
         id="haloCastelo"
         aria-hidden="true"
       ></div>
 
-
-      <!-- ESTRELA ARRASTÁVEL -->
 
       <img
         id="estrela"
@@ -797,7 +800,7 @@
     </section>
 
 
-    <!-- FLASH FICA FORA DA CAPA -->
+    <!-- FLASH -->
 
     <div
       id="flash"
@@ -805,9 +808,7 @@
     ></div>
 
 
-    <!-- ======================================
-         VÍDEO
-    ======================================= -->
+    <!-- VÍDEO -->
 
     <section
       id="videoTela"
@@ -825,28 +826,34 @@
 
 
       <div id="pular">
+
         Pular
+
       </div>
 
 
       <div id="carregando">
+
         Carregando...
+
       </div>
 
 
       <div id="continuar">
+
         <span>
+
           Toque para continuar
+
         </span>
+
       </div>
 
 
     </section>
 
 
-    <!-- ======================================
-         FINAL
-    ======================================= -->
+    <!-- FINAL -->
 
     <section
       id="finalTela"
@@ -864,6 +871,14 @@
     </section>
 
 
+    <!-- MÚSICA -->
+
+    <audio
+      id="musica"
+      preload="auto"
+    ></audio>
+
+
   </main>
 
 
@@ -879,9 +894,7 @@
     const CONFIG = {
 
 
-      /* ======================================
-         PASTA
-      ======================================= */
+      /* PASTA */
 
       pastaCliente:
         "save-disney100",
@@ -895,9 +908,7 @@
         "1",
 
 
-      /* ======================================
-         IMAGENS NO GITHUB
-      ======================================= */
+      /* IMAGENS NO GITHUB */
 
       capaArquivo:
         "capa.jpg",
@@ -911,17 +922,27 @@
         "final.jpg",
 
 
-      /* ======================================
-         VÍDEO NO R2
-      ======================================= */
+      /* VÍDEO NO R2 */
 
       videoArquivo:
         "abertura.mp4",
 
 
-      /* ======================================
-         POSIÇÃO INICIAL DA ESTRELA
-      ======================================= */
+      /* MÚSICA NO R2 */
+
+      musicaArquivo:
+        "Disneyinstrumental.mp3",
+
+
+      musicaInicio:
+        0,
+
+
+      musicaVolume:
+        0.35,
+
+
+      /* POSIÇÃO DA ESTRELA */
 
       estrelaEsquerda:
         42,
@@ -935,9 +956,7 @@
         16,
 
 
-      /* ======================================
-         ÁREA DA TORRE DO CASTELO
-      ======================================= */
+      /* ÁREA DO CASTELO */
 
       casteloEsquerda:
         43,
@@ -955,9 +974,7 @@
         20,
 
 
-      /* ======================================
-         BOTÃO PULAR
-      ======================================= */
+      /* PULAR */
 
       mostrarPular:
         true,
@@ -1029,6 +1046,12 @@
       );
 
 
+    const musica =
+      document.getElementById(
+        "musica"
+      );
+
+
     const pular =
       document.getElementById(
         "pular"
@@ -1059,13 +1082,15 @@
       );
 
 
-    /* ==================================================
+    /* ==========================================
        URLs
-    ================================================== */
+    ========================================== */
 
 
     const versao =
+
       "?v=" +
+
       encodeURIComponent(
         CONFIG.versaoArquivos
       );
@@ -1073,16 +1098,23 @@
 
     function imagemUrl(nome) {
 
+
       return (
+
         "imagens/" +
+
         nome +
+
         versao
+
       );
+
 
     }
 
 
     function midiaUrl(nome) {
+
 
       return (
 
@@ -1100,114 +1132,156 @@
 
       );
 
+
     }
 
 
-    /* ==================================================
-       CARREGAR ARQUIVOS
-    ================================================== */
+    /* ==========================================
+       ARQUIVOS
+    ========================================== */
 
 
     capa.src =
+
       imagemUrl(
         CONFIG.capaArquivo
       );
 
 
     estrela.src =
+
       imagemUrl(
         CONFIG.estrelaArquivo
       );
 
 
     final.src =
+
       imagemUrl(
         CONFIG.finalArquivo
       );
 
 
     video.src =
+
       midiaUrl(
         CONFIG.videoArquivo
       );
 
 
-    /* ==================================================
+    musica.src =
+
+      midiaUrl(
+        CONFIG.musicaArquivo
+      );
+
+
+    /* ==========================================
        POSIÇÕES
-    ================================================== */
+    ========================================== */
 
 
     function aplicarPosicoes() {
 
 
       estrela.style.left =
+
         CONFIG.estrelaEsquerda +
+
         "%";
 
 
       estrela.style.top =
+
         CONFIG.estrelaTopo +
+
         "%";
 
 
       estrela.style.width =
+
         CONFIG.estrelaLargura +
+
         "%";
 
 
       zonaCastelo.style.left =
+
         CONFIG.casteloEsquerda +
+
         "%";
 
 
       zonaCastelo.style.top =
+
         CONFIG.casteloTopo +
+
         "%";
 
 
       zonaCastelo.style.width =
+
         CONFIG.casteloLargura +
+
         "%";
 
 
       zonaCastelo.style.height =
+
         CONFIG.casteloAltura +
+
         "%";
 
 
       haloCastelo.style.left =
 
         (
+
           CONFIG.casteloEsquerda +
+
           CONFIG.casteloLargura / 2
+
         ) +
+
         "%";
 
 
       haloCastelo.style.top =
 
         (
+
           CONFIG.casteloTopo +
+
           CONFIG.casteloAltura / 2
+
         ) +
+
         "%";
 
 
       flash.style.left =
 
         (
+
           CONFIG.casteloEsquerda +
+
           CONFIG.casteloLargura / 2
+
         ) +
+
         "%";
 
 
       flash.style.top =
 
         (
+
           CONFIG.casteloTopo +
+
           CONFIG.casteloAltura / 2
+
         ) +
+
         "%";
 
 
@@ -1217,9 +1291,9 @@
     aplicarPosicoes();
 
 
-    /* ==================================================
+    /* ==========================================
        ESTADO
-    ================================================== */
+    ========================================== */
 
 
     let arrastando =
@@ -1250,20 +1324,32 @@
       false;
 
 
+    let musicaEstavaTocandoAntesDeSair =
+      false;
+
+
+    let musicaAtiva =
+      false;
+
+
     let timerPular =
       null;
 
 
-    /* ==================================================
-       ARRASTE
-    ================================================== */
+    /* ==========================================
+       ARRASTAR ESTRELA
+    ========================================== */
 
 
     function iniciarArraste(event) {
 
 
-      if (ativado) {
+      if (
+        ativado
+      ) {
+
         return;
+
       }
 
 
@@ -1272,24 +1358,31 @@
 
 
       const rect =
+
         estrela.getBoundingClientRect();
 
 
       offsetX =
+
         event.clientX -
+
         rect.left;
 
 
       offsetY =
+
         event.clientY -
+
         rect.top;
 
 
       inicioLeft =
+
         estrela.offsetLeft;
 
 
       inicioTop =
+
         estrela.offsetTop;
 
 
@@ -1300,14 +1393,19 @@
 
       try {
 
+
         estrela.setPointerCapture(
           event.pointerId
         );
 
-      } catch (_) {}
+
+      }
+
+      catch (_) {}
 
 
       event.preventDefault();
+
 
     }
 
@@ -1316,14 +1414,20 @@
 
 
       if (
+
         !arrastando ||
+
         ativado
+
       ) {
+
         return;
+
       }
 
 
       const palco =
+
         experiencia.getBoundingClientRect();
 
 
@@ -1346,6 +1450,7 @@
 
 
       esquerda =
+
         Math.max(
 
           0,
@@ -1355,6 +1460,7 @@
             esquerda,
 
             palco.width -
+
             estrela.offsetWidth
 
           )
@@ -1363,6 +1469,7 @@
 
 
       topo =
+
         Math.max(
 
           0,
@@ -1372,6 +1479,7 @@
             topo,
 
             palco.height -
+
             estrela.offsetHeight
 
           )
@@ -1380,12 +1488,16 @@
 
 
       estrela.style.left =
+
         esquerda +
+
         "px";
 
 
       estrela.style.top =
+
         topo +
+
         "px";
 
 
@@ -1394,6 +1506,7 @@
 
       event.preventDefault();
 
+
     }
 
 
@@ -1401,10 +1514,15 @@
 
 
       if (
+
         !arrastando ||
+
         ativado
+
       ) {
+
         return;
+
       }
 
 
@@ -1423,44 +1541,57 @@
 
 
       if (
+
         estrelaSobreCastelo()
+
       ) {
 
+
         ativarMagia();
+
 
       }
 
       else {
 
+
         voltarEstrela();
+
 
       }
 
 
       try {
 
+
         estrela.releasePointerCapture(
           event.pointerId
         );
 
-      } catch (_) {}
+
+      }
+
+      catch (_) {}
+
 
     }
 
 
-    /* ==================================================
+    /* ==========================================
        DETECTAR CASTELO
-    ================================================== */
+    ========================================== */
 
 
     function estrelaSobreCastelo() {
 
 
       const estrelaRect =
+
         estrela.getBoundingClientRect();
 
 
       const casteloRect =
+
         zonaCastelo.getBoundingClientRect();
 
 
@@ -1481,18 +1612,19 @@
       return (
 
         centroX >=
-          casteloRect.left &&
+        casteloRect.left &&
 
         centroX <=
-          casteloRect.right &&
+        casteloRect.right &&
 
         centroY >=
-          casteloRect.top &&
+        casteloRect.top &&
 
         centroY <=
-          casteloRect.bottom
+        casteloRect.bottom
 
       );
+
 
     }
 
@@ -1501,29 +1633,36 @@
 
 
       if (
+
         estrelaSobreCastelo()
+
       ) {
+
 
         haloCastelo.classList.add(
           "ativo"
         );
 
+
       }
 
       else {
+
 
         haloCastelo.classList.remove(
           "ativo"
         );
 
+
       }
+
 
     }
 
 
-    /* ==================================================
-       VOLTAR AO INÍCIO
-    ================================================== */
+    /* ==========================================
+       VOLTAR ESTRELA
+    ========================================== */
 
 
     function voltarEstrela() {
@@ -1537,16 +1676,21 @@
 
 
       estrela.style.left =
+
         inicioLeft +
+
         "px";
 
 
       estrela.style.top =
+
         inicioTop +
+
         "px";
 
 
       setTimeout(
+
         () => {
 
 
@@ -1563,19 +1707,24 @@
 
       );
 
+
     }
 
 
-    /* ==================================================
+    /* ==========================================
        ATIVAÇÃO
-    ================================================== */
+    ========================================== */
 
 
     function ativarMagia() {
 
 
-      if (ativado) {
+      if (
+        ativado
+      ) {
+
         return;
+
       }
 
 
@@ -1584,10 +1733,12 @@
 
 
       const palco =
+
         experiencia.getBoundingClientRect();
 
 
       const destino =
+
         zonaCastelo.getBoundingClientRect();
 
 
@@ -1628,12 +1779,16 @@
 
 
       estrela.style.left =
+
         esquerdaFinal +
+
         "px";
 
 
       estrela.style.top =
+
         topoFinal +
+
         "px";
 
 
@@ -1641,13 +1796,6 @@
         25
       );
 
-
-      /*
-        IMPORTANTE:
-        O play acontece dentro do próprio gesto
-        para aumentar compatibilidade com áudio
-        em navegadores móveis.
-      */
 
       prepararEIniciarVideo();
 
@@ -1658,6 +1806,7 @@
 
 
       setTimeout(
+
         () => {
 
 
@@ -1674,6 +1823,7 @@
 
 
       setTimeout(
+
         () => {
 
 
@@ -1687,12 +1837,13 @@
 
       );
 
+
     }
 
 
-    /* ==================================================
-       VÍDEO
-    ================================================== */
+    /* ==========================================
+       VÍDEO + MÚSICA
+    ========================================== */
 
 
     function prepararEIniciarVideo() {
@@ -1714,21 +1865,90 @@
         1;
 
 
+      /* Música começa no mesmo gesto da estrela.
+         Durante o vídeo fica quase inaudível
+         para não competir com as locuções. */
+
+
+      try {
+
+
+        musica.currentTime =
+          CONFIG.musicaInicio;
+
+
+      }
+
+      catch (_) {}
+
+
+      musica.volume =
+        0.001;
+
+
+      const tentativaMusica =
+
+        musica.play();
+
+
+      if (
+
+        tentativaMusica &&
+
+        typeof tentativaMusica.catch ===
+        "function"
+
+      ) {
+
+
+        tentativaMusica
+
+          .then(
+            () => {
+
+
+              musicaAtiva =
+                true;
+
+
+            }
+          )
+
+          .catch(
+            () => {
+
+
+              musicaAtiva =
+                false;
+
+
+            }
+          );
+
+
+      }
+
+
       iniciarTimerPular();
 
 
       const tentativa =
+
         video.play();
 
 
       if (
+
         tentativa &&
+
         typeof tentativa.catch ===
         "function"
+
       ) {
 
 
         tentativa.catch(
+
           () => {
 
 
@@ -1737,20 +1957,32 @@
 
 
           }
+
         );
+
 
       }
 
+
     }
+
+
+    /* ==========================================
+       PULAR
+    ========================================== */
 
 
     function iniciarTimerPular() {
 
 
       if (
+
         !CONFIG.mostrarPular
+
       ) {
+
         return;
+
       }
 
 
@@ -1760,13 +1992,17 @@
 
 
       timerPular =
+
         setTimeout(
+
           () => {
 
 
             if (
+
               videoTela.style.display ===
               "block"
+
             ) {
 
 
@@ -1783,11 +2019,19 @@
 
         );
 
+
     }
 
 
+    /* ==========================================
+       EVENTOS DO VÍDEO
+    ========================================== */
+
+
     video.addEventListener(
+
       "playing",
+
       () => {
 
 
@@ -1800,16 +2044,21 @@
 
 
       }
+
     );
 
 
     video.addEventListener(
+
       "waiting",
+
       () => {
 
 
         if (
+
           !video.ended
+
         ) {
 
 
@@ -1821,11 +2070,14 @@
 
 
       }
+
     );
 
 
     video.addEventListener(
+
       "canplay",
+
       () => {
 
 
@@ -1834,17 +2086,23 @@
 
 
       }
+
     );
 
 
     video.addEventListener(
+
       "ended",
+
       mostrarFinal
+
     );
 
 
     video.addEventListener(
+
       "error",
+
       () => {
 
 
@@ -1857,16 +2115,19 @@
 
 
       }
+
     );
 
 
-    /* ==================================================
-       TOQUE PARA CONTINUAR
-    ================================================== */
+    /* ==========================================
+       FALLBACK
+    ========================================== */
 
 
     continuar.addEventListener(
+
       "click",
+
       async () => {
 
 
@@ -1875,6 +2136,31 @@
 
 
         try {
+
+
+          if (
+
+            musica.paused
+
+          ) {
+
+
+            try {
+
+
+              await musica.play();
+
+
+              musicaAtiva =
+                true;
+
+
+            }
+
+            catch (_) {}
+
+
+          }
 
 
           await video.play();
@@ -1892,12 +2178,13 @@
 
 
       }
+
     );
 
 
-    /* ==================================================
+    /* ==========================================
        FINAL
-    ================================================== */
+    ========================================== */
 
 
     function mostrarFinal() {
@@ -1923,6 +2210,42 @@
       video.pause();
 
 
+      /* A música continua do ponto em que chegou
+         e sobe para o volume final. */
+
+
+      musica.volume =
+        CONFIG.musicaVolume;
+
+
+      if (
+
+        musica.paused
+
+      ) {
+
+
+        musica.play()
+
+          .then(
+            () => {
+
+
+              musicaAtiva =
+                true;
+
+
+            }
+          )
+
+          .catch(
+            () => {}
+          );
+
+
+      }
+
+
       videoTela.style.display =
         "none";
 
@@ -1932,6 +2255,7 @@
 
 
       requestAnimationFrame(
+
         () => {
 
 
@@ -1941,34 +2265,38 @@
 
 
         }
+
       );
+
 
     }
 
 
-    /* ==================================================
-       PULAR
-    ================================================== */
-
-
     pular.addEventListener(
+
       "click",
+
       mostrarFinal
+
     );
 
 
-    /* ==================================================
-       PAUSA AO SAIR DO APP
-    ================================================== */
+    /* ==========================================
+       PAUSAR AO SAIR DO APP
+    ========================================== */
 
 
     document.addEventListener(
+
       "visibilitychange",
+
       async () => {
 
 
         if (
+
           document.hidden
+
         ) {
 
 
@@ -1982,12 +2310,32 @@
             !video.ended;
 
 
+          musicaEstavaTocandoAntesDeSair =
+
+            !musica.paused;
+
+
           if (
+
             estavaTocandoAntesDeSair
+
           ) {
 
 
             video.pause();
+
+
+          }
+
+
+          if (
+
+            musicaEstavaTocandoAntesDeSair
+
+          ) {
+
+
+            musica.pause();
 
 
           }
@@ -1999,7 +2347,9 @@
 
 
           if (
+
             estavaTocandoAntesDeSair
+
           ) {
 
 
@@ -2017,7 +2367,36 @@
           }
 
 
+          if (
+
+            musicaEstavaTocandoAntesDeSair
+
+          ) {
+
+
+            try {
+
+
+              await musica.play();
+
+
+              musicaAtiva =
+                true;
+
+
+            }
+
+            catch (_) {}
+
+
+          }
+
+
           estavaTocandoAntesDeSair =
+            false;
+
+
+          musicaEstavaTocandoAntesDeSair =
             false;
 
 
@@ -2025,61 +2404,81 @@
 
 
       }
-    );
 
-
-    /* ==================================================
-       EVENTOS DA ESTRELA
-    ================================================== */
-
-
-    estrela.addEventListener(
-      "pointerdown",
-      iniciarArraste
-    );
-
-
-    window.addEventListener(
-      "pointermove",
-      moverEstrela,
-      {
-        passive: false
-      }
-    );
-
-
-    window.addEventListener(
-      "pointerup",
-      finalizarArraste
-    );
-
-
-    window.addEventListener(
-      "pointercancel",
-      finalizarArraste
     );
 
 
     /* ==========================================
-       ACESSIBILIDADE NO COMPUTADOR
-    =========================================== */
+       EVENTOS DA ESTRELA
+    ========================================== */
 
 
     estrela.addEventListener(
+
+      "pointerdown",
+
+      iniciarArraste
+
+    );
+
+
+    window.addEventListener(
+
+      "pointermove",
+
+      moverEstrela,
+
+      {
+        passive: false
+      }
+
+    );
+
+
+    window.addEventListener(
+
+      "pointerup",
+
+      finalizarArraste
+
+    );
+
+
+    window.addEventListener(
+
+      "pointercancel",
+
+      finalizarArraste
+
+    );
+
+
+    /* ==========================================
+       TECLADO
+    ========================================== */
+
+
+    estrela.addEventListener(
+
       "keydown",
+
       event => {
 
 
         if (
           ativado
         ) {
+
           return;
+
         }
 
 
         if (
+
           event.key ===
           "Enter"
+
         ) {
 
 
@@ -2093,16 +2492,19 @@
 
 
       }
+
     );
 
 
-    /* ==================================================
+    /* ==========================================
        BLOQUEIOS CASUAIS
-    ================================================== */
+    ========================================== */
 
 
     document.addEventListener(
+
       "contextmenu",
+
       event => {
 
 
@@ -2110,11 +2512,14 @@
 
 
       }
+
     );
 
 
     document.addEventListener(
+
       "dragstart",
+
       event => {
 
 
@@ -2122,11 +2527,14 @@
 
 
       }
+
     );
 
 
     document.addEventListener(
+
       "selectstart",
+
       event => {
 
 
@@ -2134,15 +2542,19 @@
 
 
       }
+
     );
 
 
-    /* ==================================================
+    /* ==========================================
        PRÉ-CARREGAMENTO
-    ================================================== */
+    ========================================== */
 
 
     video.load();
+
+
+    musica.load();
 
 
     const preloadFinal =
@@ -2150,6 +2562,7 @@
 
 
     preloadFinal.src =
+
       imagemUrl(
         CONFIG.finalArquivo
       );

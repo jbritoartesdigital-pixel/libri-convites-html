@@ -316,7 +316,7 @@
 
 
     /* ==================================================
-       HALO
+       HALO DO CASTELO
     ================================================== */
 
     #haloCastelo {
@@ -361,7 +361,7 @@
 
 
     /* ==================================================
-       FLASH
+       FLASH MÁGICO
     ================================================== */
 
     #flash {
@@ -794,8 +794,6 @@
       >
 
 
-      <!-- CONFIRMAÇÃO -->
-
       <button
         id="botaoConfirmar"
         class="hotspot"
@@ -803,8 +801,6 @@
         aria-label="Confirmar presença"
       ></button>
 
-
-      <!-- LOCALIZAÇÃO -->
 
       <button
         id="botaoLocalizacao"
@@ -840,6 +836,8 @@
     const CONFIG = {
 
 
+      /* PASTA */
+
       pastaCliente:
         "save-disney100",
 
@@ -849,7 +847,7 @@
 
 
       versaoArquivos:
-        "1",
+        "2",
 
 
       /* IMAGENS */
@@ -875,19 +873,26 @@
       /* MÚSICA */
 
       musicaArquivo:
-        "Disneyinstrumental.mp3",
+        "disneyinstrumental.mp3",
 
 
       musicaInicio:
         0,
 
 
-      musicaVolume:
+      /* Volume durante as falas */
+
+      musicaVolumeVideo:
+        0.10,
+
+
+      /* Volume depois que o vídeo termina */
+
+      musicaVolumeFinal:
         0.35,
 
 
-      /* ESTRELA
-         Coordenadas relativas à arte */
+      /* ESTRELA */
 
       estrelaEsquerda:
         42,
@@ -919,8 +924,7 @@
         20,
 
 
-      /* BOTÃO CONFIRMAÇÃO
-         POSIÇÃO BASEADA NA ARTE ENVIADA */
+      /* CONFIRMAÇÃO */
 
       confirmarEsquerda:
         14.5,
@@ -938,7 +942,7 @@
         6.2,
 
 
-      /* BOTÃO LOCALIZAÇÃO */
+      /* LOCALIZAÇÃO */
 
       localizacaoEsquerda:
         51.5,
@@ -966,7 +970,7 @@
         "Olá! Quero confirmar minha presença no aniversário de 2 aninhos do Gabriel.",
 
 
-      /* LOCALIZAÇÃO */
+      /* MAPA */
 
       localizacao:
         "Walt Disney World Resort, Orlando, FL, USA",
@@ -1092,6 +1096,11 @@
       );
 
 
+    /* ==================================================
+       URLS
+    ================================================== */
+
+
     const versao =
 
       "?v=" +
@@ -1173,15 +1182,18 @@
 
 
     /* ==================================================
-       MAPEAR COORDENADAS NA IMAGEM COM OBJECT-FIT COVER
+       MAPA DO OBJECT-FIT COVER
     ================================================== */
 
 
-    function obterAreaRenderizada(imagem) {
+    function obterAreaRenderizada(
+      imagem
+    ) {
 
 
       const palco =
-        experiencia.getBoundingClientRect();
+        experiencia
+          .getBoundingClientRect();
 
 
       const larguraNatural =
@@ -1257,12 +1269,19 @@
 
 
     function posicionarNaImagem(
+
       elemento,
+
       imagem,
+
       esquerdaPct,
+
       topoPct,
+
       larguraPct,
+
       alturaPct
+
     ) {
 
 
@@ -1285,11 +1304,11 @@
           area.esquerda +
 
           area.largura *
-
           esquerdaPct /
           100
 
         ) +
+
         "px";
 
 
@@ -1299,11 +1318,11 @@
           area.topo +
 
           area.altura *
-
           topoPct /
           100
 
         ) +
+
         "px";
 
 
@@ -1311,17 +1330,21 @@
 
         (
           area.largura *
-
           larguraPct /
           100
-
         ) +
+
         "px";
 
 
       if (
-        alturaPct !== null &&
-        alturaPct !== undefined
+
+        alturaPct !==
+        null &&
+
+        alturaPct !==
+        undefined
+
       ) {
 
 
@@ -1329,11 +1352,10 @@
 
           (
             area.altura *
-
             alturaPct /
             100
-
           ) +
+
           "px";
 
 
@@ -1354,11 +1376,15 @@
       posicionarNaImagem(
 
         estrela,
+
         capa,
 
         CONFIG.estrelaEsquerda,
+
         CONFIG.estrelaTopo,
+
         CONFIG.estrelaLargura,
+
         null
 
       );
@@ -1367,11 +1393,15 @@
       posicionarNaImagem(
 
         zonaCastelo,
+
         capa,
 
         CONFIG.casteloEsquerda,
+
         CONFIG.casteloTopo,
+
         CONFIG.casteloLargura,
+
         CONFIG.casteloAltura
 
       );
@@ -1417,6 +1447,7 @@
             2
 
           ) +
+
           "px";
 
 
@@ -1433,18 +1464,21 @@
             2
 
           ) +
+
           "px";
 
 
         haloCastelo.style.width =
 
           tamanhoHalo +
+
           "px";
 
 
         haloCastelo.style.height =
 
           tamanhoHalo +
+
           "px";
 
 
@@ -1461,6 +1495,7 @@
             2
 
           ) +
+
           "px";
 
 
@@ -1477,18 +1512,21 @@
             2
 
           ) +
+
           "px";
 
 
         flash.style.width =
 
           tamanhoHalo +
+
           "px";
 
 
         flash.style.height =
 
           tamanhoHalo +
+
           "px";
 
 
@@ -1498,11 +1536,15 @@
       posicionarNaImagem(
 
         botaoConfirmar,
+
         final,
 
         CONFIG.confirmarEsquerda,
+
         CONFIG.confirmarTopo,
+
         CONFIG.confirmarLargura,
+
         CONFIG.confirmarAltura
 
       );
@@ -1511,11 +1553,15 @@
       posicionarNaImagem(
 
         botaoLocalizacao,
+
         final,
 
         CONFIG.localizacaoEsquerda,
+
         CONFIG.localizacaoTopo,
+
         CONFIG.localizacaoLargura,
+
         CONFIG.localizacaoAltura
 
       );
@@ -1593,11 +1639,13 @@
 
 
     /* ==================================================
-       ESTRELA
+       ARRASTAR ESTRELA
     ================================================== */
 
 
-    function iniciarArraste(event) {
+    function iniciarArraste(
+      event
+    ) {
 
 
       if (ativado) {
@@ -1661,12 +1709,16 @@
     }
 
 
-    function moverEstrela(event) {
+    function moverEstrela(
+      event
+    ) {
 
 
       if (
+
         !arrastando ||
         ativado
+
       ) {
 
         return;
@@ -1751,12 +1803,16 @@
     }
 
 
-    function finalizarArraste(event) {
+    function finalizarArraste(
+      event
+    ) {
 
 
       if (
+
         !arrastando ||
         ativado
+
       ) {
 
         return;
@@ -1908,12 +1964,14 @@
       estrela.style.left =
 
         inicioLeft +
+
         "px";
 
 
       estrela.style.top =
 
         inicioTop +
+
         "px";
 
 
@@ -1940,7 +1998,7 @@
 
 
     /* ==================================================
-       ATIVAR
+       ATIVAR MAGIA
     ================================================== */
 
 
@@ -2011,12 +2069,14 @@
       estrela.style.left =
 
         esquerdaFinal +
+
         "px";
 
 
       estrela.style.top =
 
         topoFinal +
+
         "px";
 
 
@@ -2024,6 +2084,11 @@
         25
       );
 
+
+      /*
+        O vídeo e a música começam
+        diretamente no gesto do usuário.
+      */
 
       iniciarMidias();
 
@@ -2083,8 +2148,16 @@
         "block";
 
 
-      video.currentTime =
-        0;
+      /* VÍDEO */
+
+      try {
+
+        video.currentTime =
+          0;
+
+      }
+
+      catch (_) {}
 
 
       video.muted =
@@ -2095,31 +2168,45 @@
         1;
 
 
-      try {
+      /* MÚSICA */
 
+      try {
 
         musica.currentTime =
           CONFIG.musicaInicio;
-
 
       }
 
       catch (_) {}
 
 
+      musica.muted =
+        false;
+
+
       musica.volume =
-        0.001;
+        CONFIG.musicaVolumeVideo;
 
 
-      musica.play()
-        .catch(
-          () => {}
-        );
+      /* Tenta iniciar os dois
+         no mesmo gesto da estrela */
+
+      const tocarMusica =
+        musica.play();
 
 
-      video.play()
+      const tocarVideo =
+        video.play();
 
-        .catch(
+
+      if (
+        tocarMusica &&
+        typeof tocarMusica.catch ===
+        "function"
+      ) {
+
+
+        tocarMusica.catch(
 
           () => {
 
@@ -2133,10 +2220,42 @@
         );
 
 
+      }
+
+
+      if (
+        tocarVideo &&
+        typeof tocarVideo.catch ===
+        "function"
+      ) {
+
+
+        tocarVideo.catch(
+
+          () => {
+
+
+            continuar.style.display =
+              "flex";
+
+
+          }
+
+        );
+
+
+      }
+
+
       iniciarTimerPular();
 
 
     }
+
+
+    /* ==================================================
+       PULAR
+    ================================================== */
 
 
     function iniciarTimerPular() {
@@ -2186,6 +2305,11 @@
     }
 
 
+    /* ==================================================
+       EVENTOS DO VÍDEO
+    ================================================== */
+
+
     video.addEventListener(
 
       "playing",
@@ -2194,10 +2318,6 @@
 
 
         carregando.style.display =
-          "none";
-
-
-        continuar.style.display =
           "none";
 
 
@@ -2275,6 +2395,11 @@
     );
 
 
+    /* ==================================================
+       FALLBACK DE ÁUDIO / VÍDEO
+    ================================================== */
+
+
     continuar.addEventListener(
 
       "click",
@@ -2289,6 +2414,14 @@
         try {
 
 
+          musica.muted =
+            false;
+
+
+          musica.volume =
+            CONFIG.musicaVolumeVideo;
+
+
           if (
             musica.paused
           ) {
@@ -2300,7 +2433,16 @@
           }
 
 
-          await video.play();
+          if (
+            video.paused &&
+            !video.ended
+          ) {
+
+
+            await video.play();
+
+
+          }
 
 
         }
@@ -2308,7 +2450,9 @@
         catch (_) {
 
 
-          mostrarFinal();
+          /* O convite continua funcionando
+             mesmo que algum navegador bloqueie
+             uma das mídias. */
 
 
         }
@@ -2347,8 +2491,12 @@
       video.pause();
 
 
+      /* NÃO reinicia a música.
+         Apenas aumenta o volume. */
+
+
       musica.volume =
-        CONFIG.musicaVolume;
+        CONFIG.musicaVolumeFinal;
 
 
       if (
@@ -2417,6 +2565,9 @@
       () => {
 
 
+        pausarParaSair();
+
+
         const link =
 
           "https://wa.me/" +
@@ -2451,6 +2602,9 @@
       () => {
 
 
+        pausarParaSair();
+
+
         const link =
 
           "https://www.google.com/maps/search/?api=1&query=" +
@@ -2467,6 +2621,30 @@
       }
 
     );
+
+
+    function pausarParaSair() {
+
+
+      if (
+        !video.paused
+      ) {
+
+        video.pause();
+
+      }
+
+
+      if (
+        !musica.paused
+      ) {
+
+        musica.pause();
+
+      }
+
+
+    }
 
 
     /* ==================================================
@@ -2535,7 +2713,9 @@
 
             try {
 
+
               await video.play();
+
 
             }
 
@@ -2552,7 +2732,9 @@
 
             try {
 
+
               await musica.play();
+
 
             }
 
@@ -2709,6 +2891,7 @@
 
 
     video.load();
+
 
     musica.load();
 

@@ -28,7 +28,7 @@
 
   <meta
     name="theme-color"
-    content="#24170c"
+    content="#25180c"
   >
 
 
@@ -57,18 +57,29 @@
 
   <meta
     property="og:image"
-    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=5"
+    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=6"
   >
 
   <meta
     property="og:image:secure_url"
-    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=5"
+    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=6"
   >
 
   <meta
     property="og:image:type"
     content="image/jpeg"
   >
+
+  <meta
+    property="og:image:width"
+    content="1200"
+  >
+
+  <meta
+    property="og:image:height"
+    content="675"
+  >
+
 
   <meta
     name="twitter:card"
@@ -87,7 +98,7 @@
 
   <meta
     name="twitter:image"
-    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=5"
+    content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=6"
   >
 
 
@@ -98,31 +109,31 @@
   <link
     rel="preload"
     as="image"
-    href="imagens/capa.jpg?v=5"
+    href="imagens/capa.jpg?v=6"
   >
 
   <link
     rel="preload"
     as="image"
-    href="imagens/final.png?v=5"
+    href="imagens/final.png?v=6"
   >
 
   <link
     rel="preload"
     as="image"
-    href="imagens/localizacao.png?v=5"
+    href="imagens/localizacao.png?v=6"
   >
 
   <link
     rel="preload"
     as="image"
-    href="imagens/confirmacao.png?v=5"
+    href="imagens/confirmacao.png?v=6"
   >
 
   <link
     rel="preload"
     as="image"
-    href="imagens/presentes.png?v=5"
+    href="imagens/presentes.png?v=6"
   >
 
 
@@ -139,18 +150,29 @@
 
 
       /* =========================
+         CACHE
+      ========================= */
+
+      versaoArquivos:
+        "6",
+
+      versaoMidia:
+        "6",
+
+
+      /* =========================
          MÍDIA
       ========================= */
 
       video:
-        "https://midia.libriconvites.com.br/valentin/abertura.mp4?v=5",
+        "https://midia.libriconvites.com.br/valentin/abertura.mp4?v=6",
 
       musica:
-        "https://midia.libriconvites.com.br/valentin/musica-pooh.mp3?v=5",
+        "https://midia.libriconvites.com.br/valentin/musica-pooh.mp3?v=6",
 
 
       /* =========================
-         MÚSICA
+         ÁUDIO
       ========================= */
 
       inicioMusica:
@@ -158,6 +180,9 @@
 
       volumeMusica:
         0.35,
+
+      transicaoAudio:
+        260,
 
 
       /* =========================
@@ -169,7 +194,31 @@
 
 
       /* =========================
-         WHATSAPP
+         IMAGENS
+      ========================= */
+
+      imagens: {
+
+        capa:
+          "imagens/capa.jpg",
+
+        final:
+          "imagens/final.png",
+
+        localizacao:
+          "imagens/localizacao.png",
+
+        confirmacao:
+          "imagens/confirmacao.png",
+
+        presentes:
+          "imagens/presentes.png"
+
+      },
+
+
+      /* =========================
+         CONFIRMAÇÃO
       ========================= */
 
       numeroWhatsapp:
@@ -204,16 +253,16 @@
         localizacao: {
 
           left:
-            "17%",
+            "21.5%",
 
           top:
-            "72%",
+            "71.8%",
 
           width:
-            "66%",
+            "57%",
 
           height:
-            "7.2%"
+            "6.2%"
 
         },
 
@@ -221,16 +270,16 @@
         confirmacao: {
 
           left:
-            "17%",
+            "21.5%",
 
           top:
-            "79.2%",
+            "79.0%",
 
           width:
-            "66%",
+            "57%",
 
           height:
-            "7%"
+            "6.2%"
 
         },
 
@@ -238,142 +287,126 @@
         presentes: {
 
           left:
-            "17%",
+            "21.5%",
 
           top:
-            "86.2%",
+            "86.1%",
 
           width:
-            "66%",
+            "57%",
+
+          height:
+            "6.2%"
+
+        }
+
+      },
+
+
+      /* =========================
+         PÁGINAS INTERNAS
+      ========================= */
+
+      hotspotsPaginas: {
+
+        voltarLocalizacao: {
+
+          left:
+            "3.2%",
+
+          top:
+            "1.3%",
+
+          width:
+            "27%",
+
+          height:
+            "7.3%"
+
+        },
+
+
+        abrirMapa: {
+
+          left:
+            "20.5%",
+
+          top:
+            "55.4%",
+
+          width:
+            "61%",
+
+          height:
+            "8.5%"
+
+        },
+
+
+        voltarConfirmacao: {
+
+          left:
+            "3.2%",
+
+          top:
+            "1.3%",
+
+          width:
+            "27%",
+
+          height:
+            "7.3%"
+
+        },
+
+
+        confirmarWhatsapp: {
+
+          left:
+            "19.2%",
+
+          top:
+            "59.2%",
+
+          width:
+            "62%",
+
+          height:
+            "9.3%"
+
+        },
+
+
+        voltarPresentes: {
+
+          left:
+            "35%",
+
+          top:
+            "0.8%",
+
+          width:
+            "31%",
 
           height:
             "7.2%"
 
-        }
-
-      },
-
-
-      /* =========================
-         LOCALIZAÇÃO
-      ========================= */
-
-      localizacao: {
-
-        voltar: {
-
-          left:
-            "2%",
-
-          top:
-            "0.5%",
-
-          width:
-            "31%",
-
-          height:
-            "9%"
-
         },
 
 
-        abrir: {
+        copiarPix: {
 
           left:
-            "17%",
+            "15.2%",
 
           top:
-            "53%",
+            "68.0%",
 
           width:
-            "68%",
+            "69.5%",
 
           height:
-            "12%"
-
-        }
-
-      },
-
-
-      /* =========================
-         CONFIRMAÇÃO
-      ========================= */
-
-      confirmacao: {
-
-        voltar: {
-
-          left:
-            "2%",
-
-          top:
-            "0.5%",
-
-          width:
-            "31%",
-
-          height:
-            "9%"
-
-        },
-
-
-        abrir: {
-
-          left:
-            "15%",
-
-          top:
-            "57%",
-
-          width:
-            "70%",
-
-          height:
-            "13%"
-
-        }
-
-      },
-
-
-      /* =========================
-         PRESENTES
-      ========================= */
-
-      presentes: {
-
-        voltar: {
-
-          left:
-            "32%",
-
-          top:
-            "0%",
-
-          width:
-            "36%",
-
-          height:
-            "9%"
-
-        },
-
-
-        pix: {
-
-          left:
-            "12%",
-
-          top:
-            "66%",
-
-          width:
-            "76%",
-
-          height:
-            "14%"
+            "11%"
 
         }
 
@@ -432,7 +465,7 @@
         hidden;
 
       background:
-        #000;
+        var(--fundo);
 
       overscroll-behavior:
         none;
@@ -525,7 +558,7 @@
         hidden;
 
       background:
-        #000;
+        var(--fundo);
 
     }
 
@@ -543,7 +576,7 @@
 
 
     /* ==================================================
-       QUADRO 9:16 COVER
+       9:16 COVER
     ================================================== */
 
     .quadro {
@@ -618,9 +651,9 @@
 
 
     /* ==================================================
-       CARD FINAL
+       FINAL
 
-       FICA ATRÁS DO VÍDEO DESDE O INÍCIO.
+       Já fica pronto ATRÁS do vídeo.
     ================================================== */
 
     #finalTela {
@@ -637,9 +670,6 @@
       pointer-events:
         none;
 
-      background:
-        #000;
-
     }
 
 
@@ -653,8 +683,6 @@
 
     /* ==================================================
        VÍDEO
-
-       FICA POR CIMA DO CARD.
     ================================================== */
 
     #videoTela {
@@ -934,7 +962,7 @@
 
       transition:
         opacity
-        160ms
+        180ms
         ease;
 
     }
@@ -1106,32 +1134,30 @@
 
       bottom:
         max(
-          28px,
+          24px,
           calc(
             env(safe-area-inset-bottom)
             +
-            20px
+            18px
           )
         );
-
-      z-index:
-        1000;
 
       transform:
         translate(
           -50%,
-          15px
+          14px
         );
+
+      z-index:
+        900;
 
       max-width:
         calc(
-          100vw
-          -
-          40px
+          100vw - 36px
         );
 
       padding:
-        12px 18px;
+        11px 17px;
 
       border:
         1px solid
@@ -1139,7 +1165,7 @@
           255,
           255,
           255,
-          0.2
+          0.22
         );
 
       border-radius:
@@ -1147,10 +1173,10 @@
 
       background:
         rgba(
-          30,
-          19,
+          22,
+          14,
           8,
-          0.92
+          0.88
         );
 
       color:
@@ -1162,6 +1188,12 @@
       text-align:
         center;
 
+      backdrop-filter:
+        blur(8px);
+
+      -webkit-backdrop-filter:
+        blur(8px);
+
       opacity:
         0;
 
@@ -1172,8 +1204,9 @@
         none;
 
       transition:
-        180ms
-        ease;
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 180ms ease;
 
     }
 
@@ -1204,7 +1237,7 @@
 
   <!-- ==================================================
        CARD FINAL
-       JÁ EXISTE ATRÁS DO VÍDEO.
+       JÁ CARREGADO ATRÁS DO VÍDEO
   ================================================== -->
 
   <section
@@ -1217,7 +1250,7 @@
       <img
         id="finalImagem"
         class="arte"
-        src="imagens/final.png?v=5"
+        src="imagens/final.png?v=6"
         alt="Convite do Valentin"
         draggable="false"
       >
@@ -1235,7 +1268,7 @@
         id="hotspotConfirmacao"
         class="hotspot"
         type="button"
-        aria-label="Confirmar presença"
+        aria-label="Confirmar pelo WhatsApp"
       ></button>
 
 
@@ -1312,7 +1345,7 @@
 
       <video
         id="video"
-        src="https://midia.libriconvites.com.br/valentin/abertura.mp4?v=5"
+        src="https://midia.libriconvites.com.br/valentin/abertura.mp4?v=6"
         playsinline
         webkit-playsinline
         preload="auto"
@@ -1324,6 +1357,7 @@
       <button
         id="pular"
         type="button"
+        aria-label="Pular abertura"
       >
         Pular abertura
       </button>
@@ -1346,7 +1380,7 @@
 
       <img
         class="arte"
-        src="imagens/capa.jpg?v=5"
+        src="imagens/capa.jpg?v=6"
         alt="O Bosque Encantado do Valentin"
         draggable="false"
       >
@@ -1376,7 +1410,7 @@
 
       <img
         class="arte"
-        src="imagens/localizacao.png?v=5"
+        src="imagens/localizacao.png?v=6"
         alt="Local da festa"
         draggable="false"
       >
@@ -1391,7 +1425,7 @@
 
 
       <button
-        id="abrirLocalizacao"
+        id="abrirMapa"
         class="hotspot"
         type="button"
         aria-label="Abrir localização"
@@ -1404,7 +1438,6 @@
 
   <!-- ==================================================
        CONFIRMAÇÃO
-       V5 FORÇA NOVA CÓPIA DO ARQUIVO.
   ================================================== -->
 
   <section
@@ -1415,9 +1448,8 @@
     <div class="quadro">
 
       <img
-        id="imagemConfirmacao"
         class="arte"
-        src="imagens/confirmacao.png?v=5"
+        src="imagens/confirmacao.png?v=6"
         alt="Confirmar presença"
         draggable="false"
       >
@@ -1432,7 +1464,7 @@
 
 
       <button
-        id="abrirWhatsapp"
+        id="confirmarWhatsapp"
         class="hotspot"
         type="button"
         aria-label="Confirmar pelo WhatsApp"
@@ -1456,8 +1488,8 @@
 
       <img
         class="arte"
-        src="imagens/presentes.png?v=5"
-        alt="Presentinhos para Valentin"
+        src="imagens/presentes.png?v=6"
+        alt="Sugestões de presentes"
         draggable="false"
       >
 
@@ -1501,7 +1533,7 @@
 
   <audio
     id="musica"
-    src="https://midia.libriconvites.com.br/valentin/musica-pooh.mp3?v=5"
+    src="https://midia.libriconvites.com.br/valentin/musica-pooh.mp3?v=6"
     preload="auto"
     loop
   ></audio>
@@ -1536,15 +1568,27 @@
         );
 
 
-      const finalImagem =
+      const paginaLocalizacao =
         document.getElementById(
-          "finalImagem"
+          "paginaLocalizacao"
         );
 
 
-      const imagemConfirmacao =
+      const paginaConfirmacao =
         document.getElementById(
-          "imagemConfirmacao"
+          "paginaConfirmacao"
+        );
+
+
+      const paginaPresentes =
+        document.getElementById(
+          "paginaPresentes"
+        );
+
+
+      const finalImagem =
+        document.getElementById(
+          "finalImagem"
         );
 
 
@@ -1596,24 +1640,6 @@
         );
 
 
-      const paginaLocalizacao =
-        document.getElementById(
-          "paginaLocalizacao"
-        );
-
-
-      const paginaConfirmacao =
-        document.getElementById(
-          "paginaConfirmacao"
-        );
-
-
-      const paginaPresentes =
-        document.getElementById(
-          "paginaPresentes"
-        );
-
-
       const voltarLocalizacao =
         document.getElementById(
           "voltarLocalizacao"
@@ -1632,19 +1658,19 @@
         );
 
 
-      const abrirLocalizacao =
+      const abrirMapa =
         document.getElementById(
-          "abrirLocalizacao"
+          "abrirMapa"
         );
 
 
-      const abrirWhatsapp =
+      const confirmarWhatsapp =
         document.getElementById(
-          "abrirWhatsapp"
+          "confirmarWhatsapp"
         );
 
 
-      const copiarPixBtn =
+      const copiarPix =
         document.getElementById(
           "copiarPix"
         );
@@ -1684,12 +1710,20 @@
         null;
 
 
-      let timerPix =
+      let timerAvisoPix =
         null;
 
 
       let rafFim =
         null;
+
+
+      let rafAudio =
+        null;
+
+
+      let ultimoAjusteSincronia =
+        0;
 
 
       let videoEstavaTocando =
@@ -1701,38 +1735,21 @@
 
 
       /* ==================================================
-         PRÉ-DECODIFICAR AS ARTES IMPORTANTES
+         PRÉ-DECODE DO CARD
       ================================================== */
 
-      function decodificarImagem(
-        imagem
+      if (
+        typeof finalImagem.decode ===
+        "function"
       ) {
 
-        if (
-          imagem &&
-          typeof imagem.decode ===
-          "function"
-        ) {
-
-          imagem
-            .decode()
-            .catch(
-              () => {}
-            );
-
-        }
+        finalImagem
+          .decode()
+          .catch(
+            () => {}
+          );
 
       }
-
-
-      decodificarImagem(
-        finalImagem
-      );
-
-
-      decodificarImagem(
-        imagemConfirmacao
-      );
 
 
       /* ==================================================
@@ -1782,72 +1799,38 @@
 
       posicionar(
         voltarLocalizacao,
-        CONFIG.localizacao.voltar
+        CONFIG.hotspotsPaginas.voltarLocalizacao
       );
 
 
       posicionar(
-        abrirLocalizacao,
-        CONFIG.localizacao.abrir
+        abrirMapa,
+        CONFIG.hotspotsPaginas.abrirMapa
       );
 
 
       posicionar(
         voltarConfirmacao,
-        CONFIG.confirmacao.voltar
+        CONFIG.hotspotsPaginas.voltarConfirmacao
       );
 
 
       posicionar(
-        abrirWhatsapp,
-        CONFIG.confirmacao.abrir
+        confirmarWhatsapp,
+        CONFIG.hotspotsPaginas.confirmarWhatsapp
       );
 
 
       posicionar(
         voltarPresentes,
-        CONFIG.presentes.voltar
+        CONFIG.hotspotsPaginas.voltarPresentes
       );
 
 
       posicionar(
-        copiarPixBtn,
-        CONFIG.presentes.pix
+        copiarPix,
+        CONFIG.hotspotsPaginas.copiarPix
       );
-
-
-      /* ==================================================
-         ÁUDIO SILENCIOSO
-      ================================================== */
-
-      function iniciarMusicaSilenciosa() {
-
-        musica.volume =
-          0.001;
-
-
-        const tentativa =
-          musica.play();
-
-
-        if (
-          tentativa &&
-          typeof tentativa.catch ===
-          "function"
-        ) {
-
-          tentativa.catch(
-            () => {
-
-              audioDisponivel =
-                false;
-
-            }
-          );
-
-        }
-
-      }
 
 
       /* ==================================================
@@ -1890,6 +1873,333 @@
 
 
       /* ==================================================
+         TEMPO CORRESPONDENTE DA MÚSICA
+      ================================================== */
+
+      function tempoEsperadoMusica() {
+
+        let esperado =
+          Math.max(
+            0,
+            video.currentTime
+            +
+            CONFIG.inicioMusica
+          );
+
+
+        if (
+          Number.isFinite(
+            musica.duration
+          )
+          &&
+          musica.duration > 0
+        ) {
+
+          esperado %=
+            musica.duration;
+
+        }
+
+
+        return esperado;
+
+      }
+
+
+      /* ==================================================
+         MÚSICA CONTÍNUA
+
+         Inicia NO MESMO TOQUE da abertura.
+         Durante o vídeo fica praticamente inaudível.
+      ================================================== */
+
+      function iniciarMusicaSilenciosa() {
+
+        musica.volume =
+          0.001;
+
+
+        try {
+
+          musica.currentTime =
+            Math.max(
+              0,
+              CONFIG.inicioMusica
+            );
+
+        }
+
+        catch (_) {}
+
+
+        const tentativa =
+          musica.play();
+
+
+        if (
+          tentativa
+          &&
+          typeof tentativa.catch ===
+          "function"
+        ) {
+
+          tentativa.catch(
+            () => {
+
+              audioDisponivel =
+                false;
+
+
+              controleSom
+                .classList
+                .remove(
+                  "visivel"
+                );
+
+            }
+          );
+
+        }
+
+      }
+
+
+      /* ==================================================
+         SINCRONIA DURANTE O VÍDEO
+
+         Pode corrigir enquanto a música está escondida.
+         Nunca faz seek na entrada do card.
+      ================================================== */
+
+      function manterSincronia() {
+
+        if (
+          !audioDisponivel
+          ||
+          finalAtivo
+          ||
+          finalizando
+          ||
+          video.paused
+          ||
+          musica.paused
+        ) {
+
+          return;
+
+        }
+
+
+        const agora =
+          performance.now();
+
+
+        if (
+          agora
+          -
+          ultimoAjusteSincronia
+          <
+          1000
+        ) {
+
+          return;
+
+        }
+
+
+        ultimoAjusteSincronia =
+          agora;
+
+
+        const esperado =
+          tempoEsperadoMusica();
+
+
+        const diferenca =
+          Math.abs(
+            musica.currentTime
+            -
+            esperado
+          );
+
+
+        /*
+           Só corrige se houver drift relevante.
+           Como está em 0.001, ninguém percebe.
+        */
+
+        if (
+          diferenca >
+          0.35
+        ) {
+
+          try {
+
+            musica.currentTime =
+              esperado;
+
+          }
+
+          catch (_) {}
+
+        }
+
+      }
+
+
+      /* ==================================================
+         CROSSFADE DE ÁUDIO
+
+         vídeo ↓
+         MP3 ↑
+
+         Sem seek.
+         Sem novo play().
+         Sem microcorte.
+      ================================================== */
+
+      function transicaoSuaveAudio(
+        aoFinalizar
+      ) {
+
+        cancelAnimationFrame(
+          rafAudio
+        );
+
+
+        if (
+          !audioDisponivel
+          ||
+          musica.paused
+        ) {
+
+          aoFinalizar();
+
+          return;
+
+        }
+
+
+        const duracao =
+          Math.max(
+            120,
+            CONFIG.transicaoAudio
+          );
+
+
+        const inicio =
+          performance.now();
+
+
+        const volumeVideoInicial =
+          video.volume;
+
+
+        const volumeMusicaInicial =
+          musica.volume;
+
+
+        const volumeMusicaFinal =
+          somLigado
+            ?
+            CONFIG.volumeMusica
+            :
+            0;
+
+
+        const animar =
+          agora => {
+
+            const progresso =
+              Math.min(
+                1,
+                (
+                  agora
+                  -
+                  inicio
+                )
+                /
+                duracao
+              );
+
+
+            const suave =
+              progresso
+              *
+              progresso
+              *
+              (
+                3
+                -
+                2
+                *
+                progresso
+              );
+
+
+            video.volume =
+              Math.max(
+                0,
+                volumeVideoInicial
+                *
+                (
+                  1
+                  -
+                  suave
+                )
+              );
+
+
+            musica.volume =
+              volumeMusicaInicial
+              +
+              (
+                volumeMusicaFinal
+                -
+                volumeMusicaInicial
+              )
+              *
+              suave;
+
+
+            if (
+              progresso <
+              1
+            ) {
+
+              rafAudio =
+                requestAnimationFrame(
+                  animar
+                );
+
+
+              return;
+
+            }
+
+
+            video.volume =
+              0;
+
+
+            musica.volume =
+              volumeMusicaFinal;
+
+
+            aoFinalizar();
+
+          };
+
+
+        rafAudio =
+          requestAnimationFrame(
+            animar
+          );
+
+      }
+
+
+      /* ==================================================
          ABRIR CONVITE
       ================================================== */
 
@@ -1926,7 +2236,16 @@
           );
 
 
+        /*
+           Música e vídeo nascem
+           no mesmo gesto do usuário.
+        */
+
         iniciarMusicaSilenciosa();
+
+
+        video.volume =
+          1;
 
 
         try {
@@ -1976,16 +2295,16 @@
           );
 
 
-        acompanharFinalVideo();
+        acompanharFinal();
 
       }
 
 
       /* ==================================================
-         TRANSIÇÃO SEM PRETO
+         MONITORAR FINAL
       ================================================== */
 
-      function acompanharFinalVideo() {
+      function acompanharFinal() {
 
         cancelAnimationFrame(
           rafFim
@@ -1996,7 +2315,8 @@
           () => {
 
             if (
-              finalizando ||
+              finalizando
+              ||
               finalAtivo
             ) {
 
@@ -2005,12 +2325,16 @@
             }
 
 
+            manterSincronia();
+
+
             if (
               Number.isFinite(
                 video.duration
               )
               &&
-              video.duration > 0
+              video.duration >
+              0
             ) {
 
               const restante =
@@ -2020,14 +2344,15 @@
 
 
               /*
-                 Começamos ANTES do último frame.
-                 O vídeo continua rodando durante o fade.
+                 Começa a troca antes do último frame.
               */
 
               if (
-                restante > 0
+                restante >
+                0
                 &&
-                restante <= 0.40
+                restante <=
+                0.45
               ) {
 
                 finalizarVideo();
@@ -2055,10 +2380,16 @@
       }
 
 
+      /* ==================================================
+         VÍDEO → CARD
+         SEM PRETO + SEM CORTE DE MÚSICA
+      ================================================== */
+
       function finalizarVideo() {
 
         if (
-          finalizando ||
+          finalizando
+          ||
           finalAtivo
         ) {
 
@@ -2089,8 +2420,8 @@
 
 
         /*
-           O card já está visível atrás.
-           Aqui só ativamos os botões.
+           O card JÁ está pronto atrás.
+           Ativamos os botões.
         */
 
         finalTela
@@ -2101,8 +2432,7 @@
 
 
         /*
-           Fazemos o VÍDEO sumir suavemente.
-           Não pausamos antes.
+           Vídeo começa o fade visual.
         */
 
         videoTela
@@ -2112,17 +2442,15 @@
           );
 
 
-        const tempoVideo =
-          Number.isFinite(
-            video.currentTime
-          )
-            ?
-            video.currentTime
-            :
-            0;
+        /*
+           NÃO fazemos:
+           musica.currentTime = ...
+           musica.play()
 
+           O MP3 simplesmente continua.
+        */
 
-        setTimeout(
+        transicaoSuaveAudio(
           () => {
 
             video.pause();
@@ -2146,17 +2474,16 @@
               "hidden";
 
 
+            video.volume =
+              1;
+
+
             finalAtivo =
               true;
 
 
             finalizando =
               false;
-
-
-            continuarMusica(
-              tempoVideo
-            );
 
 
             if (
@@ -2171,94 +2498,14 @@
 
             }
 
-          },
-          250
+          }
         );
 
       }
 
 
       /* ==================================================
-         CONTINUAR MÚSICA
-      ================================================== */
-
-      function continuarMusica(
-        tempoVideo
-      ) {
-
-        if (
-          !audioDisponivel
-        ) {
-
-          return;
-
-        }
-
-
-        let tempo =
-          Math.max(
-            0,
-            tempoVideo
-            +
-            CONFIG.inicioMusica
-          );
-
-
-        if (
-          Number.isFinite(
-            musica.duration
-          )
-          &&
-          musica.duration > 0
-        ) {
-
-          tempo %=
-            musica.duration;
-
-        }
-
-
-        try {
-
-          musica.currentTime =
-            tempo;
-
-        }
-
-        catch (_) {}
-
-
-        musica.volume =
-          somLigado
-            ?
-            CONFIG.volumeMusica
-            :
-            0;
-
-
-        musica
-          .play()
-          .catch(
-            () => {
-
-              audioDisponivel =
-                false;
-
-
-              controleSom
-                .classList
-                .remove(
-                  "visivel"
-                );
-
-            }
-          );
-
-      }
-
-
-      /* ==================================================
-         PÁGINAS
+         PÁGINAS INTERNAS
       ================================================== */
 
       function fecharPaginas() {
@@ -2285,7 +2532,8 @@
 
 
         if (
-          finalAtivo &&
+          finalAtivo
+          &&
           audioDisponivel
         ) {
 
@@ -2304,25 +2552,7 @@
         pagina
       ) {
 
-        paginaLocalizacao
-          .classList
-          .remove(
-            "ativa"
-          );
-
-
-        paginaConfirmacao
-          .classList
-          .remove(
-            "ativa"
-          );
-
-
-        paginaPresentes
-          .classList
-          .remove(
-            "ativa"
-          );
+        fecharPaginas();
 
 
         pagina
@@ -2331,6 +2561,11 @@
             "ativa"
           );
 
+
+        /*
+           Música continua normalmente,
+           só escondemos o ícone.
+        */
 
         controleSom
           .classList
@@ -2342,32 +2577,82 @@
 
 
       /* ==================================================
-         WHATSAPP
+         LINKS
       ================================================== */
 
-      function irWhatsapp() {
+      function abrirLink(
+        link
+      ) {
 
-        const url =
+        if (
+          !link
+        ) {
 
+          return;
+
+        }
+
+
+        window.location.href =
+          link;
+
+      }
+
+
+      function abrirWhatsApp() {
+
+        const link =
           "https://wa.me/"
-
           +
-
           CONFIG.numeroWhatsapp
-
           +
-
           "?text="
-
           +
-
           encodeURIComponent(
             CONFIG.mensagemWhatsapp
           );
 
 
-        window.location.href =
-          url;
+        abrirLink(
+          link
+        );
+
+      }
+
+
+      /* ==================================================
+         SOM
+      ================================================== */
+
+      function alternarSom() {
+
+        if (
+          !audioDisponivel
+        ) {
+
+          return;
+
+        }
+
+
+        somLigado =
+          !somLigado;
+
+
+        musica.volume =
+          somLigado
+            ?
+            CONFIG.volumeMusica
+            :
+            0;
+
+
+        controleSom
+          .classList
+          .toggle(
+            "mudo",
+            !somLigado
+          );
 
       }
 
@@ -2386,11 +2671,11 @@
 
 
         clearTimeout(
-          timerPix
+          timerAvisoPix
         );
 
 
-        timerPix =
+        timerAvisoPix =
           setTimeout(
             () => {
 
@@ -2411,32 +2696,46 @@
         texto
       ) {
 
-        const campo =
+        const textarea =
           document.createElement(
             "textarea"
           );
 
 
-        campo.value =
+        textarea.value =
           texto;
 
 
-        campo.style.position =
-          "fixed";
-
-
-        campo.style.opacity =
-          "0";
-
-
-        document.body.appendChild(
-          campo
+        textarea.setAttribute(
+          "readonly",
+          ""
         );
 
 
-        campo.focus();
+        textarea.style.position =
+          "fixed";
 
-        campo.select();
+
+        textarea.style.opacity =
+          "0";
+
+
+        textarea.style.pointerEvents =
+          "none";
+
+
+        document.body.appendChild(
+          textarea
+        );
+
+
+        textarea.select();
+
+
+        textarea.setSelectionRange(
+          0,
+          textarea.value.length
+        );
 
 
         let sucesso =
@@ -2452,10 +2751,15 @@
 
         }
 
-        catch (_) {}
+        catch (_) {
+
+          sucesso =
+            false;
+
+        }
 
 
-        campo.remove();
+        textarea.remove();
 
 
         return sucesso;
@@ -2463,7 +2767,11 @@
       }
 
 
-      async function copiarPix() {
+      async function copiarChavePix() {
+
+        const chave =
+          CONFIG.chavePix;
+
 
         try {
 
@@ -2473,10 +2781,9 @@
             window.isSecureContext
           ) {
 
-            await navigator
-              .clipboard
+            await navigator.clipboard
               .writeText(
-                CONFIG.chavePix
+                chave
               );
 
 
@@ -2492,52 +2799,28 @@
         catch (_) {}
 
 
-        if (
+        const sucesso =
           copiarFallback(
-            CONFIG.chavePix
-          )
+            chave
+          );
+
+
+        if (
+          sucesso
         ) {
 
           mostrarAvisoPix();
 
-        }
 
-        else {
-
-          window.prompt(
-            "Copie a chave Pix:",
-            CONFIG.chavePix
-          );
+          return;
 
         }
 
-      }
 
-
-      /* ==================================================
-         SOM
-      ================================================== */
-
-      function alternarSom() {
-
-        somLigado =
-          !somLigado;
-
-
-        musica.volume =
-          somLigado
-            ?
-            CONFIG.volumeMusica
-            :
-            0;
-
-
-        controleSom
-          .classList
-          .toggle(
-            "mudo",
-            !somLigado
-          );
+        window.prompt(
+          "Copie a chave Pix:",
+          chave
+        );
 
       }
 
@@ -2596,7 +2879,7 @@
           video
             .play()
             .then(
-              acompanharFinalVideo
+              acompanharFinal
             )
             .catch(
               () => {}
@@ -2661,7 +2944,8 @@
           () => {
 
             if (
-              finalizando ||
+              finalizando
+              ||
               finalAtivo
             ) {
 
@@ -2670,27 +2954,27 @@
             }
 
 
+            manterSincronia();
+
+
             if (
               Number.isFinite(
                 video.duration
               )
               &&
-              video.duration > 0
-            ) {
-
-              const restante =
+              video.duration >
+              0
+              &&
+              (
                 video.duration
                 -
-                video.currentTime;
+                video.currentTime
+              )
+              <=
+              0.45
+            ) {
 
-
-              if (
-                restante <= 0.40
-              ) {
-
-                finalizarVideo();
-
-              }
+              finalizarVideo();
 
             }
 
@@ -2705,15 +2989,54 @@
         );
 
 
+      video
+        .addEventListener(
+          "error",
+          () => {
+
+            if (
+              conviteAberto
+              &&
+              !finalAtivo
+            ) {
+
+              finalizarVideo();
+
+              esconderCapa();
+
+            }
+
+          }
+        );
+
+
+      musica
+        .addEventListener(
+          "error",
+          () => {
+
+            audioDisponivel =
+              false;
+
+
+            controleSom
+              .classList
+              .remove(
+                "visivel"
+              );
+
+          }
+        );
+
+
+      /* ==================================================
+         CARD FINAL
+      ================================================== */
+
       hotspotLocalizacao
         .addEventListener(
           "click",
-          event => {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
+          () => {
 
             abrirPagina(
               paginaLocalizacao
@@ -2726,16 +3049,7 @@
       hotspotConfirmacao
         .addEventListener(
           "click",
-          event => {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
-
-            /*
-               A imagem já está carregada com v=5.
-            */
+          () => {
 
             abrirPagina(
               paginaConfirmacao
@@ -2748,12 +3062,7 @@
       hotspotPresentes
         .addEventListener(
           "click",
-          event => {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
+          () => {
 
             abrirPagina(
               paginaPresentes
@@ -2762,6 +3071,10 @@
           }
         );
 
+
+      /* ==================================================
+         VOLTAR
+      ================================================== */
 
       voltarLocalizacao
         .addEventListener(
@@ -2784,31 +3097,40 @@
         );
 
 
-      abrirLocalizacao
+      /* ==================================================
+         AÇÕES DAS PÁGINAS
+      ================================================== */
+
+      abrirMapa
         .addEventListener(
           "click",
           () => {
 
-            window.location.href =
-              CONFIG.linkLocalizacao;
+            abrirLink(
+              CONFIG.linkLocalizacao
+            );
 
           }
         );
 
 
-      abrirWhatsapp
+      confirmarWhatsapp
         .addEventListener(
           "click",
-          irWhatsapp
+          abrirWhatsApp
         );
 
 
-      copiarPixBtn
+      copiarPix
         .addEventListener(
           "click",
-          copiarPix
+          copiarChavePix
         );
 
+
+      /* ==================================================
+         SOM
+      ================================================== */
 
       controleSom
         .addEventListener(
@@ -2817,10 +3139,47 @@
         );
 
 
+      /* ==================================================
+         SAIR / VOLTAR DE OUTRO APP
+      ================================================== */
+
       document
         .addEventListener(
           "visibilitychange",
           tratarVisibilidade
+        );
+
+
+      window
+        .addEventListener(
+          "pageshow",
+          event => {
+
+            if (
+              event.persisted
+              &&
+              finalAtivo
+              &&
+              audioDisponivel
+            ) {
+
+              musica.volume =
+                somLigado
+                  ?
+                  CONFIG.volumeMusica
+                  :
+                  0;
+
+
+              musica
+                .play()
+                .catch(
+                  () => {}
+                );
+
+            }
+
+          }
         );
 
 
@@ -2853,7 +3212,6 @@
     })();
 
   </script>
-
 
 </body>
 

@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ==================================================
+       🌸 ALTERE SOMENTE AQUI | METADADOS ESTÁTICOS 🌸
+       O WhatsApp lê estas tags sem executar JavaScript.
+  =================================================== -->
+  <title>Valentin | 1 aninho</title>
+  <meta name="description" content="Você recebeu um convite muito especial para celebrar o primeiro aninho do Valentin. 🍯">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#25180c">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Valentin | 1 aninho">
+  <meta property="og:description" content="Você recebeu um convite muito especial 🍯">
+  <meta property="og:url" content="https://libriconvites.com.br/valentin/">
+  <meta property="og:image" content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Valentin | 1 aninho">
+  <meta name="twitter:description" content="Você recebeu um convite muito especial 🍯">
+  <meta name="twitter:image" content="https://libriconvites.com.br/valentin/imagens/preview-otimizada.jpg?v=1">
+
+  <script>
+    /* ==================================================
+       🌸 ALTERE SOMENTE AQUI 🌸
+    ================================================== */
+
+    const CONFIG = {
+      titulo: "Convite do Valentin",
+
+      pastaCliente: "valentin",
+      hostMidia: "https://midia.libriconvites.com.br",
+
+      /*
+         MÍDIAS NO R2
+         Estou usando os nomes EXATOS enviados.
+         O código codifica espaços/acentos automaticamente na URL.
+      */
+      videoArquivo: "1000969816.mp4",
+      musicaArquivo: "Ursinho Pooh _ Música Tema (Brazilian Portuguese).mp3",
+
+      /*
+         A música do vídeo começa no início do MP3.
+         Ao terminar/pular o vídeo, o MP3 assume no mesmo ponto.
+      */
+      inicioMusica: 0,
+      volumeMusica: 0.35,
+      tempoPular: 5000,
+
+      versaoArquivos: "1",
+      versaoMidia: "1",
+
+      /*
+         IMAGENS NO GITHUB
+         Pode misturar .png, .jpg e .jpeg.
+         Não precisa converter.
+      */
+      imagens: {
+        capa: "imagens/1000969833.jpg",
+        final: "imagens/1000969832.png",
+        localizacao: "imagens/1000969831.png",
+        confirmacao: "imagens/1000969830.png",
+        presentes: "imagens/1000969829.png"
+      },
+
+      /*
+         CONFIRMAÇÃO
+      */
+      numeroWhatsapp: "5551992004920",
+      mensagemWhatsapp: "Olá! Quero confirmar minha presença no aniversário do Valentin.",
+
+      /*
+         LOCALIZAÇÃO
+      */
+      linkLocalizacao: "https://maps.app.goo.gl/D8BeyP1EETYFbmrt8?g_st=ic",
+
+      /*
+         PIX
+      */
+      chavePix: "098e1fd6-d531-4194-b0f8-92d2647bb060",
+
+      /*
+         HOTSPOTS DO CARD FINAL
+      */
+      hotspotsFinal: {
+        localizacao: {
+          left: "21.5%",
+          top: "71.8%",
+          width: "57%",
+          height: "6.2%"
+        },
+
+        confirmacao: {
+          left: "21.5%",
+          top: "79.0%",
+          width: "57%",
+          height: "6.2%"
+        },
+
+        presentes: {
+          left: "21.5%",
+          top: "86.1%",
+          width: "57%",
+          height: "6.2%"
+        }
+      },
+
+      /*
+         HOTSPOTS DAS PÁGINAS INTERNAS
+      */
+      hotspotsPaginas: {
+        voltarLocalizacao: {
+          left: "3.2%",
+          top: "1.3%",
+          width: "27%",
+          height: "7.3%"
+        },
+
+        abrirMapa: {
+          left: "20.5%",
+          top: "55.4%",
+          width: "61%",
+          height: "8.5%"
+        },
+
+        voltarConfirmacao: {
+          left: "3.2%",
+          top: "1.3%",
+          width: "27%",
+          height: "7.3%"
+        },
+
+        confirmarWhatsapp: {
+          left: "19.2%",
+          top: "59.2%",
+          width: "62%",
+          height: "9.3%"
+        },
+
+        voltarPresentes: {
+          left: "35%",
+          top: "0.8%",
+          width: "31%",
+          height: "7.2%"
+        },
+
+        copiarPix: {
+          left: "15.2%",
+          top: "68.0%",
+          width: "69.5%",
+          height: "11%"
+        }
+      }
+    };
+
+    /* ==================================================
+       ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔
+    ================================================== */
+  </script>
+
+  <style>
+    :root {
+      --fundo: #000;
+      --duracao-transicao: 220ms;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--fundo);
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ==================================================
+       TELA CHEIA
+    ================================================== */
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+      background: var(--fundo);
+    }
+
+    @supports (height: 100dvh) {
+      .tela {
+        height: 100dvh;
+      }
+    }
+
+    .quadro {
+      position: relative;
+
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+    }
+
+    /* ==================================================
+       CAPA
+    ================================================== */
+
+    #capaTela {
+      z-index: 40;
+
+      opacity: 1;
+      visibility: visible;
+
+      transition: opacity 180ms ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+      padding: 0;
+      margin: 0;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      z-index: 5;
+    }
+
+    /* ==================================================
+       VÍDEO
+    ================================================== */
+
+    #videoTela {
+      z-index: 20;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: opacity 160ms ease;
+    }
+
+    #videoTela.ativo {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #video {
+      background: #000;
+    }
+
+    #pular {
+      position: absolute;
+
+      right: 18px;
+
+      bottom: max(
+        90px,
+        calc(env(safe-area-inset-bottom) + 70px)
+      );
+
+      z-index: 15;
+
+      border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.55
+      );
+
+      border-radius: 999px;
+
+      padding: 9px 14px;
+
+      background: rgba(
+        0,
+        0,
+        0,
+        0.48
+      );
+
+      color: #fff;
+
+      font-size: 13px;
+      line-height: 1;
+
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+
+      cursor: pointer;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: opacity 160ms ease;
+    }
+
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ==================================================
+       CARD FINAL
+    ================================================== */
+
+    #finalTela {
+      z-index: 30;
+
+      opacity: 0;
+      visibility: hidden;
+
+      pointer-events: none;
+
+      transition:
+        opacity
+        var(--duracao-transicao)
+        ease;
+    }
+
+    #finalTela.preRevelado,
+    #finalTela.ativo {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #finalTela.ativo {
+      pointer-events: auto;
+    }
+
+    /* ==================================================
+       HOTSPOTS
+    ================================================== */
+
+    .hotspot {
+      position: absolute;
+
+      border: 0;
+      padding: 0;
+      margin: 0;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      z-index: 12;
+
+      touch-action: manipulation;
+    }
+
+    /* ==================================================
+       CONTROLE DE SOM
+    ================================================== */
+
+    #controleSom {
+      position: absolute;
+
+      top: max(
+        14px,
+        calc(
+          env(safe-area-inset-top)
+          +
+          8px
+        )
+      );
+
+      right: 14px;
+
+      z-index: 25;
+
+      width: 38px;
+      height: 38px;
+
+      border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.28
+      );
+
+      border-radius: 50%;
+
+      padding: 0;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(
+        0,
+        0,
+        0,
+        0.36
+      );
+
+      color: #fff;
+
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+
+      cursor: pointer;
+    }
+
+    #controleSom.visivel {
+      display: flex;
+    }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+
+      fill: none;
+
+      stroke: currentColor;
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeSomDesligado {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSomLigado {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSomDesligado {
+      display: block;
+    }
+
+    /* ==================================================
+       PÁGINAS INTERNAS
+    ================================================== */
+
+    .paginaInterna {
+      z-index: 100;
+
+      visibility: hidden;
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: opacity 180ms ease;
+    }
+
+    .paginaInterna.ativa {
+      visibility: visible;
+      opacity: 1;
+
+      pointer-events: auto;
+    }
+
+    /* ==================================================
+       AVISO PIX
+    ================================================== */
+
+    #avisoPix {
+      position: fixed;
+
+      left: 50%;
+
+      bottom: max(
+        24px,
+        calc(
+          env(safe-area-inset-bottom)
+          +
+          18px
+        )
+      );
+
+      transform:
+        translate(
+          -50%,
+          14px
+        );
+
+      z-index: 500;
+
+      max-width:
+        calc(
+          100vw
+          -
+          36px
+        );
+
+      padding: 11px 17px;
+
+      border: 1px solid rgba(
+        255,
+        255,
+        255,
+        .22
+      );
+
+      border-radius: 999px;
+
+      background: rgba(
+        22,
+        14,
+        8,
+        .88
+      );
+
+      color: #fff;
+
+      font-size: 14px;
+      line-height: 1.2;
+
+      text-align: center;
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      opacity: 0;
+      visibility: hidden;
+
+      pointer-events: none;
+
+      transition:
+        opacity 180ms ease,
+        transform 180ms ease,
+        visibility 180ms ease;
+    }
+
+    #avisoPix.visivel {
+      opacity: 1;
+      visibility: visible;
+
+      transform:
+        translate(
+          -50%,
+          0
+        );
+    }
+
+    /* ==================================================
+       ACESSIBILIDADE
+    ================================================== */
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #pular:focus-visible,
+    #controleSom:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: -3px;
+    }
+
+    @media (
+      prefers-reduced-motion:
+      reduce
+    ) {
+      #capaTela,
+      #videoTela,
+      #finalTela,
+      .paginaInterna,
+      #pular,
+      #avisoPix {
+        transition-duration:
+          1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================================================
+       CAPA
+  ================================================== -->
+
+  <section
+    id="capaTela"
+    class="tela"
+    aria-label="Capa do convite"
+  >
+
+    <div class="quadro">
+
+      <img
+        id="capa"
+        class="arte"
+        alt="O Bosque Encantado do Valentin"
+        draggable="false"
+      >
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       VÍDEO
+  ================================================== -->
+
+  <section
+    id="videoTela"
+    class="tela"
+    aria-label="Vídeo de abertura"
+  >
+
+    <div class="quadro">
+
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button
+        id="pular"
+        type="button"
+        aria-label="Pular abertura"
+      >
+        Pular abertura
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       CARD FINAL
+  ================================================== -->
+
+  <section
+    id="finalTela"
+    class="tela"
+    aria-label="Convite final"
+  >
+
+    <div class="quadro">
+
+      <img
+        id="final"
+        class="arte"
+        alt="Detalhes do aniversário do Valentin"
+        draggable="false"
+      >
+
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Como chegar"
+      ></button>
+
+      <button
+        id="hotspotConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar pelo WhatsApp"
+      ></button>
+
+      <button
+        id="hotspotPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Sugestões de presentes"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ativar ou silenciar música"
+      >
+
+        <svg
+          id="iconeSomLigado"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+
+          <path
+            d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"
+          ></path>
+
+          <path
+            d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"
+          ></path>
+        </svg>
+
+        <svg
+          id="iconeSomDesligado"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       LOCALIZAÇÃO
+  ================================================== -->
+
+  <section
+    id="paginaLocalizacao"
+    class="tela paginaInterna"
+    aria-label="Local da festa"
+  >
+
+    <div class="quadro">
+
+      <img
+        id="imagemLocalizacao"
+        class="arte"
+        alt="Local da festa"
+        draggable="false"
+      >
+
+      <button
+        id="voltarLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Voltar ao convite"
+      ></button>
+
+      <button
+        id="botaoAbrirMapa"
+        class="hotspot"
+        type="button"
+        aria-label="Abrir localização"
+      ></button>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       CONFIRMAÇÃO
+  ================================================== -->
+
+  <section
+    id="paginaConfirmacao"
+    class="tela paginaInterna"
+    aria-label="Confirmar presença"
+  >
+
+    <div class="quadro">
+
+      <img
+        id="imagemConfirmacao"
+        class="arte"
+        alt="Confirmar presença"
+        draggable="false"
+      >
+
+      <button
+        id="voltarConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Voltar ao convite"
+      ></button>
+
+      <button
+        id="botaoConfirmarWhatsapp"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar pelo WhatsApp"
+      ></button>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       PRESENTES
+  ================================================== -->
+
+  <section
+    id="paginaPresentes"
+    class="tela paginaInterna"
+    aria-label="Presentinhos para o Valentin"
+  >
+
+    <div class="quadro">
+
+      <img
+        id="imagemPresentes"
+        class="arte"
+        alt="Sugestões de presentes para Valentin"
+        draggable="false"
+      >
+
+      <button
+        id="voltarPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Voltar ao convite"
+      ></button>
+
+      <button
+        id="botaoCopiarPix"
+        class="hotspot"
+        type="button"
+        aria-label="Copiar chave Pix"
+      ></button>
+
+    </div>
+
+  </section>
+
+  <!-- ==================================================
+       AVISO PIX
+  ================================================== -->
+
+  <div
+    id="avisoPix"
+    role="status"
+    aria-live="polite"
+  >
+    Chave Pix copiada! 🍯
+  </div>
+
+  <!-- ==================================================
+       MÚSICA
+  ================================================== -->
+
+  <audio
+    id="musica"
+    preload="auto"
+    loop
+  ></audio>
+
+  <script>
+    (() => {
+
+      "use strict";
+
+      const capaTela =
+        document.getElementById(
+          "capaTela"
+        );
+
+      const videoTela =
+        document.getElementById(
+          "videoTela"
+        );
+
+      const finalTela =
+        document.getElementById(
+          "finalTela"
+        );
+
+      const capa =
+        document.getElementById(
+          "capa"
+        );
+
+      const video =
+        document.getElementById(
+          "video"
+        );
+
+      const final =
+        document.getElementById(
+          "final"
+        );
+
+      const musica =
+        document.getElementById(
+          "musica"
+        );
+
+      const abrirConviteBtn =
+        document.getElementById(
+          "abrirConvite"
+        );
+
+      const pularBtn =
+        document.getElementById(
+          "pular"
+        );
+
+      const controleSom =
+        document.getElementById(
+          "controleSom"
+        );
+
+      const hotspotLocalizacao =
+        document.getElementById(
+          "hotspotLocalizacao"
+        );
+
+      const hotspotConfirmacao =
+        document.getElementById(
+          "hotspotConfirmacao"
+        );
+
+      const hotspotPresentes =
+        document.getElementById(
+          "hotspotPresentes"
+        );
+
+      const paginaLocalizacao =
+        document.getElementById(
+          "paginaLocalizacao"
+        );
+
+      const paginaConfirmacao =
+        document.getElementById(
+          "paginaConfirmacao"
+        );
+
+      const paginaPresentes =
+        document.getElementById(
+          "paginaPresentes"
+        );
+
+      const imagemLocalizacao =
+        document.getElementById(
+          "imagemLocalizacao"
+        );
+
+      const imagemConfirmacao =
+        document.getElementById(
+          "imagemConfirmacao"
+        );
+
+      const imagemPresentes =
+        document.getElementById(
+          "imagemPresentes"
+        );
+
+      const voltarLocalizacao =
+        document.getElementById(
+          "voltarLocalizacao"
+        );
+
+      const voltarConfirmacao =
+        document.getElementById(
+          "voltarConfirmacao"
+        );
+
+      const voltarPresentes =
+        document.getElementById(
+          "voltarPresentes"
+        );
+
+      const botaoAbrirMapa =
+        document.getElementById(
+          "botaoAbrirMapa"
+        );
+
+      const botaoConfirmarWhatsapp =
+        document.getElementById(
+          "botaoConfirmarWhatsapp"
+        );
+
+      const botaoCopiarPix =
+        document.getElementById(
+          "botaoCopiarPix"
+        );
+
+      const avisoPix =
+        document.getElementById(
+          "avisoPix"
+        );
+
+      let conviteAberto = false;
+
+      let finalMostrado = false;
+
+      let preRevelacaoFeita = false;
+
+      let somLigado = true;
+
+      let audioDisponivel = true;
+
+      let rafFimVideo = null;
+
+      let timerPular = null;
+
+      let timerAvisoPix = null;
+
+      let videoEstavaTocando = false;
+
+      let musicaEstavaTocando = false;
+
+      const EXTENSOES_IMAGEM = [
+        ".png",
+        ".jpg",
+        ".jpeg"
+      ];
+
+      /* ==================================================
+         IMAGENS PNG / JPG / JPEG
+      ================================================== */
+
+      function candidatosImagem(
+        caminho
+      ) {
+
+        if (
+          /\.(png|jpe?g)$/i.test(
+            caminho
+          )
+        ) {
+          return [
+            caminho
+          ];
+        }
+
+        return EXTENSOES_IMAGEM.map(
+          (extensao) =>
+            `${caminho}${extensao}`
+        );
+      }
+
+      const urlLocal =
+        (caminho) =>
+          `${caminho}?v=${encodeURIComponent(
+            CONFIG.versaoArquivos
+          )}`;
+
+      function urlMidia(
+        arquivo
+      ) {
+
+        const partes =
+          arquivo
+            .split("/")
+            .map(
+              (parte) =>
+                encodeURIComponent(
+                  parte
+                )
+            )
+            .join("/");
+
+        return (
+          `${CONFIG.hostMidia}/` +
+          `${CONFIG.pastaCliente}/` +
+          `${partes}` +
+          `?v=${encodeURIComponent(
+            CONFIG.versaoMidia
+          )}`
+        );
+      }
+
+      function aplicarPosicao(
+        elemento,
+        posicao
+      ) {
+
+        elemento.style.left =
+          posicao.left;
+
+        elemento.style.top =
+          posicao.top;
+
+        elemento.style.width =
+          posicao.width;
+
+        elemento.style.height =
+          posicao.height;
+      }
+
+      function carregarImagem(
+        elemento,
+        caminhoConfigurado
+      ) {
+
+        return new Promise(
+          (resolve) => {
+
+            const candidatos =
+              candidatosImagem(
+                caminhoConfigurado
+              );
+
+            let indice = 0;
+
+            const tentar = () => {
+
+              if (
+                indice >=
+                candidatos.length
+              ) {
+
+                elemento.onload =
+                  null;
+
+                elemento.onerror =
+                  null;
+
+                console.error(
+                  "Imagem não encontrada. Tentativas:",
+                  candidatos
+                );
+
+                resolve(false);
+
+                return;
+              }
+
+              const caminho =
+                candidatos[
+                  indice++
+                ];
+
+              elemento.onload =
+                async () => {
+
+                  elemento.onload =
+                    null;
+
+                  elemento.onerror =
+                    null;
+
+                  if (
+                    typeof
+                    elemento.decode
+                    ===
+                    "function"
+                  ) {
+
+                    await elemento
+                      .decode()
+                      .catch(
+                        () => {}
+                      );
+                  }
+
+                  resolve(true);
+                };
+
+              elemento.onerror =
+                tentar;
+
+              elemento.src =
+                urlLocal(
+                  caminho
+                );
+            };
+
+            tentar();
+          }
+        );
+      }
+
+      function configurarArquivos() {
+
+        document.title =
+          CONFIG.titulo;
+
+        const carregamentos = {
+
+          capa:
+            carregarImagem(
+              capa,
+              CONFIG.imagens.capa
+            ),
+
+          final:
+            carregarImagem(
+              final,
+              CONFIG.imagens.final
+            ),
+
+          localizacao:
+            carregarImagem(
+              imagemLocalizacao,
+              CONFIG.imagens.localizacao
+            ),
+
+          confirmacao:
+            carregarImagem(
+              imagemConfirmacao,
+              CONFIG.imagens.confirmacao
+            ),
+
+          presentes:
+            carregarImagem(
+              imagemPresentes,
+              CONFIG.imagens.presentes
+            )
+        };
+
+        video.src =
+          urlMidia(
+            CONFIG.videoArquivo
+          );
+
+        musica.src =
+          urlMidia(
+            CONFIG.musicaArquivo
+          );
+
+        video.load();
+
+        musica.load();
+
+        return carregamentos;
+      }
+
+      function configurarHotspots() {
+
+        aplicarPosicao(
+          hotspotLocalizacao,
+          CONFIG
+            .hotspotsFinal
+            .localizacao
+        );
+
+        aplicarPosicao(
+          hotspotConfirmacao,
+          CONFIG
+            .hotspotsFinal
+            .confirmacao
+        );
+
+        aplicarPosicao(
+          hotspotPresentes,
+          CONFIG
+            .hotspotsFinal
+            .presentes
+        );
+
+        aplicarPosicao(
+          voltarLocalizacao,
+          CONFIG
+            .hotspotsPaginas
+            .voltarLocalizacao
+        );
+
+        aplicarPosicao(
+          botaoAbrirMapa,
+          CONFIG
+            .hotspotsPaginas
+            .abrirMapa
+        );
+
+        aplicarPosicao(
+          voltarConfirmacao,
+          CONFIG
+            .hotspotsPaginas
+            .voltarConfirmacao
+        );
+
+        aplicarPosicao(
+          botaoConfirmarWhatsapp,
+          CONFIG
+            .hotspotsPaginas
+            .confirmarWhatsapp
+        );
+
+        aplicarPosicao(
+          voltarPresentes,
+          CONFIG
+            .hotspotsPaginas
+            .voltarPresentes
+        );
+
+        aplicarPosicao(
+          botaoCopiarPix,
+          CONFIG
+            .hotspotsPaginas
+            .copiarPix
+        );
+      }
+
+      let carregamentosImagem =
+        null;
+
+      function prepararArquivos() {
+
+        carregamentosImagem =
+          configurarArquivos();
+      }
+
+      async function esperarImagemFinal() {
+
+        if (
+          !carregamentosImagem
+        ) {
+          return;
+        }
+
+        await carregamentosImagem
+          .final
+          .catch(
+            () => false
+          );
+      }
+
+      function esconderCapa() {
+
+        if (
+          capaTela
+            .classList
+            .contains(
+              "saindo"
+            )
+        ) {
+          return;
+        }
+
+        capaTela
+          .classList
+          .add(
+            "saindo"
+          );
+
+        window.setTimeout(
+          () => {
+
+            capaTela.style
+              .visibility =
+              "hidden";
+
+          },
+          200
+        );
+      }
+
+      /* ==================================================
+         ÁUDIO
+      ================================================== */
+
+      function iniciarAudioSilencioso() {
+
+        musica.volume =
+          0.001;
+
+        const tentativa =
+          musica.play();
+
+        if (
+          tentativa &&
+          typeof
+          tentativa.catch
+          ===
+          "function"
+        ) {
+
+          tentativa.catch(
+            () => {
+
+              audioDisponivel =
+                false;
+
+              controleSom
+                .classList
+                .remove(
+                  "visivel"
+                );
+            }
+          );
+        }
+      }
+
+      async function abrirConvite() {
+
+        if (
+          conviteAberto
+        ) {
+          return;
+        }
+
+        conviteAberto =
+          true;
+
+        videoTela
+          .classList
+          .add(
+            "ativo"
+          );
+
+        iniciarAudioSilencioso();
+
+        try {
+
+          const tentativaVideo =
+            video.play();
+
+          if (
+            tentativaVideo &&
+            typeof
+            tentativaVideo.then
+            ===
+            "function"
+          ) {
+
+            await tentativaVideo;
+          }
+
+        } catch (_) {
+
+          await ativarFinal(
+            true
+          );
+
+          esconderCapa();
+
+          return;
+        }
+
+        esconderCapa();
+
+        mostrarPularTemporariamente();
+
+        monitorarFimDoVideo();
+      }
+
+      function mostrarPularTemporariamente() {
+
+        pularBtn
+          .classList
+          .add(
+            "visivel"
+          );
+
+        clearTimeout(
+          timerPular
+        );
+
+        timerPular =
+          window.setTimeout(
+            () => {
+
+              pularBtn
+                .classList
+                .remove(
+                  "visivel"
+                );
+
+            },
+            CONFIG.tempoPular
+          );
+      }
+
+      /* ==================================================
+         TRANSIÇÃO SEM FLASH PRETO
+      ================================================== */
+
+      function monitorarFimDoVideo() {
+
+        cancelAnimationFrame(
+          rafFimVideo
+        );
+
+        const observar = () => {
+
+          if (
+            finalMostrado
+          ) {
+            return;
+          }
+
+          if (
+            Number.isFinite(
+              video.duration
+            ) &&
+            video.duration > 0 &&
+            !video.paused
+          ) {
+
+            const restante =
+              video.duration
+              -
+              video.currentTime;
+
+            if (
+              restante > 0 &&
+              restante <= 0.22
+            ) {
+
+              preRevelarFinal();
+            }
+          }
+
+          rafFimVideo =
+            requestAnimationFrame(
+              observar
+            );
+        };
+
+        rafFimVideo =
+          requestAnimationFrame(
+            observar
+          );
+      }
+
+      async function preRevelarFinal() {
+
+        if (
+          preRevelacaoFeita ||
+          finalMostrado
+        ) {
+          return;
+        }
+
+        preRevelacaoFeita =
+          true;
+
+        await esperarImagemFinal();
+
+        if (
+          finalMostrado
+        ) {
+          return;
+        }
+
+        finalTela.style
+          .visibility =
+          "visible";
+
+        finalTela
+          .classList
+          .add(
+            "preRevelado"
+          );
+      }
+
+      function tempoCorrespondenteDaMusica(
+        tempoVideo
+      ) {
+
+        let tempo =
+          Math.max(
+            0,
+            tempoVideo
+            +
+            CONFIG.inicioMusica
+          );
+
+        if (
+          Number.isFinite(
+            musica.duration
+          ) &&
+          musica.duration > 0
+        ) {
+
+          tempo %=
+            musica.duration;
+        }
+
+        return tempo;
+      }
+
+      function sincronizarMusica(
+        tempoVideo
+      ) {
+
+        if (
+          !audioDisponivel
+        ) {
+          return;
+        }
+
+        try {
+
+          musica.currentTime =
+            tempoCorrespondenteDaMusica(
+              tempoVideo
+            );
+
+        } catch (_) {}
+
+        musica.volume =
+          somLigado
+            ?
+            CONFIG.volumeMusica
+            :
+            0;
+
+        const tentativa =
+          musica.play();
+
+        if (
+          tentativa &&
+          typeof
+          tentativa.catch
+          ===
+          "function"
+        ) {
+
+          tentativa.catch(
+            () => {
+
+              audioDisponivel =
+                false;
+
+              controleSom
+                .classList
+                .remove(
+                  "visivel"
+                );
+            }
+          );
+        }
+      }
+
+      async function ativarFinal(
+        foiPulado = false
+      ) {
+
+        if (
+          finalMostrado
+        ) {
+          return;
+        }
+
+        finalMostrado =
+          true;
+
+        cancelAnimationFrame(
+          rafFimVideo
+        );
+
+        clearTimeout(
+          timerPular
+        );
+
+        pularBtn
+          .classList
+          .remove(
+            "visivel"
+          );
+
+        const tempoVideo =
+          Number.isFinite(
+            video.currentTime
+          )
+            ?
+            video.currentTime
+            :
+            0;
+
+        await esperarImagemFinal();
+
+        video.pause();
+
+        finalTela.style
+          .visibility =
+          "visible";
+
+        requestAnimationFrame(
+          () => {
+
+            finalTela
+              .classList
+              .add(
+                "preRevelado",
+                "ativo"
+              );
+          }
+        );
+
+        sincronizarMusica(
+          tempoVideo
+        );
+
+        if (
+          audioDisponivel
+        ) {
+
+          controleSom
+            .classList
+            .add(
+              "visivel"
+            );
+        }
+
+        window.setTimeout(
+          () => {
+
+            videoTela
+              .classList
+              .remove(
+                "ativo"
+              );
+
+            videoTela.style
+              .visibility =
+              "hidden";
+
+          },
+          260
+        );
+      }
+
+      function pularAbertura() {
+
+        ativarFinal(
+          true
+        );
+      }
+
+      /* ==================================================
+         PÁGINAS
+      ================================================== */
+
+      function fecharPaginasInternas() {
+
+        paginaLocalizacao
+          .classList
+          .remove(
+            "ativa"
+          );
+
+        paginaConfirmacao
+          .classList
+          .remove(
+            "ativa"
+          );
+
+        paginaPresentes
+          .classList
+          .remove(
+            "ativa"
+          );
+
+        if (
+          finalMostrado &&
+          audioDisponivel
+        ) {
+
+          controleSom
+            .classList
+            .add(
+              "visivel"
+            );
+        }
+      }
+
+      function abrirPagina(
+        pagina
+      ) {
+
+        fecharPaginasInternas();
+
+        pagina
+          .classList
+          .add(
+            "ativa"
+          );
+
+        controleSom
+          .classList
+          .remove(
+            "visivel"
+          );
+      }
+
+      function abrirLink(
+        link
+      ) {
+
+        if (
+          !link
+        ) {
+          return;
+        }
+
+        window.location.href =
+          link;
+      }
+
+      /* ==================================================
+         WHATSAPP
+      ================================================== */
+
+      function abrirWhatsApp() {
+
+        const link =
+          "https://wa.me/" +
+          CONFIG.numeroWhatsapp +
+          "?text=" +
+          encodeURIComponent(
+            CONFIG.mensagemWhatsapp
+          );
+
+        abrirLink(
+          link
+        );
+      }
+
+      /* ==================================================
+         SOM
+      ================================================== */
+
+      function alternarSom() {
+
+        if (
+          !audioDisponivel
+        ) {
+          return;
+        }
+
+        somLigado =
+          !somLigado;
+
+        musica.volume =
+          somLigado
+            ?
+            CONFIG.volumeMusica
+            :
+            0;
+
+        controleSom
+          .classList
+          .toggle(
+            "mudo",
+            !somLigado
+          );
+      }
+
+      /* ==================================================
+         PIX
+      ================================================== */
+
+      function mostrarAvisoPix() {
+
+        avisoPix
+          .classList
+          .add(
+            "visivel"
+          );
+
+        clearTimeout(
+          timerAvisoPix
+        );
+
+        timerAvisoPix =
+          window.setTimeout(
+            () => {
+
+              avisoPix
+                .classList
+                .remove(
+                  "visivel"
+                );
+
+            },
+            2200
+          );
+      }
+
+      function copiarComFallback(
+        texto
+      ) {
+
+        const textarea =
+          document.createElement(
+            "textarea"
+          );
+
+        textarea.value =
+          texto;
+
+        textarea.setAttribute(
+          "readonly",
+          ""
+        );
+
+        textarea.style.position =
+          "fixed";
+
+        textarea.style.opacity =
+          "0";
+
+        textarea.style.pointerEvents =
+          "none";
+
+        document.body.appendChild(
+          textarea
+        );
+
+        textarea.select();
+
+        textarea.setSelectionRange(
+          0,
+          textarea.value.length
+        );
+
+        let sucesso =
+          false;
+
+        try {
+
+          sucesso =
+            document.execCommand(
+              "copy"
+            );
+
+        } catch (_) {
+
+          sucesso =
+            false;
+        }
+
+        textarea.remove();
+
+        return sucesso;
+      }
+
+      async function copiarPix() {
+
+        const chave =
+          CONFIG.chavePix;
+
+        try {
+
+          if (
+            navigator.clipboard &&
+            window.isSecureContext
+          ) {
+
+            await navigator
+              .clipboard
+              .writeText(
+                chave
+              );
+
+            mostrarAvisoPix();
+
+            return;
+          }
+
+        } catch (_) {}
+
+        const sucesso =
+          copiarComFallback(
+            chave
+          );
+
+        if (
+          sucesso
+        ) {
+
+          mostrarAvisoPix();
+
+          return;
+        }
+
+        window.prompt(
+          "Copie a chave Pix:",
+          chave
+        );
+      }
+
+      /* ==================================================
+         SAIR E VOLTAR AO APP
+      ================================================== */
+
+      function tratarVisibilidade() {
+
+        if (
+          document.hidden
+        ) {
+
+          videoEstavaTocando =
+            !video.paused &&
+            !finalMostrado;
+
+          musicaEstavaTocando =
+            !musica.paused;
+
+          if (
+            videoEstavaTocando
+          ) {
+
+            video.pause();
+          }
+
+          if (
+            musicaEstavaTocando
+          ) {
+
+            musica.pause();
+          }
+
+          return;
+        }
+
+        if (
+          videoEstavaTocando &&
+          !finalMostrado
+        ) {
+
+          video
+            .play()
+            .then(
+              monitorarFimDoVideo
+            )
+            .catch(
+              () => {}
+            );
+        }
+
+        if (
+          musicaEstavaTocando &&
+          audioDisponivel
+        ) {
+
+          musica
+            .play()
+            .catch(
+              () => {}
+            );
+        }
+
+        videoEstavaTocando =
+          false;
+
+        musicaEstavaTocando =
+          false;
+      }
+
+      /* ==================================================
+         EVENTOS
+      ================================================== */
+
+      abrirConviteBtn
+        .addEventListener(
+          "click",
+          abrirConvite
+        );
+
+      pularBtn
+        .addEventListener(
+          "click",
+          pularAbertura
+        );
+
+      video
+        .addEventListener(
+          "playing",
+          esconderCapa
+        );
+
+      video
+        .addEventListener(
+          "ended",
+          () =>
+            ativarFinal(
+              false
+            )
+        );
+
+      video
+        .addEventListener(
+          "error",
+          async () => {
+
+            if (
+              conviteAberto &&
+              !finalMostrado
+            ) {
+
+              await ativarFinal(
+                true
+              );
+
+              esconderCapa();
+            }
+          }
+        );
+
+      musica
+        .addEventListener(
+          "error",
+          () => {
+
+            audioDisponivel =
+              false;
+
+            controleSom
+              .classList
+              .remove(
+                "visivel"
+              );
+          }
+        );
+
+      hotspotLocalizacao
+        .addEventListener(
+          "click",
+          () =>
+            abrirPagina(
+              paginaLocalizacao
+            )
+        );
+
+      hotspotConfirmacao
+        .addEventListener(
+          "click",
+          () =>
+            abrirPagina(
+              paginaConfirmacao
+            )
+        );
+
+      hotspotPresentes
+        .addEventListener(
+          "click",
+          () =>
+            abrirPagina(
+              paginaPresentes
+            )
+        );
+
+      voltarLocalizacao
+        .addEventListener(
+          "click",
+          fecharPaginasInternas
+        );
+
+      voltarConfirmacao
+        .addEventListener(
+          "click",
+          fecharPaginasInternas
+        );
+
+      voltarPresentes
+        .addEventListener(
+          "click",
+          fecharPaginasInternas
+        );
+
+      botaoAbrirMapa
+        .addEventListener(
+          "click",
+          () =>
+            abrirLink(
+              CONFIG.linkLocalizacao
+            )
+        );
+
+      botaoConfirmarWhatsapp
+        .addEventListener(
+          "click",
+          abrirWhatsApp
+        );
+
+      botaoCopiarPix
+        .addEventListener(
+          "click",
+          copiarPix
+        );
+
+      controleSom
+        .addEventListener(
+          "click",
+          alternarSom
+        );
+
+      document
+        .addEventListener(
+          "visibilitychange",
+          tratarVisibilidade
+        );
+
+      window
+        .addEventListener(
+          "pageshow",
+          (event) => {
+
+            if (
+              event.persisted &&
+              finalMostrado &&
+              audioDisponivel
+            ) {
+
+              musica.volume =
+                somLigado
+                  ?
+                  CONFIG.volumeMusica
+                  :
+                  0;
+
+              musica
+                .play()
+                .catch(
+                  () => {}
+                );
+            }
+          }
+        );
+
+      /* ==================================================
+         BLOQUEIO CASUAL
+      ================================================== */
+
+      document
+        .addEventListener(
+          "contextmenu",
+          (event) =>
+            event.preventDefault()
+        );
+
+      document
+        .addEventListener(
+          "dragstart",
+          (event) =>
+            event.preventDefault()
+        );
+
+      /* ==================================================
+         INICIALIZAÇÃO
+      ================================================== */
+
+      prepararArquivos();
+
+      configurarHotspots();
+
+    })();
+  </script>
+
+</body>
+</html>

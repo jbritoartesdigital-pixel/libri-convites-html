@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Gael - 1 aninho</title>
+  <meta name="description" content="Convite digital de aniversário do Gael - 1 aninho" />
+
+  <!-- Preview WhatsApp / redes -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gael - 1 aninho" />
+  <meta property="og:description" content="Você é nosso convidado especial!" />
+  <meta property="og:image" content="imagens/preview.jpg?v=1" />
+  <meta property="og:image:secure_url" content="imagens/preview.jpg?v=1" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gael - 1 aninho" />
+  <meta name="twitter:description" content="Você é nosso convidado especial!" />
+  <meta name="twitter:image" content="imagens/preview.jpg?v=1" />
+
+  <link rel="preload" as="image" href="imagens/capa.jpg?v=1" />
+  <link rel="preload" as="image" href="imagens/final.png?v=1" />
+  <link rel="preload" as="video" href="abertura.mp4?v=1" />
+  <link rel="preload" as="audio" href="musica-fazendinha.mp3?v=1" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --fade: 360ms;
+      --audio-fade: 260ms;
+    }
+
+    *{
+      box-sizing:border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body{
+      margin:0;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      background:var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      touch-action: manipulation;
+    }
+
+    body{
+      position:fixed;
+      inset:0;
+    }
+
+    #app{
+      position:relative;
+      width:100%;
+      height:100%;
+      background:#000;
+      overflow:hidden;
+    }
+
+    .screen{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity var(--fade) ease;
+      background:#000;
+    }
+
+    .screen.active{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .bg-fill{
+      position:absolute;
+      inset:-4%;
+      background-size:cover;
+      background-position:center;
+      filter: blur(18px) brightness(.72);
+      transform: scale(1.08);
+    }
+
+    .stage{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0;
+    }
+
+    .vertical-frame{
+      position:relative;
+      width:min(100vw, calc(100dvh * 9 / 16));
+      height:min(100dvh, calc(100vw * 16 / 9));
+      aspect-ratio:9/16;
+      overflow:hidden;
+      background:#000;
+    }
+
+    .vertical-frame img,
+    .vertical-frame video{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:fill;
+      background:#000;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    #coverScreen{
+      cursor:pointer;
+    }
+
+    #coverTap{
+      position:absolute;
+      inset:0;
+      z-index:5;
+      background:transparent;
+      border:0;
+      cursor:pointer;
+    }
+
+    #videoScreen{
+      z-index:20;
+    }
+
+    #finalScreen{
+      z-index:10;
+    }
+
+    .hotspot{
+      position:absolute;
+      display:block;
+      z-index:15;
+      background:transparent;
+      border:none;
+      outline:none;
+      text-decoration:none;
+      cursor:pointer;
+    }
+
+    .hotspot:focus-visible{
+      outline:2px solid rgba(255,255,255,.85);
+      outline-offset:2px;
+      border-radius:18px;
+    }
+
+    /* Hotspots do card final */
+    #btnMapa{
+      left:11.5%;
+      top:76.6%;
+      width:76.5%;
+      height:6.3%;
+    }
+
+    #btnWhatsapp{
+      left:11.5%;
+      top:84.8%;
+      width:76.5%;
+      height:6.3%;
+    }
+
+    /* pequeno loading invisível, só para evitar piscar */
+    .preload-hidden{
+      position:absolute;
+      width:1px;
+      height:1px;
+      opacity:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- CAPA -->
+    <section id="coverScreen" class="screen active" aria-label="Capa do convite">
+      <div class="bg-fill" style="background-image:url('imagens/capa.jpg?v=1');"></div>
+      <div class="stage">
+        <div class="vertical-frame">
+          <img
+            id="coverImg"
+            src="imagens/capa.jpg?v=1"
+            alt="Capa do convite do Gael"
+            fetchpriority="high"
+          />
+          <button id="coverTap" aria-label="Abrir convite"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VÍDEO -->
+    <section id="videoScreen" class="screen" aria-label="Abertura em vídeo">
+      <div class="stage">
+        <div class="vertical-frame">
+          <video
+            id="openingVideo"
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            controlslist="nodownload noplaybackrate"
+            disablepictureinpicture
+            poster="imagens/capa.jpg?v=1"
+          >
+            <source src="abertura.mp4?v=1" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD FINAL -->
+    <section id="finalScreen" class="screen" aria-label="Card final do convite">
+      <div class="bg-fill" style="background-image:url('imagens/final.png?v=1');"></div>
+      <div class="stage">
+        <div class="vertical-frame" id="finalFrame">
+          <img
+            id="finalImg"
+            src="imagens/final.png?v=1"
+            alt="Informações do convite do Gael"
+          />
+
+          <a
+            id="btnMapa"
+            class="hotspot"
+            href="https://maps.app.goo.gl/SnF6XhBkpJTw84Vj9?g_st=iw"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir localização"
+          ></a>
+
+          <a
+            id="btnWhatsapp"
+            class="hotspot"
+            href="https://wa.me/553888122603?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20do%20Gael."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Confirmar presença pelo WhatsApp"
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áudio contínuo -->
+    <audio id="bgMusic" preload="auto" playsinline>
+      <source src="musica-fazendinha.mp3?v=1" type="audio/mpeg" />
+    </audio>
+
+    <!-- preload auxiliar -->
+    <img class="preload-hidden" src="imagens/preview.jpg?v=1" alt="" />
+  </div>
+
+  <script>
+    const CARD_AUDIO_TARGET = 0.50;
+    const TECHNICAL_VOLUME = 0.001;
+    const RESYNC_THRESHOLD = 0.35;
+    const RESYNC_INTERVAL = 1000;
+    const AUDIO_FADE_MS = 260;
+
+    const coverScreen = document.getElementById('coverScreen');
+    const videoScreen = document.getElementById('videoScreen');
+    const finalScreen = document.getElementById('finalScreen');
+    const coverTap = document.getElementById('coverTap');
+    const video = document.getElementById('openingVideo');
+    const music = document.getElementById('bgMusic');
+
+    let started = false;
+    let finishing = false;
+    let syncTimer = null;
+
+    function showScreen(screen){
+      [coverScreen, videoScreen, finalScreen].forEach(s => {
+        if(s === screen){
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+    }
+
+    function fadeAudio(from, to, duration){
+      const start = performance.now();
+      function step(now){
+        const progress = Math.min((now - start) / duration, 1);
+        const value = from + (to - from) * progress;
+        music.volume = Math.max(0, Math.min(1, value));
+        if(progress < 1){
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function fadeVideoVolume(from, to, duration){
+      const start = performance.now();
+      function step(now){
+        const progress = Math.min((now - start) / duration, 1);
+        const value = from + (to - from) * progress;
+        video.volume = Math.max(0, Math.min(1, value));
+        if(progress < 1){
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function startMusicTechnical(){
+      music.volume = TECHNICAL_VOLUME;
+      music.currentTime = 0;
+      const p = music.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    }
+
+    function startVideoPlayback(){
+      video.currentTime = 0;
+      video.volume = 1;
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    }
+
+    function startSync(){
+      clearInterval(syncTimer);
+      syncTimer = setInterval(() => {
+        if(video.paused || music.paused || !isFinite(video.currentTime) || !isFinite(music.currentTime)) return;
+        const drift = Math.abs(music.currentTime - video.currentTime);
+        if(drift > RESYNC_THRESHOLD){
+          try{
+            music.currentTime = video.currentTime;
+          }catch(e){}
+        }
+      }, RESYNC_INTERVAL);
+    }
+
+    function stopSync(){
+      clearInterval(syncTimer);
+      syncTimer = null;
+    }
+
+    function finishToFinal(){
+      if(finishing) return;
+      finishing = true;
+
+      stopSync();
+
+      finalScreen.classList.add('active');
+
+      // Crossfade: vídeo desce, mp3 sobe
+      fadeVideoVolume(video.volume || 1, 0, AUDIO_FADE_MS);
+      fadeAudio(music.volume || TECHNICAL_VOLUME, CARD_AUDIO_TARGET, AUDIO_FADE_MS);
+
+      requestAnimationFrame(() => {
+        videoScreen.style.opacity = '0';
+        setTimeout(() => {
+          video.pause();
+          videoScreen.classList.remove('active');
+          videoScreen.style.opacity = '';
+          finalScreen.classList.add('active');
+        }, 360);
+      });
+    }
+
+    async function startExperience(){
+      if(started) return;
+      started = true;
+
+      showScreen(videoScreen);
+
+      startMusicTechnical();
+      startVideoPlayback();
+      startSync();
+    }
+
+    coverTap.addEventListener('click', startExperience);
+
+    video.addEventListener('ended', finishToFinal);
+
+    video.addEventListener('timeupdate', () => {
+      if(!finishing && isFinite(video.duration) && video.duration > 0){
+        const remaining = video.duration - video.currentTime;
+        if(remaining <= 0.28){
+          finishToFinal();
+        }
+      }
+    });
+
+    video.addEventListener('error', () => {
+      // Se o vídeo falhar, vai direto para o card sem quebrar a experiência
+      stopSync();
+      music.volume = CARD_AUDIO_TARGET;
+      const p = music.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+      showScreen(finalScreen);
+    });
+
+    // Garante que o áudio continue se a aba voltar do background
+    document.addEventListener('visibilitychange', () => {
+      if(document.visibilityState === 'visible' && started && finalScreen.classList.contains('active')){
+        if(music.paused){
+          const p = music.play();
+          if (p && typeof p.catch === 'function') p.catch(() => {});
+        }
+        music.volume = CARD_AUDIO_TARGET;
+      }
+    });
+  </script>
+</body>
+</html>

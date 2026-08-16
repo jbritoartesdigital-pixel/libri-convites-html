@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ==================================================
+       🌸 ALTERE SOMENTE AQUI | METADADOS ESTÁTICOS 🌸
+  ================================================== -->
+  <title>Yan Oliveira | 4 anos</title>
+  <meta name="description" content="Você recebeu um convite muito especial para celebrar os 4 anos do Yan. 💙⚡">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#001b63">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Yan Oliveira | 4 anos">
+  <meta property="og:description" content="Você recebeu um convite supersônico muito especial! 💙⚡">
+  <meta property="og:url" content="https://libriconvites.com.br/yan/">
+  <meta property="og:image" content="https://libriconvites.com.br/yan/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/yan/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yan Oliveira | 4 anos">
+  <meta name="twitter:description" content="Você recebeu um convite supersônico muito especial! 💙⚡">
+  <meta name="twitter:image" content="https://libriconvites.com.br/yan/imagens/preview-otimizada.jpg?v=1">
+
+  <link rel="preload" as="image" href="imagens/capa.jpg?v=1">
+  <link rel="preload" as="image" href="imagens/final.jpeg?v=1">
+  <link rel="preload" as="image" href="imagens/local.png?v=1">
+  <link rel="preload" as="image" href="imagens/confirmar.png?v=1">
+  <link rel="preload" as="image" href="imagens/presentes.png?v=1">
+
+  <script>
+    /* ==================================================
+       🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸
+    ================================================== */
+
+    const CONFIG = {
+      titulo: "Convite do Yan",
+
+      pastaCliente: "yan",
+      hostMidia: "https://midia.libriconvites.com.br",
+
+      videoArquivo: "abertura.mp4",
+      musicaArquivo: "musica-sonic.mp3",
+
+      inicioMusica: 0,
+      volumeMusica: 0.35,
+      transicaoAudio: 260,
+      tempoPular: 5000,
+
+      versaoArquivos: "1",
+      versaoMidia: "1",
+
+      numeroWhatsapp: "556192926294",
+      mensagemWhatsapp: "Olá! Gostaria de confirmar minha presença no aniversário do Yan.",
+
+      linkLocalizacao: "https://maps.app.goo.gl/jHbuWrRM9JuXz3HeA",
+
+      /*
+         O primeiro nome de cada lista é o preferido.
+         Os demais são apenas fallback para não quebrar se a extensão variar.
+      */
+      imagens: {
+        capa: [
+          "imagens/capa.jpg",
+          "imagens/capa.jpeg",
+          "imagens/capa.png"
+        ],
+        final: [
+          "imagens/final.jpeg",
+          "imagens/final.jpg",
+          "imagens/final.png"
+        ],
+        localizacao: [
+          "imagens/local.png",
+          "imagens/local.jpg",
+          "imagens/local.jpeg"
+        ],
+        confirmacao: [
+          "imagens/confirmar.png",
+          "imagens/confirmar.jpg",
+          "imagens/confirmar.jpeg"
+        ],
+        presentes: [
+          "imagens/presentes.png",
+          "imagens/presentes.jpg",
+          "imagens/presentes.jpeg"
+        ]
+      },
+
+      hotspotsFinal: {
+        localizacao: {
+          left: "32.768257447%",
+          top: "57.933701348%",
+          width: "37.970509116%",
+          height: "8.543867515%"
+        },
+
+        confirmacao: {
+          left: "32.449437083%",
+          top: "67.259226049%",
+          width: "38.289329481%",
+          height: "5.674475299%"
+        },
+        presentes: {
+          left: "31.811796353%",
+          top: "74.074032561%",
+          width: "40.839892398%",
+          height: "6.391823353%"
+        }
+      },
+
+      hotspotsLocalizacao: {
+        voltar: { left: "5.349706087%", top: "3.228066243%", width: "26.492975989%", height: "5.495138286%" },
+        mapa: { left: "15.870778121%", top: "66.721215008%", width: "70.171365946%", height: "10.695911677%" }
+      },
+
+      hotspotsConfirmacao: {
+        voltar: { left: "5.987346817%", top: "2.159890156%", width: "26.174155624%", height: "6.033149326%" },
+        whatsapp: { left: "10.450831922%", top: "63.672485779%", width: "79.417156521%", height: "15.179337013%" }
+      },
+
+      hotspotsPresentes: {
+        voltar: { left: "4.712065358%", top: "1.980553143%", width: "30.956461094%", height: "7.109171407%" }
+      }
+    };
+
+    /* ==================================================
+       ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔
+    ================================================== */
+  </script>
+
+  <style>
+    :root {
+      --fundo: #000;
+      --transicao-video: 240ms;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      display: block;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button {
+      font: inherit;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--fundo);
+    }
+
+    @supports (height: 100dvh) {
+      .tela {
+        height: 100dvh;
+      }
+    }
+
+    /* 9:16 em COVER para preencher a tela inteira */
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Card final pronto atrás do vídeo */
+    #finalTela {
+      z-index: 20;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+      background: #000;
+    }
+
+    #finalTela.ativo {
+      pointer-events: auto;
+    }
+
+    .paginaInterna {
+      z-index: 60;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: #000;
+      transition: opacity 180ms ease;
+    }
+
+    .paginaInterna.ativo {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #videoTela {
+      z-index: 30;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: transparent;
+      transition: opacity var(--transicao-video) ease;
+    }
+
+    #videoTela.ativo {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #videoTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #video {
+      background: transparent;
+    }
+
+    #capaTela {
+      z-index: 50;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 180ms ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #pular {
+      position: absolute;
+      right: 18px;
+      bottom: max(90px, calc(env(safe-area-inset-bottom) + 70px));
+      z-index: 200;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(0, 0, 0, 0.48);
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hotspot {
+      position: absolute;
+      z-index: 300;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    #controleSom {
+      position: absolute;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: 14px;
+      z-index: 400;
+      width: 38px;
+      height: 38px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+    #controleSom.visivel {
+      display: flex;
+    }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeMudo {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSom {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeMudo {
+      display: block;
+    }
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #pular:focus-visible,
+    #controleSom:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: -3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #capaTela,
+      #videoTela,
+      #pular {
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CARD FINAL | já carregado atrás do vídeo -->
+  <section id="finalTela" class="tela" aria-label="Convite final">
+    <div class="quadro">
+      <img
+        id="finalImagem"
+        class="arte"
+        alt="Convite de aniversário do Yan"
+        draggable="false"
+      >
+
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Como chegar"
+      ></button>
+
+      <button
+        id="hotspotConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar presença"
+      ></button>
+
+      <button
+        id="hotspotPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Sugestões de presentes"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ativar ou silenciar música"
+      >
+        <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+          <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+        </svg>
+
+        <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section id="localizacaoTela" class="tela paginaInterna" aria-label="Localização da festa">
+    <div class="quadro">
+      <img id="localizacaoImagem" class="arte" alt="Local da festa do Yan" draggable="false">
+      <button id="voltarLocalizacao" class="hotspot" type="button" aria-label="Voltar ao convite"></button>
+      <button id="abrirMapa" class="hotspot" type="button" aria-label="Abrir localização"></button>
+    </div>
+  </section>
+
+  <!-- CONFIRMAÇÃO -->
+  <section id="confirmacaoTela" class="tela paginaInterna" aria-label="Confirmação de presença">
+    <div class="quadro">
+      <img id="confirmacaoImagem" class="arte" alt="Confirmar presença no aniversário do Yan" draggable="false">
+      <button id="voltarConfirmacao" class="hotspot" type="button" aria-label="Voltar ao convite"></button>
+      <button id="confirmarWhatsapp" class="hotspot" type="button" aria-label="Ir para o WhatsApp"></button>
+    </div>
+  </section>
+
+  <!-- PRESENTES -->
+  <section id="presentesTela" class="tela paginaInterna" aria-label="Sugestões de presentes">
+    <div class="quadro">
+      <img id="presentesImagem" class="arte" alt="Sugestões de presentes para o Yan" draggable="false">
+      <button id="voltarPresentes" class="hotspot" type="button" aria-label="Voltar ao convite"></button>
+    </div>
+  </section>
+
+  <!-- VÍDEO -->
+  <section id="videoTela" class="tela" aria-label="Vídeo de abertura">
+    <div class="quadro">
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
+    </div>
+  </section>
+
+  <!-- CAPA -->
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
+      <img
+        id="capaImagem"
+        class="arte"
+        alt="Yan Oliveira 4 anos"
+        draggable="false"
+      >
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
+    </div>
+  </section>
+
+  <audio id="musica" preload="auto" loop></audio>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const capaTela = document.getElementById("capaTela");
+      const videoTela = document.getElementById("videoTela");
+      const finalTela = document.getElementById("finalTela");
+      const localizacaoTela = document.getElementById("localizacaoTela");
+      const confirmacaoTela = document.getElementById("confirmacaoTela");
+      const presentesTela = document.getElementById("presentesTela");
+
+      const capaImagem = document.getElementById("capaImagem");
+      const finalImagem = document.getElementById("finalImagem");
+      const localizacaoImagem = document.getElementById("localizacaoImagem");
+      const confirmacaoImagem = document.getElementById("confirmacaoImagem");
+      const presentesImagem = document.getElementById("presentesImagem");
+
+      const video = document.getElementById("video");
+      const musica = document.getElementById("musica");
+
+      const abrirConvite = document.getElementById("abrirConvite");
+      const pular = document.getElementById("pular");
+      const controleSom = document.getElementById("controleSom");
+
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
+      const hotspotPresentes = document.getElementById("hotspotPresentes");
+      const voltarLocalizacao = document.getElementById("voltarLocalizacao");
+      const abrirMapa = document.getElementById("abrirMapa");
+      const voltarConfirmacao = document.getElementById("voltarConfirmacao");
+      const confirmarWhatsapp = document.getElementById("confirmarWhatsapp");
+      const voltarPresentes = document.getElementById("voltarPresentes");
+
+      let conviteAberto = false;
+      let finalAtivo = false;
+      let finalizando = false;
+      let somLigado = true;
+      let audioDisponivel = true;
+
+      let timerPular = null;
+      let rafFim = null;
+      let rafAudio = null;
+      let ultimoAjusteSincronia = 0;
+
+      let videoEstavaTocando = false;
+      let musicaEstavaTocando = false;
+
+      const urlLocal = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      function urlMidia(arquivo) {
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
+
+        return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+      }
+
+      function carregarImagemComFallback(elemento, candidatos) {
+        return new Promise((resolve) => {
+          let indice = 0;
+
+          const tentar = () => {
+            if (indice >= candidatos.length) {
+              elemento.onload = null;
+              elemento.onerror = null;
+              console.error("Imagem não encontrada:", candidatos);
+              resolve(false);
+              return;
+            }
+
+            const caminho = candidatos[indice++];
+
+            elemento.onload = async () => {
+              elemento.onload = null;
+              elemento.onerror = null;
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            elemento.onerror = tentar;
+            elemento.src = urlLocal(caminho);
+          };
+
+          tentar();
+        });
+      }
+
+      const imagensCarregadas = {
+        capa: carregarImagemComFallback(capaImagem, CONFIG.imagens.capa),
+        final: carregarImagemComFallback(finalImagem, CONFIG.imagens.final),
+        localizacao: carregarImagemComFallback(localizacaoImagem, CONFIG.imagens.localizacao),
+        confirmacao: carregarImagemComFallback(confirmacaoImagem, CONFIG.imagens.confirmacao),
+        presentes: carregarImagemComFallback(presentesImagem, CONFIG.imagens.presentes)
+      };
+
+      video.src = urlMidia(CONFIG.videoArquivo);
+      musica.src = urlMidia(CONFIG.musicaArquivo);
+      video.load();
+      musica.load();
+
+      function posicionar(elemento, dados) {
+        elemento.style.left = dados.left;
+        elemento.style.top = dados.top;
+        elemento.style.width = dados.width;
+        elemento.style.height = dados.height;
+      }
+
+      posicionar(
+        hotspotLocalizacao,
+        CONFIG.hotspotsFinal.localizacao
+      );
+
+      posicionar(
+        hotspotConfirmacao,
+        CONFIG.hotspotsFinal.confirmacao
+      );
+
+      posicionar(hotspotPresentes, CONFIG.hotspotsFinal.presentes);
+      posicionar(voltarLocalizacao, CONFIG.hotspotsLocalizacao.voltar);
+      posicionar(abrirMapa, CONFIG.hotspotsLocalizacao.mapa);
+      posicionar(voltarConfirmacao, CONFIG.hotspotsConfirmacao.voltar);
+      posicionar(confirmarWhatsapp, CONFIG.hotspotsConfirmacao.whatsapp);
+      posicionar(voltarPresentes, CONFIG.hotspotsPresentes.voltar);
+
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
+
+        capaTela.classList.add("saindo");
+
+        setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
+
+      function tempoEsperadoMusica() {
+        let esperado = Math.max(
+          0,
+          video.currentTime + CONFIG.inicioMusica
+        );
+
+        if (
+          Number.isFinite(musica.duration) &&
+          musica.duration > 0
+        ) {
+          esperado %= musica.duration;
+        }
+
+        return esperado;
+      }
+
+      /*
+         O MP3 inicia no mesmo gesto do vídeo e permanece
+         tocando quase inaudível durante a abertura.
+      */
+      function iniciarMusicaSilenciosa() {
+        musica.volume = 0.001;
+
+        try {
+          musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+        } catch (_) {}
+
+        const tentativa = musica.play();
+
+        if (tentativa && typeof tentativa.catch === "function") {
+          tentativa.catch(() => {
+            audioDisponivel = false;
+            controleSom.classList.remove("visivel");
+          });
+        }
+      }
+
+      /*
+         Drift só é corrigido enquanto a música está inaudível.
+         Nunca há seek quando o card entra.
+      */
+      function manterSincronia(forcar = false) {
+        if (
+          !audioDisponivel ||
+          finalAtivo ||
+          finalizando ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
+        }
+
+        const agora = performance.now();
+
+        if (!forcar && agora - ultimoAjusteSincronia < 1000) {
+          return;
+        }
+
+        ultimoAjusteSincronia = agora;
+
+        const esperado = tempoEsperadoMusica();
+        const diferenca = Math.abs(musica.currentTime - esperado);
+
+        if (forcar || diferenca > 0.35) {
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
+        }
+      }
+
+      /*
+         Crossfade de áudio.
+         Sem currentTime e sem novo play() durante a entrada do card.
+      */
+      function transicaoSuaveAudio(aoFinalizar) {
+        cancelAnimationFrame(rafAudio);
+
+        if (!audioDisponivel || musica.paused) {
+          aoFinalizar();
+          return;
+        }
+
+        const duracao = Math.max(120, CONFIG.transicaoAudio);
+        const inicio = performance.now();
+        const volumeVideoInicial = video.volume;
+        const volumeMusicaInicial = musica.volume;
+        const volumeMusicaFinal = somLigado ? CONFIG.volumeMusica : 0;
+
+        const animar = (agora) => {
+          const progresso = Math.min(1, (agora - inicio) / duracao);
+          const suave = progresso * progresso * (3 - 2 * progresso);
+
+          video.volume = Math.max(
+            0,
+            volumeVideoInicial * (1 - suave)
+          );
+
+          musica.volume =
+            volumeMusicaInicial +
+            (volumeMusicaFinal - volumeMusicaInicial) * suave;
+
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+            return;
+          }
+
+          video.volume = 0;
+          musica.volume = volumeMusicaFinal;
+          aoFinalizar();
+        };
+
+        rafAudio = requestAnimationFrame(animar);
+      }
+
+      async function iniciarConvite() {
+        if (conviteAberto) return;
+
+        conviteAberto = true;
+
+        /* Garante o card final pronto antes de começar o vídeo */
+        await imagensCarregadas.final.catch(() => false);
+
+        videoTela.style.visibility = "visible";
+        videoTela.classList.remove("saindo");
+        videoTela.classList.add("ativo");
+
+        iniciarMusicaSilenciosa();
+        video.volume = 1;
+
+        try {
+          await video.play();
+        } catch (_) {
+          finalizarVideo();
+          esconderCapa();
+          return;
+        }
+
+        esconderCapa();
+
+        pular.classList.add("visivel");
+
+        clearTimeout(timerPular);
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, CONFIG.tempoPular);
+
+        acompanharFinal();
+      }
+
+      function acompanharFinal() {
+        cancelAnimationFrame(rafFim);
+
+        const verificar = () => {
+          if (finalizando || finalAtivo) return;
+
+          manterSincronia();
+
+          if (
+            Number.isFinite(video.duration) &&
+            video.duration > 0
+          ) {
+            const restante = video.duration - video.currentTime;
+
+            if (restante > 0 && restante <= 0.45) {
+              finalizarVideo();
+              return;
+            }
+          }
+
+          rafFim = requestAnimationFrame(verificar);
+        };
+
+        rafFim = requestAnimationFrame(verificar);
+      }
+
+      async function finalizarVideo() {
+        if (finalizando || finalAtivo) return;
+
+        /*
+           No pulo, podemos fazer a última correção ENQUANTO
+           o MP3 ainda está no volume técnico.
+        */
+        if (!video.paused && !musica.paused) {
+          manterSincronia(true);
+        }
+
+        finalizando = true;
+
+        clearTimeout(timerPular);
+        cancelAnimationFrame(rafFim);
+        pular.classList.remove("visivel");
+
+        await imagensCarregadas.final.catch(() => false);
+
+        /* Card já está pronto atrás do vídeo */
+        finalTela.classList.add("ativo");
+
+        /* Fade visual do vídeo */
+        videoTela.classList.add("saindo");
+
+        /* Crossfade sonoro sem reiniciar o MP3 */
+        transicaoSuaveAudio(() => {
+          video.pause();
+
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          video.volume = 1;
+          finalAtivo = true;
+          finalizando = false;
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
+        });
+      }
+
+      function abrirWhatsApp() {
+        const link =
+          "https://wa.me/" +
+          CONFIG.numeroWhatsapp +
+          "?text=" +
+          encodeURIComponent(CONFIG.mensagemWhatsapp);
+
+        window.location.href = link;
+      }
+
+      function abrirLocalizacaoExterna() {
+        window.location.href = CONFIG.linkLocalizacao;
+      }
+
+      function fecharPaginasInternas() {
+        [localizacaoTela, confirmacaoTela, presentesTela].forEach((tela) => {
+          tela.classList.remove("ativo");
+        });
+        if (finalAtivo && audioDisponivel) controleSom.classList.add("visivel");
+      }
+
+      async function abrirPaginaInterna(tela, promessaImagem) {
+        await promessaImagem.catch(() => false);
+        fecharPaginasInternas();
+        controleSom.classList.remove("visivel");
+        tela.classList.add("ativo");
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+
+        controleSom.classList.toggle(
+          "mudo",
+          !somLigado
+        );
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando =
+            !video.paused &&
+            !finalAtivo &&
+            !finalizando;
+
+          musicaEstavaTocando = !musica.paused;
+
+          if (videoEstavaTocando) video.pause();
+          if (musicaEstavaTocando) musica.pause();
+          return;
+        }
+
+        if (videoEstavaTocando && !finalAtivo) {
+          video
+            .play()
+            .then(acompanharFinal)
+            .catch(() => {});
+        }
+
+        if (musicaEstavaTocando && audioDisponivel) {
+          musica.play().catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+        musicaEstavaTocando = false;
+      }
+
+      abrirConvite.addEventListener("click", iniciarConvite);
+      pular.addEventListener("click", finalizarVideo);
+
+      video.addEventListener("playing", esconderCapa);
+
+      video.addEventListener("timeupdate", () => {
+        if (finalizando || finalAtivo) return;
+
+        manterSincronia();
+
+        if (
+          Number.isFinite(video.duration) &&
+          video.duration > 0 &&
+          (video.duration - video.currentTime) <= 0.45
+        ) {
+          finalizarVideo();
+        }
+      });
+
+      video.addEventListener("ended", finalizarVideo);
+
+      video.addEventListener("error", () => {
+        if (conviteAberto && !finalAtivo) {
+          finalizarVideo();
+          esconderCapa();
+        }
+      });
+
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
+
+      hotspotLocalizacao.addEventListener("click", () => abrirPaginaInterna(localizacaoTela, imagensCarregadas.localizacao));
+      hotspotConfirmacao.addEventListener("click", () => abrirPaginaInterna(confirmacaoTela, imagensCarregadas.confirmacao));
+      hotspotPresentes.addEventListener("click", () => abrirPaginaInterna(presentesTela, imagensCarregadas.presentes));
+
+      voltarLocalizacao.addEventListener("click", fecharPaginasInternas);
+      voltarConfirmacao.addEventListener("click", fecharPaginasInternas);
+      voltarPresentes.addEventListener("click", fecharPaginasInternas);
+      abrirMapa.addEventListener("click", abrirLocalizacaoExterna);
+      confirmarWhatsapp.addEventListener("click", abrirWhatsApp);
+
+      controleSom.addEventListener("click", alternarSom);
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+
+      window.addEventListener("pageshow", (event) => {
+        if (
+          event.persisted &&
+          finalAtivo &&
+          audioDisponivel
+        ) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
+
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      document.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    })();
+  </script>
+</body>
+</html>

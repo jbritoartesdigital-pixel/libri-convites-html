@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ==================================================
+       🌸 ALTERE SOMENTE AQUI | METADADOS ESTÁTICOS 🌸
+  =================================================== -->
+  <title>Heitor | 2 anos</title>
+  <meta name="description" content="Você recebeu um convite muito especial para celebrar os 2 anos do Heitor. 🌾🐓">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#2f6494">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Heitor | 2 anos">
+  <meta property="og:description" content="Você recebeu um convite muito especial 🌾🐓">
+  <meta property="og:url" content="https://libriconvites.com.br/fazendinha-do-heitor/">
+  <meta property="og:image" content="https://libriconvites.com.br/fazendinha-do-heitor/imagens/preview-otimizada.jpg?v=4">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/fazendinha-do-heitor/imagens/preview-otimizada.jpg?v=4">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Heitor | 2 anos">
+  <meta name="twitter:description" content="Você recebeu um convite muito especial 🌾🐓">
+  <meta name="twitter:image" content="https://libriconvites.com.br/fazendinha-do-heitor/imagens/preview-otimizada.jpg?v=4">
+
+  <link rel="preload" as="image" href="imagens/capa.png?v=1">
+  <link rel="preload" as="image" href="imagens/final.png?v=1">
+
+  <script>
+    /* ==================================================
+       🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸
+    ================================================== */
+
+    const CONFIG = {
+      titulo: "Convite da Fazendinha do Heitor",
+
+      pastaCliente: "fazendinha-do-heitor",
+      hostMidia: "https://midia.libriconvites.com.br",
+
+      videoArquivo: "abertura.mp4",
+      musicaArquivo: "musica-fazendinha.mp3",
+
+      inicioMusica: 0,
+      volumeMusica: 0.35,
+      transicaoAudio: 260,
+      tempoPular: 5000,
+
+      versaoArquivos: "3",
+      versaoMidia: "2",
+
+      linkConfirmacao: "https://confirmacao.libriconvites.com.br/e/fazendinha-do-heitor",
+      linkLocalizacao: "https://maps.app.goo.gl/XTzY7XcXQ3Kbizra9",
+
+      imagens: {
+        capa: "imagens/capa.png",
+        final: "imagens/final.png"
+      },
+
+      hotspotsFinal: {
+        confirmacao: {
+          left: "40.50%",
+          top: "72.20%",
+          width: "47.00%",
+          height: "11.80%"
+        },
+
+        localizacao: {
+          left: "41.20%",
+          top: "85.70%",
+          width: "46.00%",
+          height: "9.50%"
+        }
+      }
+    };
+
+    /* ==================================================
+       ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔
+    ================================================== */
+  </script>
+
+  <style>
+    :root {
+      --fundo: #000;
+      --transicao-video: 240ms;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      display: block;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button {
+      font: inherit;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--fundo);
+    }
+
+    @supports (height: 100dvh) {
+      .tela {
+        height: 100dvh;
+      }
+    }
+
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #finalTela {
+      z-index: 20;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    #finalTela.ativo {
+      pointer-events: auto;
+    }
+
+    #videoTela {
+      z-index: 30;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: transparent;
+      transition: opacity var(--transicao-video) ease;
+    }
+
+    #videoTela.ativo {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #videoTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #video {
+      background: transparent;
+    }
+
+    #capaTela {
+      z-index: 50;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 180ms ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #pular {
+      position: fixed;
+      right: max(14px, calc(env(safe-area-inset-right) + 12px));
+      bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
+      z-index: 500;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(0, 0, 0, 0.48);
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hotspot {
+      position: absolute;
+      z-index: 300;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #pular:focus-visible,
+    #controleSom:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.9);
+      outline-offset: -3px;
+    }
+
+    #controleSom {
+      position: absolute;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: 14px;
+      z-index: 400;
+      width: 38px;
+      height: 38px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+    #controleSom.visivel {
+      display: flex;
+    }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeMudo {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSom {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeMudo {
+      display: block;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #capaTela,
+      #videoTela,
+      #pular {
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="finalTela" class="tela" aria-label="Convite final">
+    <div class="quadro">
+      <img
+        id="finalImagem"
+        class="arte"
+        src="imagens/final.png?v=1"
+        alt="Convite do Heitor, 2 anos"
+        draggable="false"
+      >
+
+      <button
+        id="hotspotConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar presença"
+      ></button>
+
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Localização"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ativar ou silenciar música"
+      >
+        <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+          <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+        </svg>
+
+        <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <section id="videoTela" class="tela" aria-label="Vídeo de abertura">
+    <div class="quadro">
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
+    </div>
+  </section>
+
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
+      <img
+        id="capaImagem"
+        class="arte"
+        alt="Fazendinha do Heitor"
+        draggable="false"
+      >
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
+    </div>
+  </section>
+
+  <audio id="musica" preload="auto" loop></audio>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const capaTela = document.getElementById("capaTela");
+      const videoTela = document.getElementById("videoTela");
+      const finalTela = document.getElementById("finalTela");
+
+      const capaImagem = document.getElementById("capaImagem");
+      const video = document.getElementById("video");
+      const musica = document.getElementById("musica");
+      const finalImagem = document.getElementById("finalImagem");
+
+      const abrirConvite = document.getElementById("abrirConvite");
+      const pular = document.getElementById("pular");
+      const controleSom = document.getElementById("controleSom");
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
+
+      let conviteAberto = false;
+      let finalAtivo = false;
+      let finalizando = false;
+      let somLigado = true;
+      let audioDisponivel = true;
+
+      let timerPular = null;
+      let rafFim = null;
+      let rafAudio = null;
+      let ultimoAjusteSincronia = 0;
+
+      let videoEstavaTocando = false;
+      let musicaEstavaTocando = false;
+
+      const urlArquivo = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      function urlMidia(arquivo) {
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
+
+        return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+      }
+
+      capaImagem.src = urlArquivo(CONFIG.imagens.capa);
+      video.src = urlMidia(CONFIG.videoArquivo);
+      musica.src = urlMidia(CONFIG.musicaArquivo);
+      finalImagem.src = urlArquivo(CONFIG.imagens.final);
+
+      video.load();
+      musica.load();
+
+      const finalCarregado = new Promise((resolve) => {
+        if (finalImagem.complete && finalImagem.naturalWidth > 0) {
+          if (typeof finalImagem.decode === "function") {
+            finalImagem.decode().catch(() => {}).finally(() => resolve(true));
+          } else {
+            resolve(true);
+          }
+          return;
+        }
+
+        finalImagem.addEventListener("load", async () => {
+          if (typeof finalImagem.decode === "function") {
+            await finalImagem.decode().catch(() => {});
+          }
+          resolve(true);
+        }, { once: true });
+
+        finalImagem.addEventListener("error", () => resolve(false), { once: true });
+      });
+
+      function posicionar(elemento, dados) {
+        elemento.style.left = dados.left;
+        elemento.style.top = dados.top;
+        elemento.style.width = dados.width;
+        elemento.style.height = dados.height;
+      }
+
+      posicionar(hotspotConfirmacao, CONFIG.hotspotsFinal.confirmacao);
+      posicionar(hotspotLocalizacao, CONFIG.hotspotsFinal.localizacao);
+
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
+
+        capaTela.classList.add("saindo");
+
+        setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
+
+      function tempoEsperadoMusica() {
+        let esperado = Math.max(
+          0,
+          video.currentTime + CONFIG.inicioMusica
+        );
+
+        if (
+          Number.isFinite(musica.duration) &&
+          musica.duration > 0
+        ) {
+          esperado %= musica.duration;
+        }
+
+        return esperado;
+      }
+
+      function iniciarMusicaSilenciosa() {
+        musica.volume = 0.001;
+
+        try {
+          musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+        } catch (_) {}
+
+        const tentativa = musica.play();
+
+        if (tentativa && typeof tentativa.catch === "function") {
+          tentativa.catch(() => {
+            audioDisponivel = false;
+            controleSom.classList.remove("visivel");
+          });
+        }
+      }
+
+      function manterSincronia(forcar = false) {
+        if (
+          !audioDisponivel ||
+          finalAtivo ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
+        }
+
+        const agora = performance.now();
+
+        if (!forcar && agora - ultimoAjusteSincronia < 1000) {
+          return;
+        }
+
+        ultimoAjusteSincronia = agora;
+
+        const esperado = tempoEsperadoMusica();
+        const diferenca = Math.abs(musica.currentTime - esperado);
+
+        if (forcar || diferenca > 0.35) {
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
+        }
+      }
+
+      function transicaoSuaveAudio(aoFinalizar) {
+        cancelAnimationFrame(rafAudio);
+
+        if (!audioDisponivel || musica.paused) {
+          aoFinalizar();
+          return;
+        }
+
+        const duracao = Math.max(120, CONFIG.transicaoAudio);
+        const inicio = performance.now();
+        const volumeVideoInicial = video.volume;
+        const volumeMusicaInicial = musica.volume;
+        const volumeMusicaFinal = somLigado ? CONFIG.volumeMusica : 0;
+
+        const animar = (agora) => {
+          const progresso = Math.min(1, (agora - inicio) / duracao);
+          const suave = progresso * progresso * (3 - 2 * progresso);
+
+          video.volume = Math.max(
+            0,
+            volumeVideoInicial * (1 - suave)
+          );
+
+          musica.volume =
+            volumeMusicaInicial +
+            (volumeMusicaFinal - volumeMusicaInicial) * suave;
+
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+            return;
+          }
+
+          video.volume = 0;
+          musica.volume = volumeMusicaFinal;
+          aoFinalizar();
+        };
+
+        rafAudio = requestAnimationFrame(animar);
+      }
+
+      async function iniciarConvite() {
+        if (conviteAberto) return;
+        conviteAberto = true;
+
+        await finalCarregado.catch(() => false);
+
+        videoTela.style.visibility = "visible";
+        videoTela.classList.remove("saindo");
+        videoTela.classList.add("ativo");
+
+        iniciarMusicaSilenciosa();
+        video.volume = 1;
+
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
+
+        try {
+          await video.play();
+        } catch (_) {
+          esconderCapa();
+          finalizarVideo();
+          return;
+        }
+
+        esconderCapa();
+
+        pular.classList.add("visivel");
+        clearTimeout(timerPular);
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, CONFIG.tempoPular);
+
+        acompanharFinal();
+      }
+
+      function acompanharFinal() {
+        cancelAnimationFrame(rafFim);
+
+        const verificar = () => {
+          if (finalizando || finalAtivo) return;
+
+          manterSincronia();
+
+          if (
+            Number.isFinite(video.duration) &&
+            video.duration > 0
+          ) {
+            const restante = video.duration - video.currentTime;
+
+            if (restante > 0 && restante <= 0.45) {
+              finalizarVideo();
+              return;
+            }
+          }
+
+          rafFim = requestAnimationFrame(verificar);
+        };
+
+        rafFim = requestAnimationFrame(verificar);
+      }
+
+      async function finalizarVideo() {
+        if (finalizando || finalAtivo) return;
+
+        manterSincronia(true);
+
+        finalizando = true;
+        clearTimeout(timerPular);
+        cancelAnimationFrame(rafFim);
+        pular.classList.remove("visivel");
+
+        await finalCarregado.catch(() => false);
+
+        finalTela.classList.add("ativo");
+        videoTela.classList.add("saindo");
+
+        transicaoSuaveAudio(() => {
+          video.pause();
+
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          video.volume = 1;
+          finalAtivo = true;
+          finalizando = false;
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
+        });
+      }
+
+      function abrirLocalizacao() {
+        window.location.href = CONFIG.linkLocalizacao;
+      }
+
+      function abrirConfirmacao() {
+        window.location.href = CONFIG.linkConfirmacao;
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+
+        controleSom.classList.toggle(
+          "mudo",
+          !somLigado
+        );
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando =
+            !video.paused &&
+            !finalAtivo &&
+            !finalizando;
+
+          musicaEstavaTocando = !musica.paused;
+
+          if (videoEstavaTocando) video.pause();
+          if (musicaEstavaTocando) musica.pause();
+          return;
+        }
+
+        if (videoEstavaTocando && !finalAtivo) {
+          video
+            .play()
+            .then(acompanharFinal)
+            .catch(() => {});
+        }
+
+        if (musicaEstavaTocando && audioDisponivel) {
+          musica.play().catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+        musicaEstavaTocando = false;
+      }
+
+      abrirConvite.addEventListener("click", iniciarConvite);
+      pular.addEventListener("click", finalizarVideo);
+
+      video.addEventListener("playing", esconderCapa);
+
+      video.addEventListener("timeupdate", () => {
+        if (finalizando || finalAtivo) return;
+
+        manterSincronia();
+
+        if (
+          Number.isFinite(video.duration) &&
+          video.duration > 0 &&
+          (video.duration - video.currentTime) <= 0.45
+        ) {
+          finalizarVideo();
+        }
+      });
+
+      video.addEventListener("ended", finalizarVideo);
+
+      video.addEventListener("error", () => {
+        if (conviteAberto && !finalAtivo) {
+          esconderCapa();
+          finalizarVideo();
+        }
+      });
+
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
+
+      hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
+      hotspotConfirmacao.addEventListener("click", abrirConfirmacao);
+      controleSom.addEventListener("click", alternarSom);
+
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+
+      window.addEventListener("pageshow", (event) => {
+        if (
+          event.persisted &&
+          finalAtivo &&
+          audioDisponivel
+        ) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
+
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      document.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    })();
+  </script>
+</body>
+</html>

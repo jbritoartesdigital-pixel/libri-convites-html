@@ -563,16 +563,29 @@
     }
 
     .menu-btn::after {
-      content: "&#8250;";
+      content: "";
       position: absolute;
-      right: 19px;
+      right: 22px;
       top: 50%;
-      transform: translateY(-52%);
-      color: var(--gold);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 25px;
-      font-weight: 400;
-      line-height: 1;
+      width: 8px;
+      height: 8px;
+      border-right: 1.5px solid var(--gold);
+      border-bottom: 1.5px solid var(--gold);
+      transform: translateY(-50%) rotate(-45deg);
+      transform-origin: center;
+      opacity: 0.92;
+      pointer-events: none;
+    }
+
+    .interacao-hint {
+      margin: 1px 0 4px;
+      color: rgba(92,73,74,0.58);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      line-height: 1.2;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     .menu-btn:active {
@@ -1020,6 +1033,8 @@
             Igreja Alian&#231;a da F&#233; e do Amor &#8226; Jundia&#237;/SP
           </div>
         </section>
+
+        <p class="interacao-hint">Clique para interagir</p>
 
         <nav class="menu-convite" aria-label="Conte&#250;do do convite">
           <button class="menu-btn" type="button" data-modal="convite">

@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Stefany & Michel | Convite Especial</title>
+  <meta name="description" content="VocÃª recebeu um convite muito especial de Stefany & Michel. ðŸ¤">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#C98B8E">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Stefany & Michel | Convite Especial">
+  <meta property="og:description" content="VocÃª recebeu um convite muito especial de Stefany & Michel. ðŸ¤">
+  <meta property="og:url" content="https://libriconvites.com.br/stefany-e-michel/">
+  <meta property="og:image" content="https://libriconvites.com.br/stefany-e-michel/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/stefany-e-michel/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stefany & Michel | Convite Especial">
+  <meta name="twitter:description" content="VocÃª recebeu um convite muito especial de Stefany & Michel. ðŸ¤">
+  <meta name="twitter:image" content="https://libriconvites.com.br/stefany-e-michel/imagens/preview-otimizada.jpg?v=1">
+
+  <script>
+    /* ==================================================
+       ðŸ¤ ALTERE SOMENTE AQUI | CONFIGURAÃ‡ÃƒO DO PROJETO ðŸ¤
+    ================================================== */
+
+    const CONFIG = {
+      titulo: "Stefany & Michel | Convite Especial",
+
+      pastaCliente: "stefany-e-michel",
+      hostMidia: "https://midia.libriconvites.com.br",
+
+      musicaArquivo: "musica.mp3",
+      volumeMusica: 0.35,
+
+      versaoArquivos: "1",
+      versaoMidia: "1",
+
+      dataEvento: "2026-09-26T10:30:00-03:00",
+
+      linkLocalizacao: "https://www.google.com/maps/search/?api=1&query=Igreja%20Alian%C3%A7a%20da%20F%C3%A9%20e%20do%20Amor%20-%20ICAFA%2C%20R.%20Vig.%20J.%20J.%20Rodrigues%2C%20651%20-%20Centro%2C%20Jundia%C3%AD%20-%20SP%2C%2013201-001%2C%20Brasil",
+
+      imagens: {
+        capa: "imagens/capa",
+        principal: "imagens/principal",
+        casal: "imagens/casal",
+        popup: "imagens/popup",
+        inspiracoes: "imagens/inspiracoes-madrinhas"
+      }
+    };
+
+    const CONVIDADOS = [
+      { nome: "Tabata Morais", tipo: "madrinha", funcao: "Madrinha" },
+      { nome: "Giovanna Santos", tipo: "madrinha", funcao: "Madrinha" },
+      { nome: "Lariane Morais", tipo: "madrinha", funcao: "Madrinha" },
+      { nome: "Samia Rodrigues", tipo: "madrinha", funcao: "Madrinha" },
+      { nome: "Fernanda Mendes", tipo: "madrinha", funcao: "Madrinha" },
+      { nome: "DÃ©bora Lorenzetti", tipo: "madrinha-pastora", funcao: "Madrinha & Pastora" },
+      { nome: "Audenice Ribeiro", tipo: "madrinha-pastora", funcao: "Madrinha & Pastora" },
+      { nome: "Mauro Lima", tipo: "padrinho-pastor", funcao: "Padrinho & Pastor" },
+      { nome: "Gustavo Lorenzetti", tipo: "padrinho-pastor", funcao: "Padrinho & Pastor" },
+      { nome: "Livia Morais", tipo: "daminha", funcao: "Daminha" },
+      { nome: "Laura Morais", tipo: "florista", funcao: "Florista" },
+      { nome: "Pietro Morais", tipo: "pajem", funcao: "Pajem" }
+    ];
+
+    /* ==================================================
+       â›” DAQUI PARA BAIXO NÃƒO PRECISA EDITAR â›”
+    ================================================== */
+  </script>
+
+  <style>
+    :root {
+      --ivory: #fffaf3;
+      --paper: #f7efe7;
+      --rose: #c98b8e;
+      --rose-dark: #8f5960;
+      --sage: #9ca58b;
+      --gold: #b89968;
+      --ink: #4c3a3d;
+      --muted: #7e6b6d;
+      --line: rgba(143, 89, 96, 0.22);
+      --glass: rgba(255, 250, 243, 0.78);
+      --shadow: 0 18px 60px rgba(79, 52, 56, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      min-height: 100%;
+      background: #efe7e0;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      color: var(--ink);
+      background: #efe7e0;
+      font-family: Arial, Helvetica, sans-serif;
+      overscroll-behavior-y: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.modal-aberto {
+      overflow: hidden;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    .serif {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .tela-capa {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      min-height: 100vh;
+      overflow: hidden;
+      background: #eee5dc;
+      transition: opacity 320ms ease, visibility 320ms ease;
+    }
+
+    @supports (height: 100dvh) {
+      .tela-capa {
+        min-height: 100dvh;
+      }
+    }
+
+    .tela-capa.saindo {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .capa-arte {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .capa-veil {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(255,250,243,0.12) 0%, rgba(255,250,243,0.04) 34%, rgba(70,42,46,0.16) 100%);
+      pointer-events: none;
+    }
+
+    .capa-interface {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding:
+        max(28px, env(safe-area-inset-top))
+        22px
+        max(34px, calc(env(safe-area-inset-bottom) + 24px));
+    }
+
+    .capa-bloco {
+      width: min(100%, 520px);
+      padding: 24px 20px 20px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 28px;
+      background: rgba(255, 250, 243, 0.74);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      text-align: center;
+    }
+
+    .capa-nomes {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 8vw, 44px);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .capa-frase {
+      margin: 0 auto 18px;
+      max-width: 360px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .campo-label {
+      display: block;
+      margin-bottom: 8px;
+      text-align: left;
+      color: var(--rose-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .busca-wrap {
+      position: relative;
+    }
+
+    #buscaNome {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid rgba(143,89,96,0.25);
+      border-radius: 15px;
+      padding: 0 15px;
+      background: rgba(255,255,255,0.86);
+      color: var(--ink);
+      outline: none;
+      font-size: 16px;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    #buscaNome:focus {
+      border-color: rgba(143,89,96,0.58);
+      box-shadow: 0 0 0 3px rgba(201,139,142,0.12);
+    }
+
+    #buscaNome::placeholder {
+      color: #aa989a;
+    }
+
+    .sugestoes {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: calc(100% + 8px);
+      z-index: 20;
+      display: none;
+      max-height: 220px;
+      overflow-y: auto;
+      border: 1px solid rgba(143,89,96,0.18);
+      border-radius: 16px;
+      background: rgba(255,250,243,0.98);
+      box-shadow: 0 18px 44px rgba(68,45,49,0.16);
+      padding: 6px;
+      text-align: left;
+    }
+
+    .sugestoes.visivel {
+      display: block;
+    }
+
+    .sugestao {
+      width: 100%;
+      min-height: 46px;
+      border: 0;
+      border-radius: 11px;
+      padding: 8px 10px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .sugestao + .sugestao {
+      margin-top: 3px;
+    }
+
+    .sugestao:active,
+    .sugestao:focus-visible {
+      background: rgba(201,139,142,0.12);
+      outline: none;
+    }
+
+    .sugestao-nome {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .sugestao-funcao {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .abrir-btn {
+      width: 100%;
+      min-height: 50px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 15px;
+      padding: 0 18px;
+      background: var(--rose-dark);
+      color: #fffaf6;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(143,89,96,0.23);
+    }
+
+    .abrir-btn:active {
+      transform: translateY(1px);
+    }
+
+    .erro-busca {
+      min-height: 18px;
+      margin: 9px 2px 0;
+      color: #975d63;
+      font-size: 12px;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .pagina {
+      display: none;
+      min-height: 100vh;
+      background: #efe7e0;
+    }
+
+    @supports (height: 100dvh) {
+      .pagina {
+        min-height: 100dvh;
+      }
+    }
+
+    .pagina.ativa {
+      display: block;
+    }
+
+    .pagina-shell {
+      position: relative;
+      width: min(100%, 640px);
+      min-height: 100vh;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 0 60px rgba(73,50,53,0.16);
+    }
+
+    @supports (height: 100dvh) {
+      .pagina-shell {
+        min-height: 100dvh;
+      }
+    }
+
+    .pagina-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.97;
+      pointer-events: none;
+    }
+
+    .pagina-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(255,250,243,0.60), rgba(255,250,243,0.46) 36%, rgba(255,250,243,0.68));
+      pointer-events: none;
+    }
+
+    .conteudo {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 18px;
+      padding:
+        max(30px, calc(env(safe-area-inset-top) + 22px))
+        20px
+        max(34px, calc(env(safe-area-inset-bottom) + 26px));
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .monograma-mini {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      min-height: 30px;
+      margin-bottom: 11px;
+      border-bottom: 1px solid rgba(184,153,104,0.55);
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+    }
+
+    .convidado-nome {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 9vw, 52px);
+      font-weight: 400;
+      line-height: 1.02;
+      text-wrap: balance;
+    }
+
+    .convidado-funcao {
+      display: inline-block;
+      margin-top: 10px;
+      border: 1px solid rgba(143,89,96,0.22);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: rgba(255,250,243,0.62);
+      color: var(--rose-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .frase-principal {
+      margin: 12px auto 0;
+      max-width: 430px;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .foto-wrap {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.78);
+      border-radius: 28px;
+      background: rgba(255,250,243,0.56);
+      box-shadow: var(--shadow);
+    }
+
+    .foto-casal {
+      width: 100%;
+      aspect-ratio: 9 / 12;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .contagem {
+      padding: 18px 16px 17px;
+      border: 1px solid rgba(143,89,96,0.16);
+      border-radius: 24px;
+      background: rgba(255,250,243,0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      text-align: center;
+    }
+
+    .contagem-titulo {
+      margin: 0 0 14px;
+      color: var(--rose-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .tempo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tempo-item {
+      min-width: 0;
+      padding: 11px 5px 9px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.68);
+    }
+
+    .tempo-num {
+      display: block;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(22px, 7vw, 34px);
+      line-height: 1;
+    }
+
+    .tempo-label {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .evento-resumo {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .menu-convite {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .menu-btn {
+      min-width: 0;
+      min-height: 92px;
+      border: 1px solid rgba(143,89,96,0.17);
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(255,250,243,0.82);
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+      box-shadow: 0 10px 28px rgba(78,54,57,0.08);
+      transition: transform 140ms ease, background 140ms ease;
+    }
+
+    .menu-btn:active {
+      transform: translateY(1px);
+      background: rgba(255,250,243,0.94);
+    }
+
+    .menu-num {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .menu-titulo {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .rodape {
+      padding: 8px 0 4px;
+      text-align: center;
+    }
+
+    .rodape-nomes {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .rodape-data {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+    }
+
+    #controleSom {
+      position: fixed;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: max(14px, calc(env(safe-area-inset-right) + 10px));
+      z-index: 1600;
+      width: 42px;
+      height: 42px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 50%;
+      padding: 0;
+      background: rgba(93,61,66,0.56);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    #controleSom.visivel {
+      display: flex;
+    }
+
+    #controleSom svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeMudo {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSom {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeMudo {
+      display: block;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding:
+        max(18px, env(safe-area-inset-top))
+        14px
+        max(18px, env(safe-area-inset-bottom));
+      background: rgba(49,35,38,0.48);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .modal-backdrop.aberto {
+      display: flex;
+    }
+
+    .modal-painel {
+      position: relative;
+      width: min(100%, 560px);
+      max-height: 88vh;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 30px;
+      background: var(--ivory);
+      box-shadow: 0 28px 90px rgba(57,37,41,0.30);
+    }
+
+    @supports (height: 100dvh) {
+      .modal-painel {
+        max-height: 88dvh;
+      }
+    }
+
+    .modal-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .modal-veil {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,250,243,0.72);
+      pointer-events: none;
+    }
+
+    .modal-scroll {
+      position: relative;
+      z-index: 2;
+      max-height: 88vh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 28px 22px 26px;
+    }
+
+    @supports (height: 100dvh) {
+      .modal-scroll {
+        max-height: 88dvh;
+      }
+    }
+
+    .modal-fechar {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      float: right;
+      width: 40px;
+      height: 40px;
+      margin: -8px -4px 4px 10px;
+      border: 1px solid rgba(143,89,96,0.20);
+      border-radius: 50%;
+      background: rgba(255,250,243,0.88);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .modal-eyebrow {
+      margin: 2px 0 7px;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .modal-titulo {
+      margin: 0 44px 16px 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 8vw, 38px);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .modal-conteudo {
+      clear: both;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .modal-conteudo p {
+      margin: 0 0 14px;
+    }
+
+    .modal-conteudo h3 {
+      margin: 22px 0 7px;
+      color: var(--rose-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .modal-conteudo strong {
+      color: var(--rose-dark);
+    }
+
+    .assinatura {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .paleta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 18px;
+    }
+
+    .cor-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 9px;
+      border: 1px solid rgba(143,89,96,0.13);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.60);
+    }
+
+    .cor-bola {
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(66,45,49,0.10);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.38);
+    }
+
+    .cor-nome {
+      min-width: 0;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .aviso-paleta {
+      padding: 11px 12px;
+      border-left: 2px solid rgba(184,153,104,0.60);
+      background: rgba(255,255,255,0.48);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .inspiracoes-wrap {
+      margin-top: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(143,89,96,0.14);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.56);
+    }
+
+    .inspiracoes-img {
+      width: 100%;
+      height: auto;
+    }
+
+    .mapa-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 8px;
+      border: 0;
+      border-radius: 14px;
+      padding: 0 18px;
+      background: var(--rose-dark);
+      color: #fffaf6;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .cerimonia-dados {
+      margin: 18px 0;
+      padding: 16px;
+      border: 1px solid rgba(143,89,96,0.15);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.55);
+    }
+
+    .cerimonia-dados p {
+      margin: 0 0 8px;
+    }
+
+    .cerimonia-dados p:last-child {
+      margin-bottom: 0;
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0,0,0,0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible {
+      outline: 2px solid rgba(143,89,96,0.75);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 370px) {
+      .capa-interface {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .capa-bloco {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .conteudo {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .menu-convite {
+        gap: 8px;
+      }
+
+      .menu-btn {
+        padding: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="capaTela" class="tela-capa" aria-label="Encontrar convite personalizado">
+    <img id="capaImagem" class="capa-arte" alt="Convite especial de Stefany e Michel" draggable="false">
+    <div class="capa-veil"></div>
+
+    <div class="capa-interface">
+      <div class="capa-bloco">
+        <h1 class="capa-nomes">Stefany &amp; Michel</h1>
+        <p class="capa-frase">Temos um convite muito especial para vocÃª.</p>
+
+        <label class="campo-label" for="buscaNome">Encontre seu convite</label>
+
+        <div class="busca-wrap">
+          <div id="sugestoes" class="sugestoes" role="listbox" aria-label="SugestÃµes de nomes"></div>
+          <input
+            id="buscaNome"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            placeholder="Digite seu nome"
+            aria-describedby="erroBusca"
+          >
+        </div>
+
+        <button id="abrirConvite" class="abrir-btn" type="button">Abrir meu convite</button>
+        <p id="erroBusca" class="erro-busca" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <main id="paginaConvite" class="pagina" aria-hidden="true">
+    <div class="pagina-shell">
+      <img id="principalImagem" class="pagina-bg" alt="" draggable="false">
+      <div class="pagina-overlay"></div>
+
+      <div class="conteudo">
+        <header class="intro">
+          <span class="monograma-mini">S &amp; M</span>
+          <h2 id="nomeConvidado" class="convidado-nome"></h2>
+          <span id="funcaoConvidado" class="convidado-funcao"></span>
+          <p class="frase-principal">HÃ¡ momentos que ficam ainda mais especiais quando sÃ£o compartilhados com pessoas que fazem parte da nossa histÃ³ria. Preparamos esse convite especialmente para vocÃª.</p>
+        </header>
+
+        <figure class="foto-wrap">
+          <img id="casalImagem" class="foto-casal" alt="Stefany e Michel" draggable="false">
+        </figure>
+
+        <section class="contagem" aria-label="Contagem regressiva para o casamento">
+          <h3 id="contagemTitulo" class="contagem-titulo">Faltam</h3>
+
+          <div class="tempo-grid">
+            <div class="tempo-item">
+              <span id="dias" class="tempo-num">0</span>
+              <span class="tempo-label">dias</span>
+            </div>
+            <div class="tempo-item">
+              <span id="horas" class="tempo-num">0</span>
+              <span class="tempo-label">horas</span>
+            </div>
+            <div class="tempo-item">
+              <span id="minutos" class="tempo-num">0</span>
+              <span class="tempo-label">minutos</span>
+            </div>
+            <div class="tempo-item">
+              <span id="segundos" class="tempo-num">0</span>
+              <span class="tempo-label">segundos</span>
+            </div>
+          </div>
+
+          <div class="evento-resumo">
+            <strong>26 de setembro de 2026 â€¢ 10h30</strong><br>
+            Igreja AlianÃ§a da FÃ© e do Amor â€¢ JundiaÃ­/SP
+          </div>
+        </section>
+
+        <nav class="menu-convite" aria-label="ConteÃºdo do convite">
+          <button class="menu-btn" type="button" data-modal="convite">
+            <span class="menu-num">01</span>
+            <span class="menu-titulo">Seu convite</span>
+          </button>
+
+          <button class="menu-btn" type="button" data-modal="estilo">
+            <span class="menu-num">02</span>
+            <span id="tituloEstilo" class="menu-titulo">Traje &amp; Paleta</span>
+          </button>
+
+          <button class="menu-btn" type="button" data-modal="papel">
+            <span class="menu-num">03</span>
+            <span class="menu-titulo">Seu papel</span>
+          </button>
+
+          <button class="menu-btn" type="button" data-modal="cerimonia">
+            <span class="menu-num">04</span>
+            <span class="menu-titulo">CerimÃ´nia</span>
+          </button>
+        </nav>
+
+        <footer class="rodape">
+          <p class="rodape-nomes">Stefany &amp; Michel</p>
+          <div class="rodape-data">26 â€¢ 09 â€¢ 2026</div>
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <button id="controleSom" type="button" aria-label="Ativar ou desativar mÃºsica">
+    <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+      <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+      <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+    </svg>
+
+    <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+      <path d="M17 9l4 4"></path>
+      <path d="M21 9l-4 4"></path>
+    </svg>
+  </button>
+
+  <section id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-painel" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+      <img id="popupImagem" class="modal-bg" alt="" draggable="false">
+      <div class="modal-veil"></div>
+
+      <div class="modal-scroll">
+        <button id="fecharModal" class="modal-fechar" type="button" aria-label="Fechar">Ã—</button>
+        <div id="modalEyebrow" class="modal-eyebrow"></div>
+        <h2 id="modalTitulo" class="modal-titulo"></h2>
+        <div id="modalConteudo" class="modal-conteudo"></div>
+      </div>
+    </div>
+  </section>
+
+  <img id="inspiracoesPreload" class="sr-only" alt="" aria-hidden="true">
+  <audio id="musica" preload="auto" loop></audio>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const capaTela = document.getElementById("capaTela");
+      const capaImagem = document.getElementById("capaImagem");
+      const principalImagem = document.getElementById("principalImagem");
+      const casalImagem = document.getElementById("casalImagem");
+      const popupImagem = document.getElementById("popupImagem");
+      const inspiracoesPreload = document.getElementById("inspiracoesPreload");
+
+      const paginaConvite = document.getElementById("paginaConvite");
+      const nomeConvidado = document.getElementById("nomeConvidado");
+      const funcaoConvidado = document.getElementById("funcaoConvidado");
+      const tituloEstilo = document.getElementById("tituloEstilo");
+
+      const buscaNome = document.getElementById("buscaNome");
+      const sugestoes = document.getElementById("sugestoes");
+      const erroBusca = document.getElementById("erroBusca");
+      const abrirConvite = document.getElementById("abrirConvite");
+
+      const modalBackdrop = document.getElementById("modalBackdrop");
+      const modalEyebrow = document.getElementById("modalEyebrow");
+      const modalTitulo = document.getElementById("modalTitulo");
+      const modalConteudo = document.getElementById("modalConteudo");
+      const fecharModal = document.getElementById("fecharModal");
+
+      const musica = document.getElementById("musica");
+      const controleSom = document.getElementById("controleSom");
+
+      const dias = document.getElementById("dias");
+      const horas = document.getElementById("horas");
+      const minutos = document.getElementById("minutos");
+      const segundos = document.getElementById("segundos");
+      const contagemTitulo = document.getElementById("contagemTitulo");
+
+      let convidadoAtual = null;
+      let selecionado = null;
+      let conviteAberto = false;
+      let audioDisponivel = true;
+      let somLigado = true;
+      let musicaEstavaTocando = false;
+      let retornoFoco = null;
+      let timerContagem = null;
+
+      const urlArquivo = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      function urlMidia(arquivo) {
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
+
+        return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+      }
+
+      const EXTENSOES_IMAGEM = [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+        ".avif"
+      ];
+
+      function temExtensaoImagem(caminho) {
+        const limpo = String(caminho || "")
+          .split("?")[0]
+          .split("#")[0];
+
+        return /\.(?:jpe?g|png|webp|avif)$/i.test(limpo);
+      }
+
+      async function resolverImagem(elemento, caminhoBase) {
+        if (!elemento || !caminhoBase) return false;
+
+        const bases = Array.isArray(caminhoBase)
+          ? caminhoBase.filter(Boolean)
+          : [caminhoBase];
+
+        const candidatos = [];
+
+        for (const base of bases) {
+          if (temExtensaoImagem(base)) {
+            candidatos.push(base);
+            continue;
+          }
+
+          for (const extensao of EXTENSOES_IMAGEM) {
+            candidatos.push(`${base}${extensao}`);
+          }
+        }
+
+        for (const candidato of candidatos) {
+          const carregou = await new Promise((resolve) => {
+            const aoCarregar = async () => {
+              elemento.removeEventListener("error", aoFalhar);
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            const aoFalhar = () => {
+              elemento.removeEventListener("load", aoCarregar);
+              resolve(false);
+            };
+
+            elemento.addEventListener("load", aoCarregar, { once: true });
+            elemento.addEventListener("error", aoFalhar, { once: true });
+            elemento.src = urlArquivo(candidato);
+          });
+
+          if (carregou) {
+            elemento.dataset.arquivoResolvido = candidato;
+            return candidato;
+          }
+        }
+
+        console.warn("[Libri Wedding] Imagem nÃ£o encontrada:", caminhoBase);
+        return false;
+      }
+
+      const carregamentos = Promise.all([
+        resolverImagem(capaImagem, CONFIG.imagens.capa),
+        resolverImagem(principalImagem, CONFIG.imagens.principal),
+        resolverImagem(casalImagem, CONFIG.imagens.casal),
+        resolverImagem(popupImagem, CONFIG.imagens.popup),
+        resolverImagem(inspiracoesPreload, CONFIG.imagens.inspiracoes)
+      ]);
+
+      musica.src = urlMidia(CONFIG.musicaArquivo);
+      musica.load();
+
+      function normalizar(texto) {
+        return String(texto || "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .replace(/[^a-z0-9\s]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function primeiroNome(nome) {
+        return String(nome || "").trim().split(/\s+/)[0] || "";
+      }
+
+      function procurarExato(valor) {
+        const alvo = normalizar(valor);
+        if (!alvo) return null;
+
+        return CONVIDADOS.find((pessoa) => normalizar(pessoa.nome) === alvo) || null;
+      }
+
+      function buscarSugestoes(valor) {
+        const termo = normalizar(valor);
+
+        if (termo.length < 2) return [];
+
+        return CONVIDADOS
+          .filter((pessoa) => normalizar(pessoa.nome).includes(termo))
+          .slice(0, 8);
+      }
+
+      function esconderSugestoes() {
+        sugestoes.classList.remove("visivel");
+        sugestoes.innerHTML = "";
+      }
+
+      function selecionarPessoa(pessoa) {
+        selecionado = pessoa;
+        buscaNome.value = pessoa.nome;
+        erroBusca.textContent = "";
+        esconderSugestoes();
+      }
+
+      function renderSugestoes() {
+        selecionado = null;
+        const lista = buscarSugestoes(buscaNome.value);
+
+        if (!lista.length) {
+          esconderSugestoes();
+          return;
+        }
+
+        sugestoes.innerHTML = "";
+
+        for (const pessoa of lista) {
+          const botao = document.createElement("button");
+          botao.type = "button";
+          botao.className = "sugestao";
+          botao.setAttribute("role", "option");
+          botao.innerHTML = `
+            <span class="sugestao-nome">${pessoa.nome}</span>
+            <span class="sugestao-funcao">${pessoa.funcao}</span>
+          `;
+
+          botao.addEventListener("click", () => selecionarPessoa(pessoa));
+          sugestoes.appendChild(botao);
+        }
+
+        sugestoes.classList.add("visivel");
+      }
+
+      function labelEstilo(tipo) {
+        if (tipo === "madrinha" || tipo === "madrinha-pastora") {
+          return "Paleta & InspiraÃ§Ãµes";
+        }
+
+        if (tipo === "padrinho-pastor") {
+          return "Traje";
+        }
+
+        return "Traje & OrientaÃ§Ãµes";
+      }
+
+      function renderPessoa(pessoa) {
+        convidadoAtual = pessoa;
+        nomeConvidado.textContent = pessoa.nome;
+        funcaoConvidado.textContent = pessoa.funcao;
+        tituloEstilo.textContent = labelEstilo(pessoa.tipo);
+      }
+
+      async function iniciarMusica() {
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+
+        try {
+          musica.currentTime = 0;
+        } catch (_) {}
+
+        try {
+          await musica.play();
+          controleSom.classList.add("visivel");
+        } catch (_) {
+          audioDisponivel = false;
+          controleSom.classList.remove("visivel");
+        }
+      }
+
+      async function abrirExperiencia() {
+        const pessoa = selecionado || procurarExato(buscaNome.value);
+
+        if (!pessoa) {
+          erroBusca.textContent = "NÃ£o encontrei esse nome. Confira a escrita ou escolha uma sugestÃ£o.";
+          renderSugestoes();
+          return;
+        }
+
+        erroBusca.textContent = "";
+        esconderSugestoes();
+
+        await carregamentos.catch(() => {});
+        renderPessoa(pessoa);
+
+        conviteAberto = true;
+        paginaConvite.classList.add("ativa");
+        paginaConvite.setAttribute("aria-hidden", "false");
+
+        iniciarMusica();
+        iniciarContagem();
+
+        requestAnimationFrame(() => {
+          capaTela.classList.add("saindo");
+          window.scrollTo({ top: 0, behavior: "auto" });
+        });
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+        controleSom.classList.toggle("mudo", !somLigado);
+      }
+
+      function atualizarContagem() {
+        const alvo = new Date(CONFIG.dataEvento).getTime();
+        const agora = Date.now();
+        const restante = alvo - agora;
+
+        if (!Number.isFinite(alvo)) {
+          contagemTitulo.textContent = "26 de setembro de 2026";
+          return;
+        }
+
+        if (restante <= 0) {
+          dias.textContent = "0";
+          horas.textContent = "0";
+          minutos.textContent = "0";
+          segundos.textContent = "0";
+          contagemTitulo.textContent = "O nosso grande dia chegou ðŸ¤";
+          clearInterval(timerContagem);
+          timerContagem = null;
+          return;
+        }
+
+        const totalSegundos = Math.floor(restante / 1000);
+        const d = Math.floor(totalSegundos / 86400);
+        const h = Math.floor((totalSegundos % 86400) / 3600);
+        const m = Math.floor((totalSegundos % 3600) / 60);
+        const s = totalSegundos % 60;
+
+        dias.textContent = String(d);
+        horas.textContent = String(h).padStart(2, "0");
+        minutos.textContent = String(m).padStart(2, "0");
+        segundos.textContent = String(s).padStart(2, "0");
+        contagemTitulo.textContent = "Faltam";
+      }
+
+      function iniciarContagem() {
+        atualizarContagem();
+
+        if (timerContagem) {
+          clearInterval(timerContagem);
+        }
+
+        timerContagem = setInterval(atualizarContagem, 1000);
+      }
+
+      function assinatura() {
+        return `
+          <div class="assinatura">
+            Com carinho,<br>
+            <strong>Stefany &amp; Michel</strong>
+          </div>
+        `;
+      }
+
+      function conviteHTML(pessoa) {
+        const nome = pessoa.nome;
+        const primeiro = primeiroNome(nome);
+
+        if (pessoa.tipo === "madrinha") {
+          return `
+            <p>Existem pessoas que fazem parte da nossa histÃ³ria de um jeito especial, e que nÃ£o poderiam estar em outro lugar quando chegar o nosso grande dia.</p>
+            <p>Por isso, queremos vocÃª pertinho de nÃ³s, compartilhando cada emoÃ§Ã£o, cada sorriso e cada lembranÃ§a desse momento tÃ£o importante.</p>
+            <p><strong>${primeiro}, vocÃª aceita ser nossa madrinha de casamento?</strong></p>
+            <p>SerÃ¡ uma alegria ter vocÃª ao nosso lado nesse novo capÃ­tulo da nossa histÃ³ria.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "madrinha-pastora") {
+          return `
+            <p>Algumas pessoas ocupam um lugar especial em nossa histÃ³ria, nÃ£o apenas pelo carinho e pela presenÃ§a, mas tambÃ©m pela forma como fazem parte da nossa caminhada.</p>
+            <p>E no nosso grande dia, queremos ter vocÃª conosco de uma maneira ainda mais significativa: ao nosso lado como madrinha e tambÃ©m participando espiritualmente da nossa cerimÃ´nia.</p>
+            <p><strong>${primeiro}, vocÃª aceita viver esse momento conosco como nossa madrinha e pastora?</strong></p>
+            <p>SerÃ¡ uma alegria imensa compartilhar esse dia com vocÃª, recebendo seu carinho, suas palavras e sua bÃªnÃ§Ã£o no inÃ­cio dessa nova etapa das nossas vidas.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "padrinho-pastor") {
+          return `
+            <p>Em um dia tÃ£o importante para nÃ³s, queremos por perto pessoas que fazem parte da nossa caminhada de forma especial.</p>
+            <p>E vocÃª ocupa um lugar ainda mais significativo nessa histÃ³ria: alÃ©m de estar ao nosso lado como padrinho, queremos tambÃ©m contar com sua presenÃ§a e sua participaÃ§Ã£o espiritual em nossa cerimÃ´nia.</p>
+            <p><strong>${primeiro}, vocÃª aceita viver esse momento conosco como nosso padrinho e pastor?</strong></p>
+            <p>SerÃ¡ uma honra dividir com vocÃª nÃ£o apenas a alegria desse dia, mas tambÃ©m receber suas palavras, seu carinho e sua bÃªnÃ§Ã£o no inÃ­cio dessa nova etapa das nossas vidas.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "daminha") {
+          return `
+            <p>Nosso grande dia vai ficar ainda mais bonito com pessoas especiais fazendo parte dele.</p>
+            <p>E nÃ³s temos uma missÃ£o cheia de carinho para vocÃª: caminhar conosco em um dos momentos mais importantes da nossa histÃ³ria e deixar a nossa cerimÃ´nia ainda mais encantadora.</p>
+            <p><strong>${primeiro}, vocÃª aceita ser nossa daminha?</strong></p>
+            <p>Vamos ficar muito felizes em ter vocÃª fazendo parte desse dia tÃ£o especial.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "florista") {
+          return `
+            <p>Todo grande dia Ã© feito de pequenos detalhes que tornam a lembranÃ§a ainda mais especial.</p>
+            <p>E queremos que vocÃª faÃ§a parte de um deles, levando delicadeza, alegria e um toque de flores para o comeÃ§o da nossa cerimÃ´nia.</p>
+            <p><strong>${primeiro}, vocÃª aceita ser nossa florista?</strong></p>
+            <p>Vai ser muito especial ver vocÃª fazendo parte desse momento e deixando o nosso caminho ainda mais bonito.</p>
+            ${assinatura()}
+          `;
+        }
+
+        return `
+          <p>Existem momentos que ganham ainda mais significado quando sÃ£o compartilhados com pessoas especiais.</p>
+          <p>E no nosso grande dia, queremos confiar a vocÃª uma missÃ£o muito importante: fazer parte da nossa cerimÃ´nia e nos acompanhar em um dos instantes mais marcantes da nossa histÃ³ria.</p>
+          <p><strong>${primeiro}, vocÃª aceita ser nosso pajem?</strong></p>
+          <p>Vai ser uma alegria enorme ter vocÃª conosco nesse momento tÃ£o especial.</p>
+          ${assinatura()}
+        `;
+      }
+
+      function paletaHTML() {
+        const cores = [
+          ["RosÃ©", "#C98B8E"],
+          ["Rosa Claro", "#F1CAD3"],
+          ["Rosa ChÃ¡", "#D99A9D"],
+          ["SalmÃ£o", "#ECA08F"],
+          ["Rosa Chiclete", "#E85B9B"],
+          ["Coral", "#E87870"],
+          ["Pink", "#D83C83"],
+          ["FÃºcsia", "#B73479"]
+        ];
+
+        const itens = cores.map(([nome, cor]) => `
+          <div class="cor-item">
+            <span class="cor-bola" style="background:${cor}"></span>
+            <span class="cor-nome">${nome}</span>
+          </div>
+        `).join("");
+
+        const srcInspiracao = inspiracoesPreload.dataset.arquivoResolvido
+          ? urlArquivo(inspiracoesPreload.dataset.arquivoResolvido)
+          : "";
+
+        const imagem = srcInspiracao
+          ? `<div class="inspiracoes-wrap"><img class="inspiracoes-img" src="${srcInspiracao}" alt="ReferÃªncias de vestidos para madrinhas"></div>`
+          : "";
+
+        return `
+          <p>Para deixar esse dia ainda mais harmonioso, escolhemos uma paleta especial para as nossas madrinhas.</p>
+
+          <div class="paleta-grid">${itens}</div>
+
+          <h3>Para o vestido</h3>
+          <p>Escolha o tom que mais combina com vocÃª dentro da nossa paleta e um modelo elegante e confortÃ¡vel.</p>
+          <p>Pedimos apenas que o vestido seja <strong>sem decote</strong>.</p>
+
+          <h3>InspiraÃ§Ãµes</h3>
+          <p>As referÃªncias servem como inspiraÃ§Ã£o para ajudar na escolha do modelo.</p>
+          ${imagem}
+
+          <div class="aviso-paleta">As tonalidades podem variar de acordo com a tela, o tecido e a iluminaÃ§Ã£o. Use a paleta como referÃªncia visual para manter a harmonia do conjunto.</div>
+        `;
+      }
+
+      function estiloHTML(pessoa) {
+        if (pessoa.tipo === "madrinha" || pessoa.tipo === "madrinha-pastora") {
+          return paletaHTML();
+        }
+
+        if (pessoa.tipo === "padrinho-pastor") {
+          return `
+            <p>Para compor a identidade da nossa cerimÃ´nia, escolhemos um detalhe especial para os padrinhos.</p>
+            <h3>Gravata</h3>
+            <p>Pedimos que a <strong>gravata seja rosa</strong>, acompanhando a paleta escolhida para esse momento.</p>
+            <p>Esse detalhe ajudarÃ¡ a criar harmonia entre o cortejo e a identidade visual do nosso casamento.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "daminha") {
+          return `
+            <p>A roupa serÃ¡ escolhida <strong>de acordo com a proposta da cerimÃ´nia</strong>, para que tudo fique em harmonia com o casamento.</p>
+            <p>Os detalhes do traje serÃ£o combinados com antecedÃªncia com seus responsÃ¡veis.</p>
+          `;
+        }
+
+        if (pessoa.tipo === "florista") {
+          return `
+            <p>A roupa serÃ¡ escolhida <strong>de acordo com a proposta da cerimÃ´nia</strong>, para que todos os detalhes estejam em harmonia com o casamento.</p>
+            <p>Os detalhes do traje serÃ£o combinados com antecedÃªncia com seus responsÃ¡veis.</p>
+          `;
+        }
+
+        return `
+          <p>A roupa serÃ¡ escolhida <strong>de acordo com a proposta da cerimÃ´nia</strong>, para que tudo esteja em harmonia com o casamento.</p>
+          <p>Os detalhes do traje serÃ£o combinados com antecedÃªncia com seus responsÃ¡veis.</p>
+        `;
+      }
+
+      function papelHTML(pessoa) {
+        if (pessoa.tipo === "madrinha") {
+          return `
+            <p>Ter vocÃª ao nosso lado torna esse momento ainda mais especial. Preparamos algumas orientaÃ§Ãµes para que tudo aconteÃ§a de forma harmoniosa no nosso grande dia.</p>
+
+            <h3>Sua participaÃ§Ã£o</h3>
+            <p>VocÃª farÃ¡ parte do nosso cortejo como madrinha, ocupando um lugar muito especial durante a cerimÃ´nia.</p>
+
+            <h3>Entrada do cortejo</h3>
+            <p>O cortejo serÃ¡ realizado <strong>somente pelas madrinhas</strong>.</p>
+            <p>Os acompanhantes nÃ£o participarÃ£o da entrada e poderÃ£o aguardar normalmente no local da cerimÃ´nia.</p>
+
+            <h3>Seu vestido</h3>
+            <p>Escolha um dos tons da paleta definida para as madrinhas e um modelo elegante, confortÃ¡vel e <strong>sem decote</strong>.</p>
+            <p>As referÃªncias apresentadas no convite servem como inspiraÃ§Ã£o para ajudar na escolha.</p>
+
+            <h3>Acompanhantes</h3>
+            <p>Os acompanhantes ficam livres para escolher o prÃ³prio traje.</p>
+
+            <h3>O mais importante</h3>
+            <p>Queremos que vocÃª aproveite esse momento conosco e se sinta linda, confortÃ¡vel e especial fazendo parte da nossa histÃ³ria.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "madrinha-pastora") {
+          return `
+            <p>Ter vocÃª conosco nesse momento serÃ¡ ainda mais especial porque sua participaÃ§Ã£o acontecerÃ¡ de duas formas muito importantes: <strong>como madrinha e como pastora</strong>.</p>
+
+            <h3>Como madrinha</h3>
+            <p>VocÃª farÃ¡ parte do nosso cortejo e estarÃ¡ ao nosso lado em um dos momentos mais marcantes da nossa histÃ³ria.</p>
+            <p>O cortejo serÃ¡ realizado <strong>somente pelas madrinhas</strong>.</p>
+
+            <h3>Como pastora</h3>
+            <p>Sua presenÃ§a tambÃ©m terÃ¡ um significado espiritual muito especial para nÃ³s, fazendo parte da cerimÃ´nia e desse novo capÃ­tulo que estamos comeÃ§ando.</p>
+
+            <h3>Seu vestido</h3>
+            <p>Escolha um dos tons definidos na <strong>paleta das madrinhas</strong> e um modelo elegante, confortÃ¡vel e <strong>sem decote</strong>.</p>
+            <p>As referÃªncias apresentadas no convite servem como inspiraÃ§Ã£o para ajudar na escolha.</p>
+
+            <h3>Um lugar especial</h3>
+            <p>Poder contar com vocÃª nessas duas funÃ§Ãµes torna esse dia ainda mais significativo para nÃ³s.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "padrinho-pastor") {
+          return `
+            <p>Sua participaÃ§Ã£o em nossa cerimÃ´nia serÃ¡ muito especial, porque vocÃª estarÃ¡ conosco de duas formas importantes: <strong>como padrinho e como pastor</strong>.</p>
+
+            <h3>Como padrinho</h3>
+            <p>VocÃª estarÃ¡ ao nosso lado representando carinho, amizade e a alegria de compartilhar conosco esse novo capÃ­tulo.</p>
+
+            <h3>Como pastor</h3>
+            <p>Sua presenÃ§a tambÃ©m terÃ¡ um significado espiritual muito especial em nossa cerimÃ´nia.</p>
+
+            <h3>Traje</h3>
+            <p>Para compor a identidade escolhida para esse momento, pedimos o uso de <strong>gravata rosa</strong>.</p>
+
+            <h3>Um lugar especial</h3>
+            <p>Ter vocÃª conosco exercendo essas duas funÃ§Ãµes torna esse dia ainda mais significativo para nÃ³s.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "daminha") {
+          return `
+            <p>Livia, vocÃª terÃ¡ uma participaÃ§Ã£o muito especial na nossa cerimÃ´nia.</p>
+
+            <h3>Sua missÃ£o</h3>
+            <p>Como nossa daminha, vocÃª farÃ¡ parte de um dos momentos mais bonitos do casamento e ajudarÃ¡ a tornar a nossa entrada ainda mais especial.</p>
+
+            <h3>No dia</h3>
+            <p>O mais importante Ã© que vocÃª esteja confortÃ¡vel, tranquila e pronta para aproveitar esse momento conosco.</p>
+            <p>Vai ser muito especial ter vocÃª fazendo parte dessa lembranÃ§a.</p>
+            ${assinatura()}
+          `;
+        }
+
+        if (pessoa.tipo === "florista") {
+          return `
+            <p>Laura, vocÃª terÃ¡ uma missÃ£o muito especial em nossa cerimÃ´nia.</p>
+
+            <h3>Sua participaÃ§Ã£o</h3>
+            <p>Como nossa florista, vocÃª farÃ¡ parte de um momento cheio de delicadeza e carinho, ajudando a tornar o caminho atÃ© o altar ainda mais bonito.</p>
+
+            <h3>No dia</h3>
+            <p>Queremos que vocÃª esteja confortÃ¡vel, tranquila e aproveite esse momento tÃ£o especial junto com a gente.</p>
+            <p>Vai ser lindo ter vocÃª fazendo parte dessa lembranÃ§a.</p>
+            ${assinatura()}
+          `;
+        }
+
+        return `
+          <p>Pietro, vocÃª terÃ¡ uma missÃ£o muito especial em nossa cerimÃ´nia.</p>
+
+          <h3>Sua participaÃ§Ã£o</h3>
+          <p>Como nosso pajem, vocÃª farÃ¡ parte de um dos momentos mais importantes do casamento e ajudarÃ¡ a tornar essa lembranÃ§a ainda mais especial para nÃ³s.</p>
+
+          <h3>No dia</h3>
+          <p>Queremos que vocÃª esteja confortÃ¡vel, tranquilo e aproveite esse momento junto com a gente.</p>
+          <p>Vai ser muito especial ter vocÃª fazendo parte desse dia.</p>
+          ${assinatura()}
+        `;
+      }
+
+      function cerimoniaHTML() {
+        return `
+          <p>Estamos contando os dias para viver esse momento tÃ£o especial com vocÃª.</p>
+
+          <div class="cerimonia-dados">
+            <p><strong>CerimÃ´nia Religiosa</strong></p>
+            <p>26 de setembro de 2026 â€¢ 10h30</p>
+            <p>Igreja AlianÃ§a da FÃ© e do Amor</p>
+            <p>Rua VigÃ¡rio JoÃ£o JosÃ© Rodrigues, 651<br>Centro â€¢ JundiaÃ­/SP â€¢ CEP 13201-001</p>
+          </div>
+
+          <button id="abrirMapa" class="mapa-btn" type="button">Ver localizaÃ§Ã£o</button>
+          ${assinatura()}
+        `;
+      }
+
+      function dadosModal(tipo, pessoa) {
+        if (tipo === "convite") {
+          return {
+            eyebrow: pessoa.funcao,
+            titulo: "Seu convite",
+            html: conviteHTML(pessoa)
+          };
+        }
+
+        if (tipo === "estilo") {
+          return {
+            eyebrow: pessoa.funcao,
+            titulo: labelEstilo(pessoa.tipo),
+            html: estiloHTML(pessoa)
+          };
+        }
+
+        if (tipo === "papel") {
+          return {
+            eyebrow: pessoa.funcao,
+            titulo: "Seu papel no nosso grande dia",
+            html: papelHTML(pessoa)
+          };
+        }
+
+        return {
+          eyebrow: "26 â€¢ 09 â€¢ 2026",
+          titulo: "Nosso grande dia",
+          html: cerimoniaHTML()
+        };
+      }
+
+      function abrirModal(tipo, botaoOrigem) {
+        if (!convidadoAtual) return;
+
+        retornoFoco = botaoOrigem || document.activeElement;
+        const dados = dadosModal(tipo, convidadoAtual);
+
+        modalEyebrow.textContent = dados.eyebrow;
+        modalTitulo.textContent = dados.titulo;
+        modalConteudo.innerHTML = dados.html;
+
+        modalBackdrop.classList.add("aberto");
+        modalBackdrop.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-aberto");
+
+        const mapa = document.getElementById("abrirMapa");
+        if (mapa) {
+          mapa.addEventListener("click", () => {
+            window.location.href = CONFIG.linkLocalizacao;
+          });
+        }
+
+        requestAnimationFrame(() => fecharModal.focus());
+      }
+
+      function fecharModalAtual() {
+        modalBackdrop.classList.remove("aberto");
+        modalBackdrop.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-aberto");
+
+        if (retornoFoco && typeof retornoFoco.focus === "function") {
+          retornoFoco.focus();
+        }
+      }
+
+      function tratarVisibilidade() {
+        if (!conviteAberto || !audioDisponivel) return;
+
+        if (document.hidden) {
+          musicaEstavaTocando = !musica.paused;
+          if (musicaEstavaTocando) musica.pause();
+          return;
+        }
+
+        if (musicaEstavaTocando) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+
+        musicaEstavaTocando = false;
+      }
+
+      buscaNome.addEventListener("input", () => {
+        erroBusca.textContent = "";
+        renderSugestoes();
+      });
+
+      buscaNome.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          abrirExperiencia();
+        }
+      });
+
+      abrirConvite.addEventListener("click", abrirExperiencia);
+      controleSom.addEventListener("click", alternarSom);
+
+      document.querySelectorAll("[data-modal]").forEach((botao) => {
+        botao.addEventListener("click", () => {
+          abrirModal(botao.dataset.modal, botao);
+        });
+      });
+
+      fecharModal.addEventListener("click", fecharModalAtual);
+
+      modalBackdrop.addEventListener("click", (event) => {
+        if (event.target === modalBackdrop) {
+          fecharModalAtual();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modalBackdrop.classList.contains("aberto")) {
+          fecharModalAtual();
+        }
+      });
+
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
+
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted && conviteAberto && audioDisponivel) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".busca-wrap")) {
+          esconderSugestoes();
+        }
+      });
+
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      document.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    })();
+  </script>
+</body>
+</html>

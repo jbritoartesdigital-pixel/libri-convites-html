@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ==================================================
+       🌸 ALTERE SOMENTE AQUI | METADADOS ESTÁTICOS 🌸
+       O WhatsApp lê estas tags sem executar JavaScript.
+  =================================================== -->
+  <title>Modelo Cerejinha | Convite Cinematográfico Longo</title>
+  <meta name="description" content="Modelo demonstrativo de convite cinematográfico longo da Libri Convites. 🍒">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#120b08">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Modelo Cerejinha | Convite Longo">
+  <meta property="og:description" content="Conheça um modelo de convite cinematográfico longo da Libri Convites. 🍒">
+  <meta property="og:url" content="https://libriconvites.com.br/modelo-cerejinha/">
+  <meta property="og:image" content="https://libriconvites.com.br/modelo-cerejinha/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/modelo-cerejinha/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Modelo Cerejinha | Convite Longo">
+  <meta name="twitter:description" content="Conheça um modelo de convite cinematográfico longo da Libri Convites. 🍒">
+  <meta name="twitter:image" content="https://libriconvites.com.br/modelo-cerejinha/imagens/preview-otimizada.jpg?v=1">
+
+  <script>
+    /* ==================================================
+       🌸 ALTERE SOMENTE AQUI 🌸
+    ================================================== */
+
+    const CONFIG = {
+      titulo: "Modelo Cerejinha | Convite Longo",
+
+      pastaCliente: "modelo-cerejinha",
+      hostMidia: "https://midia.libriconvites.com.br",
+
+      videoArquivo: "abertura.mp4",
+      musicaArquivo: "cerejinha-do-nosso-bolo.mp3",
+
+      inicioMusica: 0,
+      volumeMusica: 0.35,
+      transicaoAudio: 260,
+      tempoPular: 5000,
+
+      versaoArquivos: "1",
+      versaoMidia: "1",
+
+      linkConfirmacao: "https://confirmacao.libriconvites.com.br/e/teste",
+      linkLocalizacao: "https://www.google.com/maps/search/?api=1&query=Espa%C3%A7o%20Cerejeira%20Encantada%2C%20Rua%20das%20Flores%20120%2C%20Jardim%20Primavera%2C%20Goi%C3%A2nia%20GO",
+
+      /*
+         IMAGENS:
+         O motor aceita PNG, JPG e JPEG sem conversão.
+         Também aceita os nomes originais deste projeto caso você
+         tenha subido os arquivos sem renomear.
+      */
+      imagens: {
+        capa: "imagens/capa.png",
+        final: "imagens/final.png",
+        presentes: "imagens/presentes.png"
+      },
+
+      hotspotsFinal: {
+        localizacao: { left: "12.5%", top: "59.7%", width: "50.5%", height: "6.2%" },
+        confirmacao: { left: "12.5%", top: "66.4%", width: "50.5%", height: "6.2%" },
+        presentes: { left: "12.5%", top: "73.3%", width: "50.5%", height: "6.2%" }
+      },
+
+      hotspotsPaginas: {
+        voltar: { left: "70%", top: "1.3%", width: "28%", height: "7.5%" }
+      }
+    };
+
+    /* ==================================================
+       ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔
+    ================================================== */
+  </script>
+
+  <style>
+    :root {
+      --duracao-transicao: 220ms;
+      --fundo: #000;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--fundo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    @supports (height: 100dvh) {
+      .tela {
+        height: 100dvh;
+      }
+    }
+
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      overflow: hidden;
+      background: #000;
+      flex: 0 0 auto;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* =========================
+       CAPA
+    ========================= */
+
+    #capaTela {
+      z-index: 40;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 180ms ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    /* =========================
+       VÍDEO
+    ========================= */
+
+    #videoTela {
+      z-index: 20;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #videoTela.ativo {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #video {
+      background: #000;
+    }
+
+    #pular {
+      position: absolute;
+      right: 18px;
+      bottom: max(90px, calc(env(safe-area-inset-bottom) + 70px));
+      z-index: 15;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(0, 0, 0, 0.48);
+      color: #fff;
+      font-size: 13px;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* =========================
+       CARD FINAL
+       Fica carregado por cima do vídeo e entra em fade.
+       Assim não existe intervalo preto entre os dois.
+    ========================= */
+
+    #finalTela {
+      z-index: 30;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity var(--duracao-transicao) ease;
+    }
+
+    #finalTela.preRevelado,
+    #finalTela.ativo {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #finalTela.ativo {
+      pointer-events: auto;
+    }
+
+    .hotspot {
+      position: absolute;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+      z-index: 12;
+      touch-action: manipulation;
+    }
+
+    /* =========================
+       CONTROLE DE SOM
+    ========================= */
+
+    #controleSom {
+      position: absolute;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: 14px;
+      z-index: 25;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 50%;
+      padding: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.36);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
+
+    #controleSom.visivel {
+      display: flex;
+    }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeSomDesligado {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSomLigado {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSomDesligado {
+      display: block;
+    }
+
+    /* =========================
+       PÁGINAS INTERNAS
+    ========================= */
+
+    .paginaInterna {
+      z-index: 100;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+    }
+
+    .paginaInterna.ativa {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* =========================
+       ACESSIBILIDADE
+    ========================= */
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #pular:focus-visible,
+    #controleSom:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: -3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #capaTela,
+      #videoTela,
+      #finalTela,
+      .paginaInterna,
+      #pular {
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       CAPA
+  ========================== -->
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
+      <img id="capa" class="arte" alt="Convite da Cecília" draggable="false">
+      <button id="abrirConvite" type="button" aria-label="Abrir convite"></button>
+    </div>
+  </section>
+
+  <!-- =========================
+       VÍDEO
+  ========================== -->
+  <section id="videoTela" class="tela" aria-label="Vídeo de abertura">
+    <div class="quadro">
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================
+       CARD FINAL
+  ========================== -->
+  <section id="finalTela" class="tela" aria-label="Convite final">
+    <div class="quadro">
+      <img id="final" class="arte" alt="Detalhes do aniversário da Cecília" draggable="false">
+
+      <button id="hotspotLocalizacao" class="hotspot" type="button" aria-label="Como chegar"></button>
+      <button id="hotspotConfirmacao" class="hotspot" type="button" aria-label="Confirmar presença"></button>
+      <button id="hotspotPresentes" class="hotspot" type="button" aria-label="Sugestões de presentes"></button>
+
+      <button id="controleSom" type="button" aria-label="Ativar ou silenciar música">
+        <svg id="iconeSomLigado" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+          <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+        </svg>
+
+        <svg id="iconeSomDesligado" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================
+       SUGESTÕES DE PRESENTES
+  ========================== -->
+  <section id="paginaPresentes" class="tela paginaInterna" aria-label="Sugestões de presentes">
+    <div class="quadro">
+      <img id="imagemPresentes" class="arte" alt="Sugestões de presentes para Cecília" draggable="false">
+      <button class="hotspot hotspotVoltar" type="button" aria-label="Voltar ao convite"></button>
+    </div>
+  </section>
+
+
+  <!-- Áudio contínuo -->
+  <audio id="musica" preload="auto" loop></audio>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const capaTela = document.getElementById("capaTela");
+      const videoTela = document.getElementById("videoTela");
+      const finalTela = document.getElementById("finalTela");
+
+      const capa = document.getElementById("capa");
+      const video = document.getElementById("video");
+      const final = document.getElementById("final");
+      const musica = document.getElementById("musica");
+
+      const abrirConviteBtn = document.getElementById("abrirConvite");
+      const pularBtn = document.getElementById("pular");
+      const controleSom = document.getElementById("controleSom");
+
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
+      const hotspotPresentes = document.getElementById("hotspotPresentes");
+
+      const paginaPresentes = document.getElementById("paginaPresentes");
+      const imagemPresentes = document.getElementById("imagemPresentes");
+
+      let conviteAberto = false;
+      let finalMostrado = false;
+      let preRevelacaoFeita = false;
+      let somLigado = true;
+      let audioDisponivel = true;
+      let rafFimVideo = null;
+      let rafAudio = null;
+      let timerPular = null;
+      let ultimoAjusteSincronia = 0;
+
+      let videoEstavaTocando = false;
+      let musicaEstavaTocando = false;
+
+      const EXTENSOES_IMAGEM = [".png", ".jpg", ".jpeg"];
+
+      const urlLocal = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      const urlMidia = (arquivo) =>
+        `${CONFIG.hostMidia}/${encodeURIComponent(CONFIG.pastaCliente)}/${encodeURIComponent(arquivo)}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+
+      function aplicarPosicao(elemento, posicao) {
+        elemento.style.left = posicao.left;
+        elemento.style.top = posicao.top;
+        elemento.style.width = posicao.width;
+        elemento.style.height = posicao.height;
+      }
+
+      function montarCandidatosImagem(configuracao) {
+        const entradas = Array.isArray(configuracao)
+          ? configuracao
+          : [configuracao];
+
+        const candidatos = [];
+
+        entradas.forEach((entrada) => {
+          if (!entrada) return;
+
+          const temExtensaoConhecida = /\.(png|jpe?g)$/i.test(entrada);
+
+          if (temExtensaoConhecida) {
+            candidatos.push(entrada);
+            return;
+          }
+
+          EXTENSOES_IMAGEM.forEach((extensao) => {
+            candidatos.push(`${entrada}${extensao}`);
+          });
+        });
+
+        return [...new Set(candidatos)];
+      }
+
+      function carregarImagemFlexivel(elemento, configuracao) {
+        return new Promise((resolve) => {
+          const candidatos = montarCandidatosImagem(configuracao);
+          let indice = 0;
+
+          const tentarProxima = () => {
+            if (indice >= candidatos.length) {
+              elemento.onload = null;
+              elemento.onerror = null;
+              console.error("Imagem não encontrada. Tentativas:", candidatos);
+              resolve(false);
+              return;
+            }
+
+            const caminho = candidatos[indice++];
+
+            elemento.onload = async () => {
+              elemento.onload = null;
+              elemento.onerror = null;
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            elemento.onerror = tentarProxima;
+            elemento.src = urlLocal(caminho);
+          };
+
+          tentarProxima();
+        });
+      }
+
+      function configurarArquivos() {
+        document.title = CONFIG.titulo;
+
+        const carregamentos = {
+          capa: carregarImagemFlexivel(capa, CONFIG.imagens.capa),
+          final: carregarImagemFlexivel(final, CONFIG.imagens.final),
+          presentes: carregarImagemFlexivel(imagemPresentes, CONFIG.imagens.presentes)
+        };
+
+        video.src = urlMidia(CONFIG.videoArquivo);
+        musica.src = urlMidia(CONFIG.musicaArquivo);
+
+        video.load();
+        musica.load();
+
+        return carregamentos;
+      }
+
+      function configurarHotspots() {
+        aplicarPosicao(hotspotLocalizacao, CONFIG.hotspotsFinal.localizacao);
+        aplicarPosicao(hotspotConfirmacao, CONFIG.hotspotsFinal.confirmacao);
+        aplicarPosicao(hotspotPresentes, CONFIG.hotspotsFinal.presentes);
+
+        document.querySelectorAll(".hotspotVoltar").forEach((botao) => {
+          aplicarPosicao(botao, CONFIG.hotspotsPaginas.voltar);
+        });
+      }
+
+      let carregamentosImagem = null;
+
+      function prepararArquivos() {
+        carregamentosImagem = configurarArquivos();
+      }
+
+      async function esperarImagemFinal() {
+        if (!carregamentosImagem) return;
+        await carregamentosImagem.final.catch(() => false);
+      }
+
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
+
+        capaTela.classList.add("saindo");
+
+        window.setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
+
+      function iniciarAudioSilencioso() {
+        musica.volume = 0.001;
+
+        try {
+          musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+        } catch (_) {}
+
+        const tentativa = musica.play();
+
+        if (tentativa && typeof tentativa.catch === "function") {
+          tentativa.catch(() => {
+            audioDisponivel = false;
+            controleSom.classList.remove("visivel");
+          });
+        }
+      }
+
+      async function abrirConvite() {
+        if (conviteAberto) return;
+        conviteAberto = true;
+
+        videoTela.classList.add("ativo");
+
+        // O áudio precisa nascer dentro do gesto do usuário no celular.
+        iniciarAudioSilencioso();
+
+        try {
+          const tentativaVideo = video.play();
+
+          if (tentativaVideo && typeof tentativaVideo.then === "function") {
+            await tentativaVideo;
+          }
+        } catch (_) {
+          await ativarFinal(true);
+          esconderCapa();
+          return;
+        }
+
+        esconderCapa();
+        mostrarPularTemporariamente();
+        monitorarFimDoVideo();
+      }
+
+      function mostrarPularTemporariamente() {
+        pularBtn.classList.add("visivel");
+
+        clearTimeout(timerPular);
+        timerPular = window.setTimeout(() => {
+          pularBtn.classList.remove("visivel");
+        }, CONFIG.tempoPular);
+      }
+
+      function tempoEsperadoMusica() {
+        let esperado = Math.max(
+          0,
+          video.currentTime + CONFIG.inicioMusica
+        );
+
+        if (
+          Number.isFinite(musica.duration) &&
+          musica.duration > 0
+        ) {
+          esperado %= musica.duration;
+        }
+
+        return esperado;
+      }
+
+      function manterSincronia(forcar = false) {
+        if (
+          !audioDisponivel ||
+          finalMostrado ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
+        }
+
+        const agora = performance.now();
+
+        if (
+          !forcar &&
+          agora - ultimoAjusteSincronia < 750
+        ) {
+          return;
+        }
+
+        ultimoAjusteSincronia = agora;
+
+        const esperado = tempoEsperadoMusica();
+        const diferenca = Math.abs(
+          musica.currentTime - esperado
+        );
+
+        /*
+           O ajuste acontece enquanto o MP3 está praticamente
+           inaudível. Na entrada do card não existe seek.
+        */
+        if (diferenca > 0.30) {
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
+        }
+      }
+
+      function transicaoSuaveAudio(aoFinalizar) {
+        cancelAnimationFrame(rafAudio);
+
+        if (
+          !audioDisponivel ||
+          musica.paused
+        ) {
+          aoFinalizar();
+          return;
+        }
+
+        const duracao = Math.max(
+          120,
+          CONFIG.transicaoAudio
+        );
+
+        const inicio = performance.now();
+        const volumeVideoInicial = video.volume;
+        const volumeMusicaInicial = musica.volume;
+        const volumeMusicaFinal =
+          somLigado
+            ? CONFIG.volumeMusica
+            : 0;
+
+        const animar = (agora) => {
+          const progresso = Math.min(
+            1,
+            (agora - inicio) / duracao
+          );
+
+          const suave =
+            progresso *
+            progresso *
+            (3 - 2 * progresso);
+
+          video.volume = Math.max(
+            0,
+            volumeVideoInicial * (1 - suave)
+          );
+
+          musica.volume =
+            volumeMusicaInicial +
+            (
+              volumeMusicaFinal -
+              volumeMusicaInicial
+            ) *
+            suave;
+
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+            return;
+          }
+
+          video.volume = 0;
+          musica.volume = volumeMusicaFinal;
+
+          aoFinalizar();
+        };
+
+        rafAudio = requestAnimationFrame(animar);
+      }
+
+      function monitorarFimDoVideo() {
+        cancelAnimationFrame(rafFimVideo);
+
+        const observar = () => {
+          if (finalMostrado) return;
+
+          manterSincronia();
+
+          if (
+            Number.isFinite(video.duration) &&
+            video.duration > 0 &&
+            !video.paused
+          ) {
+            const restante =
+              video.duration - video.currentTime;
+
+            /*
+               A troca começa antes do último frame para que
+               vídeo e MP3 façam um crossfade real.
+            */
+            if (
+              restante > 0 &&
+              restante <= 0.45
+            ) {
+              ativarFinal(false);
+              return;
+            }
+          }
+
+          rafFimVideo =
+            requestAnimationFrame(observar);
+        };
+
+        rafFimVideo =
+          requestAnimationFrame(observar);
+      }
+
+      async function ativarFinal(foiPulado = false) {
+        if (finalMostrado) return;
+
+        /*
+           Se o convidado pulou, fazemos uma última conferência
+           enquanto o MP3 ainda está em volume técnico.
+        */
+        if (foiPulado) {
+          manterSincronia(true);
+        }
+
+        finalMostrado = true;
+
+        cancelAnimationFrame(rafFimVideo);
+        clearTimeout(timerPular);
+
+        pularBtn.classList.remove("visivel");
+
+        await esperarImagemFinal();
+
+        /*
+           O vídeo continua tocando durante a transição.
+           O card entra por cima dele e o áudio faz crossfade.
+        */
+        finalTela.style.visibility = "visible";
+
+        requestAnimationFrame(() => {
+          finalTela.classList.add(
+            "preRevelado",
+            "ativo"
+          );
+        });
+
+        /*
+           IMPORTANTE:
+           não existe currentTime nem novo play() do MP3 aqui.
+           A música já está tocando desde a abertura.
+        */
+        transicaoSuaveAudio(() => {
+          video.pause();
+          video.volume = 1;
+
+          videoTela.classList.remove("ativo");
+          videoTela.style.visibility = "hidden";
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
+        });
+      }
+
+      function pularAbertura() {
+        ativarFinal(true);
+      }
+
+      function abrirPagina(pagina) {
+        fecharPaginasInternas();
+        pagina.classList.add("ativa");
+      }
+
+      function fecharPaginasInternas() {
+        paginaPresentes.classList.remove("ativa");
+      }
+
+      function abrirLink(link) {
+        if (!link) return;
+        window.location.href = link;
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+        controleSom.classList.toggle("mudo", !somLigado);
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando = !video.paused && !finalMostrado;
+          musicaEstavaTocando = !musica.paused;
+
+          if (videoEstavaTocando) video.pause();
+          if (musicaEstavaTocando) musica.pause();
+          return;
+        }
+
+        if (videoEstavaTocando && !finalMostrado) {
+          video.play().then(monitorarFimDoVideo).catch(() => {});
+        }
+
+        if (musicaEstavaTocando && audioDisponivel) {
+          musica.play().catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+        musicaEstavaTocando = false;
+      }
+
+      // =========================
+      // EVENTOS
+      // =========================
+
+      abrirConviteBtn.addEventListener("click", abrirConvite);
+      pularBtn.addEventListener("click", pularAbertura);
+
+      video.addEventListener("playing", esconderCapa);
+      video.addEventListener("ended", () => ativarFinal(false));
+      video.addEventListener("error", async () => {
+        if (conviteAberto && !finalMostrado) {
+          await ativarFinal(true);
+          esconderCapa();
+        }
+      });
+
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
+
+      hotspotPresentes.addEventListener("click", () => abrirPagina(paginaPresentes));
+      hotspotConfirmacao.addEventListener("click", () => abrirLink(CONFIG.linkConfirmacao));
+      hotspotLocalizacao.addEventListener("click", () => abrirLink(CONFIG.linkLocalizacao));
+
+      document.querySelectorAll(".hotspotVoltar").forEach((botao) => {
+        botao.addEventListener("click", fecharPaginasInternas);
+      });
+
+      controleSom.addEventListener("click", alternarSom);
+
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted && finalMostrado && audioDisponivel) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
+
+      // Bloqueio casual de salvar/arrastar mídia.
+      document.addEventListener("contextmenu", (event) => event.preventDefault());
+      document.addEventListener("dragstart", (event) => event.preventDefault());
+
+      // =========================
+      // INICIALIZAÇÃO
+      // =========================
+
+      prepararArquivos();
+      configurarHotspots();
+    })();
+  </script>
+</body>
+</html>

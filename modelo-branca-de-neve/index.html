@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ==================================================
+       🍎 ALTERE SOMENTE AQUI | METADADOS ESTÁTICOS 🍎
+       O WhatsApp lê estas tags sem executar JavaScript.
+  =================================================== -->
+  <title>Modelo Branca de Neve | Convite Cinematográfico Curto</title>
+  <meta name="description" content="Modelo demonstrativo de convite cinematográfico curto da Libri Convites. 🍎">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#12385f">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Modelo Branca de Neve | Convite Curto">
+  <meta property="og:description" content="Conheça um modelo de convite cinematográfico curto da Libri Convites. 🍎">
+  <meta property="og:url" content="https://libriconvites.com.br/modelo-branca-de-neve/">
+  <meta property="og:image" content="https://libriconvites.com.br/modelo-branca-de-neve/imagens/capa(1).png?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/modelo-branca-de-neve/imagens/capa(1).png?v=1">
+  <meta property="og:image:type" content="image/png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Modelo Branca de Neve | Convite Curto">
+  <meta name="twitter:description" content="Conheça um modelo de convite cinematográfico curto da Libri Convites. 🍎">
+  <meta name="twitter:image" content="https://libriconvites.com.br/modelo-branca-de-neve/imagens/capa(1).png?v=1">
+
+  <script>
+    /* ==================================================
+       🍎🍎🍎 ALTERE SOMENTE AQUI 🍎🍎🍎
+    ================================================== */
+
+    const CONFIG = {
+      titulo: "Modelo Branca de Neve | Convite Curto",
+
+      pastaCliente: "modelo-branca-de-neve",
+      hostMidia: "https://midia.libriconvites.com.br",
+
+      videoArquivo: "abertura.mp4",
+
+      tempoPular: 5000,
+      versaoArquivos: "1",
+      versaoMidia: "1",
+
+      linkConfirmacao: "https://confirmacao.libriconvites.com.br/e/teste",
+      linkLocalizacao: "https://www.google.com/maps/search/?api=1&query=Bosque%20dos%20Buritis%2C%20Goi%C3%A2nia%20GO",
+
+      imagens: {
+        capa: "imagens/capa(1).png",
+        final: "imagens/final(2).png",
+        presentes: "imagens/presente.png"
+      },
+
+      hotspotsFinal: {
+        localizacao: { left: "36.4%", top: "56.8%", width: "45.2%", height: "5.2%" },
+        confirmacao: { left: "36.4%", top: "63.0%", width: "45.2%", height: "5.2%" },
+        presentes: { left: "36.4%", top: "69.2%", width: "45.2%", height: "5.2%" }
+      },
+
+      hotspotsPaginas: {
+        voltar: { left: "70%", top: "1.3%", width: "28%", height: "7.5%" }
+      }
+    };
+
+    /* ==================================================
+       ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔
+    ================================================== */
+  </script>
+
+  <style>
+    :root {
+      --duracao-transicao: 220ms;
+      --fundo: #000;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button { font: inherit; }
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--fundo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    @supports (height: 100dvh) {
+      .tela { height: 100dvh; }
+    }
+
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      overflow: hidden;
+      background: #000;
+      flex: 0 0 auto;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* CAPA */
+    #capaTela {
+      z-index: 40;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 180ms ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    /* VÍDEO */
+    #videoTela {
+      z-index: 20;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #videoTela.ativo {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #video { background: #000; }
+
+    #pular {
+      position: absolute;
+      right: 18px;
+      bottom: max(90px, calc(env(safe-area-inset-bottom) + 70px));
+      z-index: 15;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(0, 0, 0, 0.48);
+      color: #fff;
+      font-size: 13px;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* CARD FINAL */
+    #finalTela {
+      z-index: 30;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity var(--duracao-transicao) ease;
+    }
+
+    #finalTela.preRevelado,
+    #finalTela.ativo {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #finalTela.ativo { pointer-events: auto; }
+
+    .hotspot {
+      position: absolute;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+      z-index: 12;
+      touch-action: manipulation;
+    }
+
+    /* PÁGINAS INTERNAS */
+    .paginaInterna {
+      z-index: 100;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms ease;
+    }
+
+    .paginaInterna.ativa {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #pular:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: -3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #capaTela,
+      #videoTela,
+      #finalTela,
+      .paginaInterna,
+      #pular {
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
+      <img id="capa" class="arte" alt="Convite da Helena Sofia" draggable="false">
+      <button id="abrirConvite" type="button" aria-label="Abrir convite"></button>
+    </div>
+  </section>
+
+  <section id="videoTela" class="tela" aria-label="Vídeo de abertura">
+    <div class="quadro">
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
+    </div>
+  </section>
+
+  <section id="finalTela" class="tela" aria-label="Convite final">
+    <div class="quadro">
+      <img id="final" class="arte" alt="Detalhes do aniversário da Helena Sofia" draggable="false">
+
+      <button id="hotspotLocalizacao" class="hotspot" type="button" aria-label="Como chegar"></button>
+      <button id="hotspotConfirmacao" class="hotspot" type="button" aria-label="Confirmar presença"></button>
+      <button id="hotspotPresentes" class="hotspot" type="button" aria-label="Sugestões de presentes"></button>
+    </div>
+  </section>
+
+  <section id="paginaPresentes" class="tela paginaInterna" aria-label="Sugestões de presentes">
+    <div class="quadro">
+      <img id="imagemPresentes" class="arte" alt="Sugestões de presentes para Helena Sofia" draggable="false">
+      <button class="hotspot hotspotVoltar" type="button" aria-label="Voltar ao convite"></button>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const capaTela = document.getElementById("capaTela");
+      const videoTela = document.getElementById("videoTela");
+      const finalTela = document.getElementById("finalTela");
+
+      const capa = document.getElementById("capa");
+      const video = document.getElementById("video");
+      const final = document.getElementById("final");
+
+      const abrirConviteBtn = document.getElementById("abrirConvite");
+      const pularBtn = document.getElementById("pular");
+
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
+      const hotspotPresentes = document.getElementById("hotspotPresentes");
+
+      const paginaPresentes = document.getElementById("paginaPresentes");
+      const imagemPresentes = document.getElementById("imagemPresentes");
+
+      let conviteAberto = false;
+      let finalMostrado = false;
+      let rafFimVideo = null;
+      let timerPular = null;
+      let videoEstavaTocando = false;
+
+      const EXTENSOES_IMAGEM = [".jpg", ".jpeg", ".png", ".webp", ".avif"];
+
+      const urlLocal = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      const urlMidia = (arquivo) =>
+        `${CONFIG.hostMidia}/${encodeURIComponent(CONFIG.pastaCliente)}/${encodeURIComponent(arquivo)}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+
+      function aplicarPosicao(elemento, posicao) {
+        elemento.style.left = posicao.left;
+        elemento.style.top = posicao.top;
+        elemento.style.width = posicao.width;
+        elemento.style.height = posicao.height;
+      }
+
+      function montarCandidatosImagem(configuracao) {
+        const entradas = Array.isArray(configuracao) ? configuracao : [configuracao];
+        const candidatos = [];
+
+        entradas.forEach((entrada) => {
+          if (!entrada) return;
+
+          const temExtensaoConhecida = /\.(jpg|jpeg|png|webp|avif)$/i.test(entrada);
+          if (temExtensaoConhecida) {
+            candidatos.push(entrada);
+            return;
+          }
+
+          EXTENSOES_IMAGEM.forEach((extensao) => {
+            candidatos.push(`${entrada}${extensao}`);
+          });
+        });
+
+        return [...new Set(candidatos)];
+      }
+
+      function carregarImagemFlexivel(elemento, configuracao) {
+        return new Promise((resolve) => {
+          const candidatos = montarCandidatosImagem(configuracao);
+          let indice = 0;
+
+          const tentarProxima = () => {
+            if (indice >= candidatos.length) {
+              elemento.onload = null;
+              elemento.onerror = null;
+              console.error("Imagem não encontrada. Tentativas:", candidatos);
+              resolve(false);
+              return;
+            }
+
+            const caminho = candidatos[indice++];
+
+            elemento.onload = async () => {
+              elemento.onload = null;
+              elemento.onerror = null;
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            elemento.onerror = tentarProxima;
+            elemento.src = urlLocal(caminho);
+          };
+
+          tentarProxima();
+        });
+      }
+
+      function configurarArquivos() {
+        document.title = CONFIG.titulo;
+
+        const carregamentos = {
+          capa: carregarImagemFlexivel(capa, CONFIG.imagens.capa),
+          final: carregarImagemFlexivel(final, CONFIG.imagens.final),
+          presentes: carregarImagemFlexivel(imagemPresentes, CONFIG.imagens.presentes)
+        };
+
+        video.src = urlMidia(CONFIG.videoArquivo);
+        video.load();
+
+        return carregamentos;
+      }
+
+      function configurarHotspots() {
+        aplicarPosicao(hotspotLocalizacao, CONFIG.hotspotsFinal.localizacao);
+        aplicarPosicao(hotspotConfirmacao, CONFIG.hotspotsFinal.confirmacao);
+        aplicarPosicao(hotspotPresentes, CONFIG.hotspotsFinal.presentes);
+
+        document.querySelectorAll(".hotspotVoltar").forEach((botao) => {
+          aplicarPosicao(botao, CONFIG.hotspotsPaginas.voltar);
+        });
+      }
+
+      let carregamentosImagem = null;
+
+      function prepararArquivos() {
+        carregamentosImagem = configurarArquivos();
+      }
+
+      async function esperarImagemFinal() {
+        if (!carregamentosImagem) return;
+        await carregamentosImagem.final.catch(() => false);
+      }
+
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
+
+        capaTela.classList.add("saindo");
+        window.setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
+
+      async function abrirConvite() {
+        if (conviteAberto) return;
+        conviteAberto = true;
+
+        videoTela.classList.add("ativo");
+
+        try {
+          const tentativaVideo = video.play();
+          if (tentativaVideo && typeof tentativaVideo.then === "function") {
+            await tentativaVideo;
+          }
+        } catch (_) {
+          await ativarFinal();
+          esconderCapa();
+          return;
+        }
+
+        esconderCapa();
+        mostrarPularTemporariamente();
+        monitorarFimDoVideo();
+      }
+
+      function mostrarPularTemporariamente() {
+        pularBtn.classList.add("visivel");
+        clearTimeout(timerPular);
+
+        timerPular = window.setTimeout(() => {
+          pularBtn.classList.remove("visivel");
+        }, CONFIG.tempoPular);
+      }
+
+      function monitorarFimDoVideo() {
+        cancelAnimationFrame(rafFimVideo);
+
+        const observar = () => {
+          if (finalMostrado) return;
+
+          if (
+            Number.isFinite(video.duration) &&
+            video.duration > 0 &&
+            !video.paused
+          ) {
+            const restante = video.duration - video.currentTime;
+
+            if (restante > 0 && restante <= 0.22) {
+              ativarFinal();
+              return;
+            }
+          }
+
+          rafFimVideo = requestAnimationFrame(observar);
+        };
+
+        rafFimVideo = requestAnimationFrame(observar);
+      }
+
+      async function ativarFinal() {
+        if (finalMostrado) return;
+        finalMostrado = true;
+
+        cancelAnimationFrame(rafFimVideo);
+        clearTimeout(timerPular);
+        pularBtn.classList.remove("visivel");
+
+        await esperarImagemFinal();
+
+        finalTela.style.visibility = "visible";
+
+        requestAnimationFrame(() => {
+          finalTela.classList.add("preRevelado", "ativo");
+        });
+
+        window.setTimeout(() => {
+          video.pause();
+          videoTela.classList.remove("ativo");
+          videoTela.style.visibility = "hidden";
+        }, 240);
+      }
+
+      function abrirPagina(pagina) {
+        fecharPaginasInternas();
+        pagina.classList.add("ativa");
+      }
+
+      function fecharPaginasInternas() {
+        paginaPresentes.classList.remove("ativa");
+      }
+
+      function abrirLink(link) {
+        if (!link) return;
+        window.location.href = link;
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando = !video.paused && !finalMostrado;
+          if (videoEstavaTocando) video.pause();
+          return;
+        }
+
+        if (videoEstavaTocando && !finalMostrado) {
+          video.play().then(monitorarFimDoVideo).catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+      }
+
+      abrirConviteBtn.addEventListener("click", abrirConvite);
+      pularBtn.addEventListener("click", ativarFinal);
+
+      video.addEventListener("playing", esconderCapa);
+      video.addEventListener("ended", ativarFinal);
+      video.addEventListener("error", async () => {
+        if (conviteAberto && !finalMostrado) {
+          await ativarFinal();
+          esconderCapa();
+        }
+      });
+
+      hotspotPresentes.addEventListener("click", () => abrirPagina(paginaPresentes));
+      hotspotConfirmacao.addEventListener("click", () => abrirLink(CONFIG.linkConfirmacao));
+      hotspotLocalizacao.addEventListener("click", () => abrirLink(CONFIG.linkLocalizacao));
+
+      document.querySelectorAll(".hotspotVoltar").forEach((botao) => {
+        botao.addEventListener("click", fecharPaginasInternas);
+      });
+
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+      document.addEventListener("contextmenu", (event) => event.preventDefault());
+      document.addEventListener("dragstart", (event) => event.preventDefault());
+
+      prepararArquivos();
+      configurarHotspots();
+    })();
+  </script>
+</body>
+</html>

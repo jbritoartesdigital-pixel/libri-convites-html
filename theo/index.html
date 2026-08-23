@@ -50,7 +50,8 @@
       versaoArquivos: "1",
       versaoMidia: "1",
 
-      linkConfirmacao: "https://wa.me/5531992197382",
+      numeroWhatsapp: "5531992197382",
+      mensagemWhatsapp: "Olá! Gostaria de confirmar minha presença no aniversário do Théo.",
       linkLocalizacao: "https://maps.app.goo.gl/DGs2vnqrjMnhXzoE7",
 
       /*
@@ -83,15 +84,6 @@
           top: "62.3%",
           width: "44.7%",
           height: "5.4%"
-        }
-      },
-
-      hotspotsPaginas: {
-        voltar: {
-          left: "70%",
-          top: "1.3%",
-          width: "28%",
-          height: "7.5%"
         }
       }
     };
@@ -158,7 +150,9 @@
     }
 
     @supports (height: 100dvh) {
-      .tela { height: 100dvh; }
+      .tela {
+        height: 100dvh;
+      }
     }
 
     .quadro {
@@ -193,7 +187,9 @@
       pointer-events: none;
     }
 
-    #finalTela.ativo { pointer-events: auto; }
+    #finalTela.ativo {
+      pointer-events: auto;
+    }
 
     #videoTela {
       z-index: 30;
@@ -215,7 +211,9 @@
       pointer-events: none;
     }
 
-    #video { background: transparent; }
+    #video {
+      background: transparent;
+    }
 
     #capaTela {
       z-index: 50;
@@ -247,10 +245,10 @@
       right: max(14px, calc(env(safe-area-inset-right) + 12px));
       bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
       z-index: 500;
-      border: 1px solid rgba(255,255,255,.55);
+      border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: 999px;
       padding: 9px 14px;
-      background: rgba(0,0,0,.48);
+      background: rgba(0, 0, 0, 0.48);
       color: #fff;
       font-size: 13px;
       cursor: pointer;
@@ -279,18 +277,61 @@
       touch-action: manipulation;
     }
 
-    .paginaInterna {
+    /* POPUP DE PRESENTES */
+    #popupPresentes {
       z-index: 650;
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
+      background: rgba(0, 0, 0, 0.78);
       transition: opacity 180ms ease;
     }
 
-    .paginaInterna.ativa {
+    #popupPresentes.ativo {
       visibility: visible;
       opacity: 1;
       pointer-events: auto;
+    }
+
+    #popupPresentes .quadro {
+      background: transparent;
+    }
+
+    #presenteMoldura {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4%;
+    }
+
+    #imagemPresentes {
+      max-width: 92%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    #fecharPresentes {
+      position: absolute;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: 14px;
+      z-index: 720;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.52);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
     }
 
     #controleSom {
@@ -304,16 +345,18 @@
       align-items: center;
       justify-content: center;
       padding: 0;
-      border: 1px solid rgba(255,255,255,.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 50%;
-      background: rgba(0,0,0,.38);
+      background: rgba(0, 0, 0, 0.38);
       color: #fff;
       cursor: pointer;
       backdrop-filter: blur(7px);
       -webkit-backdrop-filter: blur(7px);
     }
 
-    #controleSom.visivel { display: flex; }
+    #controleSom.visivel {
+      display: flex;
+    }
 
     #controleSom svg {
       width: 20px;
@@ -325,15 +368,23 @@
       stroke-linejoin: round;
     }
 
-    #iconeMudo { display: none; }
-    #controleSom.mudo #iconeSom { display: none; }
-    #controleSom.mudo #iconeMudo { display: block; }
+    #iconeMudo {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSom {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeMudo {
+      display: block;
+    }
 
     .hotspot:focus-visible,
     #abrirConvite:focus-visible,
     #pular:focus-visible,
     #controleSom:focus-visible {
-      outline: 2px solid rgba(255,255,255,.9);
+      outline: 2px solid rgba(255, 255, 255, 0.9);
       outline-offset: -3px;
     }
 
@@ -341,7 +392,7 @@
       #capaTela,
       #videoTela,
       #pular,
-      .paginaInterna {
+      #popupPresentes {
         transition-duration: 1ms !important;
       }
     }
@@ -351,18 +402,45 @@
 <body>
   <section id="finalTela" class="tela" aria-label="Convite final">
     <div class="quadro">
-      <img id="finalImagem" class="arte" alt="A corrida do Théo | 9 anos" draggable="false">
+      <img
+        id="finalImagem"
+        class="arte"
+        alt="A corrida do Théo | 9 anos"
+        draggable="false"
+      >
 
-      <button id="hotspotConfirmacao" class="hotspot" type="button" aria-label="Confirmar pelo WhatsApp"></button>
-      <button id="hotspotLocalizacao" class="hotspot" type="button" aria-label="Como chegar"></button>
-      <button id="hotspotPresentes" class="hotspot" type="button" aria-label="Sugestões de presentes"></button>
+      <button
+        id="hotspotConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar pelo WhatsApp"
+      ></button>
 
-      <button id="controleSom" type="button" aria-label="Ativar ou silenciar música">
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Como chegar"
+      ></button>
+
+      <button
+        id="hotspotPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Sugestões de presentes"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ativar ou silenciar música"
+      >
         <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
           <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
           <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
         </svg>
+
         <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
           <path d="M17 9l4 4"></path>
@@ -374,22 +452,59 @@
 
   <section id="videoTela" class="tela" aria-label="Vídeo de abertura">
     <div class="quadro">
-      <video id="video" playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"></video>
-      <button id="pular" type="button" aria-label="Pular abertura">Pular abertura</button>
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
     </div>
   </section>
 
   <section id="capaTela" class="tela" aria-label="Capa do convite">
     <div class="quadro">
-      <img id="capaImagem" class="arte" alt="A corrida do Théo" draggable="false">
-      <button id="abrirConvite" type="button" aria-label="Abrir convite"></button>
+      <img
+        id="capaImagem"
+        class="arte"
+        alt="A corrida do Théo"
+        draggable="false"
+      >
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
     </div>
   </section>
 
-  <section id="paginaPresentes" class="tela paginaInterna" aria-label="Sugestões de presentes">
+  <section
+    id="popupPresentes"
+    class="tela"
+    aria-label="Sugestões de presentes"
+  >
     <div class="quadro">
-      <img id="imagemPresentes" class="arte" alt="Sugestões de presentes para Théo" draggable="false">
-      <button id="voltarPresentes" class="hotspot" type="button" aria-label="Voltar ao convite"></button>
+      <div id="presenteMoldura">
+        <img
+          id="imagemPresentes"
+          alt="Sugestões de presentes para Théo"
+          draggable="false"
+        >
+      </div>
+
+      <button
+        id="fecharPresentes"
+        type="button"
+        aria-label="Fechar sugestões de presentes"
+      >
+        ×
+      </button>
     </div>
   </section>
 
@@ -402,7 +517,7 @@
       const capaTela = document.getElementById("capaTela");
       const videoTela = document.getElementById("videoTela");
       const finalTela = document.getElementById("finalTela");
-      const paginaPresentes = document.getElementById("paginaPresentes");
+      const popupPresentes = document.getElementById("popupPresentes");
 
       const capaImagem = document.getElementById("capaImagem");
       const video = document.getElementById("video");
@@ -413,10 +528,14 @@
       const abrirConvite = document.getElementById("abrirConvite");
       const pular = document.getElementById("pular");
       const controleSom = document.getElementById("controleSom");
-      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
-      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
-      const hotspotPresentes = document.getElementById("hotspotPresentes");
-      const voltarPresentes = document.getElementById("voltarPresentes");
+      const hotspotLocalizacao =
+        document.getElementById("hotspotLocalizacao");
+      const hotspotConfirmacao =
+        document.getElementById("hotspotConfirmacao");
+      const hotspotPresentes =
+        document.getElementById("hotspotPresentes");
+      const fecharPresentes =
+        document.getElementById("fecharPresentes");
 
       let conviteAberto = false;
       let finalAtivo = false;
@@ -432,24 +551,41 @@
       let videoEstavaTocando = false;
       let musicaEstavaTocando = false;
 
-      const urlArquivo = (caminho) => `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+      const urlArquivo = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
 
       function urlMidia(arquivo) {
-        const partes = arquivo.split("/").map((parte) => encodeURIComponent(parte)).join("/");
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
+
         return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
       }
 
-      const EXTENSOES_IMAGEM = [".jpg", ".jpeg", ".png", ".webp", ".avif"];
+      const EXTENSOES_IMAGEM = [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+        ".avif"
+      ];
 
       function temExtensaoImagem(caminho) {
-        const limpo = String(caminho || "").split("?")[0].split("#")[0];
+        const limpo = String(caminho || "")
+          .split("?")[0]
+          .split("#")[0];
+
         return /\.(?:jpe?g|png|webp|avif)$/i.test(limpo);
       }
 
       async function resolverImagem(elemento, caminhoBase) {
         if (!elemento || !caminhoBase) return false;
 
-        const bases = Array.isArray(caminhoBase) ? caminhoBase.filter(Boolean) : [caminhoBase];
+        const bases = Array.isArray(caminhoBase)
+          ? caminhoBase.filter(Boolean)
+          : [caminhoBase];
+
         const candidatos = [];
 
         for (const base of bases) {
@@ -457,22 +593,41 @@
             candidatos.push(base);
             continue;
           }
-          for (const extensao of EXTENSOES_IMAGEM) candidatos.push(`${base}${extensao}`);
+
+          for (const extensao of EXTENSOES_IMAGEM) {
+            candidatos.push(`${base}${extensao}`);
+          }
         }
 
         for (const candidato of candidatos) {
           const carregou = await new Promise((resolve) => {
             const aoCarregar = async () => {
               elemento.removeEventListener("error", aoFalhar);
-              if (typeof elemento.decode === "function") await elemento.decode().catch(() => {});
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
               resolve(true);
             };
+
             const aoFalhar = () => {
               elemento.removeEventListener("load", aoCarregar);
               resolve(false);
             };
-            elemento.addEventListener("load", aoCarregar, { once: true });
-            elemento.addEventListener("error", aoFalhar, { once: true });
+
+            elemento.addEventListener(
+              "load",
+              aoCarregar,
+              { once: true }
+            );
+
+            elemento.addEventListener(
+              "error",
+              aoFalhar,
+              { once: true }
+            );
+
             elemento.src = urlArquivo(candidato);
           });
 
@@ -482,16 +637,35 @@
           }
         }
 
-        console.warn("[Libri] Imagem não encontrada:", caminhoBase);
+        console.warn(
+          "[Libri] Imagem não encontrada:",
+          caminhoBase
+        );
+
         return false;
       }
 
-      const capaCarregada = resolverImagem(capaImagem, CONFIG.imagens.capa);
-      const finalCarregado = resolverImagem(finalImagem, CONFIG.imagens.final);
-      const presentesCarregados = resolverImagem(imagemPresentes, CONFIG.imagens.presentes);
+      const capaCarregada =
+        resolverImagem(
+          capaImagem,
+          CONFIG.imagens.capa
+        );
+
+      const finalCarregado =
+        resolverImagem(
+          finalImagem,
+          CONFIG.imagens.final
+        );
+
+      const presentesCarregados =
+        resolverImagem(
+          imagemPresentes,
+          CONFIG.imagens.presentes
+        );
 
       video.src = urlMidia(CONFIG.videoArquivo);
       musica.src = urlMidia(CONFIG.musicaArquivo);
+
       video.load();
       musica.load();
 
@@ -502,28 +676,63 @@
         elemento.style.height = dados.height;
       }
 
-      posicionar(hotspotConfirmacao, CONFIG.hotspotsFinal.confirmacao);
-      posicionar(hotspotLocalizacao, CONFIG.hotspotsFinal.localizacao);
-      posicionar(hotspotPresentes, CONFIG.hotspotsFinal.presentes);
-      posicionar(voltarPresentes, CONFIG.hotspotsPaginas.voltar);
+      posicionar(
+        hotspotConfirmacao,
+        CONFIG.hotspotsFinal.confirmacao
+      );
+
+      posicionar(
+        hotspotLocalizacao,
+        CONFIG.hotspotsFinal.localizacao
+      );
+
+      posicionar(
+        hotspotPresentes,
+        CONFIG.hotspotsFinal.presentes
+      );
 
       function esconderCapa() {
         if (capaTela.classList.contains("saindo")) return;
+
         capaTela.classList.add("saindo");
-        setTimeout(() => { capaTela.style.visibility = "hidden"; }, 200);
+
+        setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
       }
 
       function tempoEsperadoMusica() {
-        let esperado = Math.max(0, video.currentTime + CONFIG.inicioMusica);
-        if (Number.isFinite(musica.duration) && musica.duration > 0) esperado %= musica.duration;
+        let esperado = Math.max(
+          0,
+          video.currentTime + CONFIG.inicioMusica
+        );
+
+        if (
+          Number.isFinite(musica.duration) &&
+          musica.duration > 0
+        ) {
+          esperado %= musica.duration;
+        }
+
         return esperado;
       }
 
       function iniciarMusicaSilenciosa() {
         musica.volume = 0.001;
-        try { musica.currentTime = Math.max(0, CONFIG.inicioMusica); } catch (_) {}
+
+        try {
+          musica.currentTime = Math.max(
+            0,
+            CONFIG.inicioMusica
+          );
+        } catch (_) {}
+
         const tentativa = musica.play();
-        if (tentativa && typeof tentativa.catch === "function") {
+
+        if (
+          tentativa &&
+          typeof tentativa.catch === "function"
+        ) {
           tentativa.catch(() => {
             audioDisponivel = false;
             controleSom.classList.remove("visivel");
@@ -532,43 +741,92 @@
       }
 
       function manterSincronia(forcar = false) {
-        if (!audioDisponivel || finalAtivo || video.paused || musica.paused) return;
+        if (
+          !audioDisponivel ||
+          finalAtivo ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
+        }
+
         const agora = performance.now();
-        if (!forcar && agora - ultimoAjusteSincronia < 1000) return;
+
+        if (
+          !forcar &&
+          agora - ultimoAjusteSincronia < 1000
+        ) {
+          return;
+        }
+
         ultimoAjusteSincronia = agora;
+
         const esperado = tempoEsperadoMusica();
-        const diferenca = Math.abs(musica.currentTime - esperado);
+        const diferenca = Math.abs(
+          musica.currentTime - esperado
+        );
+
         if (forcar || diferenca > 0.35) {
-          try { musica.currentTime = esperado; } catch (_) {}
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
         }
       }
 
       function transicaoSuaveAudio(aoFinalizar) {
         cancelAnimationFrame(rafAudio);
-        if (!audioDisponivel || musica.paused) {
+
+        if (
+          !audioDisponivel ||
+          musica.paused
+        ) {
           aoFinalizar();
           return;
         }
 
-        const duracao = Math.max(120, CONFIG.transicaoAudio);
+        const duracao = Math.max(
+          120,
+          CONFIG.transicaoAudio
+        );
+
         const inicio = performance.now();
         const volumeVideoInicial = video.volume;
         const volumeMusicaInicial = musica.volume;
-        const volumeMusicaFinal = somLigado ? CONFIG.volumeMusica : 0;
+        const volumeMusicaFinal =
+          somLigado ? CONFIG.volumeMusica : 0;
 
         const animar = (agora) => {
-          const progresso = Math.min(1, (agora - inicio) / duracao);
-          const suave = progresso * progresso * (3 - 2 * progresso);
-          video.volume = Math.max(0, volumeVideoInicial * (1 - suave));
-          musica.volume = volumeMusicaInicial + (volumeMusicaFinal - volumeMusicaInicial) * suave;
+          const progresso = Math.min(
+            1,
+            (agora - inicio) / duracao
+          );
+
+          const suave =
+            progresso *
+            progresso *
+            (3 - 2 * progresso);
+
+          video.volume = Math.max(
+            0,
+            volumeVideoInicial * (1 - suave)
+          );
+
+          musica.volume =
+            volumeMusicaInicial +
+            (volumeMusicaFinal -
+              volumeMusicaInicial) *
+              suave;
 
           if (progresso < 1) {
-            rafAudio = requestAnimationFrame(animar);
+            rafAudio =
+              requestAnimationFrame(animar);
+
             return;
           }
 
           video.volume = 0;
           musica.volume = volumeMusicaFinal;
+
           aoFinalizar();
         };
 
@@ -577,6 +835,7 @@
 
       async function iniciarConvite() {
         if (conviteAberto) return;
+
         conviteAberto = true;
 
         await Promise.all([
@@ -592,7 +851,9 @@
         iniciarMusicaSilenciosa();
         video.volume = 1;
 
-        try { video.currentTime = 0; } catch (_) {}
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
 
         try {
           await video.play();
@@ -605,35 +866,59 @@
         esconderCapa();
 
         pular.classList.add("visivel");
+
         clearTimeout(timerPular);
-        timerPular = setTimeout(() => pular.classList.remove("visivel"), CONFIG.tempoPular);
+
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, CONFIG.tempoPular);
 
         acompanharFinal();
       }
 
       function acompanharFinal() {
         cancelAnimationFrame(rafFim);
+
         const verificar = () => {
           if (finalizando || finalAtivo) return;
+
           manterSincronia();
-          if (Number.isFinite(video.duration) && video.duration > 0) {
-            const restante = video.duration - video.currentTime;
-            if (restante > 0 && restante <= 0.45) {
+
+          if (
+            Number.isFinite(video.duration) &&
+            video.duration > 0
+          ) {
+            const restante =
+              video.duration -
+              video.currentTime;
+
+            if (
+              restante > 0 &&
+              restante <= 0.45
+            ) {
               finalizarVideo();
               return;
             }
           }
-          rafFim = requestAnimationFrame(verificar);
+
+          rafFim =
+            requestAnimationFrame(verificar);
         };
-        rafFim = requestAnimationFrame(verificar);
+
+        rafFim =
+          requestAnimationFrame(verificar);
       }
 
       async function finalizarVideo() {
         if (finalizando || finalAtivo) return;
+
         manterSincronia(true);
+
         finalizando = true;
+
         clearTimeout(timerPular);
         cancelAnimationFrame(rafFim);
+
         pular.classList.remove("visivel");
 
         await finalCarregado.catch(() => false);
@@ -643,83 +928,263 @@
 
         transicaoSuaveAudio(() => {
           video.pause();
+
           videoTela.classList.remove("ativo");
           videoTela.classList.remove("saindo");
           videoTela.style.visibility = "hidden";
+
           video.volume = 1;
+
           finalAtivo = true;
           finalizando = false;
-          if (audioDisponivel) controleSom.classList.add("visivel");
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
         });
       }
 
-      function abrirLocalizacao() { window.location.href = CONFIG.linkLocalizacao; }
-      function abrirConfirmacao() { window.location.href = CONFIG.linkConfirmacao; }
-      function abrirPresentes() { paginaPresentes.classList.add("ativa"); }
-      function fecharPresentes() { paginaPresentes.classList.remove("ativa"); }
+      function abrirLocalizacao() {
+        window.location.href =
+          CONFIG.linkLocalizacao;
+      }
+
+      function abrirConfirmacao() {
+        const link =
+          "https://wa.me/" +
+          CONFIG.numeroWhatsapp +
+          "?text=" +
+          encodeURIComponent(
+            CONFIG.mensagemWhatsapp
+          );
+
+        window.location.href = link;
+      }
+
+      async function abrirPresentes() {
+        await presentesCarregados.catch(
+          () => false
+        );
+
+        popupPresentes.classList.add("ativo");
+        controleSom.classList.remove("visivel");
+      }
+
+      function fecharPopupPresentes() {
+        popupPresentes.classList.remove("ativo");
+
+        if (
+          finalAtivo &&
+          audioDisponivel
+        ) {
+          controleSom.classList.add("visivel");
+        }
+      }
 
       function alternarSom() {
         if (!audioDisponivel) return;
+
         somLigado = !somLigado;
-        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-        controleSom.classList.toggle("mudo", !somLigado);
+
+        musica.volume =
+          somLigado
+            ? CONFIG.volumeMusica
+            : 0;
+
+        controleSom.classList.toggle(
+          "mudo",
+          !somLigado
+        );
       }
 
       function tratarVisibilidade() {
         if (document.hidden) {
-          videoEstavaTocando = !video.paused && !finalAtivo && !finalizando;
-          musicaEstavaTocando = !musica.paused;
-          if (videoEstavaTocando) video.pause();
-          if (musicaEstavaTocando) musica.pause();
+          videoEstavaTocando =
+            !video.paused &&
+            !finalAtivo &&
+            !finalizando;
+
+          musicaEstavaTocando =
+            !musica.paused;
+
+          if (videoEstavaTocando) {
+            video.pause();
+          }
+
+          if (musicaEstavaTocando) {
+            musica.pause();
+          }
+
           return;
         }
 
-        if (videoEstavaTocando && !finalAtivo) {
-          video.play().then(acompanharFinal).catch(() => {});
+        if (
+          videoEstavaTocando &&
+          !finalAtivo
+        ) {
+          video
+            .play()
+            .then(acompanharFinal)
+            .catch(() => {});
         }
-        if (musicaEstavaTocando && audioDisponivel) musica.play().catch(() => {});
+
+        if (
+          musicaEstavaTocando &&
+          audioDisponivel
+        ) {
+          musica.play().catch(() => {});
+        }
 
         videoEstavaTocando = false;
         musicaEstavaTocando = false;
       }
 
-      abrirConvite.addEventListener("click", iniciarConvite);
-      pular.addEventListener("click", finalizarVideo);
-      video.addEventListener("playing", esconderCapa);
-      video.addEventListener("timeupdate", () => {
-        if (finalizando || finalAtivo) return;
-        manterSincronia();
-        if (Number.isFinite(video.duration) && video.duration > 0 && (video.duration - video.currentTime) <= 0.45) finalizarVideo();
-      });
-      video.addEventListener("ended", finalizarVideo);
-      video.addEventListener("error", () => {
-        if (conviteAberto && !finalAtivo) {
-          esconderCapa();
-          finalizarVideo();
+      abrirConvite.addEventListener(
+        "click",
+        iniciarConvite
+      );
+
+      pular.addEventListener(
+        "click",
+        finalizarVideo
+      );
+
+      video.addEventListener(
+        "playing",
+        esconderCapa
+      );
+
+      video.addEventListener(
+        "timeupdate",
+        () => {
+          if (
+            finalizando ||
+            finalAtivo
+          ) {
+            return;
+          }
+
+          manterSincronia();
+
+          if (
+            Number.isFinite(video.duration) &&
+            video.duration > 0 &&
+            (
+              video.duration -
+              video.currentTime
+            ) <= 0.45
+          ) {
+            finalizarVideo();
+          }
         }
-      });
+      );
 
-      musica.addEventListener("error", () => {
-        audioDisponivel = false;
-        controleSom.classList.remove("visivel");
-      });
+      video.addEventListener(
+        "ended",
+        finalizarVideo
+      );
 
-      hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
-      hotspotConfirmacao.addEventListener("click", abrirConfirmacao);
-      hotspotPresentes.addEventListener("click", abrirPresentes);
-      voltarPresentes.addEventListener("click", fecharPresentes);
-      controleSom.addEventListener("click", alternarSom);
-
-      document.addEventListener("visibilitychange", tratarVisibilidade);
-      window.addEventListener("pageshow", (event) => {
-        if (event.persisted && finalAtivo && audioDisponivel) {
-          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-          musica.play().catch(() => {});
+      video.addEventListener(
+        "error",
+        () => {
+          if (
+            conviteAberto &&
+            !finalAtivo
+          ) {
+            esconderCapa();
+            finalizarVideo();
+          }
         }
-      });
+      );
 
-      document.addEventListener("contextmenu", (event) => event.preventDefault());
-      document.addEventListener("dragstart", (event) => event.preventDefault());
+      musica.addEventListener(
+        "error",
+        () => {
+          audioDisponivel = false;
+          controleSom.classList.remove(
+            "visivel"
+          );
+        }
+      );
+
+      hotspotLocalizacao.addEventListener(
+        "click",
+        abrirLocalizacao
+      );
+
+      hotspotConfirmacao.addEventListener(
+        "click",
+        abrirConfirmacao
+      );
+
+      hotspotPresentes.addEventListener(
+        "click",
+        abrirPresentes
+      );
+
+      fecharPresentes.addEventListener(
+        "click",
+        (event) => {
+          event.stopPropagation();
+          fecharPopupPresentes();
+        }
+      );
+
+      popupPresentes.addEventListener(
+        "click",
+        (event) => {
+          if (
+            event.target ===
+            popupPresentes
+          ) {
+            fecharPopupPresentes();
+          }
+        }
+      );
+
+      controleSom.addEventListener(
+        "click",
+        alternarSom
+      );
+
+      document.addEventListener(
+        "visibilitychange",
+        tratarVisibilidade
+      );
+
+      window.addEventListener(
+        "pageshow",
+        (event) => {
+          if (
+            event.persisted &&
+            finalAtivo &&
+            audioDisponivel
+          ) {
+            musica.volume =
+              somLigado
+                ? CONFIG.volumeMusica
+                : 0;
+
+            musica
+              .play()
+              .catch(() => {});
+          }
+        }
+      );
+
+      document.addEventListener(
+        "contextmenu",
+        (event) => {
+          event.preventDefault();
+        }
+      );
+
+      document.addEventListener(
+        "dragstart",
+        (event) => {
+          event.preventDefault();
+        }
+      );
     })();
   </script>
 </body>

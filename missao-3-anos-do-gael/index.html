@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ==================================================
+       🌸 ALTERE SOMENTE AQUI | METADADOS ESTÁTICOS 🌸
+  =================================================== -->
+  <title>Missão: 3 anos do Gael</title>
+  <meta name="description" content="Você recebeu uma missão muito especial para celebrar os 3 anos do Gael. 💚⚡">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#1769AA">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Missão: 3 anos do Gael">
+  <meta property="og:description" content="Você recebeu uma missão muito especial para celebrar os 3 anos do Gael. 💚⚡">
+  <meta property="og:url" content="https://libriconvites.com.br/missao-3-anos-do-gael/">
+  <meta property="og:image" content="https://libriconvites.com.br/missao-3-anos-do-gael/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/missao-3-anos-do-gael/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Missão: 3 anos do Gael">
+  <meta name="twitter:description" content="Você recebeu uma missão muito especial para celebrar os 3 anos do Gael. 💚⚡">
+  <meta name="twitter:image" content="https://libriconvites.com.br/missao-3-anos-do-gael/imagens/preview-otimizada.jpg?v=1">
+
+  <!-- Imagens estáticas são resolvidas automaticamente pelo motor.
+       A preview social continua sendo gerada como preview-otimizada.jpg. -->
+
+  <script>
+    /* ==================================================
+       🌸🌸🌸 ALTERE SOMENTE AQUI 🌸🌸🌸
+    ================================================== */
+
+    const CONFIG = {
+      titulo: "Missão: 3 anos do Gael",
+
+      pastaCliente: "missao-3-anos-do-gael",
+      hostMidia: "https://midia.libriconvites.com.br",
+
+      /* Neste projeto, abertura.mp4 É o card animado principal em loop. */
+      videoArquivo: "abertura.mp4",
+      musicaArquivo: "musica.mp3",
+
+      volumeMusica: 0.35,
+      transicaoAudio: 260,
+
+      versaoArquivos: "1",
+      versaoMidia: "1",
+
+      numeroWhatsapp: "5511958956420",
+      mensagemWhatsapp: "Olá! Estou confirmando minha presença no aniversário de 3 anos do Gael. 💚",
+
+      endereco: {
+        linha1: "Rua Serra do Norte, 220",
+        linha2: "Jardim Paineira",
+        linha3: "Itaquaquecetuba – SP"
+      },
+
+      linkMapa: "https://www.google.com/maps/search/?api=1&query=Rua+Serra+do+Norte%2C+220%2C+Jardim+Paineira%2C+Itaquaquecetuba+-+SP",
+
+      /*
+         IMAGENS ESTÁTICAS
+         Não precisa informar .jpg / .jpeg / .png / .webp / .avif.
+         O motor encontra a extensão automaticamente.
+      */
+      imagens: {
+        capa: "imagens/capa",
+        final: "imagens/final",
+        presentes: "imagens/presentes"
+      },
+
+      /*
+         Hotspots medidos sobre o card 9:16 aprovado.
+         O vídeo principal mantém exatamente essa composição.
+      */
+      hotspotsFinal: {
+        confirmacao: {
+          left: "4.80%",
+          top: "89.35%",
+          width: "30.95%",
+          height: "9.20%"
+        },
+
+        localizacao: {
+          left: "37.15%",
+          top: "89.35%",
+          width: "27.25%",
+          height: "9.20%"
+        },
+
+        presentes: {
+          left: "65.85%",
+          top: "89.35%",
+          width: "32.00%",
+          height: "9.20%"
+        }
+      }
+    };
+
+    /* ==================================================
+       ⛔ DAQUI PARA BAIXO NÃO PRECISA EDITAR ⛔
+    ================================================== */
+  </script>
+
+  <style>
+    :root {
+      --fundo: #000;
+      --transicao-capa: 180ms;
+      --azul: #1769AA;
+      --azul-escuro: #0B2D52;
+      --verde: #45A629;
+      --dourado: #F0B323;
+      --branco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      display: block;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button {
+      font: inherit;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--fundo);
+    }
+
+    @supports (height: 100dvh) {
+      .tela {
+        height: 100dvh;
+      }
+    }
+
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #videoCard {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #finalTela {
+      z-index: 20;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    #finalTela.ativo {
+      pointer-events: auto;
+    }
+
+    #finalImagem {
+      z-index: 1;
+    }
+
+    #videoCard {
+      z-index: 2;
+      background: transparent;
+    }
+
+    #videoCard.falhou {
+      display: none;
+    }
+
+    #capaTela {
+      z-index: 50;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity var(--transicao-capa) ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .hotspot {
+      position: absolute;
+      z-index: 300;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #controleSom:focus-visible,
+    .modal button:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.95);
+      outline-offset: -3px;
+    }
+
+    #controleSom {
+      position: absolute;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: 14px;
+      z-index: 400;
+      width: 38px;
+      height: 38px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+    #controleSom.visivel {
+      display: flex;
+    }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeMudo {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeSom {
+      display: none;
+    }
+
+    #controleSom.mudo #iconeMudo {
+      display: block;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding:
+        max(22px, env(safe-area-inset-top))
+        max(18px, env(safe-area-inset-right))
+        max(22px, env(safe-area-inset-bottom))
+        max(18px, env(safe-area-inset-left));
+      background: rgba(2, 12, 24, 0.74);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+    }
+
+    .modal.aberto {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(92vw, 440px);
+      max-height: min(84vh, 740px);
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(17,62,112,0.98), rgba(7,31,61,0.98));
+      color: #fff;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+    }
+
+    .modal-conteudo {
+      padding: 24px 22px 22px;
+      text-align: center;
+    }
+
+    .modal-kicker {
+      margin: 0 0 7px;
+      color: #FFD04F;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .modal-titulo {
+      margin: 0 0 17px;
+      font-size: 26px;
+      line-height: 1.05;
+    }
+
+    .endereco {
+      margin: 0 auto 20px;
+      font-size: 17px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .modal-acoes {
+      display: grid;
+      gap: 10px;
+    }
+
+    .acao-principal,
+    .acao-secundaria {
+      min-height: 48px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .acao-principal {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: #F0B323;
+      color: #12233A;
+    }
+
+    .acao-secundaria {
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    #presentesImagem {
+      width: 100%;
+      height: auto;
+      border-radius: 22px 22px 0 0;
+      background: #102C50;
+    }
+
+    #presentesFallback {
+      display: none;
+      padding: 26px 22px 8px;
+      color: #fff;
+    }
+
+    #presentesFallback h2 {
+      margin: 0 0 18px;
+      font-size: 24px;
+    }
+
+    #presentesFallback ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      text-align: left;
+    }
+
+    #presentesFallback li {
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .fechar-presentes {
+      margin: 14px 18px 18px;
+      width: calc(100% - 36px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #capaTela {
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="finalTela" class="tela" aria-label="Convite animado do Gael">
+    <div class="quadro">
+      <!-- Fallback estático. Se o vídeo falhar, o convite continua utilizável. -->
+      <img
+        id="finalImagem"
+        class="arte"
+        alt="Missão: 3 anos do Gael"
+        draggable="false"
+      >
+
+      <!-- Card animado principal em loop. -->
+      <video
+        id="videoCard"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        muted
+        loop
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+        aria-label="Card animado do convite"
+      ></video>
+
+      <button
+        id="hotspotConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar presença pelo WhatsApp"
+      ></button>
+
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Ver localização"
+      ></button>
+
+      <button
+        id="hotspotPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Ver sugestões de presentes"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ligar ou desligar a música"
+      >
+        <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+          <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+        </svg>
+
+        <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
+      <img
+        id="capaImagem"
+        class="arte"
+        alt="Missão: 3 anos do Gael — clique para abrir"
+        draggable="false"
+      >
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
+    </div>
+  </section>
+
+  <!-- POP-UP LOCALIZAÇÃO -->
+  <div id="modalLocalizacao" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloLocalizacao">
+    <div class="modal-card">
+      <div class="modal-conteudo">
+        <p class="modal-kicker">Missão: chegar à festa</p>
+        <h2 id="tituloLocalizacao" class="modal-titulo">Localização</h2>
+
+        <p id="enderecoTexto" class="endereco"></p>
+
+        <div class="modal-acoes">
+          <button id="abrirMapa" class="acao-principal" type="button">
+            ABRIR NO MAPA
+          </button>
+          <button id="fecharLocalizacao" class="acao-secundaria" type="button">
+            FECHAR
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POP-UP PRESENTES -->
+  <div id="modalPresentes" class="modal" role="dialog" aria-modal="true" aria-label="Sugestões de presentes">
+    <div class="modal-card">
+      <img
+        id="presentesImagem"
+        alt="Sugestões de presentes para o Gael"
+        draggable="false"
+      >
+
+      <div id="presentesFallback">
+        <h2>Sugestões de presentes</h2>
+        <ul>
+          <li>Brinquedos</li>
+          <li>Roupas de inverno e verão — numeração 4</li>
+          <li>Sapatos — 23/24</li>
+          <li>Perfumes e cremes hidratantes</li>
+        </ul>
+      </div>
+
+      <button id="fecharPresentes" class="acao-secundaria fechar-presentes" type="button">
+        FECHAR
+      </button>
+    </div>
+  </div>
+
+  <audio id="musica" preload="auto" loop></audio>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const finalTela = document.getElementById("finalTela");
+      const capaTela = document.getElementById("capaTela");
+
+      const capaImagem = document.getElementById("capaImagem");
+      const finalImagem = document.getElementById("finalImagem");
+      const presentesImagem = document.getElementById("presentesImagem");
+
+      const videoCard = document.getElementById("videoCard");
+      const musica = document.getElementById("musica");
+
+      const abrirConvite = document.getElementById("abrirConvite");
+      const controleSom = document.getElementById("controleSom");
+
+      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const hotspotPresentes = document.getElementById("hotspotPresentes");
+
+      const modalLocalizacao = document.getElementById("modalLocalizacao");
+      const modalPresentes = document.getElementById("modalPresentes");
+
+      const enderecoTexto = document.getElementById("enderecoTexto");
+      const abrirMapa = document.getElementById("abrirMapa");
+      const fecharLocalizacao = document.getElementById("fecharLocalizacao");
+      const fecharPresentes = document.getElementById("fecharPresentes");
+      const presentesFallback = document.getElementById("presentesFallback");
+
+      let conviteAberto = false;
+      let somLigado = true;
+      let audioDisponivel = true;
+      let videoEstavaTocando = false;
+      let musicaEstavaTocando = false;
+      let rafAudio = null;
+
+      const urlArquivo = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      function urlMidia(arquivo) {
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
+
+        return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+      }
+
+      const EXTENSOES_IMAGEM = [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+        ".avif"
+      ];
+
+      function temExtensaoImagem(caminho) {
+        const limpo = String(caminho || "")
+          .split("?")[0]
+          .split("#")[0];
+
+        return /\.(?:jpe?g|png|webp|avif)$/i.test(limpo);
+      }
+
+      async function resolverImagem(elemento, caminhoBase) {
+        if (!elemento || !caminhoBase) return false;
+
+        const bases = Array.isArray(caminhoBase)
+          ? caminhoBase.filter(Boolean)
+          : [caminhoBase];
+
+        const candidatos = [];
+
+        for (const base of bases) {
+          if (temExtensaoImagem(base)) {
+            candidatos.push(base);
+            continue;
+          }
+
+          for (const extensao of EXTENSOES_IMAGEM) {
+            candidatos.push(`${base}${extensao}`);
+          }
+        }
+
+        for (const candidato of candidatos) {
+          const carregou = await new Promise((resolve) => {
+            const aoCarregar = async () => {
+              elemento.removeEventListener("error", aoFalhar);
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            const aoFalhar = () => {
+              elemento.removeEventListener("load", aoCarregar);
+              resolve(false);
+            };
+
+            elemento.addEventListener("load", aoCarregar, { once: true });
+            elemento.addEventListener("error", aoFalhar, { once: true });
+
+            elemento.src = urlArquivo(candidato);
+          });
+
+          if (carregou) {
+            elemento.dataset.arquivoResolvido = candidato;
+            return candidato;
+          }
+        }
+
+        console.warn("[Libri] Imagem não encontrada:", caminhoBase);
+        return false;
+      }
+
+      const capaCarregada =
+        resolverImagem(capaImagem, CONFIG.imagens.capa);
+
+      const finalCarregado =
+        resolverImagem(finalImagem, CONFIG.imagens.final);
+
+      const presentesCarregado =
+        resolverImagem(presentesImagem, CONFIG.imagens.presentes);
+
+      videoCard.src = urlMidia(CONFIG.videoArquivo);
+      musica.src = urlMidia(CONFIG.musicaArquivo);
+
+      videoCard.load();
+      musica.load();
+
+      function posicionar(elemento, dados) {
+        elemento.style.left = dados.left;
+        elemento.style.top = dados.top;
+        elemento.style.width = dados.width;
+        elemento.style.height = dados.height;
+      }
+
+      posicionar(hotspotConfirmacao, CONFIG.hotspotsFinal.confirmacao);
+      posicionar(hotspotLocalizacao, CONFIG.hotspotsFinal.localizacao);
+      posicionar(hotspotPresentes, CONFIG.hotspotsFinal.presentes);
+
+      enderecoTexto.innerHTML = [
+        CONFIG.endereco.linha1,
+        CONFIG.endereco.linha2,
+        CONFIG.endereco.linha3
+      ].map((linha) => linha.replace(/[&<>"']/g, (caractere) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[caractere]))).join("<br>");
+
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
+
+        capaTela.classList.add("saindo");
+
+        setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
+
+      function subirMusica() {
+        cancelAnimationFrame(rafAudio);
+
+        if (!audioDisponivel || musica.paused || !somLigado) return;
+
+        const duracao = Math.max(120, CONFIG.transicaoAudio);
+        const inicio = performance.now();
+        const volumeInicial = musica.volume;
+        const volumeFinal = CONFIG.volumeMusica;
+
+        const animar = (agora) => {
+          const progresso = Math.min(1, (agora - inicio) / duracao);
+          const suave = progresso * progresso * (3 - 2 * progresso);
+
+          musica.volume =
+            volumeInicial +
+            (volumeFinal - volumeInicial) * suave;
+
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+          }
+        };
+
+        rafAudio = requestAnimationFrame(animar);
+      }
+
+      function iniciarMusica() {
+        musica.volume = 0.001;
+
+        const tentativa = musica.play();
+
+        if (tentativa && typeof tentativa.then === "function") {
+          tentativa
+            .then(subirMusica)
+            .catch(() => {
+              audioDisponivel = false;
+              controleSom.classList.remove("visivel");
+            });
+        }
+      }
+
+      async function iniciarConvite() {
+        if (conviteAberto) return;
+        conviteAberto = true;
+
+        await Promise.all([
+          capaCarregada.catch(() => false),
+          finalCarregado.catch(() => false)
+        ]);
+
+        finalTela.classList.add("ativo");
+
+        iniciarMusica();
+
+        try {
+          videoCard.currentTime = 0;
+        } catch (_) {}
+
+        videoCard
+          .play()
+          .catch(() => {
+            videoCard.classList.add("falhou");
+          });
+
+        esconderCapa();
+
+        if (audioDisponivel) {
+          controleSom.classList.add("visivel");
+        }
+      }
+
+      function abrirConfirmacao() {
+        const texto = encodeURIComponent(CONFIG.mensagemWhatsapp);
+        const url = `https://wa.me/${CONFIG.numeroWhatsapp}?text=${texto}`;
+        window.location.href = url;
+      }
+
+      function abrirModalLocalizacao() {
+        modalLocalizacao.classList.add("aberto");
+        fecharLocalizacao.focus();
+      }
+
+      async function abrirModalPresentes() {
+        const carregou = await presentesCarregado.catch(() => false);
+
+        presentesImagem.style.display = carregou ? "block" : "none";
+        presentesFallback.style.display = carregou ? "none" : "block";
+
+        modalPresentes.classList.add("aberto");
+        fecharPresentes.focus();
+      }
+
+      function fecharModal(modal) {
+        modal.classList.remove("aberto");
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+
+        controleSom.classList.toggle("mudo", !somLigado);
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando = !videoCard.paused;
+          musicaEstavaTocando = !musica.paused;
+
+          if (videoEstavaTocando) videoCard.pause();
+          if (musicaEstavaTocando) musica.pause();
+          return;
+        }
+
+        if (conviteAberto && videoEstavaTocando) {
+          videoCard.play().catch(() => {});
+        }
+
+        if (conviteAberto && musicaEstavaTocando && audioDisponivel) {
+          musica.play().catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+        musicaEstavaTocando = false;
+      }
+
+      abrirConvite.addEventListener("click", iniciarConvite);
+
+      hotspotConfirmacao.addEventListener("click", abrirConfirmacao);
+      hotspotLocalizacao.addEventListener("click", abrirModalLocalizacao);
+      hotspotPresentes.addEventListener("click", abrirModalPresentes);
+
+      abrirMapa.addEventListener("click", () => {
+        window.location.href = CONFIG.linkMapa;
+      });
+
+      fecharLocalizacao.addEventListener("click", () => {
+        fecharModal(modalLocalizacao);
+        hotspotLocalizacao.focus();
+      });
+
+      fecharPresentes.addEventListener("click", () => {
+        fecharModal(modalPresentes);
+        hotspotPresentes.focus();
+      });
+
+      modalLocalizacao.addEventListener("click", (event) => {
+        if (event.target === modalLocalizacao) {
+          fecharModal(modalLocalizacao);
+          hotspotLocalizacao.focus();
+        }
+      });
+
+      modalPresentes.addEventListener("click", (event) => {
+        if (event.target === modalPresentes) {
+          fecharModal(modalPresentes);
+          hotspotPresentes.focus();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+
+        if (modalLocalizacao.classList.contains("aberto")) {
+          fecharModal(modalLocalizacao);
+          hotspotLocalizacao.focus();
+        }
+
+        if (modalPresentes.classList.contains("aberto")) {
+          fecharModal(modalPresentes);
+          hotspotPresentes.focus();
+        }
+      });
+
+      controleSom.addEventListener("click", alternarSom);
+
+      videoCard.addEventListener("error", () => {
+        videoCard.classList.add("falhou");
+      });
+
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
+
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+
+      window.addEventListener("pageshow", (event) => {
+        if (!event.persisted || !conviteAberto) return;
+
+        videoCard.play().catch(() => {});
+
+        if (audioDisponivel) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
+
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      document.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    })();
+  </script>
+</body>
+</html>

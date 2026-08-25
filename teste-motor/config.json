@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "modo": "cinematico",
+  "titulo": "Teste Motor Libri",
+  "pastaCliente": "modelo-carros",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica-carros.mp3",
+  "inicioMusica": 0,
+  "volumeMusica": 0.35,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "confirmacaoModo": "rsvp",
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/teste",
+  "local": {
+    "kicker": "LOCALIZAÃ‡ÃƒO",
+    "nome": "AutÃ³dromo Pequenos Pilotos",
+    "linha1": "Avenida dos Bandeirantes, 250",
+    "linha2": "Setor Racing",
+    "linha3": "GoiÃ¢nia - GO"
+  },
+  "botoes": {
+    "mapa": "ABRIR NO GOOGLE MAPS",
+    "waze": "ABRIR NO WAZE"
+  },
+  "linkLocalizacao": "https://www.google.com/maps/search/?api=1&query=Aut%C3%B3dromo%20Pequenos%20Pilotos%2C%20Avenida%20dos%20Bandeirantes%2C%20250%2C%20Setor%20Racing%2C%20Goi%C3%A2nia%20GO",
+  "imagens": {
+    "capa": "https://libriconvites.com.br/modelo-carros/imagens/preview-otimizada.jpg",
+    "final": "https://libriconvites.com.br/modelo-carros/imagens/preview-otimizada.jpg",
+    "presentes": ""
+  },
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "18.8%",
+      "top": "42.5%",
+      "width": "29.7%",
+      "height": "6.1%"
+    },
+    "confirmacao": {
+      "left": "50.7%",
+      "top": "42.5%",
+      "width": "30.0%",
+      "height": "6.1%"
+    }
+  },
+  "tema": {
+    "accent": "#B32118",
+    "secondary": "#E2B743",
+    "deep": "#4F433D",
+    "soft": "#F7F5F2"
+  }
+}

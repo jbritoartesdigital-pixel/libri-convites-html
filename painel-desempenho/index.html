@@ -434,7 +434,7 @@
 
     table {
       width: 100%;
-      min-width: 760px;
+      min-width: 860px;
       border-collapse: collapse;
     }
 
@@ -505,6 +505,16 @@
     .badge.warn {
       color: #7c643d;
       background: #f4eddf;
+    }
+
+    .badge.heavy {
+      color: #8a5a2f;
+      background: #f7e7d6;
+    }
+
+    .badge.danger {
+      color: #8b4540;
+      background: #f6dfdc;
     }
 
     .badge.neutral {
@@ -843,14 +853,6 @@
             7 dias
           </button>
 
-          <button
-            class="period-button"
-            type="button"
-            data-period="30d"
-          >
-            30 dias
-          </button>
-
         </div>
 
       </section>
@@ -961,7 +963,7 @@
             <h2 class="panel-title">Desempenho por convite</h2>
 
             <div class="panel-description">
-              Ranking baseado nas visitas registradas pelo Cloudflare.
+              Ranking por convite com consumo médio por visita e classificação de peso.
             </div>
           </div>
 
@@ -990,13 +992,14 @@
                 <th>Visitas</th>
                 <th>Requisições</th>
                 <th>Dados</th>
+                <th>MB/visita</th>
                 <th>Leitura</th>
               </tr>
             </thead>
 
             <tbody id="tableBody">
               <tr>
-                <td colspan="5">
+                <td colspan="6">
                   <div class="loading-overlay">
                     <div>
                       <div class="spinner"></div>
@@ -1199,7 +1202,7 @@
 
         tableBody.innerHTML = `
           <tr>
-            <td colspan="5">
+            <td colspan="6">
               <div class="loading-overlay">
                 <div>
                   <div class="spinner"></div>
@@ -1259,31 +1262,64 @@
 
 
       function inviteStatus(invite) {
-        const visits = Number(invite.visits || 0);
-        const requests = Number(invite.requests || 0);
+        const reading = invite?.consumption || {};
+        const key = String(reading.key || "");
+        const label = String(reading.label || "");
 
-        if (visits <= 0) {
+        if (key === "light") {
           return {
-            className: "neutral",
-            label: "Sem visitas"
+            className: "good",
+            label: label || "Leve"
           };
         }
 
-        const requestsPerVisit =
-          visits > 0
-            ? requests / visits
-            : 0;
-
-        if (requestsPerVisit >= 30) {
+        if (key === "moderate") {
           return {
             className: "warn",
-            label: "Tráfego alto"
+            label: label || "Moderado"
+          };
+        }
+
+        if (key === "heavy") {
+          return {
+            className: "heavy",
+            label: label || "Pesado"
+          };
+        }
+
+        if (key === "very-heavy") {
+          return {
+            className: "danger",
+            label: label || "Muito pesado"
+          };
+        }
+
+        const mbPerVisit = Number(invite?.mbPerVisit || 0);
+
+        if (mbPerVisit <= 8) {
+          return {
+            className: "good",
+            label: "Leve"
+          };
+        }
+
+        if (mbPerVisit <= 20) {
+          return {
+            className: "warn",
+            label: "Moderado"
+          };
+        }
+
+        if (mbPerVisit <= 35) {
+          return {
+            className: "heavy",
+            label: "Pesado"
           };
         }
 
         return {
-          className: "good",
-          label: "Normal"
+          className: "danger",
+          label: "Muito pesado"
         };
       }
 
@@ -1308,7 +1344,7 @@
         if (!filtered.length) {
           tableBody.innerHTML = `
             <tr>
-              <td colspan="5">
+              <td colspan="6">
                 <div class="loading-overlay">
                   Nenhum convite encontrado.
                 </div>
@@ -1347,6 +1383,15 @@
 
                 <td class="number">
                   ${esc(formatBytes(invite.bytes))}
+                </td>
+
+                <td class="number">
+                  ${esc(
+                    Number(invite.mbPerVisit || 0).toLocaleString("pt-BR", {
+                      minimumFractionDigits: 1,
+                      maximumFractionDigits: 1
+                    })
+                  )} MB
                 </td>
 
                 <td>

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "modo": "cinematico",
+  "titulo": "Convite de Exemplo",
+  "pastaCliente": "convite-exemplo",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "inicioMusica": 0,
+  "volumeMusica": 0.35,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "confirmacaoModo": "rsvp",
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/teste",
+  "local": {
+    "kicker": "LOCALIZAÃ‡ÃƒO",
+    "nome": "Nome do local",
+    "linha1": "Rua Exemplo, 123",
+    "linha2": "Bairro",
+    "linha3": "Cidade - UF"
+  },
+  "botoes": {
+    "mapa": "ABRIR NO GOOGLE MAPS",
+    "waze": "ABRIR NO WAZE"
+  },
+  "linkLocalizacao": "https://maps.google.com/",
+  "linkWaze": "https://www.waze.com/",
+  "imagens": {
+    "capa": "imagens/capa.jpg",
+    "final": "imagens/final.jpg",
+    "presentes": ""
+  },
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "29.00%",
+      "top": "56.00%",
+      "width": "43.00%",
+      "height": "7.00%"
+    },
+    "localizacao": {
+      "left": "29.00%",
+      "top": "64.00%",
+      "width": "43.00%",
+      "height": "7.00%"
+    }
+  },
+  "tema": {
+    "accent": "#D8765D",
+    "secondary": "#4AA852",
+    "deep": "#173F59",
+    "soft": "#F7FAFB"
+  }
+}

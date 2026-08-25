@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#f7f5f2">
+
+  <title>Libri | Desempenho</title>
+
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --surface: rgba(255, 255, 255, 0.9);
+      --surface-strong: #ffffff;
+      --surface-soft: #fbfaf8;
+      --text: #282523;
+      --muted: #837c76;
+      --muted-2: #aaa19b;
+      --border: #e9e3dd;
+      --accent: #6d5f58;
+      --accent-dark: #4f433d;
+      --accent-soft: #eee7e2;
+      --success: #66826c;
+      --danger: #a95d58;
+      --warning: #a7834f;
+      --shadow:
+        0 22px 64px rgba(67, 53, 45, 0.08),
+        0 4px 16px rgba(67, 53, 45, 0.04);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(222, 210, 200, .32), transparent 28%),
+        radial-gradient(circle at 100% 100%, rgba(225, 215, 208, .24), transparent 30%),
+        var(--bg);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .topbar {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding:
+        14px
+        max(20px, calc(env(safe-area-inset-right) + 20px))
+        14px
+        max(20px, calc(env(safe-area-inset-left) + 20px));
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(120, 105, 95, 0.08);
+      background: rgba(247, 245, 242, 0.8);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      background: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-subtitle {
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .icon-button,
+    .text-button {
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,.72);
+      font-weight: 750;
+    }
+
+    .icon-button {
+      width: 40px;
+      display: grid;
+      place-items: center;
+    }
+
+    .text-button {
+      padding: 0 14px;
+      font-size: 12px;
+    }
+
+    .page {
+      width: min(1280px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 42px 0 76px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.04;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .period-tabs {
+      display: inline-flex;
+      gap: 5px;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.74);
+      box-shadow: 0 4px 16px rgba(67,53,45,.03);
+    }
+
+    .period-button {
+      height: 36px;
+      padding: 0 13px;
+      border: 0;
+      border-radius: 10px;
+      color: var(--muted);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .period-button.active {
+      color: #fff;
+      background: var(--accent-dark);
+    }
+
+    .panel {
+      border: 1px solid rgba(117,101,92,.09);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .stat-card {
+      min-height: 132px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: "";
+      width: 92px;
+      height: 92px;
+      position: absolute;
+      right: -34px;
+      bottom: -38px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .stat-value {
+      margin-top: 9px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1;
+      letter-spacing: -.035em;
+    }
+
+    .stat-detail {
+      margin-top: 9px;
+      color: var(--muted-2);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(300px, .75fr);
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .chart-card,
+    .summary-card,
+    .table-card {
+      padding: 24px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .panel-title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 850;
+      letter-spacing: -.02em;
+    }
+
+    .panel-description {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .chart {
+      min-height: 250px;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 26px 2px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chart-bar-wrap {
+      min-width: 0;
+      height: 220px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: stretch;
+      gap: 7px;
+    }
+
+    .chart-bar {
+      min-height: 2px;
+      border-radius: 7px 7px 2px 2px;
+      background:
+        linear-gradient(
+          180deg,
+          var(--accent),
+          var(--accent-dark)
+        );
+      transition: height 280ms ease;
+    }
+
+    .chart-label {
+      overflow: hidden;
+      color: var(--muted-2);
+      font-size: 8px;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .empty-chart {
+      width: 100%;
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      color: var(--muted-2);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid rgba(233,227,221,.75);
+    }
+
+    .summary-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .summary-name {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .summary-value {
+      font-size: 11px;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .table-card {
+      overflow: hidden;
+    }
+
+    .table-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search {
+      width: min(260px, 34vw);
+      height: 39px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      outline: 0;
+      color: var(--text);
+      background: var(--surface-soft);
+      font-size: 11px;
+    }
+
+    .search:focus {
+      border-color: rgba(109,95,88,.55);
+      box-shadow: 0 0 0 4px rgba(109,95,88,.07);
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 13px 10px;
+      border-bottom: 1px solid rgba(233,227,221,.78);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      color: var(--muted-2);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    td {
+      font-size: 11px;
+    }
+
+    tbody tr {
+      transition: background 130ms ease;
+    }
+
+    tbody tr:hover {
+      background: rgba(238,231,226,.34);
+    }
+
+    .invite-name {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .invite-title {
+      font-weight: 850;
+    }
+
+    .invite-path {
+      color: var(--muted-2);
+      font-size: 9px;
+    }
+
+    .number {
+      font-variant-numeric: tabular-nums;
+      font-weight: 760;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 25px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .badge.good {
+      color: #4f6f56;
+      background: #e9f0ea;
+    }
+
+    .badge.warn {
+      color: #7c643d;
+      background: #f4eddf;
+    }
+
+    .badge.neutral {
+      color: #756b65;
+      background: #f0ece9;
+    }
+
+    .loading-overlay {
+      min-height: 250px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .spinner {
+      width: 26px;
+      height: 26px;
+      margin: 0 auto 10px;
+      border: 3px solid var(--accent-soft);
+      border-top-color: var(--accent-dark);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .error-box {
+      margin-bottom: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(169,93,88,.2);
+      border-radius: 14px;
+      color: #854a46;
+      background: rgba(169,93,88,.08);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .login-shell {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+
+    .login-card {
+      width: min(430px, 100%);
+      padding: 34px;
+    }
+
+    .login-brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 30px;
+    }
+
+    .login-card h1 {
+      font-size: 34px;
+    }
+
+    .login-card p {
+      margin: 9px 0 24px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .login-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .login-input {
+      width: 100%;
+      height: 50px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: 0;
+      background: var(--surface-soft);
+    }
+
+    .login-input:focus {
+      border-color: rgba(109,95,88,.55);
+      box-shadow: 0 0 0 4px rgba(109,95,88,.07);
+    }
+
+    .login-button {
+      width: 100%;
+      height: 50px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 13px;
+      color: white;
+      background: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .login-error {
+      margin-top: 11px;
+      color: var(--danger);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted-2);
+      font-size: 9px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        min-height: 66px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .brand-subtitle,
+      .logout-label {
+        display: none;
+      }
+
+      .page {
+        width: calc(100% - 20px);
+        padding: 28px 0 48px;
+      }
+
+      .hero {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .period-tabs {
+        width: 100%;
+      }
+
+      .period-button {
+        flex: 1;
+        padding: 0 8px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat-card {
+        min-height: 122px;
+        padding: 18px;
+        border-radius: 21px;
+      }
+
+      .chart-card,
+      .summary-card,
+      .table-card {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .panel-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .table-tools {
+        width: 100%;
+      }
+
+      .search {
+        width: 100%;
+      }
+
+      .chart {
+        gap: 5px;
+      }
+
+      .chart-label {
+        font-size: 7px;
+      }
+    }
+
+    @media (max-width: 410px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="loginView" class="login-shell hidden">
+    <div class="panel login-card">
+
+      <div class="login-brand">
+        <div class="brand-mark">L</div>
+
+        <div class="brand-copy">
+          <div class="brand-name">Libri</div>
+          <div class="brand-subtitle">Painel interno</div>
+        </div>
+      </div>
+
+      <div class="eyebrow">Desempenho</div>
+
+      <h1>Acessar painel</h1>
+
+      <p>
+        Consulte as visitas e o tráfego dos convites publicados
+        sem alterar o código de cada projeto.
+      </p>
+
+      <form id="loginForm">
+        <label class="login-label" for="password">Senha</label>
+
+        <input
+          id="password"
+          class="login-input"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button id="loginButton" class="login-button" type="submit">
+          Entrar
+        </button>
+
+        <div id="loginError" class="login-error hidden"></div>
+      </form>
+
+      <div class="footer-note">
+        A senha não fica salva neste arquivo.
+      </div>
+
+    </div>
+  </section>
+
+
+  <div id="dashboardView" class="hidden">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-mark">L</div>
+
+        <div class="brand-copy">
+          <div class="brand-name">Libri | Desempenho</div>
+          <div class="brand-subtitle">Convites publicados</div>
+        </div>
+      </div>
+
+      <div class="top-actions">
+
+        <button
+          id="refreshButton"
+          class="icon-button"
+          type="button"
+          aria-label="Atualizar dados"
+          title="Atualizar"
+        >
+          ↻
+        </button>
+
+        <button
+          id="logoutButton"
+          class="text-button"
+          type="button"
+        >
+          <span class="logout-label">Sair</span>
+          <span aria-hidden="true">↗</span>
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <main class="page">
+
+      <section class="hero">
+
+        <div class="hero-copy">
+          <div class="eyebrow">Libri Convites</div>
+
+          <h1>Como os convites estão performando?</h1>
+
+          <p>
+            Visitas, requisições e transferência de dados agrupadas
+            por convite. Os números representam tráfego, não pessoas únicas.
+          </p>
+        </div>
+
+
+        <div class="period-tabs" role="group" aria-label="Período">
+
+          <button
+            class="period-button"
+            type="button"
+            data-period="1d"
+          >
+            Hoje
+          </button>
+
+          <button
+            class="period-button active"
+            type="button"
+            data-period="7d"
+          >
+            7 dias
+          </button>
+
+          <button
+            class="period-button"
+            type="button"
+            data-period="30d"
+          >
+            30 dias
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <div id="errorBox" class="error-box hidden"></div>
+
+
+      <section class="stats-grid">
+
+        <article class="panel stat-card">
+          <div class="stat-label">Visitas</div>
+          <div id="statVisits" class="stat-value">—</div>
+          <div id="statVisitsDetail" class="stat-detail">No período selecionado</div>
+        </article>
+
+        <article class="panel stat-card">
+          <div class="stat-label">Convites acessados</div>
+          <div id="statInvites" class="stat-value">—</div>
+          <div class="stat-detail">Rotas com pelo menos uma visita</div>
+        </article>
+
+        <article class="panel stat-card">
+          <div class="stat-label">Requisições</div>
+          <div id="statRequests" class="stat-value">—</div>
+          <div class="stat-detail">Inclui carregamentos registrados pela rede</div>
+        </article>
+
+        <article class="panel stat-card">
+          <div class="stat-label">Dados transferidos</div>
+          <div id="statBytes" class="stat-value">—</div>
+          <div class="stat-detail">Ajuda a localizar picos e convites pesados</div>
+        </article>
+
+      </section>
+
+
+      <section class="main-grid">
+
+        <article class="panel chart-card">
+
+          <div class="panel-header">
+
+            <div>
+              <h2 class="panel-title">Visitas ao longo do tempo</h2>
+              <div class="panel-description">
+                Evolução diária no período selecionado.
+              </div>
+            </div>
+
+          </div>
+
+          <div id="chart" class="chart">
+            <div class="empty-chart">Carregando gráfico…</div>
+          </div>
+
+        </article>
+
+
+        <aside class="panel summary-card">
+
+          <div class="panel-header">
+
+            <div>
+              <h2 class="panel-title">Leitura rápida</h2>
+              <div class="panel-description">
+                Destaques do período.
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="summary-list">
+
+            <div class="summary-item">
+              <span class="summary-name">Mais acessado</span>
+              <strong id="topInvite" class="summary-value">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-name">Mais tráfego</span>
+              <strong id="topBandwidth" class="summary-value">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-name">Pico de visitas</span>
+              <strong id="peakDay" class="summary-value">—</strong>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-name">Última atualização</span>
+              <strong id="updatedAt" class="summary-value">—</strong>
+            </div>
+
+          </div>
+
+        </aside>
+
+      </section>
+
+
+      <section class="panel table-card">
+
+        <div class="panel-header">
+
+          <div>
+            <h2 class="panel-title">Desempenho por convite</h2>
+
+            <div class="panel-description">
+              Ranking baseado nas visitas registradas pelo Cloudflare.
+            </div>
+          </div>
+
+
+          <div class="table-tools">
+            <input
+              id="searchInput"
+              class="search"
+              type="search"
+              autocomplete="off"
+              placeholder="Buscar convite…"
+              aria-label="Buscar convite"
+            >
+          </div>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Convite</th>
+                <th>Visitas</th>
+                <th>Requisições</th>
+                <th>Dados</th>
+                <th>Leitura</th>
+              </tr>
+            </thead>
+
+            <tbody id="tableBody">
+              <tr>
+                <td colspan="5">
+                  <div class="loading-overlay">
+                    <div>
+                      <div class="spinner"></div>
+                      Buscando dados…
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script>
+    (() => {
+      "use strict";
+
+      const API_BASE = "/api/desempenho";
+
+      const loginView = document.getElementById("loginView");
+      const dashboardView = document.getElementById("dashboardView");
+
+      const loginForm = document.getElementById("loginForm");
+      const passwordInput = document.getElementById("password");
+      const loginButton = document.getElementById("loginButton");
+      const loginError = document.getElementById("loginError");
+
+      const refreshButton = document.getElementById("refreshButton");
+      const logoutButton = document.getElementById("logoutButton");
+
+      const periodButtons = [
+        ...document.querySelectorAll(".period-button")
+      ];
+
+      const errorBox = document.getElementById("errorBox");
+
+      const statVisits = document.getElementById("statVisits");
+      const statInvites = document.getElementById("statInvites");
+      const statRequests = document.getElementById("statRequests");
+      const statBytes = document.getElementById("statBytes");
+
+      const topInvite = document.getElementById("topInvite");
+      const topBandwidth = document.getElementById("topBandwidth");
+      const peakDay = document.getElementById("peakDay");
+      const updatedAt = document.getElementById("updatedAt");
+
+      const chart = document.getElementById("chart");
+
+      const searchInput = document.getElementById("searchInput");
+      const tableBody = document.getElementById("tableBody");
+
+      let currentPeriod = "7d";
+      let currentData = null;
+
+
+      function esc(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+
+      function formatNumber(value) {
+        const number = Number(value || 0);
+
+        return new Intl.NumberFormat("pt-BR", {
+          maximumFractionDigits: 0
+        }).format(number);
+      }
+
+
+      function formatBytes(value) {
+        let bytes = Number(value || 0);
+
+        if (!Number.isFinite(bytes) || bytes <= 0) {
+          return "0 B";
+        }
+
+        const units = ["B", "KB", "MB", "GB", "TB"];
+        let index = 0;
+
+        while (bytes >= 1024 && index < units.length - 1) {
+          bytes /= 1024;
+          index += 1;
+        }
+
+        const decimals = index >= 3 ? 2 : 1;
+
+        return `${bytes.toLocaleString("pt-BR", {
+          maximumFractionDigits: decimals
+        })} ${units[index]}`;
+      }
+
+
+      function shortDate(value) {
+        if (!value) {
+          return "—";
+        }
+
+        const date = new Date(`${value}T12:00:00`);
+
+        if (Number.isNaN(date.getTime())) {
+          return String(value);
+        }
+
+        return new Intl.DateTimeFormat("pt-BR", {
+          day: "2-digit",
+          month: "2-digit"
+        }).format(date);
+      }
+
+
+      function showLogin() {
+        dashboardView.classList.add("hidden");
+        loginView.classList.remove("hidden");
+        passwordInput.focus();
+      }
+
+
+      function showDashboard() {
+        loginView.classList.add("hidden");
+        dashboardView.classList.remove("hidden");
+      }
+
+
+      function showError(message) {
+        errorBox.textContent = message;
+        errorBox.classList.remove("hidden");
+      }
+
+
+      function clearError() {
+        errorBox.textContent = "";
+        errorBox.classList.add("hidden");
+      }
+
+
+      async function api(path, options = {}) {
+        const response = await fetch(`${API_BASE}${path}`, {
+          credentials: "include",
+          cache: "no-store",
+          ...options,
+          headers: {
+            "Content-Type": "application/json",
+            ...(options.headers || {})
+          }
+        });
+
+        let payload = {};
+
+        try {
+          payload = await response.json();
+        } catch (_) {
+          payload = {};
+        }
+
+        if (response.status === 401) {
+          showLogin();
+          throw new Error("Sessão não autenticada.");
+        }
+
+        if (!response.ok) {
+          throw new Error(
+            payload.error ||
+            "Não foi possível consultar os dados agora."
+          );
+        }
+
+        return payload;
+      }
+
+
+      function setLoading() {
+        statVisits.textContent = "…";
+        statInvites.textContent = "…";
+        statRequests.textContent = "…";
+        statBytes.textContent = "…";
+
+        topInvite.textContent = "…";
+        topBandwidth.textContent = "…";
+        peakDay.textContent = "…";
+        updatedAt.textContent = "…";
+
+        chart.innerHTML = `
+          <div class="empty-chart">
+            Carregando gráfico…
+          </div>
+        `;
+
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="5">
+              <div class="loading-overlay">
+                <div>
+                  <div class="spinner"></div>
+                  Buscando dados…
+                </div>
+              </div>
+            </td>
+          </tr>
+        `;
+      }
+
+
+      function renderChart(items) {
+        const series = Array.isArray(items) ? items : [];
+
+        if (!series.length) {
+          chart.innerHTML = `
+            <div class="empty-chart">
+              Nenhuma visita registrada neste período.
+            </div>
+          `;
+          return;
+        }
+
+        const max = Math.max(
+          1,
+          ...series.map((item) => Number(item.visits || 0))
+        );
+
+        chart.innerHTML = series
+          .map((item) => {
+            const visits = Number(item.visits || 0);
+
+            const height = Math.max(
+              visits > 0 ? 3 : 1,
+              (visits / max) * 100
+            );
+
+            return `
+              <div
+                class="chart-bar-wrap"
+                title="${esc(shortDate(item.date))}: ${esc(formatNumber(visits))} visitas"
+              >
+                <div
+                  class="chart-bar"
+                  style="height:${height}%"
+                ></div>
+
+                <div class="chart-label">
+                  ${esc(shortDate(item.date))}
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+
+      function inviteStatus(invite) {
+        const visits = Number(invite.visits || 0);
+        const requests = Number(invite.requests || 0);
+
+        if (visits <= 0) {
+          return {
+            className: "neutral",
+            label: "Sem visitas"
+          };
+        }
+
+        const requestsPerVisit =
+          visits > 0
+            ? requests / visits
+            : 0;
+
+        if (requestsPerVisit >= 30) {
+          return {
+            className: "warn",
+            label: "Tráfego alto"
+          };
+        }
+
+        return {
+          className: "good",
+          label: "Normal"
+        };
+      }
+
+
+      function renderTable() {
+        const source = Array.isArray(currentData?.invites)
+          ? currentData.invites
+          : [];
+
+        const term = searchInput.value
+          .trim()
+          .toLowerCase();
+
+        const filtered = source.filter((invite) => {
+          const haystack =
+            `${invite.title || ""} ${invite.path || ""}`
+              .toLowerCase();
+
+          return !term || haystack.includes(term);
+        });
+
+        if (!filtered.length) {
+          tableBody.innerHTML = `
+            <tr>
+              <td colspan="5">
+                <div class="loading-overlay">
+                  Nenhum convite encontrado.
+                </div>
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tableBody.innerHTML = filtered
+          .map((invite) => {
+            const status = inviteStatus(invite);
+
+            return `
+              <tr>
+
+                <td>
+                  <div class="invite-name">
+                    <span class="invite-title">
+                      ${esc(invite.title || invite.path || "Convite")}
+                    </span>
+
+                    <span class="invite-path">
+                      ${esc(invite.path || "")}
+                    </span>
+                  </div>
+                </td>
+
+                <td class="number">
+                  ${esc(formatNumber(invite.visits))}
+                </td>
+
+                <td class="number">
+                  ${esc(formatNumber(invite.requests))}
+                </td>
+
+                <td class="number">
+                  ${esc(formatBytes(invite.bytes))}
+                </td>
+
+                <td>
+                  <span class="badge ${esc(status.className)}">
+                    ${esc(status.label)}
+                  </span>
+                </td>
+
+              </tr>
+            `;
+          })
+          .join("");
+      }
+
+
+      function render(data) {
+        currentData = data;
+
+        const totals = data.totals || {};
+        const highlights = data.highlights || {};
+
+        statVisits.textContent =
+          formatNumber(totals.visits);
+
+        statInvites.textContent =
+          formatNumber(totals.activeInvites);
+
+        statRequests.textContent =
+          formatNumber(totals.requests);
+
+        statBytes.textContent =
+          formatBytes(totals.bytes);
+
+        topInvite.textContent =
+          highlights.topInvite?.title ||
+          highlights.topInvite?.path ||
+          "—";
+
+        topBandwidth.textContent =
+          highlights.topBandwidth?.title ||
+          highlights.topBandwidth?.path ||
+          "—";
+
+        peakDay.textContent =
+          highlights.peakDay
+            ? `${shortDate(highlights.peakDay.date)} · ${formatNumber(highlights.peakDay.visits)}`
+            : "—";
+
+        updatedAt.textContent =
+          data.updatedAt
+            ? new Intl.DateTimeFormat("pt-BR", {
+                hour: "2-digit",
+                minute: "2-digit"
+              }).format(new Date(data.updatedAt))
+            : "—";
+
+        renderChart(data.timeline);
+        renderTable();
+      }
+
+
+      async function loadData() {
+        clearError();
+        setLoading();
+
+        try {
+          const data = await api(
+            `/resumo?periodo=${encodeURIComponent(currentPeriod)}`
+          );
+
+          showDashboard();
+          render(data);
+        } catch (error) {
+          if (!dashboardView.classList.contains("hidden")) {
+            showError(error.message);
+          }
+        }
+      }
+
+
+      async function checkSession() {
+        try {
+          await api("/sessao");
+          showDashboard();
+          await loadData();
+        } catch (_) {
+          showLogin();
+        }
+      }
+
+
+      loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        loginError.classList.add("hidden");
+        loginButton.disabled = true;
+        loginButton.textContent = "Entrando…";
+
+        try {
+          await api("/login", {
+            method: "POST",
+            body: JSON.stringify({
+              password: passwordInput.value
+            })
+          });
+
+          passwordInput.value = "";
+          showDashboard();
+          await loadData();
+        } catch (error) {
+          loginError.textContent =
+            error.message === "Sessão não autenticada."
+              ? "Senha incorreta."
+              : error.message;
+
+          loginError.classList.remove("hidden");
+          showLogin();
+        } finally {
+          loginButton.disabled = false;
+          loginButton.textContent = "Entrar";
+        }
+      });
+
+
+      logoutButton.addEventListener("click", async () => {
+        try {
+          await api("/logout", {
+            method: "POST",
+            body: "{}"
+          });
+        } catch (_) {
+          // Mesmo se a sessão já tiver expirado, volta para login.
+        }
+
+        currentData = null;
+        showLogin();
+      });
+
+
+      refreshButton.addEventListener("click", loadData);
+
+
+      periodButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          currentPeriod = button.dataset.period || "7d";
+
+          periodButtons.forEach((item) => {
+            item.classList.toggle(
+              "active",
+              item === button
+            );
+          });
+
+          loadData();
+        });
+      });
+
+
+      searchInput.addEventListener("input", renderTable);
+
+
+      checkSession();
+
+    })();
+  </script>
+
+</body>
+</html>

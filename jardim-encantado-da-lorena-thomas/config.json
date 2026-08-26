@@ -1,0 +1,68 @@
+{
+  "tituloPagina": "O Jardim Encantado de Lorena Thomas",
+  "pastaCliente": "jardim-encantado-da-lorena-thomas",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "video.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "preloadInteligente": true,
+  "numeroWhatsapp": "558893095074",
+  "mensagemWhatsapp": "Olá! Quero confirmar minha presença no aniversário da Lorena Thomas. 🌷",
+  "chavePix": "558893095074",
+  "local": {
+    "nome": "Helen House Buffet",
+    "linha1": "R. Prudêncio Furtado, 611",
+    "linha2": "",
+    "linha3": "Ubajara - CE • CEP 62350-000"
+  },
+  "botoes": {
+    "mapa": "ABRIR NO GOOGLE MAPS",
+    "waze": "ABRIR NO WAZE"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Helen%20House%20Buffet%2C%20R.%20Prud%C3%AAncio%20Furtado%2C%20611%2C%20Ubajara%2C%20CE%2C%2062350-000%2C%20Brasil",
+  "linkWaze": "https://www.waze.com/ul?q=Helen%20House%20Buffet%2C%20R.%20Prud%C3%AAncio%20Furtado%2C%20611%2C%20Ubajara%2C%20CE%2C%2062350-000%2C%20Brasil&navigate=yes",
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "13.50%",
+      "top": "65.10%",
+      "width": "59.00%",
+      "height": "10.30%"
+    },
+    "confirmacao": {
+      "left": "13.50%",
+      "top": "76.40%",
+      "width": "59.00%",
+      "height": "9.60%"
+    },
+    "presentes": {
+      "left": "13.50%",
+      "top": "86.90%",
+      "width": "59.00%",
+      "height": "9.50%"
+    }
+  },
+  "hotspotPresentes": {
+    "pix": {
+      "left": "10.30%",
+      "top": "76.40%",
+      "width": "44.00%",
+      "height": "13.50%"
+    }
+  },
+  "tema": {
+    "escuro": "#6F4A45",
+    "principal": "#D88F9B",
+    "claro": "#F8E7ED",
+    "acento": "#8FB9D9",
+    "superficie": "#FFF8EE",
+    "texto": "#704B3A"
+  }
+}

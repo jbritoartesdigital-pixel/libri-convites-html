@@ -11,14 +11,14 @@
   <link rel="dns-prefetch" href="//midia.libriconvites.com.br">
 
   <title>O Jardim Encantado de Lorena Thomas</title>
-  <meta name="description" content="Voc&#234; recebeu um convite muito especial.">
+  <meta name="description" content="Entre flores e borboletas, Lorena Thomas te convida para celebrar seus 3 aninhos em um Jardim Encantado. Abra o convite. &#127800;&#129419;&#10024;">
   <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
   <meta name="theme-color" content="#D88F9B">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="O Jardim Encantado de Lorena Thomas">
-  <meta property="og:description" content="Voc&#234; recebeu um convite muito especial.">
+  <meta property="og:description" content="Entre flores e borboletas, Lorena Thomas te convida para celebrar seus 3 aninhos em um Jardim Encantado. Abra o convite. &#127800;&#129419;&#10024;">
   <meta property="og:url" content="https://libriconvites.com.br/jardim-encantado-da-lorena-thomas/">
   <meta property="og:image" content="https://libriconvites.com.br/jardim-encantado-da-lorena-thomas/imagens/preview-otimizada.jpg?v=1">
   <meta property="og:image:secure_url" content="https://libriconvites.com.br/jardim-encantado-da-lorena-thomas/imagens/preview-otimizada.jpg?v=1">
@@ -26,7 +26,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="O Jardim Encantado de Lorena Thomas">
-  <meta name="twitter:description" content="Voc&#234; recebeu um convite muito especial.">
+  <meta name="twitter:description" content="Entre flores e borboletas, Lorena Thomas te convida para celebrar seus 3 aninhos em um Jardim Encantado. Abra o convite. &#127800;&#129419;&#10024;">
   <meta name="twitter:image" content="https://libriconvites.com.br/jardim-encantado-da-lorena-thomas/imagens/preview-otimizada.jpg?v=1">
 
   <script>
@@ -274,6 +274,28 @@
     #hotspotPix:focus-visible {
       outline: 2px solid rgba(255,255,255,.96);
       outline-offset: -3px;
+    }
+
+
+    .modal-fechar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 8;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.94);
+      color: var(--tema-texto);
+      box-shadow: 0 4px 18px rgba(0,0,0,.16);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
     /* ==================================================
@@ -854,8 +876,24 @@
           const framePronto = await primeiroFrame;
           if (!framePronto) throw new Error("Primeiro frame indispon\xedvel");
         } catch (_) {
+          /* Fallback sem tela preta: mantém a capa até o card final estar pronto. */
+          await carregarFinal().catch(() => false);
+
+          finalTela.classList.add("ativo");
+          finalAtivo = true;
+          finalizando = false;
+
+          video.pause();
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          if (audioDisponivel) {
+            musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+            controleSom.classList.add("visivel");
+          }
+
           esconderCapa();
-          finalizarVideo();
           return;
         }
 

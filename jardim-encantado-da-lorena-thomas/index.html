@@ -286,11 +286,11 @@
       height: 42px;
       display: grid;
       place-items: center;
-      border: 0;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 18%, transparent);
       border-radius: 50%;
-      background: rgba(255,255,255,.94);
+      background: color-mix(in srgb, var(--tema-superficie) 90%, #fff);
       color: var(--tema-texto);
-      box-shadow: 0 4px 18px rgba(0,0,0,.16);
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
       font-size: 28px;
       line-height: 1;
       cursor: pointer;
@@ -338,20 +338,172 @@
     .modal-card,
     .presentes-shell {
       position: relative;
-      width: min(94vw, 540px);
-      aspect-ratio: 9 / 16;
-      max-height: 94dvh;
       overflow: hidden;
-      border: 1px solid color-mix(in srgb, var(--tema-texto) 12%, transparent);
-      border-radius: 28px;
-      background: #fff;
-      box-shadow: 0 22px 70px rgba(0,0,0,.34);
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 24%, transparent);
+      border-radius: 30px;
+      box-shadow: 0 24px 74px rgba(0,0,0,.32);
       transform: translateY(6px) scale(.99);
       transition: transform 180ms ease;
     }
 
+    .modal-card {
+      width: min(92vw, 430px);
+      max-height: calc(100dvh - 28px);
+      color: var(--tema-texto);
+      background:
+        linear-gradient(150deg,
+          color-mix(in srgb, var(--tema-superficie) 96%, #fff) 0%,
+          color-mix(in srgb, var(--tema-claro) 72%, #fff) 58%,
+          color-mix(in srgb, var(--tema-acento) 14%, #fff) 100%);
+    }
+
+    .modal-card::before,
+    .modal-card::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(.2px);
+    }
+
+    .modal-card::before {
+      width: 190px;
+      height: 190px;
+      top: -92px;
+      left: -62px;
+      background: radial-gradient(circle at 62% 62%,
+        color-mix(in srgb, var(--tema-principal) 34%, transparent) 0 20%,
+        color-mix(in srgb, var(--tema-principal) 14%, transparent) 42%,
+        transparent 70%);
+    }
+
+    .modal-card::after {
+      width: 210px;
+      height: 210px;
+      right: -92px;
+      bottom: -105px;
+      background: radial-gradient(circle at 38% 38%,
+        color-mix(in srgb, var(--tema-acento) 30%, transparent) 0 20%,
+        color-mix(in srgb, var(--tema-acento) 12%, transparent) 44%,
+        transparent 72%);
+    }
+
+    .modal.aberto .modal-card,
     .presentes-modal.aberto .presentes-shell {
       transform: translateY(0) scale(1);
+    }
+
+    .modal-conteudo {
+      position: relative;
+      z-index: 2;
+      padding: 36px 24px 24px;
+      text-align: center;
+    }
+
+    .localizacao-icone {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 28%, transparent);
+      border-radius: 50%;
+      color: var(--tema-texto);
+      background:
+        linear-gradient(145deg,
+          color-mix(in srgb, var(--tema-claro) 78%, #fff),
+          color-mix(in srgb, var(--tema-acento) 22%, #fff));
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--tema-principal) 14%, transparent);
+    }
+
+    .localizacao-icone svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .modal-titulo {
+      margin: 0 42px 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 7vw, 31px);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--tema-texto);
+      text-wrap: balance;
+    }
+
+    .localizacao-divisor {
+      width: 74px;
+      height: 2px;
+      margin: 0 auto 17px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--tema-principal), var(--tema-acento));
+      opacity: .78;
+    }
+
+    .endereco {
+      margin: 0 auto 18px;
+      padding: 15px 16px;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 16%, transparent);
+      border-radius: 20px;
+      background: color-mix(in srgb, var(--tema-superficie) 82%, #fff);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+      font-size: 15px;
+      line-height: 1.58;
+      color: color-mix(in srgb, var(--tema-texto) 80%, #fff);
+    }
+
+    .modal-acoes {
+      display: grid;
+      gap: 10px;
+    }
+
+    .acao-principal,
+    .acao-rota {
+      min-height: 52px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 18px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .01em;
+      transition: transform 120ms ease, filter 120ms ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,.10);
+    }
+
+    .acao-principal {
+      color: #fff;
+      background: linear-gradient(135deg,
+        var(--tema-principal),
+        color-mix(in srgb, var(--tema-principal) 62%, var(--tema-escuro)));
+    }
+
+    .acao-rota {
+      color: var(--tema-texto);
+      border-color: color-mix(in srgb, var(--tema-acento) 28%, transparent);
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--tema-acento) 54%, #fff),
+        color-mix(in srgb, var(--tema-claro) 76%, #fff));
+    }
+
+    .acao-principal:active,
+    .acao-rota:active {
+      transform: scale(.985);
+      filter: brightness(.98);
+    }
+
+    .presentes-shell {
+      width: min(94vw, 540px);
+      aspect-ratio: 9 / 16;
+      max-height: 94dvh;
+      background: #fff;
     }
 
     #presentesImagem {
@@ -496,7 +648,14 @@
       <button id="fecharLocalizacao" class="modal-fechar" type="button" aria-label="Fechar localiza&#231;&#227;o">&times;</button>
 
       <div class="modal-conteudo">
+        <div class="localizacao-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11z"></path>
+            <circle cx="12" cy="10" r="2.2"></circle>
+          </svg>
+        </div>
         <h2 id="tituloLocalizacao" class="modal-titulo"></h2>
+        <div class="localizacao-divisor" aria-hidden="true"></div>
         <p id="enderecoTexto" class="endereco"></p>
 
         <div class="modal-acoes">
@@ -876,7 +1035,7 @@
           const framePronto = await primeiroFrame;
           if (!framePronto) throw new Error("Primeiro frame indispon\xedvel");
         } catch (_) {
-          /* Fallback sem tela preta: mantém a capa até o card final estar pronto. */
+          /* Fallback sem tela preta: mantÃ©m a capa atÃ© o card final estar pronto. */
           await carregarFinal().catch(() => false);
 
           finalTela.classList.add("ativo");

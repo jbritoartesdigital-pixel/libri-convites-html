@@ -1,26 +1,103 @@
-"hotspotsFinal": {
-  "confirmacao": {
-    "left": "5.9%",
-    "top": "79.6%",
-    "width": "41.6%",
-    "height": "8.1%"
+{
+  "tituloPagina": "Antonella",
+  "pastaCliente": "antonella-1",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "final",
+  "presentesArquivo": "presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "preloadInteligente": true,
+  "seletorIdioma": {
+    "ativo": true,
+    "fundoArquivo": "fundo",
+    "textoPt": "Portugu\u00eas",
+    "textoEn": "English"
   },
-  "localizacao": {
-    "left": "52.4%",
-    "top": "79.6%",
-    "width": "41.7%",
-    "height": "8.1%"
+  "idiomas": {
+    "pt-BR": {
+      "capaArquivo": "capa",
+      "videoArquivo": "abertura.mp4",
+      "finalArquivo": "final",
+      "presentesArquivo": "presentes",
+      "botoes": {
+        "confirmacao": "Confirmar agora",
+        "localizacao": "Como chegar",
+        "filtro": "Filtro especial",
+        "presentes": "Sugest\u00f5es de presentes",
+        "mapa": "Abrir no Google Maps"
+      }
+    },
+    "en": {
+      "capaArquivo": "capa-en",
+      "videoArquivo": "abertura-en.mp4",
+      "finalArquivo": "final-en",
+      "presentesArquivo": "presentes-en",
+      "botoes": {
+        "confirmacao": "RSVP now",
+        "localizacao": "Get directions",
+        "filtro": "Special filter",
+        "presentes": "Gift suggestions",
+        "mapa": "Open in Google Maps"
+      }
+    }
   },
-  "filtro": {
-    "left": "5.9%",
-    "top": "88.7%",
-    "width": "41.6%",
-    "height": "9.1%"
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/antonella-1-aninho",
+  "linkFiltro": "https://momentos.libriconvites.com.br/e/antonella",
+  "popupAmarelo": {
+    "ativo": true,
+    "automaticoAposVideo": true,
+    "pt-BR": "Para entrar ainda mais no clima da nossa aventura, se puder, venha com um toque de amarelo no seu look! \ud83d\udc9b",
+    "en": "To get even more into the spirit of our adventure, if you can, come wearing a little touch of yellow! \ud83d\udc9b"
   },
-  "presentes": {
-    "left": "52.4%",
-    "top": "88.7%",
-    "width": "41.7%",
-    "height": "9.1%"
+  "local": {
+    "nome": "Raheny GAA",
+    "linha1": "cuto 2 All Saints Dr",
+    "linha2": "Raheny, Dublin",
+    "linha3": "D05 WF44 \u2022 Ireland"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps"
+  },
+  "linkMapa": "https://maps.app.goo.gl/6h4EMQVofN1ws2Vo8?g_st=iw",
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "5.9%",
+      "top": "79.6%",
+      "width": "41.6%",
+      "height": "8.1%"
+    },
+    "localizacao": {
+      "left": "52.4%",
+      "top": "79.6%",
+      "width": "41.7%",
+      "height": "8.1%"
+    },
+    "filtro": {
+      "left": "5.9%",
+      "top": "88.7%",
+      "width": "41.6%",
+      "height": "9.1%"
+    },
+    "presentes": {
+      "left": "52.4%",
+      "top": "88.7%",
+      "width": "41.7%",
+      "height": "9.1%"
+    }
+  },
+  "tema": {
+    "escuro": "#4B3C59",
+    "principal": "#F2C94C",
+    "claro": "#FFF7FB",
+    "acento": "#E7A9D6",
+    "superficie": "#FFFDFE",
+    "texto": "#4B3C59"
   }
 }

@@ -1,1 +1,1675 @@
+<!DOCTYPE html>
+<!-- LIBRI WEB | INDEX OFICIAL V1.3 | EXTENSAO BILINGUE ANTONELLA | HTML + JSON | POP-UPS PERSONALIZADOS
+     BASE: motor validado no projeto Lorena Thomas, sanitizado para reutilizacao.
+     EDITAR POR PROJETO: metatags OG/Twitter, theme-color e config.json.
+     NAO refatorar o motor silenciosamente. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+  <link rel="preconnect" href="https://midia.libriconvites.com.br" crossorigin>
+  <link rel="dns-prefetch" href="//midia.libriconvites.com.br">
+
+  <title>Antonella • 1</title>
+  <meta name="description" content="Antonella está prestes a viver seu primeiro grande capítulo. Abra o convite e entre nessa aventura! | Antonella is about to begin her very first big chapter. Open the invitation and join the adventure!">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#F2C94C">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_IE">
+  <meta property="og:title" content="Antonella • 1">
+  <meta property="og:description" content="Antonella está prestes a viver seu primeiro grande capítulo. Abra o convite e entre nessa aventura! | Antonella is about to begin her very first big chapter. Open the invitation and join the adventure!">
+  <meta property="og:url" content="https://libriconvites.com.br/antonella-1/">
+  <meta property="og:image" content="https://libriconvites.com.br/antonella-1/preview.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/antonella-1/preview.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Antonella • 1">
+  <meta name="twitter:description" content="Antonella está prestes a viver seu primeiro grande capítulo. Abra o convite e entre nessa aventura! | Antonella is about to begin her very first big chapter. Open the invitation and join the adventure!">
+  <meta name="twitter:image" content="https://libriconvites.com.br/antonella-1/preview.jpg?v=1">
+
+  <script>
+    /* LIBRI WEB | HTML + JSON SEPARADOS */
+    window.CONFIG_PROMISE = fetch("config.json", { cache: "no-store" })
+      .then((resposta) => {
+        if (!resposta.ok) throw new Error(`Falha ao carregar config.json: ${resposta.status}`);
+        return resposta.json();
+      });
+  </script>
+
+  <style>
+    :root {
+      --fundo: #000;
+      --transicao-video: 240ms;
+      /* PERSONALIZAR POR PROJETO */
+      --tema-escuro: #4B3C59; /* fallback; CONFIG.tema sobrescreve */
+      --tema-principal: #F2C94C; /* fallback; CONFIG.tema sobrescreve */
+      --tema-claro: #FFF7FB; /* fallback; CONFIG.tema sobrescreve */
+      --tema-acento: #E7A9D6; /* fallback; CONFIG.tema sobrescreve */
+      --tema-superficie: #FFFDFE; /* fallback; CONFIG.tema sobrescreve */
+      --tema-texto: #4B3C59; /* fallback; CONFIG.tema sobrescreve */
+      --branco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      display: block;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button,
+    a {
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--fundo);
+    }
+
+    @supports (height: 100dvh) {
+      .tela { height: 100dvh; }
+    }
+
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #finalTela {
+      z-index: 20;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    #finalTela.ativo { pointer-events: auto; }
+
+    #videoTela {
+      z-index: 30;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: transparent;
+      transition: opacity var(--transicao-video) ease;
+    }
+
+    #videoTela.ativo {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #videoTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #video { background: transparent; }
+
+    #capaTela {
+      z-index: 50;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 180ms ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #pular {
+      position: fixed;
+      right: max(16px, calc(env(safe-area-inset-right) + 16px));
+      bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
+      z-index: 500;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(0,0,0,.48);
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hotspot {
+      position: absolute;
+      z-index: 300;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    #controleSom {
+      position: fixed;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: max(16px, calc(env(safe-area-inset-right) + 16px));
+      z-index: 400;
+      width: 38px;
+      height: 38px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255,255,255,.30);
+      border-radius: 50%;
+      background: rgba(0,0,0,.38);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+    #controleSom.visivel { display: flex; }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeMudo { display: none; }
+    #controleSom.mudo #iconeSom { display: none; }
+    #controleSom.mudo #iconeMudo { display: block; }
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #pular:focus-visible,
+    #controleSom:focus-visible,
+    .modal button:focus-visible,
+    #fecharPresentes:focus-visible,
+    #hotspotPix:focus-visible {
+      outline: 2px solid rgba(255,255,255,.96);
+      outline-offset: -3px;
+    }
+
+
+    .modal-fechar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 8;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 18%, transparent);
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--tema-superficie) 90%, #fff);
+      color: var(--tema-texto);
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* ==================================================
+       POP-UPS LIMPOS | LOCALIZACAO + PRESENTES
+       HARD LOCK: sem cabecalho externo, sem faixa superior,
+       sem botao grande FECHAR. Apenas X discreto.
+    ================================================== */
+
+    .modal,
+    .presentes-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(10px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(10px, env(safe-area-inset-left));
+      background: color-mix(in srgb, var(--tema-escuro) 68%, transparent);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .modal { z-index: 1000; }
+    .presentes-modal { z-index: 1200; }
+
+    .modal.aberto,
+    .presentes-modal.aberto {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .modal-card,
+    .presentes-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 24%, transparent);
+      border-radius: 30px;
+      box-shadow: 0 24px 74px rgba(0,0,0,.32);
+      transform: translateY(6px) scale(.99);
+      transition: transform 180ms ease;
+    }
+
+    .modal-card {
+      width: min(92vw, 430px);
+      max-height: calc(100dvh - 28px);
+      color: var(--tema-texto);
+      background:
+        linear-gradient(150deg,
+          color-mix(in srgb, var(--tema-superficie) 96%, #fff) 0%,
+          color-mix(in srgb, var(--tema-claro) 72%, #fff) 58%,
+          color-mix(in srgb, var(--tema-acento) 14%, #fff) 100%);
+    }
+
+    .modal-card::before,
+    .modal-card::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(.2px);
+    }
+
+    .modal-card::before {
+      width: 190px;
+      height: 190px;
+      top: -92px;
+      left: -62px;
+      background: radial-gradient(circle at 62% 62%,
+        color-mix(in srgb, var(--tema-principal) 34%, transparent) 0 20%,
+        color-mix(in srgb, var(--tema-principal) 14%, transparent) 42%,
+        transparent 70%);
+    }
+
+    .modal-card::after {
+      width: 210px;
+      height: 210px;
+      right: -92px;
+      bottom: -105px;
+      background: radial-gradient(circle at 38% 38%,
+        color-mix(in srgb, var(--tema-acento) 30%, transparent) 0 20%,
+        color-mix(in srgb, var(--tema-acento) 12%, transparent) 44%,
+        transparent 72%);
+    }
+
+    .modal.aberto .modal-card,
+    .presentes-modal.aberto .presentes-shell {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-conteudo {
+      position: relative;
+      z-index: 2;
+      padding: 36px 24px 24px;
+      text-align: center;
+    }
+
+    .localizacao-icone {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 28%, transparent);
+      border-radius: 50%;
+      color: var(--tema-texto);
+      background:
+        linear-gradient(145deg,
+          color-mix(in srgb, var(--tema-claro) 78%, #fff),
+          color-mix(in srgb, var(--tema-acento) 22%, #fff));
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--tema-principal) 14%, transparent);
+    }
+
+    .localizacao-icone svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .modal-titulo {
+      margin: 0 42px 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 7vw, 31px);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--tema-texto);
+      text-wrap: balance;
+    }
+
+    .localizacao-divisor {
+      width: 74px;
+      height: 2px;
+      margin: 0 auto 17px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--tema-principal), var(--tema-acento));
+      opacity: .78;
+    }
+
+    .endereco {
+      margin: 0 auto 18px;
+      padding: 15px 16px;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 16%, transparent);
+      border-radius: 20px;
+      background: color-mix(in srgb, var(--tema-superficie) 82%, #fff);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+      font-size: 15px;
+      line-height: 1.58;
+      color: color-mix(in srgb, var(--tema-texto) 80%, #fff);
+    }
+
+    .modal-acoes {
+      display: grid;
+      gap: 10px;
+    }
+
+    .acao-principal,
+    .acao-rota {
+      min-height: 52px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 18px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .01em;
+      transition: transform 120ms ease, filter 120ms ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,.10);
+    }
+
+    .acao-principal {
+      color: #fff;
+      background: linear-gradient(135deg,
+        var(--tema-principal),
+        color-mix(in srgb, var(--tema-principal) 62%, var(--tema-escuro)));
+    }
+
+    .acao-rota {
+      color: var(--tema-texto);
+      border-color: color-mix(in srgb, var(--tema-acento) 28%, transparent);
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--tema-acento) 54%, #fff),
+        color-mix(in srgb, var(--tema-claro) 76%, #fff));
+    }
+
+    .acao-principal:active,
+    .acao-rota:active {
+      transform: scale(.985);
+      filter: brightness(.98);
+    }
+
+    .presentes-shell {
+      width: min(94vw, 540px);
+      aspect-ratio: 9 / 16;
+      max-height: 94dvh;
+      background: #fff;
+    }
+
+    #presentesImagem {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    #hotspotPix {
+      z-index: 6;
+    }
+
+    #toastPix {
+      position: absolute;
+      left: 50%;
+      bottom: max(20px, env(safe-area-inset-bottom));
+      z-index: 9;
+      transform: translate(-50%, 10px);
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: rgba(112,75,58,.94);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    #toastPix.visivel {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #capaTela,
+      #videoTela,
+      #pular,
+      .modal,
+      .modal-card,
+      .presentes-modal,
+      #presentesImagem,
+      #toastPix {
+        transition-duration: 1ms !important;
+      }
+    }
+
+
+    /* ==================================================
+       ANTONELLA | RAMIFICACAO BILINGUE APROVADA
+       Seletor de idioma + RSVP embed + recado automatico.
+       Mantem o motor V1.3 de capa/video/final/audio.
+    ================================================== */
+
+    #idiomaTela {
+      z-index: 80;
+      visibility: visible;
+      opacity: 1;
+      background: var(--tema-claro);
+      transition: opacity 180ms ease;
+    }
+
+    #idiomaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #idiomaImagem {
+      z-index: 1;
+    }
+
+    .idioma-opcoes {
+      position: absolute;
+      left: 50%;
+      top: 62%;
+      z-index: 20;
+      width: min(82%, 390px);
+      transform: translate(-50%, -50%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .idioma-botao {
+      min-height: 54px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 999px;
+      padding: 0 16px;
+      background: color-mix(in srgb, var(--tema-superficie) 88%, transparent);
+      color: var(--tema-texto);
+      box-shadow: 0 10px 30px rgba(75,60,89,.18);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      touch-action: manipulation;
+    }
+
+    .idioma-botao:active { transform: scale(.985); }
+
+    .idioma-botao:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--tema-principal) 80%, #fff);
+      outline-offset: 3px;
+    }
+
+    .rsvp-modal,
+    .recado-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:
+        max(10px, env(safe-area-inset-top))
+        max(8px, env(safe-area-inset-right))
+        max(10px, env(safe-area-inset-bottom))
+        max(8px, env(safe-area-inset-left));
+      background: color-mix(in srgb, var(--tema-escuro) 72%, transparent);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .rsvp-modal { z-index: 1400; }
+    .recado-modal { z-index: 1300; }
+
+    .rsvp-modal.aberto,
+    .recado-modal.aberto {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .rsvp-shell {
+      position: relative;
+      width: min(96vw, 720px);
+      height: min(92dvh, 920px);
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 26%, transparent);
+      border-radius: 28px;
+      background: var(--tema-superficie);
+      box-shadow: 0 24px 80px rgba(0,0,0,.38);
+      transform: translateY(6px) scale(.995);
+      transition: transform 180ms ease;
+    }
+
+    .rsvp-modal.aberto .rsvp-shell { transform: translateY(0) scale(1); }
+
+    #rsvpFrame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: var(--tema-superficie);
+    }
+
+    .rsvp-loading {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      color: var(--tema-texto);
+      background: linear-gradient(145deg, var(--tema-superficie), var(--tema-claro));
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    #rsvpFrame.carregado + .rsvp-loading { display: none; }
+
+    .rsvp-fallback {
+      position: absolute;
+      left: 50%;
+      bottom: max(14px, env(safe-area-inset-bottom));
+      z-index: 5;
+      transform: translateX(-50%);
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 28%, transparent);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: color-mix(in srgb, var(--tema-superficie) 93%, transparent);
+      color: var(--tema-texto);
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .recado-card {
+      position: relative;
+      width: min(90vw, 430px);
+      padding: 44px 26px 28px;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 38%, #fff);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 14% 10%, color-mix(in srgb, var(--tema-principal) 28%, transparent), transparent 34%),
+        radial-gradient(circle at 88% 92%, color-mix(in srgb, var(--tema-acento) 28%, transparent), transparent 38%),
+        linear-gradient(145deg, var(--tema-superficie), var(--tema-claro));
+      color: var(--tema-texto);
+      box-shadow: 0 24px 74px rgba(0,0,0,.34);
+      text-align: center;
+      transform: translateY(8px) scale(.99);
+      transition: transform 180ms ease;
+    }
+
+    .recado-modal.aberto .recado-card { transform: translateY(0) scale(1); }
+
+    .recado-coracao {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 15px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--tema-principal) 72%, #fff);
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--tema-principal) 22%, transparent);
+      font-size: 29px;
+    }
+
+    #recadoTexto {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(18px, 5vw, 22px);
+      line-height: 1.45;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    @media (max-width: 390px) {
+      .idioma-opcoes { width: 86%; gap: 9px; }
+      .idioma-botao { min-height: 50px; padding: 0 12px; font-size: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #idiomaTela,
+      .rsvp-modal,
+      .rsvp-shell,
+      .recado-modal,
+      .recado-card {
+        transition-duration: 1ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <section id="idiomaTela" class="tela" aria-label="Escolha o idioma | Choose your language">
+    <div class="quadro">
+      <img id="idiomaImagem" class="arte" alt="Antonella" draggable="false">
+      <div class="idioma-opcoes" role="group" aria-label="Idioma | Language">
+        <button id="escolherPt" class="idioma-botao" type="button">Português</button>
+        <button id="escolherEn" class="idioma-botao" type="button">English</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="finalTela" class="tela" aria-label="Convite final">
+    <div class="quadro">
+      <img
+        id="finalImagem"
+        class="arte"
+        alt="Antonella • 1 | convite final"
+        draggable="false"
+      >
+
+      <button
+        id="hotspotConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar presen&#231;a"
+      ></button>
+
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Ver localiza&#231;&#227;o"
+      ></button>
+
+      <button
+        id="hotspotFiltro"
+        class="hotspot"
+        type="button"
+        aria-label="Abrir filtro especial"
+      ></button>
+
+      <button
+        id="hotspotPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Ver sugest&#245;es de presentes"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ligar ou desligar m&#250;sica"
+      >
+        <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+          <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+        </svg>
+        <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <section id="videoTela" class="tela" aria-label="V&#237;deo de abertura">
+    <div class="quadro">
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="metadata"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
+    </div>
+  </section>
+
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
+      <img
+        id="capaImagem"
+        class="arte"
+        alt="Minha Antonella Favorita"
+        draggable="false"
+      >
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
+    </div>
+  </section>
+
+  <div id="modalLocalizacao" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloLocalizacao">
+    <div class="modal-card">
+      <button id="fecharLocalizacao" class="modal-fechar" type="button" aria-label="Fechar localiza&#231;&#227;o">&times;</button>
+
+      <div class="modal-conteudo">
+        <div class="localizacao-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11z"></path>
+            <circle cx="12" cy="10" r="2.2"></circle>
+          </svg>
+        </div>
+        <h2 id="tituloLocalizacao" class="modal-titulo"></h2>
+        <div class="localizacao-divisor" aria-hidden="true"></div>
+        <p id="enderecoTexto" class="endereco"></p>
+
+        <div class="modal-acoes">
+          <button id="abrirGoogleMaps" class="acao-principal" type="button"></button>
+          <button id="abrirWaze" class="acao-rota" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modalRsvp" class="rsvp-modal" role="dialog" aria-modal="true" aria-label="Confirmação de presença | RSVP">
+    <div class="rsvp-shell">
+      <button id="fecharRsvp" class="modal-fechar" type="button" aria-label="Fechar confirmação | Close RSVP">&times;</button>
+      <iframe id="rsvpFrame" title="Confirmação de presença | RSVP" allow="clipboard-write"></iframe>
+      <div id="rsvpLoading" class="rsvp-loading" aria-live="polite"></div>
+      <button id="rsvpFallback" class="rsvp-fallback" type="button"></button>
+    </div>
+  </div>
+
+  <div id="modalRecado" class="recado-modal" role="dialog" aria-modal="true" aria-label="Recado especial | Special note">
+    <div class="recado-card">
+      <button id="fecharRecado" class="modal-fechar" type="button" aria-label="Fechar recado | Close note">&times;</button>
+      <div class="recado-coracao" aria-hidden="true">💛</div>
+      <p id="recadoTexto"></p>
+    </div>
+  </div>
+
+  <div id="modalPresentes" class="presentes-modal" role="dialog" aria-modal="true" aria-label="Sugest&#245;es de presentes">
+    <div class="presentes-shell">
+      <button id="fecharPresentes" class="modal-fechar" type="button" aria-label="Fechar sugest&#245;es de presentes">&times;</button>
+      <img id="presentesImagem" alt="Sugest&#245;es de presentes" draggable="false">
+    </div>
+  </div>
+
+  <audio id="musica" preload="metadata" loop></audio>
+
+  <script>
+    window.CONFIG_PROMISE.then((CONFIG) => {
+      "use strict";
+
+      if (CONFIG.tema) {
+        const raiz = document.documentElement;
+        const mapaTema = {
+          escuro: "--tema-escuro",
+          principal: "--tema-principal",
+          claro: "--tema-claro",
+          acento: "--tema-acento",
+          superficie: "--tema-superficie",
+          texto: "--tema-texto"
+        };
+        for (const [chave, variavel] of Object.entries(mapaTema)) {
+          if (CONFIG.tema[chave]) raiz.style.setProperty(variavel, CONFIG.tema[chave]);
+        }
+      }
+
+      const idiomaTela = document.getElementById("idiomaTela");
+      const idiomaImagem = document.getElementById("idiomaImagem");
+      const escolherPt = document.getElementById("escolherPt");
+      const escolherEn = document.getElementById("escolherEn");
+
+      const capaTela = document.getElementById("capaTela");
+      const videoTela = document.getElementById("videoTela");
+      const finalTela = document.getElementById("finalTela");
+
+      const capaImagem = document.getElementById("capaImagem");
+      const finalImagem = document.getElementById("finalImagem");
+      const video = document.getElementById("video");
+      const musica = document.getElementById("musica");
+
+      const abrirConvite = document.getElementById("abrirConvite");
+      const pular = document.getElementById("pular");
+      const controleSom = document.getElementById("controleSom");
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
+      const hotspotPresentes = document.getElementById("hotspotPresentes");
+      const hotspotFiltro = document.getElementById("hotspotFiltro");
+
+      const modalLocalizacao = document.getElementById("modalLocalizacao");
+      const tituloLocalizacao = document.getElementById("tituloLocalizacao");
+      const enderecoTexto = document.getElementById("enderecoTexto");
+      const abrirGoogleMaps = document.getElementById("abrirGoogleMaps");
+      const abrirWaze = document.getElementById("abrirWaze");
+      const fecharLocalizacao = document.getElementById("fecharLocalizacao");
+
+      const modalRsvp = document.getElementById("modalRsvp");
+      const fecharRsvp = document.getElementById("fecharRsvp");
+      const rsvpFrame = document.getElementById("rsvpFrame");
+      const rsvpLoading = document.getElementById("rsvpLoading");
+      const rsvpFallback = document.getElementById("rsvpFallback");
+
+      const modalRecado = document.getElementById("modalRecado");
+      const fecharRecado = document.getElementById("fecharRecado");
+      const recadoTexto = document.getElementById("recadoTexto");
+
+      const modalPresentes = document.getElementById("modalPresentes");
+      const presentesImagem = document.getElementById("presentesImagem");
+      const fecharPresentes = document.getElementById("fecharPresentes");
+
+      let idiomaAtual = null;
+      let idiomaDados = null;
+      let popupAmareloExibido = false;
+
+      let conviteAberto = false;
+      let finalAtivo = false;
+      let finalizando = false;
+      let somLigado = true;
+      let audioDisponivel = true;
+      let midiaAquecida = false;
+
+      let timerPular = null;
+      let rafFim = null;
+      let rafAudio = null;
+      let ultimoAjusteSincronia = 0;
+
+      let videoEstavaTocando = false;
+      let musicaEstavaTocando = false;
+
+      const urlArquivo = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      function urlMidia(arquivo) {
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
+
+        return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+      }
+
+      const EXTENSOES_IMAGEM = [".jpg", ".jpeg", ".png", ".webp", ".avif"];
+
+      function temExtensaoImagem(caminho) {
+        const limpo = String(caminho || "")
+          .split("?")[0]
+          .split("#")[0];
+
+        return /\.(?:jpe?g|png|webp|avif)$/i.test(limpo);
+      }
+
+      async function resolverImagem(elemento, caminhoBase) {
+        if (!elemento || !caminhoBase) return false;
+
+        const bases = Array.isArray(caminhoBase)
+          ? caminhoBase.filter(Boolean)
+          : [caminhoBase];
+
+        const candidatos = [];
+
+        for (const base of bases) {
+          if (temExtensaoImagem(base)) {
+            candidatos.push(base);
+          } else {
+            for (const extensao of EXTENSOES_IMAGEM) {
+              candidatos.push(`${base}${extensao}`);
+            }
+          }
+        }
+
+        for (const candidato of candidatos) {
+          const carregou = await new Promise((resolve) => {
+            const aoCarregar = async () => {
+              elemento.removeEventListener("error", aoFalhar);
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            const aoFalhar = () => {
+              elemento.removeEventListener("load", aoCarregar);
+              resolve(false);
+            };
+
+            elemento.addEventListener("load", aoCarregar, { once: true });
+            elemento.addEventListener("error", aoFalhar, { once: true });
+            elemento.src = urlArquivo(candidato);
+          });
+
+          if (carregou) {
+            elemento.dataset.arquivoResolvido = candidato;
+            return candidato;
+          }
+        }
+
+        console.warn("[Libri] Imagem n\xe3o encontrada:", caminhoBase);
+        return false;
+      }
+
+      let capaCarregada = Promise.resolve(false);
+      let finalCarregado = null;
+      let presentesCarregado = null;
+
+      const carregarFinal = () => {
+        if (!idiomaDados) return Promise.resolve(false);
+        if (!finalCarregado) finalCarregado = resolverImagem(finalImagem, idiomaDados.finalArquivo || CONFIG.finalArquivo);
+        return finalCarregado;
+      };
+
+      const carregarPresentes = () => {
+        if (!idiomaDados || !idiomaDados.presentesArquivo) return Promise.resolve(false);
+        if (!presentesCarregado) presentesCarregado = resolverImagem(presentesImagem, idiomaDados.presentesArquivo);
+        return presentesCarregado;
+      };
+
+      function configurarTextosDoIdioma() {
+        const ingles = idiomaAtual === "en";
+        document.documentElement.lang = ingles ? "en" : "pt-BR";
+
+        pular.textContent = ingles ? "Skip intro" : "Pular abertura";
+        pular.setAttribute("aria-label", ingles ? "Skip intro" : "Pular abertura");
+        abrirConvite.setAttribute("aria-label", ingles ? "Open invitation" : "Abrir convite");
+        hotspotConfirmacao.setAttribute("aria-label", ingles ? "RSVP now" : "Confirmar agora");
+        hotspotLocalizacao.setAttribute("aria-label", ingles ? "Get directions" : "Como chegar");
+        hotspotFiltro.setAttribute("aria-label", ingles ? "Open special filter" : "Abrir filtro especial");
+        hotspotPresentes.setAttribute("aria-label", ingles ? "Gift suggestions" : "Sugestões de presentes");
+        presentesImagem.alt = ingles ? "Antonella gift suggestions" : "Sugestões de presentes da Antonella";
+
+        abrirGoogleMaps.textContent = (idiomaDados.botoes && idiomaDados.botoes.mapa)
+          ? idiomaDados.botoes.mapa
+          : (ingles ? "Open in Google Maps" : "Abrir no Google Maps");
+
+        rsvpLoading.textContent = ingles ? "Loading RSVP..." : "Carregando confirmação...";
+        rsvpFallback.textContent = ingles ? "Open in new page" : "Abrir em nova página";
+      }
+
+      async function selecionarIdioma(codigo) {
+        if (idiomaAtual) return;
+
+        const dados = CONFIG.idiomas && CONFIG.idiomas[codigo];
+        if (!dados) return;
+
+        idiomaAtual = codigo;
+        idiomaDados = dados;
+        popupAmareloExibido = false;
+
+        configurarTextosDoIdioma();
+
+        finalCarregado = null;
+        presentesCarregado = null;
+        capaCarregada = resolverImagem(capaImagem, idiomaDados.capaArquivo || CONFIG.capaArquivo);
+
+        video.src = urlMidia(idiomaDados.videoArquivo || CONFIG.videoArquivo);
+        musica.src = urlMidia(CONFIG.musicaArquivo);
+        video.preload = "metadata";
+        musica.preload = "metadata";
+        video.load();
+        musica.load();
+
+        await capaCarregada.catch(() => false);
+
+        idiomaTela.classList.add("saindo");
+        setTimeout(() => {
+          idiomaTela.style.visibility = "hidden";
+        }, 200);
+
+        if (!CONFIG.preloadInteligente) {
+          carregarFinal().catch(() => false);
+          carregarPresentes().catch(() => false);
+        }
+
+        setTimeout(aquecerMidia, 180);
+      }
+
+      function aquecerMidia() {
+        if (!idiomaDados || midiaAquecida) return;
+        midiaAquecida = true;
+        video.preload = "auto";
+        musica.preload = "auto";
+        video.load();
+        musica.load();
+      }
+
+      resolverImagem(
+        idiomaImagem,
+        (CONFIG.seletorIdioma && CONFIG.seletorIdioma.fundoArquivo) || "fundo"
+      ).catch(() => false);
+
+      function posicionar(elemento, dados) {
+        elemento.style.left = dados.left;
+        elemento.style.top = dados.top;
+        elemento.style.width = dados.width;
+        elemento.style.height = dados.height;
+      }
+
+      posicionar(hotspotConfirmacao, CONFIG.hotspotsFinal.confirmacao);
+      posicionar(hotspotLocalizacao, CONFIG.hotspotsFinal.localizacao);
+      posicionar(hotspotPresentes, CONFIG.hotspotsFinal.presentes);
+      posicionar(hotspotFiltro, CONFIG.hotspotsFinal.filtro);
+      tituloLocalizacao.textContent = CONFIG.local.nome;
+      enderecoTexto.innerHTML = [
+        CONFIG.local.linha1,
+        CONFIG.local.linha2,
+        CONFIG.local.linha3
+      ].filter(Boolean).join("<br>");
+
+      if (CONFIG.linkWaze) {
+        abrirWaze.textContent = (CONFIG.botoes && CONFIG.botoes.waze) || "Waze";
+      } else {
+        abrirWaze.style.display = "none";
+      }
+
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
+
+        capaTela.classList.add("saindo");
+
+        setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
+
+      function aguardarPrimeiroFrame(timeoutMs = 2600) {
+        return new Promise((resolve) => {
+          let finalizado = false;
+          let timer = null;
+
+          const done = () => {
+            if (finalizado) return;
+            finalizado = true;
+            clearTimeout(timer);
+            resolve(true);
+          };
+
+          timer = setTimeout(() => {
+            if (finalizado) return;
+            finalizado = true;
+            resolve(false);
+          }, timeoutMs);
+
+          if (typeof video.requestVideoFrameCallback === "function") {
+            video.requestVideoFrameCallback(() => done());
+            return;
+          }
+
+          if (video.readyState >= 2) {
+            requestAnimationFrame(done);
+            return;
+          }
+
+          video.addEventListener("loadeddata", done, { once: true });
+        });
+      }
+
+      function tempoEsperadoMusica() {
+        let esperado = Math.max(0, video.currentTime + CONFIG.inicioMusica);
+
+        if (Number.isFinite(musica.duration) && musica.duration > 0) {
+          esperado %= musica.duration;
+        }
+
+        return esperado;
+      }
+
+      function iniciarMusicaSilenciosa() {
+        musica.volume = 0.001;
+
+        try {
+          musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+        } catch (_) {}
+
+        const tentativa = musica.play();
+
+        if (tentativa && typeof tentativa.catch === "function") {
+          tentativa.catch(() => {
+            audioDisponivel = false;
+            controleSom.classList.remove("visivel");
+          });
+        }
+      }
+
+      function manterSincronia(forcar = false) {
+        if (
+          !audioDisponivel ||
+          finalAtivo ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
+        }
+
+        const agora = performance.now();
+
+        if (!forcar && agora - ultimoAjusteSincronia < 1000) {
+          return;
+        }
+
+        ultimoAjusteSincronia = agora;
+
+        const esperado = tempoEsperadoMusica();
+        const diferenca = Math.abs(musica.currentTime - esperado);
+
+        if (forcar || diferenca > 0.35) {
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
+        }
+      }
+
+      function transicaoSuaveAudio(aoFinalizar) {
+        cancelAnimationFrame(rafAudio);
+
+        if (!audioDisponivel || musica.paused) {
+          aoFinalizar();
+          return;
+        }
+
+        const duracao = Math.max(120, CONFIG.transicaoAudio);
+        const inicio = performance.now();
+        const volumeVideoInicial = video.volume;
+        const volumeMusicaInicial = musica.volume;
+        const volumeMusicaFinal = somLigado ? CONFIG.volumeMusica : 0;
+
+        const animar = (agora) => {
+          const progresso = Math.min(1, (agora - inicio) / duracao);
+          const suave = progresso * progresso * (3 - 2 * progresso);
+
+          video.volume = Math.max(0, volumeVideoInicial * (1 - suave));
+          musica.volume = volumeMusicaInicial + (volumeMusicaFinal - volumeMusicaInicial) * suave;
+
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+            return;
+          }
+
+          video.volume = 0;
+          musica.volume = volumeMusicaFinal;
+          aoFinalizar();
+        };
+
+        rafAudio = requestAnimationFrame(animar);
+      }
+
+      async function iniciarConvite() {
+        if (conviteAberto || !idiomaDados) return;
+        conviteAberto = true;
+
+        aquecerMidia();
+
+        await capaCarregada.catch(() => false);
+        carregarFinal().catch(() => false);
+        carregarPresentes().catch(() => false);
+
+        videoTela.style.visibility = "visible";
+        videoTela.classList.remove("saindo");
+        videoTela.classList.add("ativo");
+
+        iniciarMusicaSilenciosa();
+        video.volume = 1;
+
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
+
+        const primeiroFrame = aguardarPrimeiroFrame();
+
+        try {
+          await video.play();
+          const framePronto = await primeiroFrame;
+          if (!framePronto) throw new Error("Primeiro frame indispon\xedvel");
+        } catch (_) {
+          /* Fallback sem tela preta: mantém a capa até o card final estar pronto. */
+          await carregarFinal().catch(() => false);
+
+          finalTela.classList.add("ativo");
+          finalAtivo = true;
+          finalizando = false;
+
+          video.pause();
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          if (audioDisponivel) {
+            musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+            controleSom.classList.add("visivel");
+          }
+
+          esconderCapa();
+          agendarRecadoAutomatico();
+          return;
+        }
+
+        esconderCapa();
+
+        pular.classList.add("visivel");
+        clearTimeout(timerPular);
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, CONFIG.tempoPular);
+
+        acompanharFinal();
+      }
+
+      function acompanharFinal() {
+        cancelAnimationFrame(rafFim);
+
+        const verificar = () => {
+          if (finalizando || finalAtivo) return;
+
+          manterSincronia();
+
+          if (Number.isFinite(video.duration) && video.duration > 0) {
+            const restante = video.duration - video.currentTime;
+
+            if (restante > 0 && restante <= 0.45) {
+              finalizarVideo();
+              return;
+            }
+          }
+
+          rafFim = requestAnimationFrame(verificar);
+        };
+
+        rafFim = requestAnimationFrame(verificar);
+      }
+
+      async function finalizarVideo() {
+        if (finalizando || finalAtivo) return;
+
+        manterSincronia(true);
+
+        finalizando = true;
+        clearTimeout(timerPular);
+        cancelAnimationFrame(rafFim);
+        pular.classList.remove("visivel");
+
+        await carregarFinal().catch(() => false);
+
+        finalTela.classList.add("ativo");
+        videoTela.classList.add("saindo");
+
+        transicaoSuaveAudio(() => {
+          video.pause();
+
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          video.volume = 1;
+          finalAtivo = true;
+          finalizando = false;
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
+
+          agendarRecadoAutomatico();
+        });
+      }
+
+      function abrirLocalizacao() {
+        modalLocalizacao.classList.add("aberto");
+        fecharLocalizacao.focus();
+      }
+
+      function fecharLocalizacaoModal() {
+        modalLocalizacao.classList.remove("aberto");
+      }
+
+      function abrirDestino(url) {
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
+
+      function urlRsvpEmbed() {
+        const base = String(CONFIG.linkConfirmacao || "").trim();
+        if (!base) return "";
+        return `${base}${base.includes("?") ? "&" : "?"}embed=1`;
+      }
+
+      function abrirRsvp() {
+        const url = urlRsvpEmbed();
+        if (!url) return;
+
+        rsvpFrame.classList.remove("carregado");
+        rsvpFrame.src = url;
+        modalRsvp.classList.add("aberto");
+        fecharRsvp.focus();
+      }
+
+      function fecharRsvpModal() {
+        modalRsvp.classList.remove("aberto");
+        rsvpFrame.classList.remove("carregado");
+        setTimeout(() => { rsvpFrame.src = "about:blank"; }, 180);
+      }
+
+      function abrirRsvpExterno() {
+        if (CONFIG.linkConfirmacao) abrirDestino(CONFIG.linkConfirmacao);
+      }
+
+      function abrirFiltro() {
+        if (CONFIG.linkFiltro) abrirDestino(CONFIG.linkFiltro);
+      }
+
+      async function abrirPresentes() {
+        modalPresentes.classList.add("aberto");
+        fecharPresentes.focus();
+        await carregarPresentes().catch(() => false);
+      }
+
+      function fecharPresentesModal() {
+        modalPresentes.classList.remove("aberto");
+      }
+
+      function agendarRecadoAutomatico() {
+        if (
+          popupAmareloExibido ||
+          !CONFIG.popupAmarelo ||
+          !CONFIG.popupAmarelo.ativo ||
+          !CONFIG.popupAmarelo.automaticoAposVideo ||
+          !idiomaAtual
+        ) return;
+
+        popupAmareloExibido = true;
+        setTimeout(abrirRecadoAutomatico, 320);
+      }
+
+      function abrirRecadoAutomatico() {
+        if (!CONFIG.popupAmarelo || !idiomaAtual) return;
+        const texto = CONFIG.popupAmarelo[idiomaAtual];
+        if (!texto) return;
+
+        recadoTexto.textContent = texto;
+        modalRecado.classList.add("aberto");
+        fecharRecado.focus();
+      }
+
+      function fecharRecadoModal() {
+        modalRecado.classList.remove("aberto");
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+        controleSom.classList.toggle("mudo", !somLigado);
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando = !video.paused && !finalAtivo && !finalizando;
+          musicaEstavaTocando = !musica.paused;
+
+          if (videoEstavaTocando) video.pause();
+          if (musicaEstavaTocando) musica.pause();
+          return;
+        }
+
+        if (videoEstavaTocando && !finalAtivo) {
+          video.play().then(acompanharFinal).catch(() => {});
+        }
+
+        if (musicaEstavaTocando && audioDisponivel) {
+          musica.play().catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+        musicaEstavaTocando = false;
+      }
+
+      escolherPt.addEventListener("click", () => selecionarIdioma("pt-BR"));
+      escolherEn.addEventListener("click", () => selecionarIdioma("en"));
+      abrirConvite.addEventListener("click", iniciarConvite);
+      pular.addEventListener("click", finalizarVideo);
+      controleSom.addEventListener("click", alternarSom);
+
+      hotspotConfirmacao.addEventListener("click", abrirRsvp);
+      hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
+      hotspotPresentes.addEventListener("click", abrirPresentes);
+      hotspotFiltro.addEventListener("click", abrirFiltro);
+
+      abrirGoogleMaps.addEventListener("click", () => abrirDestino(CONFIG.linkMapa));
+      abrirWaze.addEventListener("click", () => { if (CONFIG.linkWaze) abrirDestino(CONFIG.linkWaze); });
+      rsvpFrame.addEventListener("load", () => {
+        if (rsvpFrame.src && rsvpFrame.src !== "about:blank") {
+          rsvpFrame.classList.add("carregado");
+        }
+      });
+      fecharRsvp.addEventListener("click", fecharRsvpModal);
+      rsvpFallback.addEventListener("click", abrirRsvpExterno);
+      modalRsvp.addEventListener("click", (event) => {
+        if (event.target === modalRsvp) fecharRsvpModal();
+      });
+
+      fecharRecado.addEventListener("click", fecharRecadoModal);
+      modalRecado.addEventListener("click", (event) => {
+        if (event.target === modalRecado) fecharRecadoModal();
+      });
+
+      fecharLocalizacao.addEventListener("click", fecharLocalizacaoModal);
+
+      modalLocalizacao.addEventListener("click", (event) => {
+        if (event.target === modalLocalizacao) {
+          fecharLocalizacaoModal();
+        }
+      });
+
+      fecharPresentes.addEventListener("click", fecharPresentesModal);
+
+      modalPresentes.addEventListener("click", (event) => {
+        if (event.target === modalPresentes) {
+          fecharPresentesModal();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+
+        if (modalRsvp.classList.contains("aberto")) {
+          fecharRsvpModal();
+          return;
+        }
+
+        if (modalRecado.classList.contains("aberto")) {
+          fecharRecadoModal();
+          return;
+        }
+
+        if (modalPresentes.classList.contains("aberto")) {
+          fecharPresentesModal();
+          return;
+        }
+
+        if (modalLocalizacao.classList.contains("aberto")) {
+          fecharLocalizacaoModal();
+        }
+      });
+
+      video.addEventListener("timeupdate", () => {
+        if (finalizando || finalAtivo) return;
+
+        manterSincronia();
+
+        if (
+          Number.isFinite(video.duration) &&
+          video.duration > 0 &&
+          (video.duration - video.currentTime) <= 0.45
+        ) {
+          finalizarVideo();
+        }
+      });
+
+      video.addEventListener("ended", finalizarVideo);
+
+      video.addEventListener("error", () => {
+        if (conviteAberto && !finalAtivo) {
+          esconderCapa();
+          finalizarVideo();
+        }
+      });
+
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
+
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted && finalAtivo && audioDisponivel) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
+
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      document.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    }).catch((erro) => {
+      console.error("[Libri] Falha ao iniciar convite:", erro);
+      document.body.innerHTML = `<div style="min-height:100dvh;display:grid;place-items:center;background:#000;color:#fff;font:16px Arial;padding:24px;text-align:center">N&#227;o foi poss&#237;vel carregar o convite.</div>`;
+    });
+  </script>
+</body>
+</html>

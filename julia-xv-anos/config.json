@@ -1,1 +1,74 @@
+{
+  "tituloPagina": "J\u00falia | XV anos",
+  "pastaCliente": "julia-xv-anos",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "preloadInteligente": true,
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/julia-xv-anos",
+  "local": {
+    "nome": "Sal\u00e3o de festas 01",
+    "linha1": "Rua Caji, Via de Acesso Condom\u00ednio Casas do Bosque, n\u00ba 420",
+    "linha2": "Lauro de Freitas - BA",
+    "linha3": "CEP 42711-800"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze"
+  },
+  "linkMapa": "https://www.google.com/maps/search/Rua%2BCaji%2C%2B420%2B-%2BCaixa%2BD%2B%C3%81gua%2C%2BLauro%2Bde%2BFreitas%2B-%2BBA%2C%2B42711-800",
+  "linkWaze": "https://www.waze.com/live-map/directions/brazil/state-of-bahia/lauro-de-freitas/via-de-acesso-condominio-casas-do-bosque?to=place.ChIJwZCXa_cVFgcRvxTwmUAlM4o",
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "18.28%",
+      "top": "59.33%",
+      "width": "63.44%",
+      "height": "7.78%"
+    },
+    "localizacao": {
+      "left": "17.85%",
+      "top": "70.22%",
+      "width": "64.40%",
+      "height": "7.72%"
+    },
+    "presentes": {
+      "left": "17.53%",
+      "top": "81.10%",
+      "width": "64.93%",
+      "height": "7.72%"
+    }
+  },
+  "presentes": {
+    "titulo": "Sugest\u00f5es de presentes",
+    "intro": "Se quiser nos presentear, aqui v\u00e3o algumas refer\u00eancias para ajudar na escolha.",
+    "itens": [
+      {
+        "rotulo": "Roupas",
+        "valor": "Tamanho M",
+        "icone": "M"
+      },
+      {
+        "rotulo": "Cal\u00e7as",
+        "valor": "N\u00famero 36",
+        "icone": "36"
+      }
+    ]
+  },
+  "tema": {
+    "escuro": "#38566B",
+    "principal": "#4E7186",
+    "claro": "#EAF3F7",
+    "acento": "#C7A96A",
+    "superficie": "#FFFDF9",
+    "texto": "#38566B"
+  }
+}
 

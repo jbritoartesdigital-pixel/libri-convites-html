@@ -1,0 +1,68 @@
+{
+  "tituloPagina": "A Grande Corrida do Gael",
+  "pastaCliente": "gael-2-anos",
+  "hostMidia": "https://midia.libriconvites.com.br",
+
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "preloadInteligente": true,
+
+  "numeroWhatsapp": "556194002207",
+  "mensagemWhatsapp": "Ol\u00e1! Quero confirmar minha presen\u00e7a na Grande Corrida do Gael! \ud83c\udfc1\u2764\ufe0f",
+
+  "local": {
+    "nome": "Casa Verde Eventos e Festas",
+    "linha1": "Rua Belo Horizonte, Qd. 45, Lt. 46",
+    "linha2": "Parque Araguari 1",
+    "linha3": "Cidade Ocidental - GO \u2022 CEP 72885-240"
+  },
+
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze"
+  },
+
+  "linkMapa": "https://maps.app.goo.gl/W3uAyrwdTgGmnw4j6?g_st=aw",
+  "linkWaze": "https://www.waze.com/live-map/directions/br/go/casa-verde-eventos-and-festas-or-cidade-ocidental-go?to=place.ChIJM-ZpulOFWZMRH2oKStNe-YQ",
+
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "26.79%",
+      "top": "75.33%",
+      "width": "67.46%",
+      "height": "9.71%"
+    },
+    "localizacao": {
+      "left": "26.79%",
+      "top": "85.55%",
+      "width": "67.46%",
+      "height": "7.25%"
+    },
+    "presentes": {
+      "left": "26.79%",
+      "top": "92.97%",
+      "width": "67.46%",
+      "height": "6.14%"
+    }
+  },
+
+  "tema": {
+    "escuro": "#211612",
+    "principal": "#B52017",
+    "claro": "#F7E8CF",
+    "acento": "#D5A33A",
+    "superficie": "#FFF6E8",
+    "texto": "#2B211B"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "tituloPagina": "O primeiro aninho da Izys",
+  "pastaCliente": "izys-1-aninho",
+  "hostMidia": "https://midia.libriconvites.com.br",
+
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "preloadInteligente": true,
+
+  "numeroWhatsapp": "555199807190",
+  "mensagemWhatsapp": "Ol\u00e1! \ud83d\udc97 Quero confirmar minha presen\u00e7a no primeiro aninho da Izys. \ud83c\udf80",
+
+  "local": {
+    "nome": "Comunidade Jesus Salvador de Tapes | IECLB",
+    "linha1": "Rua Giovani Henrique Moreira Fagundes, 1129",
+    "linha2": "Vila Maria",
+    "linha3": "Tapes - RS"
+  },
+
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze"
+  },
+
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Comunidade%20Jesus%20Salvador%20de%20Tapes%2C%20Rua%20Giovani%20Henrique%20Moreira%20Fagundes%2C%201129%2C%20Vila%20Maria%2C%20Tapes%2C%20RS%2C%20Brasil",
+
+  "linkWaze": "https://www.waze.com/ul?q=Comunidade%20Jesus%20Salvador%20de%20Tapes%2C%20Rua%20Giovani%20Henrique%20Moreira%20Fagundes%2C%201129%2C%20Vila%20Maria%2C%20Tapes%2C%20RS%2C%20Brasil&navigate=yes",
+
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "21.5%",
+      "top": "72.7%",
+      "width": "57.5%",
+      "height": "7.1%"
+    },
+    "confirmacao": {
+      "left": "21.5%",
+      "top": "81.5%",
+      "width": "57.5%",
+      "height": "7.1%"
+    },
+    "presentes": {
+      "left": "21.5%",
+      "top": "90.1%",
+      "width": "57.5%",
+      "height": "6.4%"
+    }
+  },
+
+  "tema": {
+    "escuro": "#5E3A4A",
+    "principal": "#E9AFC2",
+    "claro": "#FFF3F7",
+    "acento": "#A8CDBF",
+    "superficie": "#FFF9FB",
+    "texto": "#4A313B"
+  }
+}

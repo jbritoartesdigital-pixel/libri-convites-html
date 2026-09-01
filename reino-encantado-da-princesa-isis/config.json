@@ -1,1 +1,58 @@
-
+{
+  "tituloPagina": "Reino Encantado da Princesa \u00cdsis | 1 aninho",
+  "pastaCliente": "reino-encantado-da-princesa-isis",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "preloadInteligente": true,
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/reino-encantado-da-princesa-isis",
+  "local": {
+    "nome": "Festas Criativas Balloon Casa de Festas",
+    "linha1": "Quadra 484, Lote 10",
+    "linha2": "Parque Estrela Dalva",
+    "linha3": "Novo Gama - GO \u2022 72860-447"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze"
+  },
+  "linkMapa": "https://maps.app.goo.gl/625NFWY99sMqFPLW7",
+  "linkWaze": "https://www.waze.com/ul?q=Festas%20Criativas%20Balloon%20Casa%20de%20Festas%2C%20Quadra%20484%2C%20Lote%2010%2C%20Parque%20Estrela%20Dalva%2C%20Novo%20Gama%20-%20GO%2C%2072860-447%2C%20Brasil&navigate=yes",
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "12.54%",
+      "top": "72.13%",
+      "width": "74.18%",
+      "height": "7.83%"
+    },
+    "localizacao": {
+      "left": "12.54%",
+      "top": "79.96%",
+      "width": "74.18%",
+      "height": "7.89%"
+    },
+    "presentes": {
+      "left": "12.33%",
+      "top": "87.98%",
+      "width": "74.60%",
+      "height": "8.13%"
+    }
+  },
+  "tema": {
+    "escuro": "#5A4055",
+    "principal": "#956786",
+    "claro": "#F5E8F3",
+    "acento": "#D7B56D",
+    "superficie": "#FFF9FC",
+    "texto": "#4C3948"
+  }
+}

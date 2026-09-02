@@ -340,6 +340,15 @@
     }
 
     .modal-card,
+    .presentes-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 24%, transparent);
+      border-radius: 30px;
+      box-shadow: 0 24px 74px rgba(0,0,0,.32);
+      transform: translateY(6px) scale(.99);
+      transition: transform 180ms ease;
+    }
 
     /* ==================================================
        CONFIRMACAO VIA WHATSAPP | POP-UP DO PROJETO
@@ -424,16 +433,6 @@
     #hotspotPresentes[hidden],
     #modalPresentes[hidden] {
       display: none !important;
-    }
-
-    .presentes-shell {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid color-mix(in srgb, var(--tema-principal) 24%, transparent);
-      border-radius: 30px;
-      box-shadow: 0 24px 74px rgba(0,0,0,.32);
-      transform: translateY(6px) scale(.99);
-      transition: transform 180ms ease;
     }
 
     .modal-card {

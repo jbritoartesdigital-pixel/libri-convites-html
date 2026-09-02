@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<!-- LIBRI WEB | INDEX OFICIAL V1.3 | HTML + JSON | POP-UPS PERSONALIZADOS
+     BASE: motor validado no projeto Lorena Thomas, sanitizado para reutilizacao.
+     EDITAR POR PROJETO: metatags OG/Twitter, theme-color e config.json.
+     NAO refatorar o motor silenciosamente. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <link rel="preconnect" href="https://midia.libriconvites.com.br" crossorigin>
+  <link rel="dns-prefetch" href="//midia.libriconvites.com.br">
+
+  <title>A Grande Partida do Lucca e Ravi</title>
+  <meta name="description" content="A grande partida do Lucca e do Ravi est&#225; chegando! Abra o convite e venha comemorar esse dia especial com eles.">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="theme-color" content="#0754B8">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="A Grande Partida do Lucca e Ravi">
+  <meta property="og:description" content="A grande partida do Lucca e do Ravi est&#225; chegando! Abra o convite e venha comemorar esse dia especial com eles.">
+  <meta property="og:url" content="https://libriconvites.com.br/a-grande-partida-do-lucca-e-ravi/">
+  <meta property="og:image" content="https://libriconvites.com.br/a-grande-partida-do-lucca-e-ravi/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/a-grande-partida-do-lucca-e-ravi/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A Grande Partida do Lucca e Ravi">
+  <meta name="twitter:description" content="A grande partida do Lucca e do Ravi est&#225; chegando! Abra o convite e venha comemorar esse dia especial com eles.">
+  <meta name="twitter:image" content="https://libriconvites.com.br/a-grande-partida-do-lucca-e-ravi/imagens/preview-otimizada.jpg?v=1">
+
+  <script>
+    /* LIBRI WEB | HTML + JSON SEPARADOS */
+    window.CONFIG_PROMISE = fetch("config.json", { cache: "no-store" })
+      .then((resposta) => {
+        if (!resposta.ok) throw new Error(`Falha ao carregar config.json: ${resposta.status}`);
+        return resposta.json();
+      });
+  </script>
+
+  <style>
+    :root {
+      --fundo: #000;
+      --transicao-video: 240ms;
+      /* PERSONALIZAR POR PROJETO */
+      --tema-escuro: #4F514B; /* fallback; CONFIG.tema sobrescreve */
+      --tema-principal: #8D9A86; /* fallback; CONFIG.tema sobrescreve */
+      --tema-claro: #EEF0EA; /* fallback; CONFIG.tema sobrescreve */
+      --tema-acento: #B8C7D1; /* fallback; CONFIG.tema sobrescreve */
+      --tema-superficie: #FFFCF6; /* fallback; CONFIG.tema sobrescreve */
+      --tema-texto: #4A4843; /* fallback; CONFIG.tema sobrescreve */
+      --branco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--fundo);
+      overscroll-behavior: none;
+    }
+
+    body {
+      position: fixed;
+      inset: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img,
+    video {
+      display: block;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    button,
+    a {
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .tela {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--fundo);
+    }
+
+    @supports (height: 100dvh) {
+      .tela { height: 100dvh; }
+    }
+
+    .quadro {
+      position: relative;
+      width: max(100vw, calc(100vh * 9 / 16));
+      height: max(100vh, calc(100vw * 16 / 9));
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    @supports (height: 100dvh) {
+      .quadro {
+        width: max(100vw, calc(100dvh * 9 / 16));
+        height: max(100dvh, calc(100vw * 16 / 9));
+      }
+    }
+
+    .arte,
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #finalTela {
+      z-index: 20;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    #finalTela.ativo { pointer-events: auto; }
+
+    #videoTela {
+      z-index: 30;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: transparent;
+      transition: opacity var(--transicao-video) ease;
+    }
+
+    #videoTela.ativo {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #videoTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #video { background: transparent; }
+
+    #capaTela {
+      z-index: 50;
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 180ms ease;
+    }
+
+    #capaTela.saindo {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #abrirConvite {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #pular {
+      position: fixed;
+      right: max(16px, calc(env(safe-area-inset-right) + 16px));
+      bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
+      z-index: 500;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(0,0,0,.48);
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease;
+    }
+
+    #pular.visivel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hotspot {
+      position: absolute;
+      z-index: 300;
+      display: block;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+      touch-action: manipulation;
+    }
+
+    #controleSom {
+      position: fixed;
+      top: max(14px, calc(env(safe-area-inset-top) + 8px));
+      right: max(16px, calc(env(safe-area-inset-right) + 16px));
+      z-index: 400;
+      width: 38px;
+      height: 38px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255,255,255,.30);
+      border-radius: 50%;
+      background: rgba(0,0,0,.38);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+    #controleSom.visivel { display: flex; }
+
+    #controleSom svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #iconeMudo { display: none; }
+    #controleSom.mudo #iconeSom { display: none; }
+    #controleSom.mudo #iconeMudo { display: block; }
+
+    .hotspot:focus-visible,
+    #abrirConvite:focus-visible,
+    #pular:focus-visible,
+    #controleSom:focus-visible,
+    .modal button:focus-visible,
+    #fecharPresentes:focus-visible,
+    #hotspotPix:focus-visible {
+      outline: 2px solid rgba(255,255,255,.96);
+      outline-offset: -3px;
+    }
+
+
+    .modal-fechar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 8;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 18%, transparent);
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--tema-superficie) 90%, #fff);
+      color: var(--tema-texto);
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* ==================================================
+       POP-UPS LIMPOS | LOCALIZACAO + PRESENTES
+       HARD LOCK: sem cabecalho externo, sem faixa superior,
+       sem botao grande FECHAR. Apenas X discreto.
+    ================================================== */
+
+    .modal,
+    .presentes-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(10px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(10px, env(safe-area-inset-left));
+      background: color-mix(in srgb, var(--tema-escuro) 68%, transparent);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .modal { z-index: 1000; }
+    .presentes-modal { z-index: 1200; }
+
+    .modal.aberto,
+    .presentes-modal.aberto {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .modal-card,
+
+    /* ==================================================
+       CONFIRMACAO VIA WHATSAPP | POP-UP DO PROJETO
+       Extensao consciente: recado aprovado antes do redirecionamento.
+    ================================================== */
+    .confirmacao-icone {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 28%, transparent);
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(145deg,
+        var(--tema-principal),
+        color-mix(in srgb, var(--tema-principal) 58%, var(--tema-escuro)));
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--tema-principal) 18%, transparent);
+    }
+
+    .confirmacao-icone svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .confirmacao-intro,
+    .confirmacao-prazo,
+    .confirmacao-recado,
+    .confirmacao-rodape {
+      margin: 0 auto 13px;
+      line-height: 1.45;
+      text-wrap: balance;
+    }
+
+    .confirmacao-intro {
+      max-width: 330px;
+      font-size: 15px;
+      color: color-mix(in srgb, var(--tema-texto) 86%, #fff);
+    }
+
+    .confirmacao-prazo {
+      max-width: 330px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      background: linear-gradient(135deg,
+        var(--tema-principal),
+        color-mix(in srgb, var(--tema-principal) 64%, var(--tema-escuro)));
+      box-shadow: 0 8px 20px rgba(0,0,0,.09);
+    }
+
+    .confirmacao-recado {
+      max-width: 350px;
+      padding: 14px 15px;
+      border: 1px solid color-mix(in srgb, var(--tema-acento) 28%, transparent);
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--tema-claro) 66%, #fff);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--tema-texto);
+    }
+
+    .confirmacao-rodape {
+      max-width: 330px;
+      margin-top: 13px;
+      font-size: 13px;
+      color: color-mix(in srgb, var(--tema-texto) 70%, #fff);
+    }
+
+    #confirmarPeloWhatsapp {
+      width: 100%;
+      min-height: 54px;
+    }
+
+    #hotspotPresentes[hidden],
+    #modalPresentes[hidden] {
+      display: none !important;
+    }
+
+    .presentes-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 24%, transparent);
+      border-radius: 30px;
+      box-shadow: 0 24px 74px rgba(0,0,0,.32);
+      transform: translateY(6px) scale(.99);
+      transition: transform 180ms ease;
+    }
+
+    .modal-card {
+      width: min(92vw, 430px);
+      max-height: calc(100dvh - 28px);
+      color: var(--tema-texto);
+      background:
+        linear-gradient(150deg,
+          color-mix(in srgb, var(--tema-superficie) 96%, #fff) 0%,
+          color-mix(in srgb, var(--tema-claro) 72%, #fff) 58%,
+          color-mix(in srgb, var(--tema-acento) 14%, #fff) 100%);
+    }
+
+    .modal-card::before,
+    .modal-card::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(.2px);
+    }
+
+    .modal-card::before {
+      width: 190px;
+      height: 190px;
+      top: -92px;
+      left: -62px;
+      background: radial-gradient(circle at 62% 62%,
+        color-mix(in srgb, var(--tema-principal) 34%, transparent) 0 20%,
+        color-mix(in srgb, var(--tema-principal) 14%, transparent) 42%,
+        transparent 70%);
+    }
+
+    .modal-card::after {
+      width: 210px;
+      height: 210px;
+      right: -92px;
+      bottom: -105px;
+      background: radial-gradient(circle at 38% 38%,
+        color-mix(in srgb, var(--tema-acento) 30%, transparent) 0 20%,
+        color-mix(in srgb, var(--tema-acento) 12%, transparent) 44%,
+        transparent 72%);
+    }
+
+    .modal.aberto .modal-card,
+    .presentes-modal.aberto .presentes-shell {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-conteudo {
+      position: relative;
+      z-index: 2;
+      padding: 36px 24px 24px;
+      text-align: center;
+    }
+
+    .localizacao-icone {
+      width: 62px;
+      height: 62px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 28%, transparent);
+      border-radius: 50%;
+      color: var(--tema-texto);
+      background:
+        linear-gradient(145deg,
+          color-mix(in srgb, var(--tema-claro) 78%, #fff),
+          color-mix(in srgb, var(--tema-acento) 22%, #fff));
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--tema-principal) 14%, transparent);
+    }
+
+    .localizacao-icone svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .modal-titulo {
+      margin: 0 42px 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 7vw, 31px);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--tema-texto);
+      text-wrap: balance;
+    }
+
+    .localizacao-divisor {
+      width: 74px;
+      height: 2px;
+      margin: 0 auto 17px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--tema-principal), var(--tema-acento));
+      opacity: .78;
+    }
+
+    .endereco {
+      margin: 0 auto 18px;
+      padding: 15px 16px;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 16%, transparent);
+      border-radius: 20px;
+      background: color-mix(in srgb, var(--tema-superficie) 82%, #fff);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+      font-size: 15px;
+      line-height: 1.58;
+      color: color-mix(in srgb, var(--tema-texto) 80%, #fff);
+    }
+
+    .modal-acoes {
+      display: grid;
+      gap: 10px;
+    }
+
+    .acao-principal,
+    .acao-rota {
+      min-height: 52px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 18px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .01em;
+      transition: transform 120ms ease, filter 120ms ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,.10);
+    }
+
+    .acao-principal {
+      color: #fff;
+      background: linear-gradient(135deg,
+        var(--tema-principal),
+        color-mix(in srgb, var(--tema-principal) 62%, var(--tema-escuro)));
+    }
+
+    .acao-rota {
+      color: var(--tema-texto);
+      border-color: color-mix(in srgb, var(--tema-acento) 28%, transparent);
+      background: linear-gradient(135deg,
+        color-mix(in srgb, var(--tema-acento) 54%, #fff),
+        color-mix(in srgb, var(--tema-claro) 76%, #fff));
+    }
+
+    .acao-principal:active,
+    .acao-rota:active {
+      transform: scale(.985);
+      filter: brightness(.98);
+    }
+
+    .presentes-shell {
+      width: min(94vw, 540px);
+      aspect-ratio: 9 / 16;
+      max-height: 94dvh;
+      background: #fff;
+    }
+
+    #presentesImagem {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    #hotspotPix {
+      z-index: 6;
+    }
+
+    #toastPix {
+      position: absolute;
+      left: 50%;
+      bottom: max(20px, env(safe-area-inset-bottom));
+      z-index: 9;
+      transform: translate(-50%, 10px);
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: rgba(112,75,58,.94);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    #toastPix.visivel {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #capaTela,
+      #videoTela,
+      #pular,
+      .modal,
+      .modal-card,
+      .presentes-modal,
+      #presentesImagem,
+      #toastPix {
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="finalTela" class="tela" aria-label="Convite final">
+    <div class="quadro">
+      <img
+        id="finalImagem"
+        class="arte"
+        alt="Convite final personalizado"
+        draggable="false"
+      >
+
+      <button
+        id="hotspotConfirmacao"
+        class="hotspot"
+        type="button"
+        aria-label="Confirmar presen&#231;a"
+      ></button>
+
+      <button
+        id="hotspotLocalizacao"
+        class="hotspot"
+        type="button"
+        aria-label="Ver localiza&#231;&#227;o"
+      ></button>
+
+      <button
+        id="hotspotPresentes"
+        class="hotspot"
+        type="button"
+        aria-label="Ver sugest&#245;es de presentes"
+      ></button>
+
+      <button
+        id="controleSom"
+        type="button"
+        aria-label="Ligar ou desligar m&#250;sica"
+      >
+        <svg id="iconeSom" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M16 9.5c.8.7 1.2 1.5 1.2 2.5s-.4 1.8-1.2 2.5"></path>
+          <path d="M18.5 7c1.5 1.3 2.3 3 2.3 5s-.8 3.7-2.3 5"></path>
+        </svg>
+        <svg id="iconeMudo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+          <path d="M17 9l4 4"></path>
+          <path d="M21 9l-4 4"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <section id="videoTela" class="tela" aria-label="V&#237;deo de abertura">
+    <div class="quadro">
+      <video
+        id="video"
+        playsinline
+        webkit-playsinline
+        preload="metadata"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback"
+      ></video>
+
+      <button id="pular" type="button" aria-label="Pular abertura">
+        Pular abertura
+      </button>
+    </div>
+  </section>
+
+  <section id="capaTela" class="tela" aria-label="Capa do convite">
+    <div class="quadro">
+      <img
+        id="capaImagem"
+        class="arte"
+        alt="Capa do convite personalizado"
+        draggable="false"
+      >
+
+      <button
+        id="abrirConvite"
+        type="button"
+        aria-label="Abrir convite"
+      ></button>
+    </div>
+  </section>
+
+  <div id="modalConfirmacao" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloConfirmacao">
+    <div class="modal-card">
+      <button id="fecharConfirmacao" class="modal-fechar" type="button" aria-label="Fechar confirma&#231;&#227;o">&times;</button>
+
+      <div class="modal-conteudo">
+        <div class="confirmacao-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12.5l4.2 4.2L19 7"></path>
+          </svg>
+        </div>
+        <h2 id="tituloConfirmacao" class="modal-titulo"></h2>
+        <div class="localizacao-divisor" aria-hidden="true"></div>
+        <p id="confirmacaoIntro" class="confirmacao-intro"></p>
+        <p id="confirmacaoPrazo" class="confirmacao-prazo"></p>
+        <p id="confirmacaoRecado" class="confirmacao-recado"></p>
+
+        <div class="modal-acoes">
+          <button id="confirmarPeloWhatsapp" class="acao-principal" type="button"></button>
+        </div>
+        <p id="confirmacaoRodape" class="confirmacao-rodape"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalLocalizacao" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloLocalizacao">
+    <div class="modal-card">
+      <button id="fecharLocalizacao" class="modal-fechar" type="button" aria-label="Fechar localiza&#231;&#227;o">&times;</button>
+
+      <div class="modal-conteudo">
+        <div class="localizacao-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11z"></path>
+            <circle cx="12" cy="10" r="2.2"></circle>
+          </svg>
+        </div>
+        <h2 id="tituloLocalizacao" class="modal-titulo"></h2>
+        <div class="localizacao-divisor" aria-hidden="true"></div>
+        <p id="enderecoTexto" class="endereco"></p>
+
+        <div class="modal-acoes">
+          <button id="abrirGoogleMaps" class="acao-principal" type="button"></button>
+          <button id="abrirWaze" class="acao-rota" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalPresentes" class="presentes-modal" role="dialog" aria-modal="true" aria-label="Sugest&#245;es de presentes">
+    <div class="presentes-shell">
+      <button id="fecharPresentes" class="modal-fechar" type="button" aria-label="Fechar sugest&#245;es de presentes">&times;</button>
+      <img id="presentesImagem" alt="Sugest&#245;es de presentes" draggable="false">
+      <button id="hotspotPix" class="hotspot" type="button" aria-label="Copiar chave Pix"></button>
+      <div id="toastPix" role="status" aria-live="polite">Chave Pix copiada!</div>
+    </div>
+  </div>
+
+  <audio id="musica" preload="metadata" loop></audio>
+
+  <script>
+    window.CONFIG_PROMISE.then((CONFIG) => {
+      "use strict";
+
+      if (CONFIG.tema) {
+        const raiz = document.documentElement;
+        const mapaTema = {
+          escuro: "--tema-escuro",
+          principal: "--tema-principal",
+          claro: "--tema-claro",
+          acento: "--tema-acento",
+          superficie: "--tema-superficie",
+          texto: "--tema-texto"
+        };
+        for (const [chave, variavel] of Object.entries(mapaTema)) {
+          if (CONFIG.tema[chave]) raiz.style.setProperty(variavel, CONFIG.tema[chave]);
+        }
+      }
+
+      const capaTela = document.getElementById("capaTela");
+      const videoTela = document.getElementById("videoTela");
+      const finalTela = document.getElementById("finalTela");
+
+      const capaImagem = document.getElementById("capaImagem");
+      const finalImagem = document.getElementById("finalImagem");
+      const video = document.getElementById("video");
+      const musica = document.getElementById("musica");
+
+      const abrirConvite = document.getElementById("abrirConvite");
+      const pular = document.getElementById("pular");
+      const controleSom = document.getElementById("controleSom");
+      const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
+      const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
+      const hotspotPresentes = document.getElementById("hotspotPresentes");
+
+      const modalConfirmacao = document.getElementById("modalConfirmacao");
+      const fecharConfirmacao = document.getElementById("fecharConfirmacao");
+      const tituloConfirmacao = document.getElementById("tituloConfirmacao");
+      const confirmacaoIntro = document.getElementById("confirmacaoIntro");
+      const confirmacaoPrazo = document.getElementById("confirmacaoPrazo");
+      const confirmacaoRecado = document.getElementById("confirmacaoRecado");
+      const confirmarPeloWhatsapp = document.getElementById("confirmarPeloWhatsapp");
+      const confirmacaoRodape = document.getElementById("confirmacaoRodape");
+
+      const modalLocalizacao = document.getElementById("modalLocalizacao");
+      const tituloLocalizacao = document.getElementById("tituloLocalizacao");
+      const enderecoTexto = document.getElementById("enderecoTexto");
+      const abrirGoogleMaps = document.getElementById("abrirGoogleMaps");
+      const abrirWaze = document.getElementById("abrirWaze");
+      const fecharLocalizacao = document.getElementById("fecharLocalizacao");
+
+      const modalPresentes = document.getElementById("modalPresentes");
+      const presentesImagem = document.getElementById("presentesImagem");
+      const hotspotPix = document.getElementById("hotspotPix");
+      const fecharPresentes = document.getElementById("fecharPresentes");
+      const toastPix = document.getElementById("toastPix");
+
+      let conviteAberto = false;
+      let finalAtivo = false;
+      let finalizando = false;
+      let somLigado = true;
+      let audioDisponivel = true;
+      let midiaAquecida = false;
+
+      let timerPular = null;
+      let rafFim = null;
+      let rafAudio = null;
+      let ultimoAjusteSincronia = 0;
+
+      let videoEstavaTocando = false;
+      let musicaEstavaTocando = false;
+
+      const urlArquivo = (caminho) =>
+        `${caminho}?v=${encodeURIComponent(CONFIG.versaoArquivos)}`;
+
+      function urlMidia(arquivo) {
+        const partes = arquivo
+          .split("/")
+          .map((parte) => encodeURIComponent(parte))
+          .join("/");
+
+        return `${CONFIG.hostMidia}/${CONFIG.pastaCliente}/${partes}?v=${encodeURIComponent(CONFIG.versaoMidia)}`;
+      }
+
+      const EXTENSOES_IMAGEM = [".jpg", ".jpeg", ".png", ".webp", ".avif"];
+
+      function temExtensaoImagem(caminho) {
+        const limpo = String(caminho || "")
+          .split("?")[0]
+          .split("#")[0];
+
+        return /\.(?:jpe?g|png|webp|avif)$/i.test(limpo);
+      }
+
+      async function resolverImagem(elemento, caminhoBase) {
+        if (!elemento || !caminhoBase) return false;
+
+        const bases = Array.isArray(caminhoBase)
+          ? caminhoBase.filter(Boolean)
+          : [caminhoBase];
+
+        const candidatos = [];
+
+        for (const base of bases) {
+          if (temExtensaoImagem(base)) {
+            candidatos.push(base);
+          } else {
+            for (const extensao of EXTENSOES_IMAGEM) {
+              candidatos.push(`${base}${extensao}`);
+            }
+          }
+        }
+
+        for (const candidato of candidatos) {
+          const carregou = await new Promise((resolve) => {
+            const aoCarregar = async () => {
+              elemento.removeEventListener("error", aoFalhar);
+
+              if (typeof elemento.decode === "function") {
+                await elemento.decode().catch(() => {});
+              }
+
+              resolve(true);
+            };
+
+            const aoFalhar = () => {
+              elemento.removeEventListener("load", aoCarregar);
+              resolve(false);
+            };
+
+            elemento.addEventListener("load", aoCarregar, { once: true });
+            elemento.addEventListener("error", aoFalhar, { once: true });
+            elemento.src = urlArquivo(candidato);
+          });
+
+          if (carregou) {
+            elemento.dataset.arquivoResolvido = candidato;
+            return candidato;
+          }
+        }
+
+        console.warn("[Libri] Imagem n\xe3o encontrada:", caminhoBase);
+        return false;
+      }
+
+      const capaCarregada = resolverImagem(capaImagem, CONFIG.capaArquivo);
+      let finalCarregado = null;
+      let presentesCarregado = null;
+
+      const carregarFinal = () => {
+        if (!finalCarregado) finalCarregado = resolverImagem(finalImagem, CONFIG.finalArquivo);
+        return finalCarregado;
+      };
+
+      const carregarPresentes = () => {
+        if (!CONFIG.presentesArquivo) return Promise.resolve(false);
+        if (!presentesCarregado) presentesCarregado = resolverImagem(presentesImagem, CONFIG.presentesArquivo);
+        return presentesCarregado;
+      };
+
+      if (!CONFIG.preloadInteligente) {
+        carregarFinal().catch(() => false);
+        carregarPresentes().catch(() => false);
+      }
+
+      video.src = urlMidia(CONFIG.videoArquivo);
+      musica.src = urlMidia(CONFIG.musicaArquivo);
+
+      video.preload = "metadata";
+      musica.preload = "metadata";
+      video.load();
+      musica.load();
+
+      function aquecerMidia() {
+        if (midiaAquecida) return;
+        midiaAquecida = true;
+        video.preload = "auto";
+        musica.preload = "auto";
+        video.load();
+        musica.load();
+      }
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(aquecerMidia, { timeout: 1400 });
+      } else {
+        setTimeout(aquecerMidia, 550);
+      }
+
+      function posicionar(elemento, dados) {
+        elemento.style.left = dados.left;
+        elemento.style.top = dados.top;
+        elemento.style.width = dados.width;
+        elemento.style.height = dados.height;
+      }
+
+      posicionar(hotspotConfirmacao, CONFIG.hotspotsFinal && CONFIG.hotspotsFinal.confirmacao);
+      posicionar(hotspotLocalizacao, CONFIG.hotspotsFinal && CONFIG.hotspotsFinal.localizacao);
+      posicionar(hotspotPresentes, CONFIG.hotspotsFinal && CONFIG.hotspotsFinal.presentes);
+      posicionar(hotspotPix, CONFIG.hotspotPresentes && CONFIG.hotspotPresentes.pix);
+
+      const presentesAtivos = Boolean(CONFIG.presentesArquivo);
+      hotspotPresentes.hidden = !presentesAtivos;
+      modalPresentes.hidden = !presentesAtivos;
+
+      const popupConfirmacao = CONFIG.confirmacaoPopup || {};
+      tituloConfirmacao.textContent = popupConfirmacao.titulo || "Antes de confirmar";
+      confirmacaoIntro.textContent = popupConfirmacao.intro || "";
+      confirmacaoPrazo.textContent = popupConfirmacao.prazo || "";
+      confirmacaoRecado.textContent = popupConfirmacao.recado || "";
+      confirmarPeloWhatsapp.textContent = popupConfirmacao.botao || "Confirmar pelo WhatsApp";
+      confirmacaoRodape.textContent = popupConfirmacao.rodape || "";
+
+      tituloLocalizacao.textContent = CONFIG.local.nome;
+      enderecoTexto.innerHTML = [
+        CONFIG.local.linha1,
+        CONFIG.local.linha2,
+        CONFIG.local.linha3
+      ].filter(Boolean).join("<br>");
+
+      abrirGoogleMaps.textContent = CONFIG.botoes.mapa;
+      abrirWaze.textContent = CONFIG.botoes.waze;
+
+      function esconderCapa() {
+        if (capaTela.classList.contains("saindo")) return;
+
+        capaTela.classList.add("saindo");
+
+        setTimeout(() => {
+          capaTela.style.visibility = "hidden";
+        }, 200);
+      }
+
+      function aguardarPrimeiroFrame(timeoutMs = 2600) {
+        return new Promise((resolve) => {
+          let finalizado = false;
+          let timer = null;
+
+          const done = () => {
+            if (finalizado) return;
+            finalizado = true;
+            clearTimeout(timer);
+            resolve(true);
+          };
+
+          timer = setTimeout(() => {
+            if (finalizado) return;
+            finalizado = true;
+            resolve(false);
+          }, timeoutMs);
+
+          if (typeof video.requestVideoFrameCallback === "function") {
+            video.requestVideoFrameCallback(() => done());
+            return;
+          }
+
+          if (video.readyState >= 2) {
+            requestAnimationFrame(done);
+            return;
+          }
+
+          video.addEventListener("loadeddata", done, { once: true });
+        });
+      }
+
+      function tempoEsperadoMusica() {
+        let esperado = Math.max(0, video.currentTime + CONFIG.inicioMusica);
+
+        if (Number.isFinite(musica.duration) && musica.duration > 0) {
+          esperado %= musica.duration;
+        }
+
+        return esperado;
+      }
+
+      function iniciarMusicaSilenciosa() {
+        musica.volume = 0.001;
+
+        try {
+          musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+        } catch (_) {}
+
+        const tentativa = musica.play();
+
+        if (tentativa && typeof tentativa.catch === "function") {
+          tentativa.catch(() => {
+            audioDisponivel = false;
+            controleSom.classList.remove("visivel");
+          });
+        }
+      }
+
+      function manterSincronia(forcar = false) {
+        if (
+          !audioDisponivel ||
+          finalAtivo ||
+          video.paused ||
+          musica.paused
+        ) {
+          return;
+        }
+
+        const agora = performance.now();
+
+        if (!forcar && agora - ultimoAjusteSincronia < 1000) {
+          return;
+        }
+
+        ultimoAjusteSincronia = agora;
+
+        const esperado = tempoEsperadoMusica();
+        const diferenca = Math.abs(musica.currentTime - esperado);
+
+        if (forcar || diferenca > 0.35) {
+          try {
+            musica.currentTime = esperado;
+          } catch (_) {}
+        }
+      }
+
+      function transicaoSuaveAudio(aoFinalizar) {
+        cancelAnimationFrame(rafAudio);
+
+        if (!audioDisponivel || musica.paused) {
+          aoFinalizar();
+          return;
+        }
+
+        const duracao = Math.max(120, CONFIG.transicaoAudio);
+        const inicio = performance.now();
+        const volumeVideoInicial = video.volume;
+        const volumeMusicaInicial = musica.volume;
+        const volumeMusicaFinal = somLigado ? CONFIG.volumeMusica : 0;
+
+        const animar = (agora) => {
+          const progresso = Math.min(1, (agora - inicio) / duracao);
+          const suave = progresso * progresso * (3 - 2 * progresso);
+
+          video.volume = Math.max(0, volumeVideoInicial * (1 - suave));
+          musica.volume = volumeMusicaInicial + (volumeMusicaFinal - volumeMusicaInicial) * suave;
+
+          if (progresso < 1) {
+            rafAudio = requestAnimationFrame(animar);
+            return;
+          }
+
+          video.volume = 0;
+          musica.volume = volumeMusicaFinal;
+          aoFinalizar();
+        };
+
+        rafAudio = requestAnimationFrame(animar);
+      }
+
+      async function iniciarConvite() {
+        if (conviteAberto) return;
+        conviteAberto = true;
+
+        aquecerMidia();
+
+        await capaCarregada.catch(() => false);
+        carregarFinal().catch(() => false);
+        carregarPresentes().catch(() => false);
+
+        videoTela.style.visibility = "visible";
+        videoTela.classList.remove("saindo");
+        videoTela.classList.add("ativo");
+
+        iniciarMusicaSilenciosa();
+        video.volume = 1;
+
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
+
+        const primeiroFrame = aguardarPrimeiroFrame();
+
+        try {
+          await video.play();
+          const framePronto = await primeiroFrame;
+          if (!framePronto) throw new Error("Primeiro frame indispon\xedvel");
+        } catch (_) {
+          /* Fallback sem tela preta: mantém a capa até o card final estar pronto. */
+          await carregarFinal().catch(() => false);
+
+          finalTela.classList.add("ativo");
+          finalAtivo = true;
+          finalizando = false;
+
+          video.pause();
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          if (audioDisponivel) {
+            musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+            controleSom.classList.add("visivel");
+          }
+
+          esconderCapa();
+          return;
+        }
+
+        esconderCapa();
+
+        pular.classList.add("visivel");
+        clearTimeout(timerPular);
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, CONFIG.tempoPular);
+
+        acompanharFinal();
+      }
+
+      function acompanharFinal() {
+        cancelAnimationFrame(rafFim);
+
+        const verificar = () => {
+          if (finalizando || finalAtivo) return;
+
+          manterSincronia();
+
+          if (Number.isFinite(video.duration) && video.duration > 0) {
+            const restante = video.duration - video.currentTime;
+
+            if (restante > 0 && restante <= 0.45) {
+              finalizarVideo();
+              return;
+            }
+          }
+
+          rafFim = requestAnimationFrame(verificar);
+        };
+
+        rafFim = requestAnimationFrame(verificar);
+      }
+
+      async function finalizarVideo() {
+        if (finalizando || finalAtivo) return;
+
+        manterSincronia(true);
+
+        finalizando = true;
+        clearTimeout(timerPular);
+        cancelAnimationFrame(rafFim);
+        pular.classList.remove("visivel");
+
+        await carregarFinal().catch(() => false);
+
+        finalTela.classList.add("ativo");
+        videoTela.classList.add("saindo");
+
+        transicaoSuaveAudio(() => {
+          video.pause();
+
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          video.volume = 1;
+          finalAtivo = true;
+          finalizando = false;
+
+          if (audioDisponivel) {
+            controleSom.classList.add("visivel");
+          }
+        });
+      }
+
+      function abrirLocalizacao() {
+        modalLocalizacao.classList.add("aberto");
+        fecharLocalizacao.focus();
+      }
+
+      function fecharLocalizacaoModal() {
+        modalLocalizacao.classList.remove("aberto");
+      }
+
+      function abrirDestino(url) {
+        const link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
+
+      function abrirConfirmacao() {
+        modalConfirmacao.classList.add("aberto");
+        fecharConfirmacao.focus();
+      }
+
+      function fecharConfirmacaoModal() {
+        modalConfirmacao.classList.remove("aberto");
+      }
+
+      function confirmarViaWhatsapp() {
+        fecharConfirmacaoModal();
+        abrirWhatsApp();
+      }
+
+      function abrirWhatsApp() {
+        const numero = String(CONFIG.numeroWhatsapp || "").replace(/\D/g, "");
+        if (!numero) return;
+        const texto = encodeURIComponent(CONFIG.mensagemWhatsapp || "");
+        const url = `https://wa.me/${numero}${texto ? `?text=${texto}` : ""}`;
+        abrirDestino(url);
+      }
+
+      async function abrirPresentes() {
+        modalPresentes.classList.add("aberto");
+        fecharPresentes.focus();
+        await carregarPresentes().catch(() => false);
+      }
+
+      function fecharPresentesModal() {
+        modalPresentes.classList.remove("aberto");
+        toastPix.classList.remove("visivel");
+      }
+
+      async function copiarChavePix() {
+        const chave = String(CONFIG.chavePix || "");
+        if (!chave) return;
+
+        let copiou = false;
+        if (navigator.clipboard && window.isSecureContext) {
+          try {
+            await navigator.clipboard.writeText(chave);
+            copiou = true;
+          } catch (_) {}
+        }
+
+        if (!copiou) {
+          const area = document.createElement("textarea");
+          area.value = chave;
+          area.setAttribute("readonly", "");
+          area.style.position = "fixed";
+          area.style.opacity = "0";
+          document.body.appendChild(area);
+          area.select();
+          try { copiou = document.execCommand("copy"); } catch (_) {}
+          area.remove();
+        }
+
+        if (copiou) {
+          toastPix.classList.add("visivel");
+          clearTimeout(copiarChavePix.timer);
+          copiarChavePix.timer = setTimeout(() => toastPix.classList.remove("visivel"), 1800);
+        }
+      }
+
+      function alternarSom() {
+        if (!audioDisponivel) return;
+
+        somLigado = !somLigado;
+        musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+        controleSom.classList.toggle("mudo", !somLigado);
+      }
+
+      function tratarVisibilidade() {
+        if (document.hidden) {
+          videoEstavaTocando = !video.paused && !finalAtivo && !finalizando;
+          musicaEstavaTocando = !musica.paused;
+
+          if (videoEstavaTocando) video.pause();
+          if (musicaEstavaTocando) musica.pause();
+          return;
+        }
+
+        if (videoEstavaTocando && !finalAtivo) {
+          video.play().then(acompanharFinal).catch(() => {});
+        }
+
+        if (musicaEstavaTocando && audioDisponivel) {
+          musica.play().catch(() => {});
+        }
+
+        videoEstavaTocando = false;
+        musicaEstavaTocando = false;
+      }
+
+      abrirConvite.addEventListener("click", iniciarConvite);
+      pular.addEventListener("click", finalizarVideo);
+      controleSom.addEventListener("click", alternarSom);
+
+      hotspotConfirmacao.addEventListener("click", abrirConfirmacao);
+      hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
+
+      confirmarPeloWhatsapp.addEventListener("click", confirmarViaWhatsapp);
+      fecharConfirmacao.addEventListener("click", fecharConfirmacaoModal);
+      modalConfirmacao.addEventListener("click", (event) => {
+        if (event.target === modalConfirmacao) fecharConfirmacaoModal();
+      });
+
+      if (presentesAtivos) {
+        hotspotPresentes.addEventListener("click", abrirPresentes);
+        hotspotPix.addEventListener("click", copiarChavePix);
+        fecharPresentes.addEventListener("click", fecharPresentesModal);
+        modalPresentes.addEventListener("click", (event) => {
+          if (event.target === modalPresentes) fecharPresentesModal();
+        });
+      }
+
+      abrirGoogleMaps.addEventListener("click", () => abrirDestino(CONFIG.linkMapa));
+      abrirWaze.addEventListener("click", () => abrirDestino(CONFIG.linkWaze));
+      fecharLocalizacao.addEventListener("click", fecharLocalizacaoModal);
+
+      modalLocalizacao.addEventListener("click", (event) => {
+        if (event.target === modalLocalizacao) fecharLocalizacaoModal();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+
+        if (modalConfirmacao.classList.contains("aberto")) {
+          fecharConfirmacaoModal();
+          return;
+        }
+
+        if (presentesAtivos && modalPresentes.classList.contains("aberto")) {
+          fecharPresentesModal();
+          return;
+        }
+
+        if (modalLocalizacao.classList.contains("aberto")) {
+          fecharLocalizacaoModal();
+        }
+      });
+
+      video.addEventListener("timeupdate", () => {
+        if (finalizando || finalAtivo) return;
+
+        manterSincronia();
+
+        if (
+          Number.isFinite(video.duration) &&
+          video.duration > 0 &&
+          (video.duration - video.currentTime) <= 0.45
+        ) {
+          finalizarVideo();
+        }
+      });
+
+      video.addEventListener("ended", finalizarVideo);
+
+      video.addEventListener("error", () => {
+        if (conviteAberto && !finalAtivo) {
+          esconderCapa();
+          finalizarVideo();
+        }
+      });
+
+      musica.addEventListener("error", () => {
+        audioDisponivel = false;
+        controleSom.classList.remove("visivel");
+      });
+
+      document.addEventListener("visibilitychange", tratarVisibilidade);
+
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted && finalAtivo && audioDisponivel) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
+      });
+
+      document.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      document.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+    }).catch((erro) => {
+      console.error("[Libri] Falha ao iniciar convite:", erro);
+      document.body.innerHTML = `<div style="min-height:100dvh;display:grid;place-items:center;background:#000;color:#fff;font:16px Arial;padding:24px;text-align:center">N&#227;o foi poss&#237;vel carregar o convite.</div>`;
+    });
+  </script>
+</body>
+</html>

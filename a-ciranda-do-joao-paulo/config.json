@@ -1,0 +1,40 @@
+{
+  "tituloPagina": "A Ciranda do João Paulo | Um Quintal de Cantigas",
+  "pastaCliente": "a-ciranda-do-joao-paulo",
+
+  "hostMidia": "https://midia.libriconvites.com.br",
+
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 5000,
+  "preloadInteligente": true,
+
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/a-ciranda-do-joao-paulo",
+
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "17.96%",
+      "top": "70.69%",
+      "width": "43.25%",
+      "height": "6.76%"
+    }
+  },
+
+  "tema": {
+    "escuro": "#203B52",
+    "principal": "#C47A5A",
+    "claro": "#F5F1EB",
+    "acento": "#D4B06A",
+    "superficie": "#F5F1EB",
+    "texto": "#594139"
+  }
+}

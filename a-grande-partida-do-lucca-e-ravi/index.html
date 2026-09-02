@@ -980,6 +980,7 @@
       }
 
       function posicionar(elemento, dados) {
+        if (!elemento || !dados) return;
         elemento.style.left = dados.left;
         elemento.style.top = dados.top;
         elemento.style.width = dados.width;

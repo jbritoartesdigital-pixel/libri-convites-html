@@ -1088,9 +1088,12 @@
         if (conviteAberto) return;
         conviteAberto = true;
 
-        /* Pular abertura: aparece assim que o vídeo começa e fica disponível por 7 s. */
+        /* Pular abertura: disponível IMEDIATAMENTE após o clique e por 7 s. */
         clearTimeout(timerPular);
-        pular.classList.remove("visivel");
+        pular.classList.add("visivel");
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, Number(CONFIG.tempoPular) || 7000);
 
         aquecerMidia();
 
@@ -1116,6 +1119,8 @@
           if (!framePronto) throw new Error("Primeiro frame indispon\xedvel");
         } catch (_) {
           /* Fallback sem tela preta: mantém a capa até o card final estar pronto. */
+          clearTimeout(timerPular);
+          pular.classList.remove("visivel");
           await carregarFinal().catch(() => false);
 
           finalTela.classList.add("ativo");
@@ -1138,13 +1143,7 @@
 
         esconderCapa();
 
-        /* Decisão aprovada deste projeto: Pular aparece de cara e some após a janela configurada. */
-        pular.classList.add("visivel");
-        clearTimeout(timerPular);
-        timerPular = setTimeout(() => {
-          pular.classList.remove("visivel");
-        }, Number(CONFIG.tempoPular) || 7000);
-
+        /* O timer do Pular já começou no clique; não reiniciar aqui. */
         acompanharFinal();
       }
 
@@ -1365,6 +1364,8 @@
         if (!conviteAberto || finalAtivo) return;
 
         /* Fallback sem flash preto: manter a capa ate o Card Final estar pronto. */
+        clearTimeout(timerPular);
+        pular.classList.remove("visivel");
         await carregarFinal().catch(() => false);
 
         finalTela.classList.add("ativo");

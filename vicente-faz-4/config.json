@@ -1,0 +1,51 @@
+{
+  "tituloPagina": "Vicente Faz 4! | Libri Convites",
+  "pastaCliente": "vicente-faz-4",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/vicente-faz-4",
+  "local": {
+    "nome": "Sal\u00e3o de festas | Ed. Palazzo San Pietro",
+    "linha1": "Rua Doutor Gen\u00e9sio Salles, 797",
+    "linha2": "Vila Laura",
+    "linha3": "Salvador - BA | CEP 40270-240"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Rua%20Doutor%20Gen%C3%A9sio%20Salles%2C%20797%2C%20Vila%20Laura%2C%20Salvador%20-%20BA%2C%2040270-240",
+  "linkWaze": "https://www.waze.com/ul?q=Rua%20Doutor%20Gen%C3%A9sio%20Salles%2C%20797%2C%20Vila%20Laura%2C%20Salvador%20-%20BA%2C%2040270-240&navigate=yes",
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "33.69%",
+      "top": "64.59%",
+      "width": "31.35%",
+      "height": "5.02%"
+    },
+    "localizacao": {
+      "left": "33.58%",
+      "top": "70.63%",
+      "width": "31.24%",
+      "height": "4.61%"
+    }
+  },
+  "tema": {
+    "escuro": "#24476B",
+    "principal": "#4F86B8",
+    "claro": "#DCEEFF",
+    "acento": "#F4C95D",
+    "superficie": "#FFFDF7",
+    "texto": "#24476B"
+  }
+}

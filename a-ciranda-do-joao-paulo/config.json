@@ -11,7 +11,7 @@
   "inicioMusica": 0,
   "volumeMusica": 0.5,
   "transicaoAudio": 260,
-  "tempoPular": 5000,
+  "tempoPular": 700,
   "preloadInteligente": true,
   "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/a-ciranda-do-joao-paulo",
   "hotspotsFinal": {

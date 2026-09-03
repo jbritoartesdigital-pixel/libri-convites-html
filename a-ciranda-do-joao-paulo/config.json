@@ -1,5 +1,5 @@
 {
-  "tituloPagina": "A Ciranda do Jo\u00e3o Paulo | Um Quintal de Cantigas",
+  "tituloPagina": "A Ciranda do João Paulo | Um Quintal de Cantigas",
   "pastaCliente": "a-ciranda-do-joao-paulo",
   "hostMidia": "https://midia.libriconvites.com.br",
   "capaArquivo": "imagens/capa",
@@ -11,7 +11,7 @@
   "inicioMusica": 0,
   "volumeMusica": 0.5,
   "transicaoAudio": 260,
-  "tempoPular": 700,
+  "tempoPular": 7000,
   "preloadInteligente": true,
   "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/a-ciranda-do-joao-paulo",
   "hotspotsFinal": {

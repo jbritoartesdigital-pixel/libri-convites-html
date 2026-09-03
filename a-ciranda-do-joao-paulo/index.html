@@ -746,10 +746,6 @@
         disablepictureinpicture
         controlslist="nodownload noplaybackrate noremoteplayback"
       ></video>
-
-      <button id="pular" type="button" aria-label="Pular abertura">
-        Pular abertura
-      </button>
     </div>
   </section>
 
@@ -769,10 +765,10 @@
       ></button>
     </div>
   </section>
-    </div>
-  </div>
-  </div>
 
+  <button id="pular" type="button" aria-label="Pular abertura">
+    Pular abertura
+  </button>
 
   <div id="modalRsvp" class="rsvp-modal" role="dialog" aria-modal="true" aria-label="Confirmar presen&#231;a">
     <div class="rsvp-shell">
@@ -1092,6 +1088,15 @@
         if (conviteAberto) return;
         conviteAberto = true;
 
+        /* Pular abertura: fade-in rápido, sem depender do primeiro frame do vídeo. */
+        clearTimeout(timerPular);
+        pular.classList.remove("visivel");
+        timerPular = setTimeout(() => {
+          if (!finalAtivo && !finalizando) {
+            pular.classList.add("visivel");
+          }
+        }, Number(CONFIG.tempoPular) || 700);
+
         aquecerMidia();
 
         await capaCarregada.catch(() => false);
@@ -1138,12 +1143,6 @@
 
         esconderCapa();
 
-        pular.classList.add("visivel");
-        clearTimeout(timerPular);
-        timerPular = setTimeout(() => {
-          pular.classList.remove("visivel");
-        }, CONFIG.tempoPular);
-
         acompanharFinal();
       }
 
@@ -1183,6 +1182,7 @@
         await carregarFinal().catch(() => false);
 
         finalTela.classList.add("ativo");
+        esconderCapa();
         videoTela.classList.add("saindo");
 
         transicaoSuaveAudio(() => {

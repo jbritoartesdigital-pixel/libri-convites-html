@@ -66,9 +66,11 @@
   "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Bnickname%5D=Espa%C3%A7o+Carol+Festas&dropoff%5Bformatted_address%5D=Rua+Osmar+Leite+Tormin%2C+Quadra+34%2C+Lote+08%2C+Engenheiro+Jofre+Parada%2C+Luzi%C3%A2nia+-+GO%2C+72811-390",
   "aberturaInterativa": {
     "modoPreferencial": "agitar",
-    "fallback": "toque_somente_se_agitar_falhar_ou_nao_for_suportado",
-    "mensagemFallback": "Não iniciou? Toque na tela ✨",
-    "shakeThreshold": 22,
-    "shakeCooldownMs": 1200
+    "shakeLinearThreshold": 7.5,
+    "shakeGravityDeltaThreshold": 9.5,
+    "rotationThreshold": 120,
+    "shakeCooldownMs": 900,
+    "fallbackSensor": "Não iniciou ao agitar? Toque na tela ✨",
+    "fallbackAutoplay": "video_mudo + toque_para_ativar_som"
   }
 }

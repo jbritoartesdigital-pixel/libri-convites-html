@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- LIBRI WEB | INDEX OFICIAL V1.5 | THAYLA FINAL | EXTENSOES APROVADAS: RSVP + FILTRO + SHAKE + PRESENTES 4:5
+<!-- LIBRI WEB | INDEX OFICIAL V1.5 | THAYLA FINAL | EXTENSOES APROVADAS: RSVP EMBUTIDO + FILTRO + SHAKE + PRESENTES 9:16
      BASE: motor validado no projeto Lorena Thomas, sanitizado para reutilizacao.
      EDITAR POR PROJETO: metatags OG/Twitter, theme-color e config.json.
      NAO refatorar o motor silenciosamente. -->
@@ -249,6 +249,39 @@
       visibility: visible;
     }
 
+    .som-fallback {
+      position: fixed;
+      left: 50%;
+      bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
+      z-index: 520;
+      transform: translateX(-50%);
+      min-height: 38px;
+      max-width: calc(100% - 34px);
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,.52);
+      border-radius: 999px;
+      background: rgba(0,0,0,.46);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      white-space: nowrap;
+      cursor: pointer;
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .som-fallback.visivel {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
     .hotspot {
       position: absolute;
       z-index: 300;
@@ -301,6 +334,7 @@
     .hotspot:focus-visible,
     #abrirConvite:focus-visible,
     #pular:focus-visible,
+    .som-fallback:focus-visible,
     #controleSom:focus-visible,
     .modal button:focus-visible,
     #fecharPresentes:focus-visible {
@@ -541,7 +575,7 @@
 
     .presentes-shell {
       width: min(94vw, 540px);
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 9 / 16;
       max-height: 94dvh;
       background: #fff;
     }
@@ -555,6 +589,122 @@
       background: #fff;
     }
 
+
+    /* ==================================================
+       RSVP EMBUTIDO | POP-UP LIMPO
+       Fonte: variante Libri RSVP aprovada.
+       Sem cabecalho externo, sem rodape visual fixo.
+       Apenas X discreto + iframe.
+    ================================================== */
+
+    .rsvp-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:
+        max(8px, env(safe-area-inset-top))
+        max(8px, env(safe-area-inset-right))
+        max(8px, env(safe-area-inset-bottom))
+        max(8px, env(safe-area-inset-left));
+      background: color-mix(in srgb, var(--tema-escuro) 68%, transparent);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .rsvp-modal.aberto {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .rsvp-shell {
+      position: relative;
+      width: min(96vw, 640px);
+      height: min(94vh, 900px);
+      max-height: calc(100vh - 18px);
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--tema-texto) 12%, transparent);
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 22px 70px rgba(0,0,0,.34);
+      transform: translateY(6px) scale(.99);
+      transition: transform 180ms ease;
+    }
+
+    @supports (height: 100dvh) {
+      .rsvp-shell {
+        height: min(94dvh, 900px);
+        max-height: calc(100dvh - 18px);
+      }
+    }
+
+    .rsvp-modal.aberto .rsvp-shell {
+      transform: translateY(0) scale(1);
+    }
+
+    #fecharRsvp {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 8;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 18%, transparent);
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--tema-superficie) 90%, #fff);
+      color: var(--tema-texto);
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    #rsvpFrame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+
+    #rsvpFrame.pronto {
+      opacity: 1;
+    }
+
+    .rsvp-loading {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #fff;
+      color: color-mix(in srgb, var(--tema-texto) 68%, #fff);
+      text-align: center;
+    }
+
+    .rsvp-loading.oculto {
+      display: none;
+    }
+
+    .rsvp-fallback {
+      display: none;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       #capaTela,
       #videoTela,
@@ -562,6 +712,8 @@
       .modal,
       .modal-card,
       .presentes-modal,
+      .rsvp-modal,
+      #rsvpFrame,
       #presentesImagem {
         transition-duration: 1ms !important;
       }
@@ -640,6 +792,15 @@
       <button id="pular" type="button" aria-label="Pular abertura">
         Pular abertura
       </button>
+
+      <button
+        id="ativarSomFallback"
+        class="som-fallback"
+        type="button"
+        aria-label="Ativar som"
+      >
+        Toque para ativar o som ✨
+      </button>
     </div>
   </section>
 
@@ -686,6 +847,32 @@
     </div>
   </div>
 
+  <div id="modalRsvp" class="rsvp-modal" role="dialog" aria-modal="true" aria-label="Confirmar presen&#231;a">
+    <div class="rsvp-shell">
+      <button id="fecharRsvp" type="button" aria-label="Fechar confirma&#231;&#227;o">&times;</button>
+
+      <div id="rsvpLoading" class="rsvp-loading">
+        Carregando confirma&#231;&#227;o...
+      </div>
+
+      <iframe
+        id="rsvpFrame"
+        title="Confirma&#231;&#227;o de presen&#231;a"
+        loading="eager"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+
+      <a
+        id="rsvpFallback"
+        class="rsvp-fallback"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-hidden="true"
+        tabindex="-1"
+      >Abrir confirma&#231;&#227;o em nova p&#225;gina</a>
+    </div>
+  </div>
+
   <div id="modalPresentes" class="presentes-modal" role="dialog" aria-modal="true" aria-label="Sugest&#245;es de presentes">
     <div class="presentes-shell">
       <button id="fecharPresentes" class="modal-fechar" type="button" aria-label="Fechar sugest&#245;es de presentes">&times;</button>
@@ -726,6 +913,7 @@
       const abrirConvite = document.getElementById("abrirConvite");
       const motionHint = document.getElementById("motionHint");
       const pular = document.getElementById("pular");
+      const ativarSomFallback = document.getElementById("ativarSomFallback");
       const controleSom = document.getElementById("controleSom");
       const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
       const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
@@ -739,6 +927,12 @@
       const abrirWaze = document.getElementById("abrirWaze");
       const abrirUber = document.getElementById("abrirUber");
       const fecharLocalizacao = document.getElementById("fecharLocalizacao");
+
+      const modalRsvp = document.getElementById("modalRsvp");
+      const rsvpFrame = document.getElementById("rsvpFrame");
+      const rsvpLoading = document.getElementById("rsvpLoading");
+      const rsvpFallback = document.getElementById("rsvpFallback");
+      const fecharRsvp = document.getElementById("fecharRsvp");
 
       const modalPresentes = document.getElementById("modalPresentes");
       const presentesImagem = document.getElementById("presentesImagem");
@@ -755,6 +949,9 @@
       let midiaDesbloqueada = false;
       let ultimoShake = 0;
       let ultimaAceleracao = null;
+      let recebeuEventoMovimento = false;
+      let videoRsvpEstavaTocando = false;
+      let timerRsvpFallback = null;
 
       let timerPular = null;
       let rafFim = null;
@@ -1119,33 +1316,61 @@
       function detectarShake(event) {
         if (conviteAberto || !movimentoArmado) return;
 
-        const a = event.accelerationIncludingGravity || event.acceleration;
-        if (!a) return;
-
-        const atual = {
-          x: Number(a.x || 0),
-          y: Number(a.y || 0),
-          z: Number(a.z || 0)
-        };
-
-        if (!ultimaAceleracao) {
-          ultimaAceleracao = atual;
-          return;
-        }
-
-        const delta =
-          Math.abs(atual.x - ultimaAceleracao.x) +
-          Math.abs(atual.y - ultimaAceleracao.y) +
-          Math.abs(atual.z - ultimaAceleracao.z);
-
-        ultimaAceleracao = atual;
-
+        recebeuEventoMovimento = true;
         const agora = performance.now();
 
-        if (delta >= 22 && agora - ultimoShake > 1200) {
-          ultimoShake = agora;
-          esconderDicaMovimento();
-          iniciarConvite("shake");
+        const linear = event.acceleration;
+        if (linear) {
+          const lx = Number(linear.x || 0);
+          const ly = Number(linear.y || 0);
+          const lz = Number(linear.z || 0);
+          const intensidadeLinear = Math.sqrt(lx * lx + ly * ly + lz * lz);
+
+          if (intensidadeLinear >= 7.5 && agora - ultimoShake > 900) {
+            ultimoShake = agora;
+            esconderDicaMovimento();
+            iniciarConvite("shake");
+            return;
+          }
+        }
+
+        const a = event.accelerationIncludingGravity;
+        if (a) {
+          const atual = {
+            x: Number(a.x || 0),
+            y: Number(a.y || 0),
+            z: Number(a.z || 0)
+          };
+
+          if (ultimaAceleracao) {
+            const dx = atual.x - ultimaAceleracao.x;
+            const dy = atual.y - ultimaAceleracao.y;
+            const dz = atual.z - ultimaAceleracao.z;
+            const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+            if (delta >= 9.5 && agora - ultimoShake > 900) {
+              ultimoShake = agora;
+              esconderDicaMovimento();
+              iniciarConvite("shake");
+              return;
+            }
+          }
+
+          ultimaAceleracao = atual;
+        }
+
+        const r = event.rotationRate;
+        if (r) {
+          const alpha = Math.abs(Number(r.alpha || 0));
+          const beta = Math.abs(Number(r.beta || 0));
+          const gamma = Math.abs(Number(r.gamma || 0));
+          const rotacao = alpha + beta + gamma;
+
+          if (rotacao >= 120 && agora - ultimoShake > 900) {
+            ultimoShake = agora;
+            esconderDicaMovimento();
+            iniciarConvite("shake");
+          }
         }
       }
 
@@ -1154,7 +1379,14 @@
 
         movimentoArmado = true;
         ultimaAceleracao = null;
+        recebeuEventoMovimento = false;
         window.addEventListener("devicemotion", detectarShake, { passive: true });
+
+        setTimeout(() => {
+          if (!conviteAberto && movimentoArmado && !recebeuEventoMovimento) {
+            mostrarDicaMovimento("Não iniciou ao agitar? Toque na tela ✨");
+          }
+        }, 1800);
       }
 
       async function abrirPorToqueFallback() {
@@ -1235,60 +1467,74 @@
 
         const primeiroFrame = aguardarPrimeiroFrame();
 
+        let iniciouMudoPorPolitica = false;
+
         try {
+          video.muted = false;
           await video.play();
+
           const framePronto = await primeiroFrame;
           if (!framePronto) throw new Error("Primeiro frame indisponível");
         } catch (_) {
-          /*
-            Shake reconhecido, mas autoplay/reprodução bloqueada:
-            mantém a capa válida e oferece um único toque como fallback.
-          */
-          if (origem === "shake" && !midiaDesbloqueada) {
-            conviteAberto = false;
+          if (origem === "shake") {
+            try {
+              video.muted = true;
+              try { video.currentTime = 0; } catch (_) {}
+
+              await video.play();
+
+              const frameProntoMudo = await aguardarPrimeiroFrame();
+              if (!frameProntoMudo) {
+                throw new Error("Primeiro frame mudo indisponível");
+              }
+
+              iniciouMudoPorPolitica = true;
+              audioDisponivel = false;
+            } catch (_) {
+              conviteAberto = false;
+              finalizando = false;
+              finalAtivo = false;
+              movimentoArmado = false;
+
+              clearTimeout(timerPular);
+              pular.classList.remove("visivel");
+
+              try { video.pause(); } catch (_) {}
+              try { video.currentTime = 0; } catch (_) {}
+              try { musica.pause(); } catch (_) {}
+
+              video.muted = false;
+              videoTela.classList.remove("ativo");
+              videoTela.classList.remove("saindo");
+              videoTela.style.visibility = "hidden";
+
+              mostrarDicaMovimento("Não iniciou? Toque na tela ✨");
+              return;
+            }
+          } else {
+            await carregarFinal().catch(() => false);
+
+            finalTela.classList.add("ativo");
+            finalAtivo = true;
             finalizando = false;
-            finalAtivo = false;
-            movimentoArmado = false;
 
-            clearTimeout(timerPular);
-            pular.classList.remove("visivel");
-
-            try { video.pause(); } catch (_) {}
-            try { video.currentTime = 0; } catch (_) {}
-            try { musica.pause(); } catch (_) {}
-
-            audioDisponivel = true;
-
+            video.pause();
             videoTela.classList.remove("ativo");
             videoTela.classList.remove("saindo");
             videoTela.style.visibility = "hidden";
 
-            mostrarDicaMovimento("Não iniciou? Toque na tela ✨");
+            if (audioDisponivel) {
+              musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+              controleSom.classList.add("visivel");
+            }
+
+            esconderCapa();
             return;
           }
+        }
 
-          /*
-            Falha real após toque:
-            preserva o baseline contra tela preta e cai no Card Final.
-          */
-          await carregarFinal().catch(() => false);
-
-          finalTela.classList.add("ativo");
-          finalAtivo = true;
-          finalizando = false;
-
-          video.pause();
-          videoTela.classList.remove("ativo");
-          videoTela.classList.remove("saindo");
-          videoTela.style.visibility = "hidden";
-
-          if (audioDisponivel) {
-            musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-            controleSom.classList.add("visivel");
-          }
-
-          esconderCapa();
-          return;
+        if (iniciouMudoPorPolitica) {
+          ativarSomFallback.classList.add("visivel");
         }
 
         esconderCapa();
@@ -1328,6 +1574,7 @@
 
       async function finalizarVideo() {
         if (finalizando || finalAtivo) return;
+        ativarSomFallback.classList.remove("visivel");
 
         manterSincronia(true);
 
@@ -1335,6 +1582,7 @@
         clearTimeout(timerPular);
         cancelAnimationFrame(rafFim);
         pular.classList.remove("visivel");
+        ativarSomFallback.classList.remove("visivel");
 
         await carregarFinal().catch(() => false);
 
@@ -1377,9 +1625,84 @@
         link.remove();
       }
 
-      function abrirConfirmacao() {
+      function urlRsvpEmbed() {
+        const url = new URL(CONFIG.linkConfirmacao);
+        url.searchParams.set("embed", "1");
+        return url.toString();
+      }
+
+      function videoPrincipal() {
+        return document.getElementById("video") || null;
+      }
+
+      function mostrarRsvpCarregado() {
+        if (!modalRsvp.classList.contains("aberto")) return;
+
+        clearTimeout(timerRsvpFallback);
+        timerRsvpFallback = null;
+        rsvpLoading.classList.add("oculto");
+        rsvpFrame.classList.add("pronto");
+      }
+
+      function abrirRsvp() {
         if (!CONFIG.linkConfirmacao) return;
-        abrirDestino(CONFIG.linkConfirmacao);
+
+        const videoPrincipalAtual = videoPrincipal();
+
+        videoRsvpEstavaTocando = Boolean(
+          videoPrincipalAtual &&
+          !videoPrincipalAtual.paused &&
+          !finalAtivo
+        );
+
+        if (videoRsvpEstavaTocando) {
+          videoPrincipalAtual.pause();
+        }
+
+        /*
+          A musica permanece sob o controle do convite.
+          Nao pausar, reiniciar, mutar ou reposicionar ao abrir RSVP.
+        */
+        clearTimeout(timerRsvpFallback);
+        timerRsvpFallback = null;
+
+        rsvpLoading.classList.remove("oculto");
+        rsvpFrame.classList.remove("pronto");
+        rsvpFallback.href = CONFIG.linkConfirmacao;
+
+        modalRsvp.classList.add("aberto");
+        fecharRsvp.focus();
+
+        requestAnimationFrame(() => {
+          rsvpFrame.src = urlRsvpEmbed();
+        });
+
+        timerRsvpFallback = setTimeout(() => {
+          mostrarRsvpCarregado();
+        }, 3500);
+      }
+
+      function fecharRsvpModal() {
+        modalRsvp.classList.remove("aberto");
+
+        clearTimeout(timerRsvpFallback);
+        timerRsvpFallback = null;
+
+        const videoPrincipalAtual = videoPrincipal();
+
+        if (videoPrincipalAtual && videoRsvpEstavaTocando) {
+          videoPrincipalAtual.play().catch(() => {});
+        }
+
+        videoRsvpEstavaTocando = false;
+
+        setTimeout(() => {
+          if (!modalRsvp.classList.contains("aberto")) {
+            rsvpFrame.src = "about:blank";
+            rsvpFrame.classList.remove("pronto");
+            rsvpLoading.classList.remove("oculto");
+          }
+        }, 220);
       }
 
       function abrirFiltro() {
@@ -1437,9 +1760,33 @@
       */
       abrirConvite.addEventListener("click", abrirPorToqueFallback);
       pular.addEventListener("click", finalizarVideo);
+      ativarSomFallback.addEventListener("click", async () => {
+        try {
+          audioDisponivel = true;
+          video.muted = false;
+          video.volume = 1;
+
+          try {
+            musica.currentTime = tempoEsperadoMusica();
+          } catch (_) {}
+
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+
+          const tentativaMusica = musica.play();
+          if (tentativaMusica && typeof tentativaMusica.catch === "function") {
+            await tentativaMusica.catch(() => {});
+          }
+
+          ativarSomFallback.classList.remove("visivel");
+          controleSom.classList.add("visivel");
+        } catch (_) {
+          ativarSomFallback.textContent = "Toque novamente para ativar o som";
+        }
+      });
+
       controleSom.addEventListener("click", alternarSom);
 
-      hotspotConfirmacao.addEventListener("click", abrirConfirmacao);
+      hotspotConfirmacao.addEventListener("click", abrirRsvp);
       hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
       hotspotPresentes.addEventListener("click", abrirPresentes);
       hotspotFiltro.addEventListener("click", abrirFiltro);
@@ -1455,6 +1802,42 @@
         }
       });
 
+      fecharRsvp.addEventListener("click", fecharRsvpModal);
+
+      modalRsvp.addEventListener("click", (event) => {
+        if (event.target === modalRsvp) {
+          fecharRsvpModal();
+        }
+      });
+
+      rsvpFrame.addEventListener("load", () => {
+        if (!modalRsvp.classList.contains("aberto")) return;
+        if (!rsvpFrame.src || rsvpFrame.src === "about:blank") return;
+        mostrarRsvpCarregado();
+      });
+
+      window.addEventListener("message", (event) => {
+        if (event.origin !== "https://confirmacao.libriconvites.com.br") return;
+        if (event.source !== rsvpFrame.contentWindow) return;
+
+        const data = event.data;
+        if (!data || data.source !== "libri-rsvp") return;
+
+        if (data.type === "libri-rsvp-ready") {
+          mostrarRsvpCarregado();
+          return;
+        }
+
+        if (data.type === "libri-rsvp-complete") {
+          modalRsvp.dataset.status = data.status || "";
+          return;
+        }
+
+        if (data.type === "libri-rsvp-close") {
+          fecharRsvpModal();
+        }
+      });
+
       fecharPresentes.addEventListener("click", fecharPresentesModal);
 
       modalPresentes.addEventListener("click", (event) => {
@@ -1465,6 +1848,11 @@
 
       document.addEventListener("keydown", (event) => {
         if (event.key !== "Escape") return;
+
+        if (modalRsvp.classList.contains("aberto")) {
+          fecharRsvpModal();
+          return;
+        }
 
         if (modalPresentes.classList.contains("aberto")) {
           fecharPresentesModal();

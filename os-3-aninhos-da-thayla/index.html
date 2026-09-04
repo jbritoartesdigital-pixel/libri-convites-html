@@ -61,6 +61,133 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    .preentrada {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(216,182,91,.18), transparent 30%),
+        radial-gradient(circle at 82% 24%, rgba(120,185,77,.22), transparent 34%),
+        linear-gradient(160deg, #20361f 0%, #304A2C 48%, #4f6d36 100%);
+      color: #fff;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 220ms ease, visibility 220ms ease;
+    }
+
+    .preentrada.saindo {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .preentrada::before,
+    .preentrada::after {
+      content: "";
+      position: absolute;
+      width: 42vmin;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.11);
+      filter: blur(.2px);
+      pointer-events: none;
+    }
+
+    .preentrada::before {
+      left: -14vmin;
+      bottom: -12vmin;
+    }
+
+    .preentrada::after {
+      right: -12vmin;
+      top: -10vmin;
+    }
+
+    .preentrada-card {
+      position: relative;
+      z-index: 2;
+      width: min(92vw, 430px);
+      padding: 30px 24px 24px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 30px;
+      background: rgba(255,255,255,.10);
+      box-shadow: 0 24px 70px rgba(0,0,0,.26);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      text-align: center;
+    }
+
+    .preentrada-brilho {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .preentrada-titulo {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 7vw, 40px);
+      line-height: 1.04;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      text-wrap: balance;
+    }
+
+    .preentrada-texto {
+      margin: 14px auto 22px;
+      max-width: 31ch;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.82);
+      text-wrap: balance;
+    }
+
+    .preentrada-botao {
+      width: 100%;
+      min-height: 56px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 20px;
+      padding: 0 18px;
+      background: linear-gradient(135deg, #84bd55, #d8b65b);
+      color: #173018;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: .01em;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(0,0,0,.18);
+      transition: transform 120ms ease, filter 120ms ease, opacity 120ms ease;
+    }
+
+    .preentrada-botao:active {
+      transform: scale(.985);
+      filter: brightness(.98);
+    }
+
+    .preentrada-botao:disabled {
+      cursor: wait;
+      opacity: .72;
+    }
+
+    .preentrada-status {
+      min-height: 18px;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: rgba(255,255,255,.74);
+    }
+
+
     html,
     body {
       margin: 0;
@@ -332,6 +459,7 @@
     #controleSom.mudo #iconeMudo { display: block; }
 
     .hotspot:focus-visible,
+    .preentrada-botao:focus-visible,
     #abrirConvite:focus-visible,
     #pular:focus-visible,
     .som-fallback:focus-visible,
@@ -722,6 +850,35 @@
 </head>
 
 <body>
+  <section id="preEntrada" class="preentrada" aria-label="Preparar convite">
+    <div class="preentrada-card">
+      <div class="preentrada-brilho" aria-hidden="true">✨</div>
+
+      <h1 class="preentrada-titulo">
+        Você está preparado para entrar no mundo mágico da Thayla?
+      </h1>
+
+      <p class="preentrada-texto">
+        Uma surpresa encantada está esperando por você.
+      </p>
+
+      <button
+        id="preEntradaBotao"
+        class="preentrada-botao"
+        type="button"
+      >
+        Despertar a magia ✨
+      </button>
+
+      <div
+        id="preEntradaStatus"
+        class="preentrada-status"
+        role="status"
+        aria-live="polite"
+      ></div>
+    </div>
+  </section>
+
   <section id="finalTela" class="tela" aria-label="Convite final">
     <div class="quadro">
       <img
@@ -901,6 +1058,10 @@
         }
       }
 
+      const preEntrada = document.getElementById("preEntrada");
+      const preEntradaBotao = document.getElementById("preEntradaBotao");
+      const preEntradaStatus = document.getElementById("preEntradaStatus");
+
       const capaTela = document.getElementById("capaTela");
       const videoTela = document.getElementById("videoTela");
       const finalTela = document.getElementById("finalTela");
@@ -950,6 +1111,15 @@
       let ultimoShake = 0;
       let ultimaAceleracao = null;
       let recebeuEventoMovimento = false;
+      let recebeuEventoOrientacao = false;
+      let ultimaOrientacao = null;
+      let sensorLinear = null;
+      let sensorAccel = null;
+      let sensorGiro = null;
+      let recebeuSensorGenerico = false;
+      let timerFallbackMovimento = null;
+      let gateConcluido = false;
+
       let videoRsvpEstavaTocando = false;
       let timerRsvpFallback = null;
 
@@ -1239,6 +1409,34 @@
         motionHint.classList.remove("oculto");
       }
 
+      function desabilitarToqueFallback() {
+        abrirConvite.disabled = true;
+        abrirConvite.style.pointerEvents = "none";
+      }
+
+      function habilitarToqueFallback(
+        mensagem = "Não iniciou? Toque na tela ✨"
+      ) {
+        abrirConvite.disabled = false;
+        abrirConvite.style.pointerEvents = "auto";
+        mostrarDicaMovimento(mensagem);
+      }
+
+      function limparTimerFallbackMovimento() {
+        clearTimeout(timerFallbackMovimento);
+        timerFallbackMovimento = null;
+      }
+
+      function agendarFallbackMovimento(atraso = 6500) {
+        limparTimerFallbackMovimento();
+
+        timerFallbackMovimento = setTimeout(() => {
+          if (!conviteAberto && gateConcluido) {
+            habilitarToqueFallback("Não iniciou? Toque na tela ✨");
+          }
+        }, atraso);
+      }
+
       async function desbloquearMidiaPorGesto() {
         if (midiaDesbloqueada) return true;
 
@@ -1313,23 +1511,33 @@
         return true;
       }
 
+      function dispararShake() {
+        if (conviteAberto || !movimentoArmado) return;
+
+        const agora = performance.now();
+        if (agora - ultimoShake < 750) return;
+
+        ultimoShake = agora;
+        limparTimerFallbackMovimento();
+        desabilitarToqueFallback();
+        esconderDicaMovimento();
+        iniciarConvite("shake");
+      }
+
       function detectarShake(event) {
         if (conviteAberto || !movimentoArmado) return;
 
         recebeuEventoMovimento = true;
-        const agora = performance.now();
 
         const linear = event.acceleration;
         if (linear) {
-          const lx = Number(linear.x || 0);
-          const ly = Number(linear.y || 0);
-          const lz = Number(linear.z || 0);
-          const intensidadeLinear = Math.sqrt(lx * lx + ly * ly + lz * lz);
+          const x = Number(linear.x || 0);
+          const y = Number(linear.y || 0);
+          const z = Number(linear.z || 0);
+          const intensidade = Math.sqrt(x * x + y * y + z * z);
 
-          if (intensidadeLinear >= 7.5 && agora - ultimoShake > 900) {
-            ultimoShake = agora;
-            esconderDicaMovimento();
-            iniciarConvite("shake");
+          if (intensidade >= 5.2) {
+            dispararShake();
             return;
           }
         }
@@ -1348,10 +1556,8 @@
             const dz = atual.z - ultimaAceleracao.z;
             const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-            if (delta >= 9.5 && agora - ultimoShake > 900) {
-              ultimoShake = agora;
-              esconderDicaMovimento();
-              iniciarConvite("shake");
+            if (delta >= 6.8) {
+              dispararShake();
               return;
             }
           }
@@ -1361,16 +1567,134 @@
 
         const r = event.rotationRate;
         if (r) {
-          const alpha = Math.abs(Number(r.alpha || 0));
-          const beta = Math.abs(Number(r.beta || 0));
-          const gamma = Math.abs(Number(r.gamma || 0));
-          const rotacao = alpha + beta + gamma;
+          const rotacao =
+            Math.abs(Number(r.alpha || 0)) +
+            Math.abs(Number(r.beta || 0)) +
+            Math.abs(Number(r.gamma || 0));
 
-          if (rotacao >= 120 && agora - ultimoShake > 900) {
-            ultimoShake = agora;
-            esconderDicaMovimento();
-            iniciarConvite("shake");
+          if (rotacao >= 75) {
+            dispararShake();
           }
+        }
+      }
+
+      function detectarOrientacao(event) {
+        if (conviteAberto || !movimentoArmado) return;
+
+        recebeuEventoOrientacao = true;
+
+        const atual = {
+          alpha: Number(event.alpha || 0),
+          beta: Number(event.beta || 0),
+          gamma: Number(event.gamma || 0)
+        };
+
+        if (!ultimaOrientacao) {
+          ultimaOrientacao = atual;
+          return;
+        }
+
+        const delta =
+          Math.abs(atual.beta - ultimaOrientacao.beta) +
+          Math.abs(atual.gamma - ultimaOrientacao.gamma);
+
+        ultimaOrientacao = atual;
+
+        /*
+          Fallback importante para navegadores que entregam orientação,
+          mas não devicemotion. Uma sacudida real costuma produzir mudanças
+          rápidas de beta/gamma.
+        */
+        if (delta >= 18) {
+          dispararShake();
+        }
+      }
+
+      function pararSensoresGenericos() {
+        for (const sensor of [sensorLinear, sensorAccel, sensorGiro]) {
+          try {
+            if (sensor && typeof sensor.stop === "function") sensor.stop();
+          } catch (_) {}
+        }
+
+        sensorLinear = null;
+        sensorAccel = null;
+        sensorGiro = null;
+      }
+
+      function armarSensoresGenericos() {
+        recebeuSensorGenerico = false;
+
+        try {
+          if ("LinearAccelerationSensor" in window) {
+            sensorLinear = new LinearAccelerationSensor({ frequency: 30 });
+            sensorLinear.addEventListener("reading", () => {
+              recebeuSensorGenerico = true;
+
+              const x = Number(sensorLinear.x || 0);
+              const y = Number(sensorLinear.y || 0);
+              const z = Number(sensorLinear.z || 0);
+              const intensidade = Math.sqrt(x * x + y * y + z * z);
+
+              if (intensidade >= 5.2) dispararShake();
+            });
+            sensorLinear.start();
+          }
+        } catch (_) {
+          sensorLinear = null;
+        }
+
+        try {
+          if (!sensorLinear && "Accelerometer" in window) {
+            sensorAccel = new Accelerometer({ frequency: 30 });
+            let anterior = null;
+
+            sensorAccel.addEventListener("reading", () => {
+              recebeuSensorGenerico = true;
+
+              const atual = {
+                x: Number(sensorAccel.x || 0),
+                y: Number(sensorAccel.y || 0),
+                z: Number(sensorAccel.z || 0)
+              };
+
+              if (anterior) {
+                const dx = atual.x - anterior.x;
+                const dy = atual.y - anterior.y;
+                const dz = atual.z - anterior.z;
+                const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                if (delta >= 6.8) dispararShake();
+              }
+
+              anterior = atual;
+            });
+
+            sensorAccel.start();
+          }
+        } catch (_) {
+          sensorAccel = null;
+        }
+
+        try {
+          if ("Gyroscope" in window) {
+            sensorGiro = new Gyroscope({ frequency: 30 });
+
+            sensorGiro.addEventListener("reading", () => {
+              recebeuSensorGenerico = true;
+
+              const rotacao =
+                Math.abs(Number(sensorGiro.x || 0)) +
+                Math.abs(Number(sensorGiro.y || 0)) +
+                Math.abs(Number(sensorGiro.z || 0));
+
+              if (rotacao >= 2.8) dispararShake();
+            });
+
+            sensorGiro.start();
+          }
+        } catch (_) {
+          sensorGiro = null;
         }
       }
 
@@ -1379,12 +1703,29 @@
 
         movimentoArmado = true;
         ultimaAceleracao = null;
+        ultimaOrientacao = null;
         recebeuEventoMovimento = false;
-        window.addEventListener("devicemotion", detectarShake, { passive: true });
+        recebeuEventoOrientacao = false;
+        recebeuSensorGenerico = false;
 
+        window.addEventListener("devicemotion", detectarShake, { passive: true });
+        window.addEventListener("deviceorientation", detectarOrientacao, { passive: true });
+
+        armarSensoresGenericos();
+
+        /*
+          Se o navegador não entregar NENHUM sinal de sensor, reconhecemos
+          a falha e mostramos somente o fallback leve.
+        */
         setTimeout(() => {
-          if (!conviteAberto && movimentoArmado && !recebeuEventoMovimento) {
-            mostrarDicaMovimento("Não iniciou ao agitar? Toque na tela ✨");
+          if (
+            !conviteAberto &&
+            movimentoArmado &&
+            !recebeuEventoMovimento &&
+            !recebeuEventoOrientacao &&
+            !recebeuSensorGenerico
+          ) {
+            habilitarToqueFallback("Não iniciou ao agitar? Toque na tela ✨");
           }
         }, 1800);
       }
@@ -1407,46 +1748,115 @@
         iniciarConvite("tap");
       }
 
-      function prepararEntradaInterativa() {
+      async function concluirPreEntrada() {
+        if (gateConcluido) return;
+
+        preEntradaBotao.disabled = true;
+        preEntradaStatus.textContent = "Preparando a magia... ✨";
+
         /*
-          Fluxo aprovado:
-          AGITAR primeiro.
-          Toque somente quando o navegador não suporta o fluxo direto ou
-          quando uma tentativa por shake é reconhecida mas a reprodução falha.
+          IMPORTANTE:
+          As chamadas de permissão e o desbloqueio de mídia nascem do MESMO
+          gesto do usuário. Isso é o que torna o fluxo muito mais confiável
+          em Safari/iOS e também ajuda nas políticas de autoplay.
         */
-        if (!("DeviceMotionEvent" in window)) {
+        let motionPromise = Promise.resolve("not-required");
+        let orientationPromise = Promise.resolve("not-required");
+
+        try {
+          if (
+            "DeviceMotionEvent" in window &&
+            typeof DeviceMotionEvent.requestPermission === "function"
+          ) {
+            motionPromise = DeviceMotionEvent.requestPermission();
+          }
+        } catch (_) {
+          motionPromise = Promise.resolve("denied");
+        }
+
+        try {
+          if (
+            "DeviceOrientationEvent" in window &&
+            typeof DeviceOrientationEvent.requestPermission === "function"
+          ) {
+            orientationPromise = DeviceOrientationEvent.requestPermission();
+          }
+        } catch (_) {
+          orientationPromise = Promise.resolve("denied");
+        }
+
+        const mediaPromise = desbloquearMidiaPorGesto();
+
+        const resultados = await Promise.allSettled([
+          motionPromise,
+          orientationPromise,
+          mediaPromise
+        ]);
+
+        const motionResultado =
+          resultados[0].status === "fulfilled"
+            ? resultados[0].value
+            : "denied";
+
+        const orientationResultado =
+          resultados[1].status === "fulfilled"
+            ? resultados[1].value
+            : "denied";
+
+        const motionNegado =
+          motionResultado === "denied" &&
+          orientationResultado === "denied";
+
+        gateConcluido = true;
+
+        preEntrada.classList.add("saindo");
+        setTimeout(() => {
+          preEntrada.hidden = true;
+        }, 240);
+
+        if (motionNegado) {
           movimentoNegado = true;
-          mostrarDicaMovimento("Não iniciou ao agitar? Toque na tela ✨");
-          abrirConvite.setAttribute("aria-label", "Toque para abrir o convite");
+          habilitarToqueFallback("Movimento não liberado • toque para abrir ✨");
           return;
         }
 
-        if (typeof DeviceMotionEvent.requestPermission === "function") {
-          /*
-            Safari/iOS exige um gesto para liberar o sensor.
-            Como o shake não pode ser lido antes disso, essa limitação já é
-            reconhecida pelo navegador e oferecemos somente o fallback por toque.
-          */
-          movimentoNegado = true;
-          mostrarDicaMovimento("Não iniciou ao agitar? Toque na tela ✨");
-          abrirConvite.setAttribute("aria-label", "Toque para abrir o convite");
-          return;
-        }
+        movimentoNegado = false;
+        desabilitarToqueFallback();
+        esconderDicaMovimento();
 
         armarListenerMovimento();
+
+        /*
+          Se o sensor estiver vivo, a pessoa pode agitar imediatamente.
+          Se nada abrir depois de alguns segundos, liberamos um único toque
+          de fallback, sem exigir um segundo clique técnico.
+        */
+        agendarFallbackMovimento(6500);
+      }
+
+      function prepararEntradaInterativa() {
+        /*
+          Antes da tela de capa, existe agora uma etapa explícita de preparação.
+          Nenhum sensor é armado antes do clique inicial.
+        */
+        desabilitarToqueFallback();
         esconderDicaMovimento();
-        abrirConvite.setAttribute(
-          "aria-label",
-          "Agite o celular para abrir; toque se não funcionar"
-        );
+
+        preEntradaBotao.addEventListener("click", concluirPreEntrada, {
+          once: true
+        });
       }
 
       async function iniciarConvite(origem = "auto") {
         if (conviteAberto) return;
         conviteAberto = true;
         movimentoArmado = false;
+        limparTimerFallbackMovimento();
+        desabilitarToqueFallback();
         esconderDicaMovimento();
         window.removeEventListener("devicemotion", detectarShake);
+        window.removeEventListener("deviceorientation", detectarOrientacao);
+        pararSensoresGenericos();
 
         aquecerMidia();
 
@@ -1508,7 +1918,16 @@
               videoTela.classList.remove("saindo");
               videoTela.style.visibility = "hidden";
 
-              mostrarDicaMovimento("Não iniciou? Toque na tela ✨");
+              habilitarToqueFallback("Não iniciou? Toque na tela ✨");
+
+              /*
+                Se a tentativa de abrir falhou, continuamos ouvindo os sensores.
+                Assim o convidado ainda pode tentar agitar novamente.
+              */
+              setTimeout(() => {
+                if (!conviteAberto) armarListenerMovimento();
+              }, 250);
+
               return;
             }
           } else {
@@ -1754,9 +2173,12 @@
       prepararEntradaInterativa();
 
       /*
-        AGITAR é a tentativa principal.
-        O toque existe somente como fallback.
-        Quando a limitação/falha é reconhecida, surge uma orientação leve.
+        NOVO FLUXO:
+        1) tela de preparação;
+        2) clique único solicita permissões e desbloqueia mídia;
+        3) capa aparece;
+        4) AGITAR inicia;
+        5) toque só é habilitado se o sensor falhar/for negado.
       */
       abrirConvite.addEventListener("click", abrirPorToqueFallback);
       pular.addEventListener("click", finalizarVideo);

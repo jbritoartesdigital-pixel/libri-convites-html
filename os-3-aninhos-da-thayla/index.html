@@ -323,6 +323,21 @@
       cursor: pointer;
     }
 
+    .poeira-magica {
+      position: absolute;
+      inset: 0;
+      z-index: 90;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 220ms ease;
+    }
+
+    .poeira-magica.ativa {
+      opacity: 1;
+    }
+
     .motion-hint {
       position: absolute;
       left: 50%;
@@ -976,6 +991,8 @@
         aria-label="Agite o celular para abrir; toque se não funcionar"
       ></button>
 
+      <canvas id="poeiraMagica" class="poeira-magica" aria-hidden="true"></canvas>
+
       <div id="motionHint" class="motion-hint oculto" role="status" aria-live="polite"></div>
     </div>
   </section>
@@ -1073,6 +1090,7 @@
 
       const abrirConvite = document.getElementById("abrirConvite");
       const motionHint = document.getElementById("motionHint");
+      const poeiraMagica = document.getElementById("poeiraMagica");
       const pular = document.getElementById("pular");
       const ativarSomFallback = document.getElementById("ativarSomFallback");
       const controleSom = document.getElementById("controleSom");
@@ -1119,6 +1137,12 @@
       let recebeuSensorGenerico = false;
       let timerFallbackMovimento = null;
       let gateConcluido = false;
+      let poeiraCtx = null;
+      let poeiraAnimacao = 0;
+      let poeiraAtiva = false;
+      let poeiraParticulas = [];
+      let poeiraUltimoTempo = 0;
+      let poeiraIntensidade = 0;
 
       let videoRsvpEstavaTocando = false;
       let timerRsvpFallback = null;
@@ -1422,6 +1446,190 @@
         mostrarDicaMovimento(mensagem);
       }
 
+      function redimensionarPoeiraMagica() {
+        const quadro = poeiraMagica.parentElement;
+        if (!quadro) return;
+
+        const largura = Math.max(
+          1,
+          Math.round(quadro.clientWidth * Math.min(window.devicePixelRatio || 1, 2))
+        );
+        const altura = Math.max(
+          1,
+          Math.round(quadro.clientHeight * Math.min(window.devicePixelRatio || 1, 2))
+        );
+
+        if (poeiraMagica.width !== largura || poeiraMagica.height !== altura) {
+          poeiraMagica.width = largura;
+          poeiraMagica.height = altura;
+        }
+      }
+
+      function criarParticulaMagica(opcoes = {}) {
+        const largura = poeiraMagica.width || 1;
+        const altura = poeiraMagica.height || 1;
+        const centroX = largura * (opcoes.origemX ?? 0.5);
+        const centroY = altura * (opcoes.origemY ?? 0.54);
+        const dispersaoX = largura * (opcoes.dispersaoX ?? 0.12);
+        const dispersaoY = altura * (opcoes.dispersaoY ?? 0.08);
+
+        const angulo = Math.random() * Math.PI * 2;
+        const velocidade = opcoes.velocidadeBase ?? (0.12 + Math.random() * 0.32);
+
+        return {
+          x: centroX + (Math.random() - 0.5) * dispersaoX,
+          y: centroY + (Math.random() - 0.5) * dispersaoY,
+          vx: Math.cos(angulo) * velocidade * (0.8 + Math.random() * 0.9),
+          vy: Math.sin(angulo) * velocidade * (0.6 + Math.random() * 0.9) - (0.12 + Math.random() * 0.24),
+          tamanho: (opcoes.tamanhoBase ?? 1.2) + Math.random() * (opcoes.tamanhoVar ?? 2.4),
+          vida: 0,
+          duracao: (opcoes.duracaoBase ?? 900) + Math.random() * (opcoes.duracaoVar ?? 850),
+          cor:
+            opcoes.cor ||
+            [
+              "255,244,210",
+              "226,247,202",
+              "214,190,106",
+              "245,255,248"
+            ][Math.floor(Math.random() * 4)],
+          brilho: 0.35 + Math.random() * 0.45
+        };
+      }
+
+      function emitirPoeiraMagica(quantidade = 8, opcoes = {}) {
+        for (let i = 0; i < quantidade; i += 1) {
+          poeiraParticulas.push(criarParticulaMagica(opcoes));
+        }
+      }
+
+      function responderMovimentoMagico(intensidade = 1) {
+        if (!poeiraAtiva) return;
+
+        poeiraIntensidade = Math.min(1, poeiraIntensidade + intensidade * 0.22);
+
+        const quantidade =
+          intensidade >= 1.8 ? 9 :
+          intensidade >= 1.2 ? 6 : 3;
+
+        emitirPoeiraMagica(quantidade, {
+          origemX: 0.5,
+          origemY: 0.54,
+          dispersaoX: 0.22,
+          dispersaoY: 0.16,
+          velocidadeBase: 0.26 + Math.min(intensidade, 2.2) * 0.08,
+          tamanhoBase: 1.4,
+          tamanhoVar: 2.6,
+          duracaoBase: 700,
+          duracaoVar: 700
+        });
+      }
+
+      function iniciarPoeiraMagica() {
+        if (poeiraAtiva) return;
+
+        poeiraCtx = poeiraMagica.getContext("2d");
+        if (!poeiraCtx) return;
+
+        poeiraAtiva = true;
+        poeiraMagica.classList.add("ativa");
+        redimensionarPoeiraMagica();
+        poeiraParticulas = [];
+        poeiraIntensidade = 0.16;
+        emitirPoeiraMagica(16, {
+          origemX: 0.5,
+          origemY: 0.56,
+          dispersaoX: 0.28,
+          dispersaoY: 0.18,
+          velocidadeBase: 0.16,
+          tamanhoBase: 1.1,
+          tamanhoVar: 2.1,
+          duracaoBase: 1100,
+          duracaoVar: 900
+        });
+
+        poeiraUltimoTempo = 0;
+
+        const animar = (tempo) => {
+          if (!poeiraAtiva || !poeiraCtx) return;
+
+          redimensionarPoeiraMagica();
+
+          const dt = poeiraUltimoTempo ? Math.min(40, tempo - poeiraUltimoTempo) : 16;
+          poeiraUltimoTempo = tempo;
+
+          poeiraCtx.clearRect(0, 0, poeiraMagica.width, poeiraMagica.height);
+
+          poeiraIntensidade = Math.max(0.08, poeiraIntensidade - dt * 0.00022);
+
+          if (Math.random() < 0.10 + poeiraIntensidade * 0.10) {
+            emitirPoeiraMagica(1, {
+              origemX: 0.5 + (Math.random() - 0.5) * 0.10,
+              origemY: 0.56 + (Math.random() - 0.5) * 0.08,
+              dispersaoX: 0.10,
+              dispersaoY: 0.06,
+              velocidadeBase: 0.08,
+              tamanhoBase: 1.0,
+              tamanhoVar: 1.8,
+              duracaoBase: 1000,
+              duracaoVar: 700
+            });
+          }
+
+          poeiraCtx.save();
+          poeiraCtx.globalCompositeOperation = "screen";
+
+          const novas = [];
+
+          for (const p of poeiraParticulas) {
+            p.vida += dt;
+
+            if (p.vida >= p.duracao) continue;
+
+            const progresso = p.vida / p.duracao;
+            const fade =
+              progresso < 0.15 ? progresso / 0.15 :
+              progresso > 0.78 ? (1 - progresso) / 0.22 :
+              1;
+
+            p.x += p.vx * dt * 0.055;
+            p.y += p.vy * dt * 0.055;
+            p.vy -= 0.0007 * dt;
+            p.vx *= 0.995;
+
+            const raio = p.tamanho * (0.65 + (1 - progresso) * 0.55);
+            const alpha = Math.max(0, fade) * p.brilho * (0.52 + poeiraIntensidade * 0.55);
+
+            poeiraCtx.beginPath();
+            poeiraCtx.fillStyle = `rgba(${p.cor}, ${alpha.toFixed(3)})`;
+            poeiraCtx.shadowColor = `rgba(${p.cor}, ${(alpha * 0.8).toFixed(3)})`;
+            poeiraCtx.shadowBlur = raio * 5;
+            poeiraCtx.arc(p.x, p.y, raio, 0, Math.PI * 2);
+            poeiraCtx.fill();
+
+            novas.push(p);
+          }
+
+          poeiraCtx.restore();
+
+          poeiraParticulas = novas.slice(-180);
+          poeiraAnimacao = requestAnimationFrame(animar);
+        };
+
+        poeiraAnimacao = requestAnimationFrame(animar);
+      }
+
+      function pararPoeiraMagica() {
+        poeiraAtiva = false;
+        cancelAnimationFrame(poeiraAnimacao);
+        poeiraAnimacao = 0;
+        poeiraParticulas = [];
+        poeiraMagica.classList.remove("ativa");
+
+        if (poeiraCtx) {
+          poeiraCtx.clearRect(0, 0, poeiraMagica.width, poeiraMagica.height);
+        }
+      }
+
       function limparTimerFallbackMovimento() {
         clearTimeout(timerFallbackMovimento);
         timerFallbackMovimento = null;
@@ -1515,7 +1723,7 @@
         if (conviteAberto || !movimentoArmado) return;
 
         const agora = performance.now();
-        if (agora - ultimoShake < 750) return;
+        if (agora - ultimoShake < 1100) return;
 
         ultimoShake = agora;
         limparTimerFallbackMovimento();
@@ -1536,9 +1744,14 @@
           const z = Number(linear.z || 0);
           const intensidade = Math.sqrt(x * x + y * y + z * z);
 
-          if (intensidade >= 5.2) {
+          if (intensidade >= 8.0) {
+            responderMovimentoMagico(2);
             dispararShake();
             return;
+          }
+
+          if (intensidade >= 3.6) {
+            responderMovimentoMagico(0.8);
           }
         }
 
@@ -1556,9 +1769,14 @@
             const dz = atual.z - ultimaAceleracao.z;
             const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-            if (delta >= 6.8) {
+            if (delta >= 10.5) {
+              responderMovimentoMagico(1.9);
               dispararShake();
               return;
+            }
+
+            if (delta >= 4.2) {
+              responderMovimentoMagico(0.7);
             }
           }
 
@@ -1572,8 +1790,14 @@
             Math.abs(Number(r.beta || 0)) +
             Math.abs(Number(r.gamma || 0));
 
-          if (rotacao >= 75) {
+          if (rotacao >= 130) {
+            responderMovimentoMagico(1.8);
             dispararShake();
+            return;
+          }
+
+          if (rotacao >= 48) {
+            responderMovimentoMagico(0.6);
           }
         }
       }
@@ -1605,7 +1829,7 @@
           mas não devicemotion. Uma sacudida real costuma produzir mudanças
           rápidas de beta/gamma.
         */
-        if (delta >= 18) {
+        if (delta >= 28) {
           dispararShake();
         }
       }
@@ -1636,7 +1860,8 @@
               const z = Number(sensorLinear.z || 0);
               const intensidade = Math.sqrt(x * x + y * y + z * z);
 
-              if (intensidade >= 5.2) dispararShake();
+              if (intensidade >= 8.0) { responderMovimentoMagico(2); dispararShake(); }
+              else if (intensidade >= 3.6) { responderMovimentoMagico(0.8); }
             });
             sensorLinear.start();
           }
@@ -1664,7 +1889,8 @@
                 const dz = atual.z - anterior.z;
                 const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-                if (delta >= 6.8) dispararShake();
+                if (delta >= 10.5) { responderMovimentoMagico(1.9); dispararShake(); }
+                else if (delta >= 4.2) { responderMovimentoMagico(0.7); }
               }
 
               anterior = atual;
@@ -1688,7 +1914,8 @@
                 Math.abs(Number(sensorGiro.y || 0)) +
                 Math.abs(Number(sensorGiro.z || 0));
 
-              if (rotacao >= 2.8) dispararShake();
+              if (rotacao >= 4.2) { responderMovimentoMagico(1.8); dispararShake(); }
+              else if (rotacao >= 1.8) { responderMovimentoMagico(0.6); }
             });
 
             sensorGiro.start();
@@ -1734,6 +1961,7 @@
         if (conviteAberto) return;
 
         esconderDicaMovimento();
+        pararPoeiraMagica();
         await desbloquearMidiaPorGesto();
 
         try {
@@ -1816,6 +2044,7 @@
 
         if (motionNegado) {
           movimentoNegado = true;
+          iniciarPoeiraMagica();
           habilitarToqueFallback("Movimento não liberado • toque para abrir ✨");
           return;
         }
@@ -1823,15 +2052,21 @@
         movimentoNegado = false;
         desabilitarToqueFallback();
         esconderDicaMovimento();
-
-        armarListenerMovimento();
+        iniciarPoeiraMagica();
 
         /*
-          Se o sensor estiver vivo, a pessoa pode agitar imediatamente.
-          Se nada abrir depois de alguns segundos, liberamos um único toque
-          de fallback, sem exigir um segundo clique técnico.
+          Pequena janela de segurança para que o próprio toque no botão
+          "Despertar a magia" e o movimento natural de reposicionar o celular
+          NÃO sejam confundidos com um shake.
         */
-        agendarFallbackMovimento(6500);
+        preEntradaStatus.textContent = "";
+
+        setTimeout(() => {
+          if (conviteAberto) return;
+
+          armarListenerMovimento();
+          agendarFallbackMovimento(7000);
+        }, 1200);
       }
 
       function prepararEntradaInterativa() {
@@ -1854,6 +2089,7 @@
         limparTimerFallbackMovimento();
         desabilitarToqueFallback();
         esconderDicaMovimento();
+        pararPoeiraMagica();
         window.removeEventListener("devicemotion", detectarShake);
         window.removeEventListener("deviceorientation", detectarOrientacao);
         pararSensoresGenericos();
@@ -1925,7 +2161,10 @@
                 Assim o convidado ainda pode tentar agitar novamente.
               */
               setTimeout(() => {
-                if (!conviteAberto) armarListenerMovimento();
+                if (!conviteAberto) {
+                  iniciarPoeiraMagica();
+                  armarListenerMovimento();
+                }
               }, 250);
 
               return;

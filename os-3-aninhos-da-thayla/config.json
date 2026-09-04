@@ -66,32 +66,34 @@
   "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Bnickname%5D=Espa%C3%A7o+Carol+Festas&dropoff%5Bformatted_address%5D=Rua+Osmar+Leite+Tormin%2C+Quadra+34%2C+Lote+08%2C+Engenheiro+Jofre+Parada%2C+Luzi%C3%A2nia+-+GO%2C+72811-390",
   "aberturaInterativa": {
     "modo": "preentrada_permissao_depois_agitar",
-    "telaPreEntrada": {
-      "titulo": "Você está preparado para entrar no mundo mágico da Thayla?",
-      "texto": "Uma surpresa encantada está esperando por você.",
-      "botao": "Despertar a magia ✨"
+    "iphone": {
+      "permissionApi": "DeviceMotionEvent.requestPermission",
+      "pedirOrientationEmParalelo": false,
+      "armarListenerImediatamenteAposPermissao": true,
+      "confirmarPrimeiroEventoMotion": true,
+      "timeoutConfirmacaoSensorMs": 2200
     },
-    "pedidoPermissao": [
-      "DeviceMotionEvent",
-      "DeviceOrientationEvent"
-    ],
     "desbloqueioMidiaNoMesmoGesto": true,
     "acaoPrincipalDepoisDaPermissao": "agitar",
-    "armingDelayMs": 1200,
-    "shakeLinearThreshold": 8.0,
-    "shakeGravityDeltaThreshold": 10.5,
-    "orientationDeltaThreshold": 28,
-    "rotationRateThreshold": 130,
-    "genericGyroscopeThreshold": 4.2,
-    "shakeCooldownMs": 1100,
+    "armingGraceMs": 1400,
     "fallback": "toque_somente_se_sensor_falhar_ou_permissao_for_negada",
     "mensagemFallback": "Não iniciou? Toque na tela ✨",
-    "fallbackTimeoutMs": 7000,
+    "fallbackTimeoutMs": 8000,
     "efeitoOrientacao": {
       "tipo": "poeirinha_magica_reativa",
       "estilo": "delicado_e_elegante",
       "respondeAoMovimento": true,
       "burstNoShakeValido": true
-    }
+    },
+    "shakeLinearThreshold": 9.3,
+    "shakePreviewLinearThreshold": 4.6,
+    "shakeGravityDeltaThreshold": 12.4,
+    "shakePreviewGravityDeltaThreshold": 5.2,
+    "orientationDeltaThreshold": 36,
+    "rotationRateThreshold": 165,
+    "rotationPreviewThreshold": 62,
+    "genericGyroscopeThreshold": 5.0,
+    "genericGyroscopePreviewThreshold": 2.3,
+    "shakeCooldownMs": 1250
   }
 }

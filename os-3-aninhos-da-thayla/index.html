@@ -1143,6 +1143,9 @@
       let poeiraParticulas = [];
       let poeiraUltimoTempo = 0;
       let poeiraIntensidade = 0;
+      let shakeLiberadoEm = 0;
+      let sensorIOSConfirmado = false;
+      let timerConfirmacaoSensorIOS = null;
 
       let videoRsvpEstavaTocando = false;
       let timerRsvpFallback = null;
@@ -1630,6 +1633,33 @@
         }
       }
 
+      function ehDispositivoIOS() {
+        return (
+          /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+          (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+        );
+      }
+
+      function limparTimerConfirmacaoSensorIOS() {
+        clearTimeout(timerConfirmacaoSensorIOS);
+        timerConfirmacaoSensorIOS = null;
+      }
+
+      function confirmarSensorIOSAtivo() {
+        if (sensorIOSConfirmado) return;
+
+        sensorIOSConfirmado = true;
+        limparTimerConfirmacaoSensorIOS();
+
+        mostrarDicaMovimento("Movimento ativado ✨ Agora agite o celular");
+
+        setTimeout(() => {
+          if (!conviteAberto && sensorIOSConfirmado) {
+            esconderDicaMovimento();
+          }
+        }, 1300);
+      }
+
       function limparTimerFallbackMovimento() {
         clearTimeout(timerFallbackMovimento);
         timerFallbackMovimento = null;
@@ -1723,10 +1753,17 @@
         if (conviteAberto || !movimentoArmado) return;
 
         const agora = performance.now();
-        if (agora - ultimoShake < 1100) return;
+
+        /*
+          Depois do clique que concede permissão, ignoramos por 1,4 s o
+          movimento natural da mão ao reposicionar o telefone.
+        */
+        if (agora < shakeLiberadoEm) return;
+        if (agora - ultimoShake < 1250) return;
 
         ultimoShake = agora;
         limparTimerFallbackMovimento();
+        limparTimerConfirmacaoSensorIOS();
         desabilitarToqueFallback();
         esconderDicaMovimento();
         iniciarConvite("shake");
@@ -1737,6 +1774,10 @@
 
         recebeuEventoMovimento = true;
 
+        if (ehDispositivoIOS()) {
+          confirmarSensorIOSAtivo();
+        }
+
         const linear = event.acceleration;
         if (linear) {
           const x = Number(linear.x || 0);
@@ -1744,13 +1785,13 @@
           const z = Number(linear.z || 0);
           const intensidade = Math.sqrt(x * x + y * y + z * z);
 
-          if (intensidade >= 8.0) {
+          if (intensidade >= 9.3) {
             responderMovimentoMagico(2);
             dispararShake();
             return;
           }
 
-          if (intensidade >= 3.6) {
+          if (intensidade >= 4.6) {
             responderMovimentoMagico(0.8);
           }
         }
@@ -1769,13 +1810,13 @@
             const dz = atual.z - ultimaAceleracao.z;
             const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-            if (delta >= 10.5) {
+            if (delta >= 12.4) {
               responderMovimentoMagico(1.9);
               dispararShake();
               return;
             }
 
-            if (delta >= 4.2) {
+            if (delta >= 5.2) {
               responderMovimentoMagico(0.7);
             }
           }
@@ -1790,13 +1831,13 @@
             Math.abs(Number(r.beta || 0)) +
             Math.abs(Number(r.gamma || 0));
 
-          if (rotacao >= 130) {
+          if (rotacao >= 165) {
             responderMovimentoMagico(1.8);
             dispararShake();
             return;
           }
 
-          if (rotacao >= 48) {
+          if (rotacao >= 62) {
             responderMovimentoMagico(0.6);
           }
         }
@@ -1829,7 +1870,7 @@
           mas não devicemotion. Uma sacudida real costuma produzir mudanças
           rápidas de beta/gamma.
         */
-        if (delta >= 28) {
+        if (delta >= 36) {
           dispararShake();
         }
       }
@@ -1860,8 +1901,8 @@
               const z = Number(sensorLinear.z || 0);
               const intensidade = Math.sqrt(x * x + y * y + z * z);
 
-              if (intensidade >= 8.0) { responderMovimentoMagico(2); dispararShake(); }
-              else if (intensidade >= 3.6) { responderMovimentoMagico(0.8); }
+              if (intensidade >= 9.3) { responderMovimentoMagico(2); dispararShake(); }
+              else if (intensidade >= 4.6) { responderMovimentoMagico(0.8); }
             });
             sensorLinear.start();
           }
@@ -1889,8 +1930,8 @@
                 const dz = atual.z - anterior.z;
                 const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-                if (delta >= 10.5) { responderMovimentoMagico(1.9); dispararShake(); }
-                else if (delta >= 4.2) { responderMovimentoMagico(0.7); }
+                if (delta >= 12.4) { responderMovimentoMagico(1.9); dispararShake(); }
+                else if (delta >= 5.2) { responderMovimentoMagico(0.7); }
               }
 
               anterior = atual;
@@ -1914,8 +1955,8 @@
                 Math.abs(Number(sensorGiro.y || 0)) +
                 Math.abs(Number(sensorGiro.z || 0));
 
-              if (rotacao >= 4.2) { responderMovimentoMagico(1.8); dispararShake(); }
-              else if (rotacao >= 1.8) { responderMovimentoMagico(0.6); }
+              if (rotacao >= 5.0) { responderMovimentoMagico(1.8); dispararShake(); }
+              else if (rotacao >= 2.3) { responderMovimentoMagico(0.6); }
             });
 
             sensorGiro.start();
@@ -1946,6 +1987,7 @@
         */
         setTimeout(() => {
           if (
+            !ehDispositivoIOS() &&
             !conviteAberto &&
             movimentoArmado &&
             !recebeuEventoMovimento &&
@@ -1982,58 +2024,30 @@
         preEntradaBotao.disabled = true;
         preEntradaStatus.textContent = "Preparando a magia... ✨";
 
+        const ios = ehDispositivoIOS();
+
         /*
-          IMPORTANTE:
-          As chamadas de permissão e o desbloqueio de mídia nascem do MESMO
-          gesto do usuário. Isso é o que torna o fluxo muito mais confiável
-          em Safari/iOS e também ajuda nas políticas de autoplay.
+          O desbloqueio de mídia começa ainda no mesmo clique.
+          Em paralelo, no iPhone pedimos SOMENTE DeviceMotionEvent,
+          que é a permissão realmente necessária para detectar o shake.
         */
-        let motionPromise = Promise.resolve("not-required");
-        let orientationPromise = Promise.resolve("not-required");
-
-        try {
-          if (
-            "DeviceMotionEvent" in window &&
-            typeof DeviceMotionEvent.requestPermission === "function"
-          ) {
-            motionPromise = DeviceMotionEvent.requestPermission();
-          }
-        } catch (_) {
-          motionPromise = Promise.resolve("denied");
-        }
-
-        try {
-          if (
-            "DeviceOrientationEvent" in window &&
-            typeof DeviceOrientationEvent.requestPermission === "function"
-          ) {
-            orientationPromise = DeviceOrientationEvent.requestPermission();
-          }
-        } catch (_) {
-          orientationPromise = Promise.resolve("denied");
-        }
-
         const mediaPromise = desbloquearMidiaPorGesto();
 
-        const resultados = await Promise.allSettled([
-          motionPromise,
-          orientationPromise,
-          mediaPromise
-        ]);
+        let permissaoMovimento = "not-required";
 
-        const motionResultado =
-          resultados[0].status === "fulfilled"
-            ? resultados[0].value
-            : "denied";
+        if (
+          ios &&
+          "DeviceMotionEvent" in window &&
+          typeof DeviceMotionEvent.requestPermission === "function"
+        ) {
+          try {
+            permissaoMovimento = await DeviceMotionEvent.requestPermission();
+          } catch (_) {
+            permissaoMovimento = "denied";
+          }
+        }
 
-        const orientationResultado =
-          resultados[1].status === "fulfilled"
-            ? resultados[1].value
-            : "denied";
-
-        const motionNegado =
-          motionResultado === "denied" &&
-          orientationResultado === "denied";
+        await Promise.resolve(mediaPromise).catch(() => false);
 
         gateConcluido = true;
 
@@ -2042,7 +2056,7 @@
           preEntrada.hidden = true;
         }, 240);
 
-        if (motionNegado) {
+        if (ios && permissaoMovimento !== "granted") {
           movimentoNegado = true;
           iniciarPoeiraMagica();
           habilitarToqueFallback("Movimento não liberado • toque para abrir ✨");
@@ -2055,18 +2069,27 @@
         iniciarPoeiraMagica();
 
         /*
-          Pequena janela de segurança para que o próprio toque no botão
-          "Despertar a magia" e o movimento natural de reposicionar o celular
-          NÃO sejam confundidos com um shake.
+          Armamos o listener imediatamente depois da permissão para verificar
+          se o WebKit realmente começou a enviar devicemotion.
+          O shake só passa a valer após a janela de segurança.
         */
-        preEntradaStatus.textContent = "";
+        shakeLiberadoEm = performance.now() + 1400;
+        sensorIOSConfirmado = false;
+        armarListenerMovimento();
 
-        setTimeout(() => {
-          if (conviteAberto) return;
+        if (ios) {
+          limparTimerConfirmacaoSensorIOS();
 
-          armarListenerMovimento();
-          agendarFallbackMovimento(7000);
-        }, 1200);
+          timerConfirmacaoSensorIOS = setTimeout(() => {
+            if (!conviteAberto && !sensorIOSConfirmado) {
+              habilitarToqueFallback(
+                "Seu navegador não liberou o movimento • toque para abrir ✨"
+              );
+            }
+          }, 2200);
+        }
+
+        agendarFallbackMovimento(8000);
       }
 
       function prepararEntradaInterativa() {
@@ -2087,6 +2110,7 @@
         conviteAberto = true;
         movimentoArmado = false;
         limparTimerFallbackMovimento();
+        limparTimerConfirmacaoSensorIOS();
         desabilitarToqueFallback();
         esconderDicaMovimento();
         pararPoeiraMagica();

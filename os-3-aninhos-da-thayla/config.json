@@ -1,0 +1,72 @@
+{
+  "tituloPagina": "Os 3 aninhos da Thayla | Libri Convites",
+  "pastaCliente": "os-3-aninhos-da-thayla",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/os-3-aninhos-da-thayla",
+  "linkFiltro": "https://momentos.libriconvites.com.br/e/3-aninhos-da-thayla",
+  "local": {
+    "nome": "Espaço Carol Festas",
+    "linha1": "Rua Osmar Leite Tormin, Qd. 34, Lt. 08",
+    "linha2": "Engenheiro Jofre Parada",
+    "linha3": "Luziânia - GO • CEP 72811-390"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Rua%20Osmar%20Leite%20Tormin%2C%20Quadra%2034%2C%20Lote%2008%2C%20Engenheiro%20Jofre%20Parada%2C%20Luzi%C3%A2nia%20-%20GO%2C%2072811-390",
+  "linkWaze": "https://www.waze.com/ul?q=Rua%20Osmar%20Leite%20Tormin%2C%20Quadra%2034%2C%20Lote%2008%2C%20Engenheiro%20Jofre%20Parada%2C%20Luzi%C3%A2nia%20-%20GO%2C%2072811-390&navigate=yes",
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "8.71%",
+      "top": "79.43%",
+      "width": "40.81%",
+      "height": "8.19%"
+    },
+    "localizacao": {
+      "left": "50.37%",
+      "top": "79.43%",
+      "width": "40.91%",
+      "height": "8.19%"
+    },
+    "presentes": {
+      "left": "8.71%",
+      "top": "88.04%",
+      "width": "40.81%",
+      "height": "8.01%"
+    },
+    "filtro": {
+      "left": "50.37%",
+      "top": "88.04%",
+      "width": "40.91%",
+      "height": "8.01%"
+    }
+  },
+  "tema": {
+    "escuro": "#304A2C",
+    "principal": "#78B94D",
+    "claro": "#EAF4E1",
+    "acento": "#D8B65B",
+    "superficie": "#FFF9EF",
+    "texto": "#304A2C"
+  },
+  "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Bnickname%5D=Espa%C3%A7o+Carol+Festas&dropoff%5Bformatted_address%5D=Rua+Osmar+Leite+Tormin%2C+Quadra+34%2C+Lote+08%2C+Engenheiro+Jofre+Parada%2C+Luzi%C3%A2nia+-+GO%2C+72811-390",
+  "aberturaInterativa": {
+    "modoPreferencial": "agitar",
+    "fallback": "toque_se_falhar_ou_nao_suportar",
+    "mensagemFallback": "Não iniciou? Toque na tela ✨"
+  }
+}

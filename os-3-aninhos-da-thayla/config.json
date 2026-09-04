@@ -77,8 +77,21 @@
     ],
     "desbloqueioMidiaNoMesmoGesto": true,
     "acaoPrincipalDepoisDaPermissao": "agitar",
+    "armingDelayMs": 1200,
+    "shakeLinearThreshold": 8.0,
+    "shakeGravityDeltaThreshold": 10.5,
+    "orientationDeltaThreshold": 28,
+    "rotationRateThreshold": 130,
+    "genericGyroscopeThreshold": 4.2,
+    "shakeCooldownMs": 1100,
     "fallback": "toque_somente_se_sensor_falhar_ou_permissao_for_negada",
     "mensagemFallback": "Não iniciou? Toque na tela ✨",
-    "fallbackTimeoutMs": 6500
+    "fallbackTimeoutMs": 7000,
+    "efeitoOrientacao": {
+      "tipo": "poeirinha_magica_reativa",
+      "estilo": "delicado_e_elegante",
+      "respondeAoMovimento": true,
+      "burstNoShakeValido": true
+    }
   }
 }

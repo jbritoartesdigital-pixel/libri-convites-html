@@ -655,10 +655,10 @@
       <button
         id="abrirConvite"
         type="button"
-        aria-label="Ativar movimento"
+        aria-label="Agite o celular para abrir; toque se não funcionar"
       ></button>
 
-      <div id="motionHint" class="motion-hint" role="status" aria-live="polite"></div>
+      <div id="motionHint" class="motion-hint oculto" role="status" aria-live="polite"></div>
     </div>
   </section>
 
@@ -1045,6 +1045,7 @@
       async function desbloquearMidiaPorGesto() {
         if (midiaDesbloqueada) return true;
 
+        audioDisponivel = true;
         aquecerMidia();
 
         const tentativas = [];
@@ -1140,6 +1141,7 @@
         ultimaAceleracao = atual;
 
         const agora = performance.now();
+
         if (delta >= 22 && agora - ultimoShake > 1200) {
           ultimoShake = agora;
           esconderDicaMovimento();
@@ -1149,19 +1151,23 @@
 
       function armarListenerMovimento() {
         if (movimentoArmado) return;
+
         movimentoArmado = true;
         ultimaAceleracao = null;
         window.addEventListener("devicemotion", detectarShake, { passive: true });
       }
 
-      async function ativarMovimento() {
+      async function abrirPorToqueFallback() {
         if (conviteAberto) return;
 
-        /* Toque é fallback: se o agitar falhar ou não for suportado, abre no clique. */
+        esconderDicaMovimento();
         await desbloquearMidiaPorGesto();
 
         try {
-          if ("DeviceMotionEvent" in window && typeof DeviceMotionEvent.requestPermission === "function") {
+          if (
+            "DeviceMotionEvent" in window &&
+            typeof DeviceMotionEvent.requestPermission === "function"
+          ) {
             await DeviceMotionEvent.requestPermission().catch(() => null);
           }
         } catch (_) {}
@@ -1170,27 +1176,37 @@
       }
 
       function prepararEntradaInterativa() {
+        /*
+          Fluxo aprovado:
+          AGITAR primeiro.
+          Toque somente quando o navegador não suporta o fluxo direto ou
+          quando uma tentativa por shake é reconhecida mas a reprodução falha.
+        */
         if (!("DeviceMotionEvent" in window)) {
           movimentoNegado = true;
-          mostrarDicaMovimento("Se não abrir ao agitar, toque na tela");
-          abrirConvite.setAttribute("aria-label", "Abrir convite");
+          mostrarDicaMovimento("Não iniciou ao agitar? Toque na tela ✨");
+          abrirConvite.setAttribute("aria-label", "Toque para abrir o convite");
           return;
         }
 
         if (typeof DeviceMotionEvent.requestPermission === "function") {
           /*
-            Em alguns iPhones o navegador exige permissão para o sensor antes
-            de qualquer leitura. Como não dá para capturar esse "agitar" sem gesto,
-            mostramos apenas uma orientação leve de fallback.
+            Safari/iOS exige um gesto para liberar o sensor.
+            Como o shake não pode ser lido antes disso, essa limitação já é
+            reconhecida pelo navegador e oferecemos somente o fallback por toque.
           */
-          mostrarDicaMovimento("Se não iniciar ao agitar, toque na tela");
-          abrirConvite.setAttribute("aria-label", "Abrir convite");
+          movimentoNegado = true;
+          mostrarDicaMovimento("Não iniciou ao agitar? Toque na tela ✨");
+          abrirConvite.setAttribute("aria-label", "Toque para abrir o convite");
           return;
         }
 
         armarListenerMovimento();
         esconderDicaMovimento();
-        abrirConvite.setAttribute("aria-label", "Abrir convite");
+        abrirConvite.setAttribute(
+          "aria-label",
+          "Agite o celular para abrir; toque se não funcionar"
+        );
       }
 
       async function iniciarConvite(origem = "auto") {
@@ -1222,9 +1238,39 @@
         try {
           await video.play();
           const framePronto = await primeiroFrame;
-          if (!framePronto) throw new Error("Primeiro frame indispon\xedvel");
+          if (!framePronto) throw new Error("Primeiro frame indisponível");
         } catch (_) {
-          /* Fallback sem tela preta: mantém a capa até o card final estar pronto. */
+          /*
+            Shake reconhecido, mas autoplay/reprodução bloqueada:
+            mantém a capa válida e oferece um único toque como fallback.
+          */
+          if (origem === "shake" && !midiaDesbloqueada) {
+            conviteAberto = false;
+            finalizando = false;
+            finalAtivo = false;
+            movimentoArmado = false;
+
+            clearTimeout(timerPular);
+            pular.classList.remove("visivel");
+
+            try { video.pause(); } catch (_) {}
+            try { video.currentTime = 0; } catch (_) {}
+            try { musica.pause(); } catch (_) {}
+
+            audioDisponivel = true;
+
+            videoTela.classList.remove("ativo");
+            videoTela.classList.remove("saindo");
+            videoTela.style.visibility = "hidden";
+
+            mostrarDicaMovimento("Não iniciou? Toque na tela ✨");
+            return;
+          }
+
+          /*
+            Falha real após toque:
+            preserva o baseline contra tela preta e cai no Card Final.
+          */
           await carregarFinal().catch(() => false);
 
           finalTela.classList.add("ativo");
@@ -1385,11 +1431,11 @@
       prepararEntradaInterativa();
 
       /*
-        Um único toque técnico habilita permissão/mídia.
-        Depois, agitar o celular inicia a abertura.
-        Se movimento não estiver disponível ou for negado, esse MESMO toque abre diretamente.
+        AGITAR é a tentativa principal.
+        O toque existe somente como fallback.
+        Quando a limitação/falha é reconhecida, surge uma orientação leve.
       */
-      abrirConvite.addEventListener("click", ativarMovimento);
+      abrirConvite.addEventListener("click", abrirPorToqueFallback);
       pular.addEventListener("click", finalizarVideo);
       controleSom.addEventListener("click", alternarSom);
 

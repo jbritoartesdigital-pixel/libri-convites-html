@@ -2100,9 +2100,7 @@
         desabilitarToqueFallback();
         esconderDicaMovimento();
 
-        preEntradaBotao.addEventListener("click", concluirPreEntrada, {
-          once: true
-        });
+        preEntradaBotao.addEventListener("click", concluirPreEntrada);
       }
 
       async function iniciarConvite(origem = "auto") {
@@ -2411,6 +2409,80 @@
         controleSom.classList.toggle("mudo", !somLigado);
       }
 
+      function resetarExperienciaParaNovaAbertura() {
+        /*
+          Safari/iPhone pode restaurar a página pelo Back-Forward Cache (bfcache)
+          preservando variáveis JS e DOM exatamente como estavam.
+          Sem este reset, conviteAberto/gateConcluido continuam true e o shake
+          parece "parar de funcionar" depois da primeira abertura.
+        */
+
+        clearTimeout(timerPular);
+        limparTimerFallbackMovimento();
+        limparTimerConfirmacaoSensorIOS();
+        cancelAnimationFrame(rafFim);
+        cancelAnimationFrame(rafAudio);
+
+        try { video.pause(); } catch (_) {}
+        try { musica.pause(); } catch (_) {}
+        try { video.currentTime = 0; } catch (_) {}
+        try { musica.currentTime = Math.max(0, CONFIG.inicioMusica); } catch (_) {}
+
+        window.removeEventListener("devicemotion", detectarShake);
+        window.removeEventListener("deviceorientation", detectarOrientacao);
+        pararSensoresGenericos();
+        pararPoeiraMagica();
+
+        conviteAberto = false;
+        finalAtivo = false;
+        finalizando = false;
+        gateConcluido = false;
+        movimentoArmado = false;
+        movimentoNegado = false;
+        midiaDesbloqueada = false;
+        ultimoShake = 0;
+        ultimaAceleracao = null;
+        ultimaOrientacao = null;
+        recebeuEventoMovimento = false;
+        recebeuEventoOrientacao = false;
+        recebeuSensorGenerico = false;
+        sensorIOSConfirmado = false;
+        shakeLiberadoEm = 0;
+        videoRsvpEstavaTocando = false;
+
+        preEntrada.hidden = false;
+        preEntrada.classList.remove("saindo");
+        preEntradaBotao.disabled = false;
+        preEntradaStatus.textContent = "";
+
+        capaTela.style.visibility = "visible";
+        capaTela.classList.remove("saindo");
+
+        videoTela.classList.remove("ativo");
+        videoTela.classList.remove("saindo");
+        videoTela.style.visibility = "hidden";
+
+        finalTela.classList.remove("ativo");
+
+        pular.classList.remove("visivel");
+        ativarSomFallback.classList.remove("visivel");
+        controleSom.classList.remove("visivel");
+        controleSom.classList.remove("mudo");
+
+        video.muted = false;
+        video.volume = 1;
+        musica.volume = 0;
+
+        esconderDicaMovimento();
+        desabilitarToqueFallback();
+
+        /*
+          O clique da pré-entrada continua ativo porque o listener não usa mais
+          { once: true }. Assim uma página restaurada pelo Safari pode começar
+          uma nova sessão completa sem recarregar o documento.
+        */
+      }
+
       function tratarVisibilidade() {
         if (document.hidden) {
           videoEstavaTocando = !video.paused && !finalAtivo && !finalizando;
@@ -2431,6 +2503,10 @@
 
         videoEstavaTocando = false;
         musicaEstavaTocando = false;
+
+        if (!conviteAberto && gateConcluido && !movimentoArmado && !movimentoNegado) {
+          armarListenerMovimento();
+        }
       }
 
       prepararEntradaInterativa();
@@ -2580,10 +2656,14 @@
       document.addEventListener("visibilitychange", tratarVisibilidade);
 
       window.addEventListener("pageshow", (event) => {
-        if (event.persisted && finalAtivo && audioDisponivel) {
-          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-          musica.play().catch(() => {});
+        if (event.persisted) {
+          resetarExperienciaParaNovaAbertura();
         }
+      });
+
+      window.addEventListener("pagehide", () => {
+        try { video.pause(); } catch (_) {}
+        try { musica.pause(); } catch (_) {}
       });
 
       document.addEventListener("contextmenu", (event) => {

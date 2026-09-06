@@ -7,8 +7,8 @@
   "musicaArquivo": "musica.mp3",
   "finalArquivo": "imagens/final",
   "presentesArquivo": "imagens/presentes",
-  "versaoArquivos": "1",
-  "versaoMidia": "1",
+  "versaoArquivos": "2",
+  "versaoMidia": "2",
   "inicioMusica": 0,
   "volumeMusica": 0.5,
   "transicaoAudio": 260,
@@ -95,5 +95,11 @@
     "genericGyroscopeThreshold": 5.0,
     "genericGyroscopePreviewThreshold": 2.3,
     "shakeCooldownMs": 1250
+  },
+  "reabertura": {
+    "resetOnBFCachePageshow": true,
+    "reusablePreEntryListener": true,
+    "resetMediaOnRestore": true,
+    "resetSensorStateOnRestore": true
   }
 }

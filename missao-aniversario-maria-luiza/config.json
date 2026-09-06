@@ -1,0 +1,61 @@
+{
+  "tituloPagina": "Miss\u00e3o: Anivers\u00e1rio da Maria Luiza | 4 anos",
+  "pastaCliente": "missao-aniversario-maria-luiza",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "numeroWhatsapp": "5517991980339",
+  "mensagemWhatsapp": "Oi! \ud83d\udc97 Recebi a miss\u00e3o e quero confirmar minha presen\u00e7a no anivers\u00e1rio da Maria Luiza! \ud83c\udf80\ud83d\ude81",
+  "chavePix": "",
+  "local": {
+    "nome": "Villa kids",
+    "linha1": "Avenida Quito Stamato, 347",
+    "linha2": "",
+    "linha3": "Bebedouro - SP \u2022 CEP 14700-500"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Avenida%20Quito%20Stamato%2C%20347%2C%20Bebedouro%20-%20SP%2C%2014700-500",
+  "linkWaze": "https://www.waze.com/ul?q=Avenida%20Quito%20Stamato%2C%20347%2C%20Bebedouro%20-%20SP%2C%2014700-500&navigate=yes",
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "35.6%",
+      "top": "79.6%",
+      "width": "28.8%",
+      "height": "11.1%"
+    },
+    "confirmacao": {
+      "left": "5.0%",
+      "top": "79.6%",
+      "width": "29.4%",
+      "height": "11.1%"
+    },
+    "presentes": {
+      "left": "65.6%",
+      "top": "79.6%",
+      "width": "28.7%",
+      "height": "11.1%"
+    }
+  },
+  "hotspotPresentes": {},
+  "tema": {
+    "escuro": "#661A70",
+    "principal": "#E83E9B",
+    "claro": "#FBE5F5",
+    "acento": "#A763C7",
+    "superficie": "#FFF8FD",
+    "texto": "#5A1C66"
+  }
+}

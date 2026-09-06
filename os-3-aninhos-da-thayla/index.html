@@ -338,6 +338,34 @@
       opacity: 1;
     }
 
+    .sensor-debug {
+      position: absolute;
+      left: 12px;
+      top: max(12px, calc(env(safe-area-inset-top) + 12px));
+      z-index: 135;
+      width: min(280px, calc(100% - 24px));
+      display: grid;
+      gap: 3px;
+      padding: 9px 10px;
+      border: 1px solid rgba(255,255,255,.34);
+      border-radius: 13px;
+      background: rgba(0,0,0,.58);
+      color: #fff;
+      font: 11px/1.25 system-ui, sans-serif;
+      pointer-events: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .sensor-debug.oculto {
+      display: none;
+    }
+
+    .sensor-debug strong {
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
     .motion-hint {
       position: absolute;
       left: 50%;
@@ -993,6 +1021,14 @@
 
       <canvas id="poeiraMagica" class="poeira-magica" aria-hidden="true"></canvas>
 
+      <div id="sensorDebug" class="sensor-debug oculto" aria-live="polite">
+        <strong>Teste do sensor</strong>
+        <span id="sensorDebugPermissao">Permissão: aguardando</span>
+        <span id="sensorDebugMotion">Motion: 0 eventos</span>
+        <span id="sensorDebugOrientacao">Orientação: 0 eventos</span>
+        <span id="sensorDebugValor">Movimento: aguardando</span>
+      </div>
+
       <div id="motionHint" class="motion-hint oculto" role="status" aria-live="polite"></div>
     </div>
   </section>
@@ -1091,6 +1127,11 @@
       const abrirConvite = document.getElementById("abrirConvite");
       const motionHint = document.getElementById("motionHint");
       const poeiraMagica = document.getElementById("poeiraMagica");
+      const sensorDebug = document.getElementById("sensorDebug");
+      const sensorDebugPermissao = document.getElementById("sensorDebugPermissao");
+      const sensorDebugMotion = document.getElementById("sensorDebugMotion");
+      const sensorDebugOrientacao = document.getElementById("sensorDebugOrientacao");
+      const sensorDebugValor = document.getElementById("sensorDebugValor");
       const pular = document.getElementById("pular");
       const ativarSomFallback = document.getElementById("ativarSomFallback");
       const controleSom = document.getElementById("controleSom");
@@ -1146,6 +1187,8 @@
       let shakeLiberadoEm = 0;
       let sensorIOSConfirmado = false;
       let timerConfirmacaoSensorIOS = null;
+      let debugMotionCount = 0;
+      let debugOrientationCount = 0;
 
       let videoRsvpEstavaTocando = false;
       let timerRsvpFallback = null;
@@ -1652,7 +1695,7 @@
         limparTimerConfirmacaoSensorIOS();
 
         mostrarDicaMovimento("Movimento ativado ✨ Agora agite o celular");
-
+        sensorDebugPermissao.textContent += " • SENSOR ATIVO";
         setTimeout(() => {
           if (!conviteAberto && sensorIOSConfirmado) {
             esconderDicaMovimento();
@@ -1764,6 +1807,7 @@
         ultimoShake = agora;
         limparTimerFallbackMovimento();
         limparTimerConfirmacaoSensorIOS();
+        sensorDebug.classList.add("oculto");
         desabilitarToqueFallback();
         esconderDicaMovimento();
         iniciarConvite("shake");
@@ -1773,6 +1817,8 @@
         if (conviteAberto || !movimentoArmado) return;
 
         recebeuEventoMovimento = true;
+        debugMotionCount += 1;
+        sensorDebugMotion.textContent = `Motion: ${debugMotionCount} eventos`;
 
         if (ehDispositivoIOS()) {
           confirmarSensorIOSAtivo();
@@ -1847,6 +1893,9 @@
         if (conviteAberto || !movimentoArmado) return;
 
         recebeuEventoOrientacao = true;
+        debugOrientationCount += 1;
+        sensorDebugOrientacao.textContent =
+          `Orientação: ${debugOrientationCount} eventos`;
 
         const atual = {
           alpha: Number(event.alpha || 0),
@@ -2050,6 +2099,10 @@
         await Promise.resolve(mediaPromise).catch(() => false);
 
         gateConcluido = true;
+
+        sensorDebug.classList.remove("oculto");
+        sensorDebugPermissao.textContent =
+          `Permissão: ${permissaoMovimento}`;
 
         preEntrada.classList.add("saindo");
         setTimeout(() => {

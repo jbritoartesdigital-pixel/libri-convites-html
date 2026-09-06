@@ -1146,9 +1146,6 @@
       let shakeLiberadoEm = 0;
       let sensorIOSConfirmado = false;
       let timerConfirmacaoSensorIOS = null;
-      let janelaOrientacaoIOSInicio = 0;
-      let atividadeOrientacaoIOS = 0;
-      let amostrasOrientacaoIOS = 0;
 
       let videoRsvpEstavaTocando = false;
       let timerRsvpFallback = null;
@@ -1859,92 +1856,22 @@
 
         if (!ultimaOrientacao) {
           ultimaOrientacao = atual;
-          janelaOrientacaoIOSInicio = performance.now();
-          atividadeOrientacaoIOS = 0;
-          amostrasOrientacaoIOS = 0;
           return;
         }
 
-        const agora = performance.now();
-
-        const deltaBeta = Math.abs(atual.beta - ultimaOrientacao.beta);
-        const deltaGamma = Math.abs(atual.gamma - ultimaOrientacao.gamma);
-        const delta = deltaBeta + deltaGamma;
+        const delta =
+          Math.abs(atual.beta - ultimaOrientacao.beta) +
+          Math.abs(atual.gamma - ultimaOrientacao.gamma);
 
         ultimaOrientacao = atual;
 
         /*
-          iPHONE:
-          O diagnóstico confirmou que os eventos chegam, mas alguns iPhones
-          podem não disponibilizar valores úteis de acceleration.
-          Então usamos a VARIAÇÃO REAL DE ORIENTAÇÃO como detector principal.
-
-          Não dispara por um único micro-movimento. Exige atividade acumulada
-          em uma janela curta, para a pessoa precisar realmente agitar um pouco.
-        */
-        if (ehDispositivoIOS()) {
-          confirmarSensorIOSAtivo();
-
-          if (agora < shakeLiberadoEm) {
-            janelaOrientacaoIOSInicio = agora;
-            atividadeOrientacaoIOS = 0;
-            amostrasOrientacaoIOS = 0;
-            return;
-          }
-
-          if (
-            !janelaOrientacaoIOSInicio ||
-            agora - janelaOrientacaoIOSInicio > 520
-          ) {
-            janelaOrientacaoIOSInicio = agora;
-            atividadeOrientacaoIOS = 0;
-            amostrasOrientacaoIOS = 0;
-          }
-
-          /*
-            Ignora ruído minúsculo do giroscópio parado.
-            A poeirinha reage antes do gatilho final.
-          */
-          const atividadeUtil =
-            Math.max(0, deltaBeta - 0.9) +
-            Math.max(0, deltaGamma - 0.9);
-
-          if (atividadeUtil >= 2.2) {
-            atividadeOrientacaoIOS += atividadeUtil;
-            amostrasOrientacaoIOS += 1;
-
-            responderMovimentoMagico(
-              Math.min(1.25, 0.35 + atividadeUtil / 12)
-            );
-          }
-
-          /*
-            Duas formas de reconhecer uma sacudida intencional:
-            1) uma mudança forte de orientação;
-            2) várias mudanças menores em sequência.
-          */
-          const gestoForte = delta >= 34;
-          const gestoAcumulado =
-            atividadeOrientacaoIOS >= 52 &&
-            amostrasOrientacaoIOS >= 3 &&
-            agora - janelaOrientacaoIOSInicio <= 520;
-
-          if (gestoForte || gestoAcumulado) {
-            responderMovimentoMagico(2);
-            dispararShake();
-          }
-
-          return;
-        }
-
-        /*
-          Outros aparelhos mantêm o fallback de orientação existente.
+          Fallback importante para navegadores que entregam orientação,
+          mas não devicemotion. Uma sacudida real costuma produzir mudanças
+          rápidas de beta/gamma.
         */
         if (delta >= 36) {
-          responderMovimentoMagico(1.8);
           dispararShake();
-        } else if (delta >= 14) {
-          responderMovimentoMagico(0.55);
         }
       }
 
@@ -2045,9 +1972,6 @@
         movimentoArmado = true;
         ultimaAceleracao = null;
         ultimaOrientacao = null;
-        janelaOrientacaoIOSInicio = 0;
-        atividadeOrientacaoIOS = 0;
-        amostrasOrientacaoIOS = 0;
         recebeuEventoMovimento = false;
         recebeuEventoOrientacao = false;
         recebeuSensorGenerico = false;

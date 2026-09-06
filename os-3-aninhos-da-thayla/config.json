@@ -27,8 +27,8 @@
     "waze": "Abrir no Waze",
     "uber": "Chamar Uber"
   },
-  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Rua%20Osmar%20Leite%20Tormin%2C%20Quadra%2034%2C%20Lote%2008%2C%20Engenheiro%20Jofre%20Parada%2C%20Luzi%C3%A2nia%20-%20GO%2C%2072811-390",
-  "linkWaze": "https://www.waze.com/ul?q=Rua%20Osmar%20Leite%20Tormin%2C%20Quadra%2034%2C%20Lote%2008%2C%20Engenheiro%20Jofre%20Parada%2C%20Luzi%C3%A2nia%20-%20GO%2C%2072811-390&navigate=yes",
+  "linkMapa": "https://maps.app.goo.gl/te43DhTn4JJTiv3VA",
+  "linkWaze": "https://www.waze.com/ul?ll=-16.2462959%2C-47.9660912&navigate=yes",
   "hotspotsFinal": {
     "confirmacao": {
       "left": "8.71%",
@@ -63,7 +63,7 @@
     "superficie": "#FFF9EF",
     "texto": "#304A2C"
   },
-  "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Bnickname%5D=Espa%C3%A7o+Carol+Festas&dropoff%5Bformatted_address%5D=Rua+Osmar+Leite+Tormin%2C+Quadra+34%2C+Lote+08%2C+Engenheiro+Jofre+Parada%2C+Luzi%C3%A2nia+-+GO%2C+72811-390",
+  "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Blatitude%5D=-16.2462959&dropoff%5Blongitude%5D=-47.9660912&dropoff%5Bnickname%5D=Espa%C3%A7o+Carol+Festas",
   "aberturaInterativa": {
     "modo": "preentrada_permissao_depois_agitar",
     "iphone": {
@@ -95,6 +95,5 @@
     "genericGyroscopeThreshold": 5.0,
     "genericGyroscopePreviewThreshold": 2.3,
     "shakeCooldownMs": 1250
-  },
-  "diagnosticoSensor": true
+  }
 }

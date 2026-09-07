@@ -6,8 +6,8 @@
   "videoArquivo": "abertura.mp4",
   "musicaArquivo": "musica.mp3",
   "finalArquivo": "imagens/final",
-  "versaoArquivos": "1",
-  "versaoMidia": "1",
+  "versaoArquivos": "2",
+  "versaoMidia": "2",
   "inicioMusica": 0,
   "volumeMusica": 0.5,
   "transicaoAudio": 260,
@@ -16,18 +16,18 @@
   "linkConfirmacao": "https://confirmacao.libriconvites.com.br/e/a-ciranda-do-joao-paulo",
   "hotspotsFinal": {
     "confirmacao": {
-      "left": "17.85%",
-      "top": "70.69%",
-      "width": "43.36%",
-      "height": "6.88%"
+      "left": "44.79%",
+      "top": "66.13%",
+      "width": "45.83%",
+      "height": "5.93%"
     }
   },
   "tema": {
-    "escuro": "#203B52",
-    "principal": "#C47A5A",
-    "claro": "#F5F1EB",
-    "acento": "#D4B06A",
-    "superficie": "#F5F1EB",
-    "texto": "#594139"
+    "escuro": "#5F6243",
+    "principal": "#B85F32",
+    "claro": "#F7E8D3",
+    "acento": "#D5A36A",
+    "superficie": "#FFF8EC",
+    "texto": "#5D573E"
   }
 }

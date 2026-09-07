@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- LIBRI WEB | INDEX OFICIAL V1.3 | VARIANTE RSVP ONLY
-     BASE: index oficial V1.3 preservado.
+<!-- LIBRI WEB | INDEX OFICIAL V1.5 | VARIANTE RSVP ONLY
+     BASE: index oficial V1.5 preservado.
      PROJETO: A Ciranda do Joao Paulo | Um Quintal de Cantigas.
      RAMIFICACOES NAO APLICAVEIS: Localizacao e Presentes removidas conscientemente. -->
 <html lang="pt-BR">
@@ -20,21 +20,21 @@
   <title>A Ciranda do Jo&#227;o Paulo | Um Quintal de Cantigas</title>
   <meta name="description" content="A roda j&#225; vai come&#231;ar... Abra esta hist&#243;ria e venha fazer parte da Ciranda do Jo&#227;o Paulo.">
   <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-  <meta name="theme-color" content="#203B52">
+  <meta name="theme-color" content="#F7E8D3">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="A Ciranda do Jo&#227;o Paulo | Um Quintal de Cantigas">
   <meta property="og:description" content="A roda j&#225; vai come&#231;ar... Abra esta hist&#243;ria e venha fazer parte da Ciranda do Jo&#227;o Paulo.">
   <meta property="og:url" content="https://libriconvites.com.br/a-ciranda-do-joao-paulo/">
-  <meta property="og:image" content="https://libriconvites.com.br/a-ciranda-do-joao-paulo/imagens/preview-otimizada.jpg?v=1">
-  <meta property="og:image:secure_url" content="https://libriconvites.com.br/a-ciranda-do-joao-paulo/imagens/preview-otimizada.jpg?v=1">
+  <meta property="og:image" content="https://libriconvites.com.br/a-ciranda-do-joao-paulo/imagens/preview-otimizada.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://libriconvites.com.br/a-ciranda-do-joao-paulo/imagens/preview-otimizada.jpg?v=2">
   <meta property="og:image:type" content="image/jpeg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="A Ciranda do Jo&#227;o Paulo | Um Quintal de Cantigas">
   <meta name="twitter:description" content="A roda j&#225; vai come&#231;ar... Abra esta hist&#243;ria e venha fazer parte da Ciranda do Jo&#227;o Paulo.">
-  <meta name="twitter:image" content="https://libriconvites.com.br/a-ciranda-do-joao-paulo/imagens/preview-otimizada.jpg?v=1">
+  <meta name="twitter:image" content="https://libriconvites.com.br/a-ciranda-do-joao-paulo/imagens/preview-otimizada.jpg?v=2">
 
   <script>
     /* LIBRI WEB | HTML + JSON SEPARADOS */
@@ -50,12 +50,12 @@
       --fundo: #000;
       --transicao-video: 240ms;
       /* PERSONALIZAR POR PROJETO */
-      --tema-escuro: #203B52; /* fallback; CONFIG.tema sobrescreve */
-      --tema-principal: #C47A5A; /* fallback; CONFIG.tema sobrescreve */
-      --tema-claro: #F5F1EB; /* fallback; CONFIG.tema sobrescreve */
-      --tema-acento: #D4B06A; /* fallback; CONFIG.tema sobrescreve */
-      --tema-superficie: #F5F1EB; /* fallback; CONFIG.tema sobrescreve */
-      --tema-texto: #594139; /* fallback; CONFIG.tema sobrescreve */
+      --tema-escuro: #5F6243; /* fallback; CONFIG.tema sobrescreve */
+      --tema-principal: #B85F32; /* fallback; CONFIG.tema sobrescreve */
+      --tema-claro: #F7E8D3; /* fallback; CONFIG.tema sobrescreve */
+      --tema-acento: #D5A36A; /* fallback; CONFIG.tema sobrescreve */
+      --tema-superficie: #FFF8EC; /* fallback; CONFIG.tema sobrescreve */
+      --tema-texto: #5D573E; /* fallback; CONFIG.tema sobrescreve */
       --branco: #fff;
     }
 
@@ -1088,13 +1088,6 @@
         if (conviteAberto) return;
         conviteAberto = true;
 
-        /* Pular abertura: disponível IMEDIATAMENTE após o clique e por 7 s. */
-        clearTimeout(timerPular);
-        pular.classList.add("visivel");
-        timerPular = setTimeout(() => {
-          pular.classList.remove("visivel");
-        }, Number(CONFIG.tempoPular) || 7000);
-
         aquecerMidia();
 
         await capaCarregada.catch(() => false);
@@ -1143,7 +1136,14 @@
 
         esconderCapa();
 
-        /* O timer do Pular já começou no clique; não reiniciar aqui. */
+        /* HARD LOCK: Pular aparece no início real do vídeo, após o primeiro frame confirmado,
+           permanece visível por CONFIG.tempoPular (7000 ms) e então some com fade-out. */
+        clearTimeout(timerPular);
+        pular.classList.add("visivel");
+        timerPular = setTimeout(() => {
+          pular.classList.remove("visivel");
+        }, Number(CONFIG.tempoPular) || 7000);
+
         acompanharFinal();
       }
 

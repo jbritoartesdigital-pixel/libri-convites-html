@@ -61,133 +61,6 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .preentrada {
-      position: fixed;
-      inset: 0;
-      z-index: 5000;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(216,182,91,.18), transparent 30%),
-        radial-gradient(circle at 82% 24%, rgba(120,185,77,.22), transparent 34%),
-        linear-gradient(160deg, #20361f 0%, #304A2C 48%, #4f6d36 100%);
-      color: #fff;
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 220ms ease, visibility 220ms ease;
-    }
-
-    .preentrada.saindo {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .preentrada::before,
-    .preentrada::after {
-      content: "";
-      position: absolute;
-      width: 42vmin;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.11);
-      filter: blur(.2px);
-      pointer-events: none;
-    }
-
-    .preentrada::before {
-      left: -14vmin;
-      bottom: -12vmin;
-    }
-
-    .preentrada::after {
-      right: -12vmin;
-      top: -10vmin;
-    }
-
-    .preentrada-card {
-      position: relative;
-      z-index: 2;
-      width: min(92vw, 430px);
-      padding: 30px 24px 24px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 30px;
-      background: rgba(255,255,255,.10);
-      box-shadow: 0 24px 70px rgba(0,0,0,.26);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      text-align: center;
-    }
-
-    .preentrada-brilho {
-      width: 54px;
-      height: 54px;
-      margin: 0 auto 14px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.16);
-      font-size: 26px;
-      line-height: 1;
-    }
-
-    .preentrada-titulo {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 7vw, 40px);
-      line-height: 1.04;
-      font-weight: 700;
-      letter-spacing: -.02em;
-      text-wrap: balance;
-    }
-
-    .preentrada-texto {
-      margin: 14px auto 22px;
-      max-width: 31ch;
-      font-size: 14px;
-      line-height: 1.55;
-      color: rgba(255,255,255,.82);
-      text-wrap: balance;
-    }
-
-    .preentrada-botao {
-      width: 100%;
-      min-height: 56px;
-      border: 1px solid rgba(255,255,255,.26);
-      border-radius: 20px;
-      padding: 0 18px;
-      background: linear-gradient(135deg, #84bd55, #d8b65b);
-      color: #173018;
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: .01em;
-      cursor: pointer;
-      box-shadow: 0 10px 26px rgba(0,0,0,.18);
-      transition: transform 120ms ease, filter 120ms ease, opacity 120ms ease;
-    }
-
-    .preentrada-botao:active {
-      transform: scale(.985);
-      filter: brightness(.98);
-    }
-
-    .preentrada-botao:disabled {
-      cursor: wait;
-      opacity: .72;
-    }
-
-    .preentrada-status {
-      min-height: 18px;
-      margin-top: 12px;
-      font-size: 12px;
-      line-height: 1.4;
-      color: rgba(255,255,255,.74);
-    }
-
-
     html,
     body {
       margin: 0;
@@ -322,52 +195,7 @@
       background: transparent;
       cursor: pointer;
     }
-
-    .poeira-magica {
-      position: absolute;
-      inset: 0;
-      z-index: 90;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 220ms ease;
-    }
-
-    .poeira-magica.ativa {
-      opacity: 1;
-    }
-
-    .motion-hint {
-      position: absolute;
-      left: 50%;
-      bottom: max(14px, calc(env(safe-area-inset-bottom) + 14px));
-      z-index: 120;
-      max-width: calc(100% - 34px);
-      transform: translateX(-50%);
-      padding: 8px 12px;
-      border: 1px solid rgba(255,255,255,.46);
-      border-radius: 999px;
-      background: rgba(0,0,0,.42);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1.25;
-      text-align: center;
-      white-space: nowrap;
-      pointer-events: none;
-      backdrop-filter: blur(7px);
-      -webkit-backdrop-filter: blur(7px);
-      opacity: 1;
-      transition: opacity 180ms ease;
-    }
-
-    .motion-hint.oculto {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    #pular {
+#pular {
       position: fixed;
       right: max(16px, calc(env(safe-area-inset-right) + 16px));
       bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
@@ -390,41 +218,7 @@
       opacity: 1;
       visibility: visible;
     }
-
-    .som-fallback {
-      position: fixed;
-      left: 50%;
-      bottom: max(20px, calc(env(safe-area-inset-bottom) + 20px));
-      z-index: 520;
-      transform: translateX(-50%);
-      min-height: 38px;
-      max-width: calc(100% - 34px);
-      padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,.52);
-      border-radius: 999px;
-      background: rgba(0,0,0,.46);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      line-height: 1.2;
-      text-align: center;
-      white-space: nowrap;
-      cursor: pointer;
-      backdrop-filter: blur(7px);
-      -webkit-backdrop-filter: blur(7px);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 180ms ease, visibility 180ms ease;
-    }
-
-    .som-fallback.visivel {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .hotspot {
+.hotspot {
       position: absolute;
       z-index: 300;
       display: block;
@@ -474,7 +268,6 @@
     #controleSom.mudo #iconeMudo { display: block; }
 
     .hotspot:focus-visible,
-    .preentrada-botao:focus-visible,
     #abrirConvite:focus-visible,
     #pular:focus-visible,
     .som-fallback:focus-visible,
@@ -535,6 +328,70 @@
     }
 
     .modal { z-index: 1000; }
+
+    #modalLembreteFinal {
+      z-index: 1500;
+    }
+
+    .lembrete-card {
+      width: min(90vw, 410px);
+    }
+
+    .lembrete-conteudo {
+      position: relative;
+      z-index: 2;
+      padding: 38px 24px 24px;
+      text-align: center;
+    }
+
+    .lembrete-icone {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 13px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 28%, transparent);
+      background:
+        linear-gradient(145deg,
+          color-mix(in srgb, var(--tema-claro) 78%, #fff),
+          color-mix(in srgb, var(--tema-acento) 22%, #fff));
+      font-size: 26px;
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--tema-principal) 14%, transparent);
+    }
+
+    .lembrete-texto {
+      display: grid;
+      gap: 13px;
+      margin: 0 0 18px;
+      color: var(--tema-texto);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .lembrete-item {
+      margin: 0;
+      padding: 13px 14px;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 15%, transparent);
+      background: color-mix(in srgb, var(--tema-superficie) 86%, #fff);
+    }
+
+    .acao-lembrete {
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      border-radius: 18px;
+      cursor: pointer;
+      color: #fff;
+      background:
+        linear-gradient(135deg,
+          var(--tema-principal),
+          color-mix(in srgb, var(--tema-principal) 62%, var(--tema-escuro)));
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 8px 22px rgba(0,0,0,.10);
+    }
     .presentes-modal { z-index: 1200; }
 
     .modal.aberto,
@@ -865,35 +722,6 @@
 </head>
 
 <body>
-  <section id="preEntrada" class="preentrada" aria-label="Preparar convite">
-    <div class="preentrada-card">
-      <div class="preentrada-brilho" aria-hidden="true">✨</div>
-
-      <h1 class="preentrada-titulo">
-        Você está preparado para entrar no mundo mágico da Thayla?
-      </h1>
-
-      <p class="preentrada-texto">
-        Uma surpresa encantada está esperando por você.
-      </p>
-
-      <button
-        id="preEntradaBotao"
-        class="preentrada-botao"
-        type="button"
-      >
-        Despertar a magia ✨
-      </button>
-
-      <div
-        id="preEntradaStatus"
-        class="preentrada-status"
-        role="status"
-        aria-live="polite"
-      ></div>
-    </div>
-  </section>
-
   <section id="finalTela" class="tela" aria-label="Convite final">
     <div class="quadro">
       <img
@@ -956,7 +784,6 @@
         id="video"
         playsinline
         webkit-playsinline
-        muted
         preload="metadata"
         disablepictureinpicture
         controlslist="nodownload noplaybackrate noremoteplayback"
@@ -965,16 +792,7 @@
       <button id="pular" type="button" aria-label="Pular abertura">
         Pular abertura
       </button>
-
-      <button
-        id="ativarSomFallback"
-        class="som-fallback"
-        type="button"
-        aria-label="Ativar som"
-      >
-        Toque para ativar o som ✨
-      </button>
-    </div>
+</div>
   </section>
 
   <section id="capaTela" class="tela" aria-label="Capa do convite">
@@ -989,13 +807,9 @@
       <button
         id="abrirConvite"
         type="button"
-        aria-label="Agite o celular para abrir; toque se não funcionar"
+        aria-label="Clique para abrir o convite"
       ></button>
-
-      <canvas id="poeiraMagica" class="poeira-magica" aria-hidden="true"></canvas>
-
-      <div id="motionHint" class="motion-hint oculto" role="status" aria-live="polite"></div>
-    </div>
+</div>
   </section>
 
   <div id="modalLocalizacao" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloLocalizacao">
@@ -1048,6 +862,42 @@
     </div>
   </div>
 
+  <div
+    id="modalLembreteFinal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloLembreteFinal"
+  >
+    <div class="modal-card lembrete-card">
+      <button
+        id="fecharLembreteFinal"
+        class="modal-fechar"
+        type="button"
+        aria-label="Fechar lembrete"
+      >&times;</button>
+
+      <div class="lembrete-conteudo">
+        <div class="lembrete-icone" aria-hidden="true">✨</div>
+
+        <h2 id="tituloLembreteFinal" class="modal-titulo">
+          Um recadinho para a festa
+        </h2>
+
+        <div class="localizacao-divisor" aria-hidden="true"></div>
+
+        <div class="lembrete-texto">
+          <p id="lembreteRoupaBanho" class="lembrete-item"></p>
+          <p id="lembreteBebidas" class="lembrete-item"></p>
+        </div>
+
+        <button id="entendiLembreteFinal" class="acao-lembrete" type="button">
+          Entendi ✨
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div id="modalPresentes" class="presentes-modal" role="dialog" aria-modal="true" aria-label="Sugest&#245;es de presentes">
     <div class="presentes-shell">
       <button id="fecharPresentes" class="modal-fechar" type="button" aria-label="Fechar sugest&#245;es de presentes">&times;</button>
@@ -1076,10 +926,6 @@
         }
       }
 
-      const preEntrada = document.getElementById("preEntrada");
-      const preEntradaBotao = document.getElementById("preEntradaBotao");
-      const preEntradaStatus = document.getElementById("preEntradaStatus");
-
       const capaTela = document.getElementById("capaTela");
       const videoTela = document.getElementById("videoTela");
       const finalTela = document.getElementById("finalTela");
@@ -1090,10 +936,7 @@
       const musica = document.getElementById("musica");
 
       const abrirConvite = document.getElementById("abrirConvite");
-      const motionHint = document.getElementById("motionHint");
-      const poeiraMagica = document.getElementById("poeiraMagica");
       const pular = document.getElementById("pular");
-      const ativarSomFallback = document.getElementById("ativarSomFallback");
       const controleSom = document.getElementById("controleSom");
       const hotspotLocalizacao = document.getElementById("hotspotLocalizacao");
       const hotspotConfirmacao = document.getElementById("hotspotConfirmacao");
@@ -1114,6 +957,12 @@
       const rsvpFallback = document.getElementById("rsvpFallback");
       const fecharRsvp = document.getElementById("fecharRsvp");
 
+      const modalLembreteFinal = document.getElementById("modalLembreteFinal");
+      const fecharLembreteFinal = document.getElementById("fecharLembreteFinal");
+      const entendiLembreteFinal = document.getElementById("entendiLembreteFinal");
+      const lembreteRoupaBanho = document.getElementById("lembreteRoupaBanho");
+      const lembreteBebidas = document.getElementById("lembreteBebidas");
+
       const modalPresentes = document.getElementById("modalPresentes");
       const presentesImagem = document.getElementById("presentesImagem");
       const fecharPresentes = document.getElementById("fecharPresentes");
@@ -1124,30 +973,6 @@
       let somLigado = true;
       let audioDisponivel = true;
       let midiaAquecida = false;
-      let movimentoArmado = false;
-      let movimentoNegado = false;
-      let midiaDesbloqueada = false;
-      let ultimoShake = 0;
-      let ultimaAceleracao = null;
-      let recebeuEventoMovimento = false;
-      let recebeuEventoOrientacao = false;
-      let ultimaOrientacao = null;
-      let sensorLinear = null;
-      let sensorAccel = null;
-      let sensorGiro = null;
-      let recebeuSensorGenerico = false;
-      let timerFallbackMovimento = null;
-      let gateConcluido = false;
-      let poeiraCtx = null;
-      let poeiraAnimacao = 0;
-      let poeiraAtiva = false;
-      let poeiraParticulas = [];
-      let poeiraUltimoTempo = 0;
-      let poeiraIntensidade = 0;
-      let shakeLiberadoEm = 0;
-      let sensorIOSConfirmado = false;
-      let timerConfirmacaoSensorIOS = null;
-
       let videoRsvpEstavaTocando = false;
       let timerRsvpFallback = null;
 
@@ -1296,6 +1121,14 @@
       abrirWaze.textContent = CONFIG.botoes.waze;
       abrirUber.textContent = CONFIG.botoes.uber;
 
+      if (CONFIG.lembreteFinal) {
+        lembreteRoupaBanho.textContent =
+          CONFIG.lembreteFinal.roupaBanho || "";
+
+        lembreteBebidas.textContent =
+          CONFIG.lembreteFinal.bebidas || "";
+      }
+
       function esconderCapa() {
         if (capaTela.classList.contains("saindo")) return;
 
@@ -1335,67 +1168,6 @@
           }
 
           video.addEventListener("loadeddata", done, { once: true });
-        });
-      }
-
-      function aguardarVideoRodando(timeoutMs = 4200) {
-        return new Promise((resolve) => {
-          let terminou = false;
-          let timer = null;
-          let raf = 0;
-
-          const limpar = () => {
-            clearTimeout(timer);
-            cancelAnimationFrame(raf);
-            video.removeEventListener("playing", confirmar);
-            video.removeEventListener("timeupdate", verificar);
-            video.removeEventListener("loadeddata", verificar);
-          };
-
-          const finalizar = (ok) => {
-            if (terminou) return;
-            terminou = true;
-            limpar();
-            resolve(ok);
-          };
-
-          const confirmar = () => {
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => finalizar(true));
-            });
-          };
-
-          const verificar = () => {
-            if (
-              !video.paused &&
-              !video.ended &&
-              video.readyState >= 2
-            ) {
-              confirmar();
-            }
-          };
-
-          const sondar = () => {
-            if (terminou) return;
-
-            if (
-              !video.paused &&
-              !video.ended &&
-              video.readyState >= 2
-            ) {
-              confirmar();
-              return;
-            }
-
-            raf = requestAnimationFrame(sondar);
-          };
-
-          video.addEventListener("playing", confirmar, { once: true });
-          video.addEventListener("timeupdate", verificar);
-          video.addEventListener("loadeddata", verificar);
-
-          timer = setTimeout(() => finalizar(false), timeoutMs);
-          raf = requestAnimationFrame(sondar);
         });
       }
 
@@ -1489,674 +1261,9 @@
       }
 
 
-      function esconderDicaMovimento() {
-        motionHint.classList.add("oculto");
-      }
-
-      function mostrarDicaMovimento(texto) {
-        motionHint.textContent = texto;
-        motionHint.classList.remove("oculto");
-      }
-
-      function desabilitarToqueFallback() {
-        abrirConvite.disabled = true;
-        abrirConvite.style.pointerEvents = "none";
-      }
-
-      function habilitarToqueFallback(
-        mensagem = "Não iniciou? Toque na tela ✨"
-      ) {
-        abrirConvite.disabled = false;
-        abrirConvite.style.pointerEvents = "auto";
-        mostrarDicaMovimento(mensagem);
-      }
-
-      function redimensionarPoeiraMagica() {
-        const quadro = poeiraMagica.parentElement;
-        if (!quadro) return;
-
-        const largura = Math.max(
-          1,
-          Math.round(quadro.clientWidth * Math.min(window.devicePixelRatio || 1, 2))
-        );
-        const altura = Math.max(
-          1,
-          Math.round(quadro.clientHeight * Math.min(window.devicePixelRatio || 1, 2))
-        );
-
-        if (poeiraMagica.width !== largura || poeiraMagica.height !== altura) {
-          poeiraMagica.width = largura;
-          poeiraMagica.height = altura;
-        }
-      }
-
-      function criarParticulaMagica(opcoes = {}) {
-        const largura = poeiraMagica.width || 1;
-        const altura = poeiraMagica.height || 1;
-        const centroX = largura * (opcoes.origemX ?? 0.5);
-        const centroY = altura * (opcoes.origemY ?? 0.54);
-        const dispersaoX = largura * (opcoes.dispersaoX ?? 0.12);
-        const dispersaoY = altura * (opcoes.dispersaoY ?? 0.08);
-
-        const angulo = Math.random() * Math.PI * 2;
-        const velocidade = opcoes.velocidadeBase ?? (0.12 + Math.random() * 0.32);
-
-        return {
-          x: centroX + (Math.random() - 0.5) * dispersaoX,
-          y: centroY + (Math.random() - 0.5) * dispersaoY,
-          vx: Math.cos(angulo) * velocidade * (0.8 + Math.random() * 0.9),
-          vy: Math.sin(angulo) * velocidade * (0.6 + Math.random() * 0.9) - (0.12 + Math.random() * 0.24),
-          tamanho: (opcoes.tamanhoBase ?? 1.2) + Math.random() * (opcoes.tamanhoVar ?? 2.4),
-          vida: 0,
-          duracao: (opcoes.duracaoBase ?? 900) + Math.random() * (opcoes.duracaoVar ?? 850),
-          cor:
-            opcoes.cor ||
-            [
-              "255,244,210",
-              "226,247,202",
-              "214,190,106",
-              "245,255,248"
-            ][Math.floor(Math.random() * 4)],
-          brilho: 0.35 + Math.random() * 0.45
-        };
-      }
-
-      function emitirPoeiraMagica(quantidade = 8, opcoes = {}) {
-        for (let i = 0; i < quantidade; i += 1) {
-          poeiraParticulas.push(criarParticulaMagica(opcoes));
-        }
-      }
-
-      function responderMovimentoMagico(intensidade = 1) {
-        if (!poeiraAtiva) return;
-
-        poeiraIntensidade = Math.min(1, poeiraIntensidade + intensidade * 0.22);
-
-        const quantidade =
-          intensidade >= 1.8 ? 9 :
-          intensidade >= 1.2 ? 6 : 3;
-
-        emitirPoeiraMagica(quantidade, {
-          origemX: 0.5,
-          origemY: 0.54,
-          dispersaoX: 0.22,
-          dispersaoY: 0.16,
-          velocidadeBase: 0.26 + Math.min(intensidade, 2.2) * 0.08,
-          tamanhoBase: 1.4,
-          tamanhoVar: 2.6,
-          duracaoBase: 700,
-          duracaoVar: 700
-        });
-      }
-
-      function iniciarPoeiraMagica() {
-        if (poeiraAtiva) return;
-
-        poeiraCtx = poeiraMagica.getContext("2d");
-        if (!poeiraCtx) return;
-
-        poeiraAtiva = true;
-        poeiraMagica.classList.add("ativa");
-        redimensionarPoeiraMagica();
-        poeiraParticulas = [];
-        poeiraIntensidade = 0.16;
-        emitirPoeiraMagica(16, {
-          origemX: 0.5,
-          origemY: 0.56,
-          dispersaoX: 0.28,
-          dispersaoY: 0.18,
-          velocidadeBase: 0.16,
-          tamanhoBase: 1.1,
-          tamanhoVar: 2.1,
-          duracaoBase: 1100,
-          duracaoVar: 900
-        });
-
-        poeiraUltimoTempo = 0;
-
-        const animar = (tempo) => {
-          if (!poeiraAtiva || !poeiraCtx) return;
-
-          redimensionarPoeiraMagica();
-
-          const dt = poeiraUltimoTempo ? Math.min(40, tempo - poeiraUltimoTempo) : 16;
-          poeiraUltimoTempo = tempo;
-
-          poeiraCtx.clearRect(0, 0, poeiraMagica.width, poeiraMagica.height);
-
-          poeiraIntensidade = Math.max(0.08, poeiraIntensidade - dt * 0.00022);
-
-          if (Math.random() < 0.10 + poeiraIntensidade * 0.10) {
-            emitirPoeiraMagica(1, {
-              origemX: 0.5 + (Math.random() - 0.5) * 0.10,
-              origemY: 0.56 + (Math.random() - 0.5) * 0.08,
-              dispersaoX: 0.10,
-              dispersaoY: 0.06,
-              velocidadeBase: 0.08,
-              tamanhoBase: 1.0,
-              tamanhoVar: 1.8,
-              duracaoBase: 1000,
-              duracaoVar: 700
-            });
-          }
-
-          poeiraCtx.save();
-          poeiraCtx.globalCompositeOperation = "screen";
-
-          const novas = [];
-
-          for (const p of poeiraParticulas) {
-            p.vida += dt;
-
-            if (p.vida >= p.duracao) continue;
-
-            const progresso = p.vida / p.duracao;
-            const fade =
-              progresso < 0.15 ? progresso / 0.15 :
-              progresso > 0.78 ? (1 - progresso) / 0.22 :
-              1;
-
-            p.x += p.vx * dt * 0.055;
-            p.y += p.vy * dt * 0.055;
-            p.vy -= 0.0007 * dt;
-            p.vx *= 0.995;
-
-            const raio = p.tamanho * (0.65 + (1 - progresso) * 0.55);
-            const alpha = Math.max(0, fade) * p.brilho * (0.52 + poeiraIntensidade * 0.55);
-
-            poeiraCtx.beginPath();
-            poeiraCtx.fillStyle = `rgba(${p.cor}, ${alpha.toFixed(3)})`;
-            poeiraCtx.shadowColor = `rgba(${p.cor}, ${(alpha * 0.8).toFixed(3)})`;
-            poeiraCtx.shadowBlur = raio * 5;
-            poeiraCtx.arc(p.x, p.y, raio, 0, Math.PI * 2);
-            poeiraCtx.fill();
-
-            novas.push(p);
-          }
-
-          poeiraCtx.restore();
-
-          poeiraParticulas = novas.slice(-180);
-          poeiraAnimacao = requestAnimationFrame(animar);
-        };
-
-        poeiraAnimacao = requestAnimationFrame(animar);
-      }
-
-      function pararPoeiraMagica() {
-        poeiraAtiva = false;
-        cancelAnimationFrame(poeiraAnimacao);
-        poeiraAnimacao = 0;
-        poeiraParticulas = [];
-        poeiraMagica.classList.remove("ativa");
-
-        if (poeiraCtx) {
-          poeiraCtx.clearRect(0, 0, poeiraMagica.width, poeiraMagica.height);
-        }
-      }
-
-      function ehDispositivoIOS() {
-        return (
-          /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-          (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
-        );
-      }
-
-      function limparTimerConfirmacaoSensorIOS() {
-        clearTimeout(timerConfirmacaoSensorIOS);
-        timerConfirmacaoSensorIOS = null;
-      }
-
-      function confirmarSensorIOSAtivo() {
-        if (sensorIOSConfirmado) return;
-
-        sensorIOSConfirmado = true;
-        limparTimerConfirmacaoSensorIOS();
-
-        mostrarDicaMovimento("Movimento ativado ✨ Agora agite o celular");
-
-        setTimeout(() => {
-          if (!conviteAberto && sensorIOSConfirmado) {
-            esconderDicaMovimento();
-          }
-        }, 1300);
-      }
-
-      function limparTimerFallbackMovimento() {
-        clearTimeout(timerFallbackMovimento);
-        timerFallbackMovimento = null;
-      }
-
-      function agendarFallbackMovimento(atraso = 6500) {
-        limparTimerFallbackMovimento();
-
-        timerFallbackMovimento = setTimeout(() => {
-          if (!conviteAberto && gateConcluido) {
-            habilitarToqueFallback("Não iniciou? Toque na tela ✨");
-          }
-        }, atraso);
-      }
-
-      async function desbloquearMidiaPorGesto() {
-        if (midiaDesbloqueada) return true;
-
-        audioDisponivel = true;
-        aquecerMidia();
-
-        /*
-          iPhone/Safari:
-          NÃO damos play/pause no vídeo durante a pré-entrada.
-          Isso pode deixar o elemento em estado de seek/rejeição antes do shake.
-          Apenas deixamos o vídeo preparado, muted e inline.
-        */
-        try {
-          video.defaultMuted = true;
-          video.muted = true;
-          video.playsInline = true;
-          video.setAttribute("muted", "");
-          video.setAttribute("playsinline", "");
-          video.setAttribute("webkit-playsinline", "");
-          video.preload = "auto";
-          video.load();
-        } catch (_) {}
-
-        /*
-          A música é aquecida dentro do clique real do usuário.
-          Se o navegador não aceitar, a abertura visual continua normalmente.
-        */
-        try {
-          musica.muted = true;
-          try {
-            musica.currentTime = Math.max(0, CONFIG.inicioMusica);
-          } catch (_) {}
-
-          const tentativa = musica.play();
-
-          if (tentativa && typeof tentativa.then === "function") {
-            await tentativa.catch(() => false);
-          }
-
-          try { musica.pause(); } catch (_) {}
-          try {
-            musica.currentTime = Math.max(0, CONFIG.inicioMusica);
-          } catch (_) {}
-        } catch (_) {}
-
-        midiaDesbloqueada = true;
-        return true;
-      }
-
-      function dispararShake() {
-        if (conviteAberto || !movimentoArmado) return;
-
-        const agora = performance.now();
-
-        /*
-          Depois do clique que concede permissão, ignoramos por 1,4 s o
-          movimento natural da mão ao reposicionar o telefone.
-        */
-        if (agora < shakeLiberadoEm) return;
-        if (agora - ultimoShake < 1250) return;
-
-        ultimoShake = agora;
-        limparTimerFallbackMovimento();
-        limparTimerConfirmacaoSensorIOS();
-        desabilitarToqueFallback();
-        esconderDicaMovimento();
-        iniciarConvite("shake");
-      }
-
-      function detectarShake(event) {
-        if (conviteAberto || !movimentoArmado) return;
-
-        recebeuEventoMovimento = true;
-
-        if (ehDispositivoIOS()) {
-          confirmarSensorIOSAtivo();
-        }
-
-        const linear = event.acceleration;
-        if (linear) {
-          const x = Number(linear.x || 0);
-          const y = Number(linear.y || 0);
-          const z = Number(linear.z || 0);
-          const intensidade = Math.sqrt(x * x + y * y + z * z);
-
-          if (intensidade >= 9.3) {
-            responderMovimentoMagico(2);
-            dispararShake();
-            return;
-          }
-
-          if (intensidade >= 4.6) {
-            responderMovimentoMagico(0.8);
-          }
-        }
-
-        const a = event.accelerationIncludingGravity;
-        if (a) {
-          const atual = {
-            x: Number(a.x || 0),
-            y: Number(a.y || 0),
-            z: Number(a.z || 0)
-          };
-
-          if (ultimaAceleracao) {
-            const dx = atual.x - ultimaAceleracao.x;
-            const dy = atual.y - ultimaAceleracao.y;
-            const dz = atual.z - ultimaAceleracao.z;
-            const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-            if (delta >= 12.4) {
-              responderMovimentoMagico(1.9);
-              dispararShake();
-              return;
-            }
-
-            if (delta >= 5.2) {
-              responderMovimentoMagico(0.7);
-            }
-          }
-
-          ultimaAceleracao = atual;
-        }
-
-        const r = event.rotationRate;
-        if (r) {
-          const rotacao =
-            Math.abs(Number(r.alpha || 0)) +
-            Math.abs(Number(r.beta || 0)) +
-            Math.abs(Number(r.gamma || 0));
-
-          if (rotacao >= 165) {
-            responderMovimentoMagico(1.8);
-            dispararShake();
-            return;
-          }
-
-          if (rotacao >= 62) {
-            responderMovimentoMagico(0.6);
-          }
-        }
-      }
-
-      function detectarOrientacao(event) {
-        if (conviteAberto || !movimentoArmado) return;
-
-        recebeuEventoOrientacao = true;
-
-        const atual = {
-          alpha: Number(event.alpha || 0),
-          beta: Number(event.beta || 0),
-          gamma: Number(event.gamma || 0)
-        };
-
-        if (!ultimaOrientacao) {
-          ultimaOrientacao = atual;
-          return;
-        }
-
-        const delta =
-          Math.abs(atual.beta - ultimaOrientacao.beta) +
-          Math.abs(atual.gamma - ultimaOrientacao.gamma);
-
-        ultimaOrientacao = atual;
-
-        /*
-          Fallback importante para navegadores que entregam orientação,
-          mas não devicemotion. Uma sacudida real costuma produzir mudanças
-          rápidas de beta/gamma.
-        */
-        if (delta >= 36) {
-          dispararShake();
-        }
-      }
-
-      function pararSensoresGenericos() {
-        for (const sensor of [sensorLinear, sensorAccel, sensorGiro]) {
-          try {
-            if (sensor && typeof sensor.stop === "function") sensor.stop();
-          } catch (_) {}
-        }
-
-        sensorLinear = null;
-        sensorAccel = null;
-        sensorGiro = null;
-      }
-
-      function armarSensoresGenericos() {
-        recebeuSensorGenerico = false;
-
-        try {
-          if ("LinearAccelerationSensor" in window) {
-            sensorLinear = new LinearAccelerationSensor({ frequency: 30 });
-            sensorLinear.addEventListener("reading", () => {
-              recebeuSensorGenerico = true;
-
-              const x = Number(sensorLinear.x || 0);
-              const y = Number(sensorLinear.y || 0);
-              const z = Number(sensorLinear.z || 0);
-              const intensidade = Math.sqrt(x * x + y * y + z * z);
-
-              if (intensidade >= 9.3) { responderMovimentoMagico(2); dispararShake(); }
-              else if (intensidade >= 4.6) { responderMovimentoMagico(0.8); }
-            });
-            sensorLinear.start();
-          }
-        } catch (_) {
-          sensorLinear = null;
-        }
-
-        try {
-          if (!sensorLinear && "Accelerometer" in window) {
-            sensorAccel = new Accelerometer({ frequency: 30 });
-            let anterior = null;
-
-            sensorAccel.addEventListener("reading", () => {
-              recebeuSensorGenerico = true;
-
-              const atual = {
-                x: Number(sensorAccel.x || 0),
-                y: Number(sensorAccel.y || 0),
-                z: Number(sensorAccel.z || 0)
-              };
-
-              if (anterior) {
-                const dx = atual.x - anterior.x;
-                const dy = atual.y - anterior.y;
-                const dz = atual.z - anterior.z;
-                const delta = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                if (delta >= 12.4) { responderMovimentoMagico(1.9); dispararShake(); }
-                else if (delta >= 5.2) { responderMovimentoMagico(0.7); }
-              }
-
-              anterior = atual;
-            });
-
-            sensorAccel.start();
-          }
-        } catch (_) {
-          sensorAccel = null;
-        }
-
-        try {
-          if ("Gyroscope" in window) {
-            sensorGiro = new Gyroscope({ frequency: 30 });
-
-            sensorGiro.addEventListener("reading", () => {
-              recebeuSensorGenerico = true;
-
-              const rotacao =
-                Math.abs(Number(sensorGiro.x || 0)) +
-                Math.abs(Number(sensorGiro.y || 0)) +
-                Math.abs(Number(sensorGiro.z || 0));
-
-              if (rotacao >= 5.0) { responderMovimentoMagico(1.8); dispararShake(); }
-              else if (rotacao >= 2.3) { responderMovimentoMagico(0.6); }
-            });
-
-            sensorGiro.start();
-          }
-        } catch (_) {
-          sensorGiro = null;
-        }
-      }
-
-      function armarListenerMovimento() {
-        if (movimentoArmado) return;
-
-        movimentoArmado = true;
-        ultimaAceleracao = null;
-        ultimaOrientacao = null;
-        recebeuEventoMovimento = false;
-        recebeuEventoOrientacao = false;
-        recebeuSensorGenerico = false;
-
-        window.addEventListener("devicemotion", detectarShake, { passive: true });
-        window.addEventListener("deviceorientation", detectarOrientacao, { passive: true });
-
-        armarSensoresGenericos();
-
-        /*
-          Se o navegador não entregar NENHUM sinal de sensor, reconhecemos
-          a falha e mostramos somente o fallback leve.
-        */
-        setTimeout(() => {
-          if (
-            !ehDispositivoIOS() &&
-            !conviteAberto &&
-            movimentoArmado &&
-            !recebeuEventoMovimento &&
-            !recebeuEventoOrientacao &&
-            !recebeuSensorGenerico
-          ) {
-            habilitarToqueFallback("Não iniciou ao agitar? Toque na tela ✨");
-          }
-        }, 1800);
-      }
-
-      async function abrirPorToqueFallback() {
+      async function iniciarConvite() {
         if (conviteAberto) return;
-
-        esconderDicaMovimento();
-        pararPoeiraMagica();
-        await desbloquearMidiaPorGesto();
-
-        try {
-          if (
-            "DeviceMotionEvent" in window &&
-            typeof DeviceMotionEvent.requestPermission === "function"
-          ) {
-            await DeviceMotionEvent.requestPermission().catch(() => null);
-          }
-        } catch (_) {}
-
-        iniciarConvite("tap");
-      }
-
-      async function concluirPreEntrada() {
-        if (gateConcluido) return;
-
-        preEntradaBotao.disabled = true;
-        preEntradaStatus.textContent = "Preparando a magia... ✨";
-
-        const ios = ehDispositivoIOS();
-
-        /*
-          O desbloqueio de mídia começa ainda no mesmo clique.
-          Em paralelo, no iPhone pedimos SOMENTE DeviceMotionEvent,
-          que é a permissão realmente necessária para detectar o shake.
-        */
-        const mediaPromise = desbloquearMidiaPorGesto();
-
-        let permissaoMovimento = "not-required";
-
-        if (
-          ios &&
-          "DeviceMotionEvent" in window &&
-          typeof DeviceMotionEvent.requestPermission === "function"
-        ) {
-          try {
-            permissaoMovimento = await DeviceMotionEvent.requestPermission();
-          } catch (_) {
-            permissaoMovimento = "denied";
-          }
-        }
-
-        await Promise.resolve(mediaPromise).catch(() => false);
-
-        gateConcluido = true;
-
-        preEntrada.classList.add("saindo");
-        setTimeout(() => {
-          preEntrada.hidden = true;
-        }, 240);
-
-        if (ios && permissaoMovimento !== "granted") {
-          movimentoNegado = true;
-          iniciarPoeiraMagica();
-          habilitarToqueFallback("Movimento não liberado • toque para abrir ✨");
-          return;
-        }
-
-        movimentoNegado = false;
-        desabilitarToqueFallback();
-        esconderDicaMovimento();
-        iniciarPoeiraMagica();
-
-        /*
-          Armamos o listener imediatamente depois da permissão para verificar
-          se o WebKit realmente começou a enviar devicemotion.
-          O shake só passa a valer após a janela de segurança.
-        */
-        shakeLiberadoEm = performance.now() + 1400;
-        sensorIOSConfirmado = false;
-        armarListenerMovimento();
-
-        if (ios) {
-          limparTimerConfirmacaoSensorIOS();
-
-          timerConfirmacaoSensorIOS = setTimeout(() => {
-            if (!conviteAberto && !sensorIOSConfirmado) {
-              habilitarToqueFallback(
-                "Seu navegador não liberou o movimento • toque para abrir ✨"
-              );
-            }
-          }, 2200);
-        }
-
-        agendarFallbackMovimento(8000);
-      }
-
-      function prepararEntradaInterativa() {
-        /*
-          Antes da tela de capa, existe agora uma etapa explícita de preparação.
-          Nenhum sensor é armado antes do clique inicial.
-        */
-        desabilitarToqueFallback();
-        esconderDicaMovimento();
-
-        preEntradaBotao.addEventListener("click", concluirPreEntrada, {
-          once: true
-        });
-      }
-
-      async function iniciarConvite(origem = "auto") {
-        if (conviteAberto) return;
-
         conviteAberto = true;
-        movimentoArmado = false;
-
-        limparTimerFallbackMovimento();
-        limparTimerConfirmacaoSensorIOS();
-        desabilitarToqueFallback();
-        esconderDicaMovimento();
-        pararPoeiraMagica();
-
-        window.removeEventListener("devicemotion", detectarShake);
-        window.removeEventListener("deviceorientation", detectarOrientacao);
-        pararSensoresGenericos();
 
         aquecerMidia();
 
@@ -2164,135 +1271,60 @@
         carregarFinal().catch(() => false);
         carregarPresentes().catch(() => false);
 
-        /*
-          REGRA DE ESTABILIDADE iPHONE:
-          o shake inicia SEMPRE o vídeo MUTED.
-          Vídeo muted + playsinline pode começar sem depender de um novo toque.
-          O áudio vira uma ação separada e nunca bloqueia a abertura visual.
-        */
-        video.defaultMuted = true;
-        video.muted = true;
-        video.volume = 1;
-        video.playsInline = true;
-        video.setAttribute("muted", "");
-        video.setAttribute("playsinline", "");
-        video.setAttribute("webkit-playsinline", "");
-
-        try {
-          if (video.readyState === 0) {
-            video.load();
-          }
-
-          try { video.currentTime = 0; } catch (_) {}
-
-          const playPromise = video.play();
-
-          if (playPromise && typeof playPromise.then === "function") {
-            await playPromise;
-          }
-        } catch (_) {
-          /*
-            Uma segunda tentativa muted após load explícito.
-            Não tentamos áudio aqui.
-          */
-          try {
-            video.pause();
-            video.defaultMuted = true;
-            video.muted = true;
-            video.setAttribute("muted", "");
-            video.load();
-
-            await new Promise((resolve) => {
-              if (video.readyState >= 2) {
-                resolve();
-                return;
-              }
-
-              const pronto = () => resolve();
-              video.addEventListener("loadeddata", pronto, { once: true });
-              setTimeout(resolve, 1800);
-            });
-
-            try { video.currentTime = 0; } catch (_) {}
-
-            const segundaTentativa = video.play();
-            if (
-              segundaTentativa &&
-              typeof segundaTentativa.then === "function"
-            ) {
-              await segundaTentativa;
-            }
-          } catch (_) {
-            conviteAberto = false;
-
-            try { video.pause(); } catch (_) {}
-            videoTela.classList.remove("ativo");
-            videoTela.classList.remove("saindo");
-            videoTela.style.visibility = "hidden";
-
-            habilitarToqueFallback("Não iniciou? Toque na tela ✨");
-
-            setTimeout(() => {
-              if (!conviteAberto) {
-                iniciarPoeiraMagica();
-                armarListenerMovimento();
-              }
-            }, 250);
-
-            return;
-          }
-        }
-
-        /*
-          Só agora mostramos a camada do vídeo.
-          A capa permanece por cima até o Safari confirmar que o vídeo
-          realmente entrou em reprodução.
-        */
         videoTela.style.visibility = "visible";
         videoTela.classList.remove("saindo");
         videoTela.classList.add("ativo");
 
-        const rodando = await aguardarVideoRodando(4200);
+        iniciarMusicaSilenciosa();
+        video.muted = false;
+        video.volume = 1;
 
-        if (!rodando) {
-          conviteAberto = false;
+        try {
+          video.currentTime = 0;
+        } catch (_) {}
 
-          try { video.pause(); } catch (_) {}
+        const primeiroFrame = aguardarPrimeiroFrame();
 
+        try {
+          await video.play();
+
+          const framePronto = await primeiroFrame;
+          if (!framePronto) {
+            throw new Error("Primeiro frame indisponível");
+          }
+        } catch (_) {
+          /*
+            Motor padrão Libri:
+            se o vídeo falhar, preservar uma tela válida e cair para o Card Final.
+            Não exibir tela preta e não criar botão extra de "ativar áudio".
+          */
+          await carregarFinal().catch(() => false);
+
+          finalTela.classList.add("ativo");
+          finalAtivo = true;
+          finalizando = false;
+
+          video.pause();
           videoTela.classList.remove("ativo");
           videoTela.classList.remove("saindo");
           videoTela.style.visibility = "hidden";
 
-          habilitarToqueFallback("Não iniciou? Toque na tela ✨");
+          if (audioDisponivel) {
+            musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+            controleSom.classList.add("visivel");
+          }
 
-          setTimeout(() => {
-            if (!conviteAberto) {
-              iniciarPoeiraMagica();
-              armarListenerMovimento();
-            }
-          }, 250);
-
+          esconderCapa();
+          setTimeout(abrirLembreteFinal, 260);
           return;
         }
 
-        /*
-          A abertura visual já está garantida. Agora tratamos o áudio.
-          Não desmutamos automaticamente no shake porque isso é justamente
-          o que o Safari pode bloquear.
-        */
-        ativarSomFallback.classList.add("visivel");
-
-        try {
-          musica.muted = true;
-          musica.volume = 0;
-          try {
-            musica.currentTime = Math.max(0, CONFIG.inicioMusica);
-          } catch (_) {}
-        } catch (_) {}
-
         esconderCapa();
 
-        /* Pular aparece no início real do vídeo e fica 7 s. */
+        /*
+          Pular aparece assim que o vídeo inicia, fica visível por
+          CONFIG.tempoPular e depois desaparece.
+        */
         pular.classList.add("visivel");
         clearTimeout(timerPular);
 
@@ -2328,17 +1360,13 @@
 
       async function finalizarVideo() {
         if (finalizando || finalAtivo) return;
-        ativarSomFallback.classList.remove("visivel");
-
-        manterSincronia(true);
+manterSincronia(true);
 
         finalizando = true;
         clearTimeout(timerPular);
         cancelAnimationFrame(rafFim);
         pular.classList.remove("visivel");
-        ativarSomFallback.classList.remove("visivel");
-
-        await carregarFinal().catch(() => false);
+await carregarFinal().catch(() => false);
 
         finalTela.classList.add("ativo");
         videoTela.classList.add("saindo");
@@ -2357,7 +1385,19 @@
           if (audioDisponivel) {
             controleSom.classList.add("visivel");
           }
+
+          setTimeout(abrirLembreteFinal, 260);
         });
+      }
+
+      function abrirLembreteFinal() {
+        if (!CONFIG.lembreteFinal) return;
+        modalLembreteFinal.classList.add("aberto");
+        fecharLembreteFinal.focus();
+      }
+
+      function fecharLembreteFinalModal() {
+        modalLembreteFinal.classList.remove("aberto");
       }
 
       function abrirLocalizacao() {
@@ -2505,51 +1545,15 @@
         musicaEstavaTocando = false;
       }
 
-      prepararEntradaInterativa();
 
       /*
-        NOVO FLUXO:
-        1) tela de preparação;
-        2) clique único solicita permissões e desbloqueia mídia;
-        3) capa aparece;
-        4) AGITAR inicia;
-        5) toque só é habilitado se o sensor falhar/for negado.
+        AGITAR é a tentativa principal.
+        O toque existe somente como fallback.
+        Quando a limitação/falha é reconhecida, surge uma orientação leve.
       */
-      abrirConvite.addEventListener("click", abrirPorToqueFallback);
+      abrirConvite.addEventListener("click", iniciarConvite);
       pular.addEventListener("click", finalizarVideo);
-      ativarSomFallback.addEventListener("click", async () => {
-        try {
-          audioDisponivel = true;
 
-          video.defaultMuted = false;
-          video.muted = false;
-          video.removeAttribute("muted");
-          video.volume = 1;
-
-          if (video.paused && !finalAtivo) {
-            await video.play();
-          }
-
-          try {
-            musica.muted = false;
-            musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-
-            if (musica.paused) {
-              await musica.play();
-            }
-          } catch (_) {}
-
-          ativarSomFallback.classList.remove("visivel");
-        } catch (_) {
-          /*
-            Se o Safari ainda rejeitar o áudio, não interrompemos o vídeo.
-          */
-          video.defaultMuted = true;
-          video.muted = true;
-          video.setAttribute("muted", "");
-          ativarSomFallback.textContent = "Toque novamente para ativar o som";
-        }
-      });
 
       controleSom.addEventListener("click", alternarSom);
 
@@ -2557,6 +1561,15 @@
       hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
       hotspotPresentes.addEventListener("click", abrirPresentes);
       hotspotFiltro.addEventListener("click", abrirFiltro);
+
+      fecharLembreteFinal.addEventListener("click", fecharLembreteFinalModal);
+      entendiLembreteFinal.addEventListener("click", fecharLembreteFinalModal);
+
+      modalLembreteFinal.addEventListener("click", (event) => {
+        if (event.target === modalLembreteFinal) {
+          fecharLembreteFinalModal();
+        }
+      });
 
       abrirGoogleMaps.addEventListener("click", () => abrirDestino(CONFIG.linkMapa));
       abrirWaze.addEventListener("click", () => abrirDestino(CONFIG.linkWaze));
@@ -2616,6 +1629,12 @@
       document.addEventListener("keydown", (event) => {
         if (event.key !== "Escape") return;
 
+        if (modalLembreteFinal.classList.contains("aberto")) {
+          fecharLembreteFinalModal();
+          return;
+        }
+
+
         if (modalRsvp.classList.contains("aberto")) {
           fecharRsvpModal();
           return;
@@ -2662,12 +1681,7 @@
       document.addEventListener("visibilitychange", tratarVisibilidade);
 
       window.addEventListener("pageshow", (event) => {
-        if (event.persisted) {
-          window.location.reload();
-          return;
-        }
-
-        if (finalAtivo && audioDisponivel) {
+        if (event.persisted && finalAtivo && audioDisponivel) {
           musica.volume = somLigado ? CONFIG.volumeMusica : 0;
           musica.play().catch(() => {});
         }

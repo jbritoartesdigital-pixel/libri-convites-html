@@ -956,6 +956,7 @@
         id="video"
         playsinline
         webkit-playsinline
+        muted
         preload="metadata"
         disablepictureinpicture
         controlslist="nodownload noplaybackrate noremoteplayback"
@@ -1337,6 +1338,67 @@
         });
       }
 
+      function aguardarVideoRodando(timeoutMs = 4200) {
+        return new Promise((resolve) => {
+          let terminou = false;
+          let timer = null;
+          let raf = 0;
+
+          const limpar = () => {
+            clearTimeout(timer);
+            cancelAnimationFrame(raf);
+            video.removeEventListener("playing", confirmar);
+            video.removeEventListener("timeupdate", verificar);
+            video.removeEventListener("loadeddata", verificar);
+          };
+
+          const finalizar = (ok) => {
+            if (terminou) return;
+            terminou = true;
+            limpar();
+            resolve(ok);
+          };
+
+          const confirmar = () => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => finalizar(true));
+            });
+          };
+
+          const verificar = () => {
+            if (
+              !video.paused &&
+              !video.ended &&
+              video.readyState >= 2
+            ) {
+              confirmar();
+            }
+          };
+
+          const sondar = () => {
+            if (terminou) return;
+
+            if (
+              !video.paused &&
+              !video.ended &&
+              video.readyState >= 2
+            ) {
+              confirmar();
+              return;
+            }
+
+            raf = requestAnimationFrame(sondar);
+          };
+
+          video.addEventListener("playing", confirmar, { once: true });
+          video.addEventListener("timeupdate", verificar);
+          video.addEventListener("loadeddata", verificar);
+
+          timer = setTimeout(() => finalizar(false), timeoutMs);
+          raf = requestAnimationFrame(sondar);
+        });
+      }
+
       function tempoEsperadoMusica() {
         let esperado = Math.max(0, video.currentTime + CONFIG.inicioMusica);
 
@@ -1681,69 +1743,44 @@
         audioDisponivel = true;
         aquecerMidia();
 
-        const tentativas = [];
-
+        /*
+          iPhone/Safari:
+          NÃO damos play/pause no vídeo durante a pré-entrada.
+          Isso pode deixar o elemento em estado de seek/rejeição antes do shake.
+          Apenas deixamos o vídeo preparado, muted e inline.
+        */
         try {
-          const videoMutedAnterior = video.muted;
+          video.defaultMuted = true;
           video.muted = true;
-          video.currentTime = 0;
-
-          const tentativaVideo = video.play();
-          if (tentativaVideo && typeof tentativaVideo.then === "function") {
-            tentativas.push(
-              tentativaVideo
-                .then(() => {
-                  video.pause();
-                  try { video.currentTime = 0; } catch (_) {}
-                  video.muted = videoMutedAnterior;
-                  return true;
-                })
-                .catch(() => {
-                  video.pause();
-                  video.muted = videoMutedAnterior;
-                  return false;
-                })
-            );
-          } else {
-            video.pause();
-            video.muted = videoMutedAnterior;
-          }
+          video.playsInline = true;
+          video.setAttribute("muted", "");
+          video.setAttribute("playsinline", "");
+          video.setAttribute("webkit-playsinline", "");
+          video.preload = "auto";
+          video.load();
         } catch (_) {}
 
+        /*
+          A música é aquecida dentro do clique real do usuário.
+          Se o navegador não aceitar, a abertura visual continua normalmente.
+        */
         try {
-          const musicaMutedAnterior = musica.muted;
           musica.muted = true;
           try {
             musica.currentTime = Math.max(0, CONFIG.inicioMusica);
           } catch (_) {}
 
-          const tentativaMusica = musica.play();
-          if (tentativaMusica && typeof tentativaMusica.then === "function") {
-            tentativas.push(
-              tentativaMusica
-                .then(() => {
-                  musica.pause();
-                  try {
-                    musica.currentTime = Math.max(0, CONFIG.inicioMusica);
-                  } catch (_) {}
-                  musica.muted = musicaMutedAnterior;
-                  return true;
-                })
-                .catch(() => {
-                  musica.pause();
-                  musica.muted = musicaMutedAnterior;
-                  return false;
-                })
-            );
-          } else {
-            musica.pause();
-            musica.muted = musicaMutedAnterior;
-          }
-        } catch (_) {}
+          const tentativa = musica.play();
 
-        if (tentativas.length) {
-          await Promise.allSettled(tentativas);
-        }
+          if (tentativa && typeof tentativa.then === "function") {
+            await tentativa.catch(() => false);
+          }
+
+          try { musica.pause(); } catch (_) {}
+          try {
+            musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+          } catch (_) {}
+        } catch (_) {}
 
         midiaDesbloqueada = true;
         return true;
@@ -2100,18 +2137,23 @@
         desabilitarToqueFallback();
         esconderDicaMovimento();
 
-        preEntradaBotao.addEventListener("click", concluirPreEntrada);
+        preEntradaBotao.addEventListener("click", concluirPreEntrada, {
+          once: true
+        });
       }
 
       async function iniciarConvite(origem = "auto") {
         if (conviteAberto) return;
+
         conviteAberto = true;
         movimentoArmado = false;
+
         limparTimerFallbackMovimento();
         limparTimerConfirmacaoSensorIOS();
         desabilitarToqueFallback();
         esconderDicaMovimento();
         pararPoeiraMagica();
+
         window.removeEventListener("devicemotion", detectarShake);
         window.removeEventListener("deviceorientation", detectarOrientacao);
         pararSensoresGenericos();
@@ -2122,106 +2164,138 @@
         carregarFinal().catch(() => false);
         carregarPresentes().catch(() => false);
 
-        videoTela.style.visibility = "visible";
-        videoTela.classList.remove("saindo");
-        videoTela.classList.add("ativo");
-
-        iniciarMusicaSilenciosa();
+        /*
+          REGRA DE ESTABILIDADE iPHONE:
+          o shake inicia SEMPRE o vídeo MUTED.
+          Vídeo muted + playsinline pode começar sem depender de um novo toque.
+          O áudio vira uma ação separada e nunca bloqueia a abertura visual.
+        */
+        video.defaultMuted = true;
+        video.muted = true;
         video.volume = 1;
+        video.playsInline = true;
+        video.setAttribute("muted", "");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "");
 
         try {
-          video.currentTime = 0;
-        } catch (_) {}
+          if (video.readyState === 0) {
+            video.load();
+          }
 
-        const primeiroFrame = aguardarPrimeiroFrame();
+          try { video.currentTime = 0; } catch (_) {}
 
-        let iniciouMudoPorPolitica = false;
+          const playPromise = video.play();
 
-        try {
-          video.muted = false;
-          await video.play();
-
-          const framePronto = await primeiroFrame;
-          if (!framePronto) throw new Error("Primeiro frame indisponível");
+          if (playPromise && typeof playPromise.then === "function") {
+            await playPromise;
+          }
         } catch (_) {
-          if (origem === "shake") {
-            try {
-              video.muted = true;
-              try { video.currentTime = 0; } catch (_) {}
+          /*
+            Uma segunda tentativa muted após load explícito.
+            Não tentamos áudio aqui.
+          */
+          try {
+            video.pause();
+            video.defaultMuted = true;
+            video.muted = true;
+            video.setAttribute("muted", "");
+            video.load();
 
-              await video.play();
-
-              const frameProntoMudo = await aguardarPrimeiroFrame();
-              if (!frameProntoMudo) {
-                throw new Error("Primeiro frame mudo indisponível");
+            await new Promise((resolve) => {
+              if (video.readyState >= 2) {
+                resolve();
+                return;
               }
 
-              iniciouMudoPorPolitica = true;
-              audioDisponivel = false;
-            } catch (_) {
-              conviteAberto = false;
-              finalizando = false;
-              finalAtivo = false;
-              movimentoArmado = false;
+              const pronto = () => resolve();
+              video.addEventListener("loadeddata", pronto, { once: true });
+              setTimeout(resolve, 1800);
+            });
 
-              clearTimeout(timerPular);
-              pular.classList.remove("visivel");
+            try { video.currentTime = 0; } catch (_) {}
 
-              try { video.pause(); } catch (_) {}
-              try { video.currentTime = 0; } catch (_) {}
-              try { musica.pause(); } catch (_) {}
-
-              video.muted = false;
-              videoTela.classList.remove("ativo");
-              videoTela.classList.remove("saindo");
-              videoTela.style.visibility = "hidden";
-
-              habilitarToqueFallback("Não iniciou? Toque na tela ✨");
-
-              /*
-                Se a tentativa de abrir falhou, continuamos ouvindo os sensores.
-                Assim o convidado ainda pode tentar agitar novamente.
-              */
-              setTimeout(() => {
-                if (!conviteAberto) {
-                  iniciarPoeiraMagica();
-                  armarListenerMovimento();
-                }
-              }, 250);
-
-              return;
+            const segundaTentativa = video.play();
+            if (
+              segundaTentativa &&
+              typeof segundaTentativa.then === "function"
+            ) {
+              await segundaTentativa;
             }
-          } else {
-            await carregarFinal().catch(() => false);
+          } catch (_) {
+            conviteAberto = false;
 
-            finalTela.classList.add("ativo");
-            finalAtivo = true;
-            finalizando = false;
-
-            video.pause();
+            try { video.pause(); } catch (_) {}
             videoTela.classList.remove("ativo");
             videoTela.classList.remove("saindo");
             videoTela.style.visibility = "hidden";
 
-            if (audioDisponivel) {
-              musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-              controleSom.classList.add("visivel");
-            }
+            habilitarToqueFallback("Não iniciou? Toque na tela ✨");
 
-            esconderCapa();
+            setTimeout(() => {
+              if (!conviteAberto) {
+                iniciarPoeiraMagica();
+                armarListenerMovimento();
+              }
+            }, 250);
+
             return;
           }
         }
 
-        if (iniciouMudoPorPolitica) {
-          ativarSomFallback.classList.add("visivel");
+        /*
+          Só agora mostramos a camada do vídeo.
+          A capa permanece por cima até o Safari confirmar que o vídeo
+          realmente entrou em reprodução.
+        */
+        videoTela.style.visibility = "visible";
+        videoTela.classList.remove("saindo");
+        videoTela.classList.add("ativo");
+
+        const rodando = await aguardarVideoRodando(4200);
+
+        if (!rodando) {
+          conviteAberto = false;
+
+          try { video.pause(); } catch (_) {}
+
+          videoTela.classList.remove("ativo");
+          videoTela.classList.remove("saindo");
+          videoTela.style.visibility = "hidden";
+
+          habilitarToqueFallback("Não iniciou? Toque na tela ✨");
+
+          setTimeout(() => {
+            if (!conviteAberto) {
+              iniciarPoeiraMagica();
+              armarListenerMovimento();
+            }
+          }, 250);
+
+          return;
         }
+
+        /*
+          A abertura visual já está garantida. Agora tratamos o áudio.
+          Não desmutamos automaticamente no shake porque isso é justamente
+          o que o Safari pode bloquear.
+        */
+        ativarSomFallback.classList.add("visivel");
+
+        try {
+          musica.muted = true;
+          musica.volume = 0;
+          try {
+            musica.currentTime = Math.max(0, CONFIG.inicioMusica);
+          } catch (_) {}
+        } catch (_) {}
 
         esconderCapa();
 
-        /* Pular fica visível no início do vídeo por CONFIG.tempoPular e depois desaparece com fade-out. */
+        /* Pular aparece no início real do vídeo e fica 7 s. */
         pular.classList.add("visivel");
         clearTimeout(timerPular);
+
         timerPular = setTimeout(() => {
           pular.classList.remove("visivel");
         }, CONFIG.tempoPular);
@@ -2409,80 +2483,6 @@
         controleSom.classList.toggle("mudo", !somLigado);
       }
 
-      function resetarExperienciaParaNovaAbertura() {
-        /*
-          Safari/iPhone pode restaurar a página pelo Back-Forward Cache (bfcache)
-          preservando variáveis JS e DOM exatamente como estavam.
-          Sem este reset, conviteAberto/gateConcluido continuam true e o shake
-          parece "parar de funcionar" depois da primeira abertura.
-        */
-
-        clearTimeout(timerPular);
-        limparTimerFallbackMovimento();
-        limparTimerConfirmacaoSensorIOS();
-        cancelAnimationFrame(rafFim);
-        cancelAnimationFrame(rafAudio);
-
-        try { video.pause(); } catch (_) {}
-        try { musica.pause(); } catch (_) {}
-        try { video.currentTime = 0; } catch (_) {}
-        try { musica.currentTime = Math.max(0, CONFIG.inicioMusica); } catch (_) {}
-
-        window.removeEventListener("devicemotion", detectarShake);
-        window.removeEventListener("deviceorientation", detectarOrientacao);
-        pararSensoresGenericos();
-        pararPoeiraMagica();
-
-        conviteAberto = false;
-        finalAtivo = false;
-        finalizando = false;
-        gateConcluido = false;
-        movimentoArmado = false;
-        movimentoNegado = false;
-        midiaDesbloqueada = false;
-        ultimoShake = 0;
-        ultimaAceleracao = null;
-        ultimaOrientacao = null;
-        recebeuEventoMovimento = false;
-        recebeuEventoOrientacao = false;
-        recebeuSensorGenerico = false;
-        sensorIOSConfirmado = false;
-        shakeLiberadoEm = 0;
-        videoRsvpEstavaTocando = false;
-
-        preEntrada.hidden = false;
-        preEntrada.classList.remove("saindo");
-        preEntradaBotao.disabled = false;
-        preEntradaStatus.textContent = "";
-
-        capaTela.style.visibility = "visible";
-        capaTela.classList.remove("saindo");
-
-        videoTela.classList.remove("ativo");
-        videoTela.classList.remove("saindo");
-        videoTela.style.visibility = "hidden";
-
-        finalTela.classList.remove("ativo");
-
-        pular.classList.remove("visivel");
-        ativarSomFallback.classList.remove("visivel");
-        controleSom.classList.remove("visivel");
-        controleSom.classList.remove("mudo");
-
-        video.muted = false;
-        video.volume = 1;
-        musica.volume = 0;
-
-        esconderDicaMovimento();
-        desabilitarToqueFallback();
-
-        /*
-          O clique da pré-entrada continua ativo porque o listener não usa mais
-          { once: true }. Assim uma página restaurada pelo Safari pode começar
-          uma nova sessão completa sem recarregar o documento.
-        */
-      }
-
       function tratarVisibilidade() {
         if (document.hidden) {
           videoEstavaTocando = !video.paused && !finalAtivo && !finalizando;
@@ -2503,10 +2503,6 @@
 
         videoEstavaTocando = false;
         musicaEstavaTocando = false;
-
-        if (!conviteAberto && gateConcluido && !movimentoArmado && !movimentoNegado) {
-          armarListenerMovimento();
-        }
       }
 
       prepararEntradaInterativa();
@@ -2524,23 +2520,33 @@
       ativarSomFallback.addEventListener("click", async () => {
         try {
           audioDisponivel = true;
+
+          video.defaultMuted = false;
           video.muted = false;
+          video.removeAttribute("muted");
           video.volume = 1;
 
-          try {
-            musica.currentTime = tempoEsperadoMusica();
-          } catch (_) {}
-
-          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
-
-          const tentativaMusica = musica.play();
-          if (tentativaMusica && typeof tentativaMusica.catch === "function") {
-            await tentativaMusica.catch(() => {});
+          if (video.paused && !finalAtivo) {
+            await video.play();
           }
 
+          try {
+            musica.muted = false;
+            musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+
+            if (musica.paused) {
+              await musica.play();
+            }
+          } catch (_) {}
+
           ativarSomFallback.classList.remove("visivel");
-          controleSom.classList.add("visivel");
         } catch (_) {
+          /*
+            Se o Safari ainda rejeitar o áudio, não interrompemos o vídeo.
+          */
+          video.defaultMuted = true;
+          video.muted = true;
+          video.setAttribute("muted", "");
           ativarSomFallback.textContent = "Toque novamente para ativar o som";
         }
       });
@@ -2657,13 +2663,14 @@
 
       window.addEventListener("pageshow", (event) => {
         if (event.persisted) {
-          resetarExperienciaParaNovaAbertura();
+          window.location.reload();
+          return;
         }
-      });
 
-      window.addEventListener("pagehide", () => {
-        try { video.pause(); } catch (_) {}
-        try { musica.pause(); } catch (_) {}
+        if (finalAtivo && audioDisponivel) {
+          musica.volume = somLigado ? CONFIG.volumeMusica : 0;
+          musica.play().catch(() => {});
+        }
       });
 
       document.addEventListener("contextmenu", (event) => {

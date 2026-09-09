@@ -1,0 +1,65 @@
+{
+  "tituloPagina": "O Primeiro Aninho de Benício | Libri Convites",
+  "pastaCliente": "o-primeiro-aninho-de-benicio",
+  "hostMidia": "https://midia.libriconvites.com.br",
+
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+
+  "local": {
+    "nome": "Buffet planeta mágico",
+    "linha1": "R. Dr. Alfredo Oiticica, 83",
+    "linha2": "Pitanguinha",
+    "linha3": ""
+  },
+
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze"
+  },
+
+  "linkMapa": "https://share.google/NjiaKHkW3RvdOfF5A",
+  "linkWaze": "A DEFINIR",
+
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "3.83%",
+      "top": "76.44%",
+      "width": "28.37%",
+      "height": "7.42%"
+    },
+    "localizacao": {
+      "left": "34.22%",
+      "top": "76.38%",
+      "width": "31.14%",
+      "height": "7.48%"
+    },
+    "presentes": {
+      "left": "67.16%",
+      "top": "76.44%",
+      "width": "31.14%",
+      "height": "7.48%"
+    }
+  },
+
+  "tema": {
+    "escuro": "#493922",
+    "principal": "#77743D",
+    "claro": "#F2E4BF",
+    "acento": "#CF9630",
+    "superficie": "#FFF8E7",
+    "texto": "#492D1D"
+  }
+}

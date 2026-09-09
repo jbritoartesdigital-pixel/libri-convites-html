@@ -2,37 +2,33 @@
   "tituloPagina": "O Primeiro Aninho de Benício | Libri Convites",
   "pastaCliente": "o-primeiro-aninho-de-benicio",
   "hostMidia": "https://midia.libriconvites.com.br",
-
   "capaArquivo": "imagens/capa",
   "videoArquivo": "abertura.mp4",
   "musicaArquivo": "musica.mp3",
   "finalArquivo": "imagens/final",
   "presentesArquivo": "imagens/presentes",
-
   "versaoArquivos": "1",
   "versaoMidia": "1",
-
   "inicioMusica": 0,
   "volumeMusica": 0.5,
   "transicaoAudio": 260,
   "tempoPular": 7000,
   "preloadInteligente": true,
-
+  "confirmacaoUrl": "https://confirmacao.libriconvites.com.br/e/o-primeiro-aninho-de-benicio",
   "local": {
-    "nome": "Buffet planeta mágico",
+    "nome": "Buffet Planeta Mágico",
     "linha1": "R. Dr. Alfredo Oiticica, 83",
     "linha2": "Pitanguinha",
-    "linha3": ""
+    "linha3": "Maceió - AL • 57052-230"
   },
-
   "botoes": {
     "mapa": "Abrir no Google Maps",
-    "waze": "Abrir no Waze"
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
   },
-
   "linkMapa": "https://share.google/NjiaKHkW3RvdOfF5A",
-  "linkWaze": "A DEFINIR",
-
+  "linkWaze": "https://waze.com/ul?q=R.%20Dr.%20Alfredo%20Oiticica%2C%2083%20-%20Pitanguinha%2C%20Macei%C3%B3%20-%20AL%2C%2057052-230&navigate=yes&utm_source=libriconvites",
+  "linkUber": "uber://riderequest?pickup=my_location&dropoff%5Bnickname%5D=Buffet%20Planeta%20M%C3%A1gico&dropoff%5Bformatted_address%5D=R.%20Dr.%20Alfredo%20Oiticica%2C%2083%20-%20Pitanguinha%2C%20Macei%C3%B3%20-%20AL%2C%2057052-230",
   "hotspotsFinal": {
     "confirmacao": {
       "left": "3.83%",
@@ -53,7 +49,6 @@
       "height": "7.48%"
     }
   },
-
   "tema": {
     "escuro": "#493922",
     "principal": "#77743D",

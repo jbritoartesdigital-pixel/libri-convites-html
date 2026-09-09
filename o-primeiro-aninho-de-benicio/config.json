@@ -26,7 +26,7 @@
     "waze": "Abrir no Waze",
     "uber": "Chamar Uber"
   },
-  "linkMapa": "https://share.google/NjiaKHkW3RvdOfF5A",
+  "linkMapa": "https://www.google.com/maps/dir/?api=1&destination=R.%20Dr.%20Alfredo%20Oiticica%2C%2083%20-%20Pitanguinha%2C%20Macei%C3%B3%20-%20AL%2C%2057052-230&travelmode=driving&dir_action=navigate",
   "linkWaze": "https://waze.com/ul?q=R.%20Dr.%20Alfredo%20Oiticica%2C%2083%20-%20Pitanguinha%2C%20Macei%C3%B3%20-%20AL%2C%2057052-230&navigate=yes&utm_source=libriconvites",
   "linkUber": "uber://riderequest?pickup=my_location&dropoff%5Bnickname%5D=Buffet%20Planeta%20M%C3%A1gico&dropoff%5Bformatted_address%5D=R.%20Dr.%20Alfredo%20Oiticica%2C%2083%20-%20Pitanguinha%2C%20Macei%C3%B3%20-%20AL%2C%2057052-230",
   "hotspotsFinal": {

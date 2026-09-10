@@ -1,0 +1,65 @@
+{
+  "tituloPagina": "Ravi | 1 Aninho | Libri Convites",
+  "pastaCliente": "ravi",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "haptico": true,
+  "hapticoDuracao": 14,
+  "numeroWhatsapp": "5514996725489",
+  "mensagemWhatsapp": "Ol\u00e1! Quero confirmar minha presen\u00e7a no anivers\u00e1rio de 1 aninho do Ravi. \ud83c\udfc1",
+  "chavePix": "",
+  "local": {
+    "nome": "Buffet Gulas",
+    "linha1": "Av. Pinheiro Machado, 69",
+    "linha2": "Jardim Bela Vista",
+    "linha3": "Bauru - SP \u2022 17060-810",
+    "fotoArquivo": "imagens/local"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
+  },
+  "linkMapa": "https://maps.app.goo.gl/DAVW5NFJ3VE4t3Mn7",
+  "linkWaze": "https://www.waze.com/ul?ll=-22.3149681%2C-49.0922857&navigate=yes",
+  "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=-22.3149681&dropoff[longitude]=-49.0922857&dropoff[nickname]=Buffet%20Gulas&dropoff[formatted_address]=Av.%20Pinheiro%20Machado%2C%2069%20-%20Jardim%20Bela%20Vista%2C%20Bauru%20-%20SP%2C%2017060-810",
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "5.53%",
+      "top": "61.30%",
+      "width": "28.91%",
+      "height": "12.38%"
+    },
+    "localizacao": {
+      "left": "35.81%",
+      "top": "61.30%",
+      "width": "29.01%",
+      "height": "12.38%"
+    },
+    "presentes": {
+      "left": "66.21%",
+      "top": "61.30%",
+      "width": "29.01%",
+      "height": "12.38%"
+    }
+  },
+  "tema": {
+    "escuro": "#2A1A16",
+    "principal": "#D8342A",
+    "claro": "#FFF1D4",
+    "acento": "#1676C8",
+    "superficie": "#FFF8E9",
+    "texto": "#3A2418"
+  }
+}

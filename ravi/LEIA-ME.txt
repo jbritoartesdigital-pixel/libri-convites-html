@@ -1,0 +1,36 @@
+LIBRI-0048 | RAVI | WEB PACKAGE
+
+LINK FINAL PREVISTO
+https://libriconvites.com.br/ravi/
+
+PASTA EXATA
+ravi
+
+IMPLEMENTADO NESTE PACOTE
+- index.html baseado no motor oficial V1.5
+- config.json personalizado para Ravi
+- Confirmar Presença via WhatsApp: 5514996725489
+- Pop-up Localização com foto do Buffet Gulas
+- Google Maps
+- Waze
+- botão preto Chamar Uber
+- feedback háptico curto via navigator.vibrate quando suportado
+- Presentes em shell 4:5
+- Pix desativado porque não faz parte deste projeto
+- Pular abertura visível no início real do vídeo por 7000 ms
+- hotspots do Card Final medidos sobre a arte enviada
+
+MÍDIAS REAIS AINDA NÃO INCLUÍDAS NESTE PACOTE
+Colocar antes do deploy final:
+- imagens/capa.(jpg|jpeg|png|webp|avif)
+- imagens/final.(jpg|jpeg|png|webp|avif)  [usar o composite final com inserts]
+- imagens/presentes.(jpg|jpeg|png|webp|avif)
+- imagens/preview-otimizada.jpg
+- abertura.mp4 no host de mídia em /ravi/
+- musica.mp3 no host de mídia em /ravi/
+
+OBSERVAÇÕES
+- imagens/local.png já está incluída.
+- O feedback háptico depende do suporte do navegador/dispositivo; quando não houver suporte, o clique continua normalmente.
+- O link do Uber usa destino fixo Buffet Gulas e retirada na localização atual.
+- Antes do deploy, testar todos os três hotspots no celular.

@@ -15,14 +15,14 @@
   <link rel="dns-prefetch" href="//midia.libriconvites.com.br">
 
   <title>Mavie | 1 aninho</title>
-  <meta name="description" content="VocÃª Ã© nosso convidado especial para comemorar o primeiro aninho da Mavie â€¢ 27/11/2026 Ã s 14:00.">
+  <meta name="description" content="Você é nosso convidado especial para comemorar o primeiro aninho da Mavie • 27/11/2026 às 14:00.">
   <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
   <meta name="theme-color" content="#9B62C9">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Mavie | 1 aninho">
-  <meta property="og:description" content="VocÃª Ã© nosso convidado especial para comemorar o primeiro aninho da Mavie â€¢ 27/11/2026 Ã s 14:00.">
+  <meta property="og:description" content="Você é nosso convidado especial para comemorar o primeiro aninho da Mavie • 27/11/2026 às 14:00.">
   <meta property="og:url" content="https://libriconvites.com.br/mavie1ano/">
   <meta property="og:image" content="https://libriconvites.com.br/mavie1ano/imagens/preview-otimizada.jpg?v=2">
   <meta property="og:image:secure_url" content="https://libriconvites.com.br/mavie1ano/imagens/preview-otimizada.jpg?v=2">
@@ -30,7 +30,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mavie | 1 aninho">
-  <meta name="twitter:description" content="VocÃª Ã© nosso convidado especial para comemorar o primeiro aninho da Mavie â€¢ 27/11/2026 Ã s 14:00.">
+  <meta name="twitter:description" content="Você é nosso convidado especial para comemorar o primeiro aninho da Mavie • 27/11/2026 às 14:00.">
   <meta name="twitter:image" content="https://libriconvites.com.br/mavie1ano/imagens/preview-otimizada.jpg?v=2">
 
   <script>
@@ -1091,7 +1091,7 @@
           const framePronto = await primeiroFrame;
           if (!framePronto) throw new Error("Primeiro frame indispon\xedvel");
         } catch (_) {
-          /* Fallback sem tela preta: mantÃ©m a capa atÃ© o card final estar pronto. */
+          /* Fallback sem tela preta: mantém a capa até o card final estar pronto. */
           await carregarFinal().catch(() => false);
 
           finalTela.classList.add("ativo");
@@ -1114,7 +1114,7 @@
 
         esconderCapa();
 
-        /* Pular fica visÃ­vel no inÃ­cio do vÃ­deo por CONFIG.tempoPular e depois desaparece com fade-out. */
+        /* Pular fica visível no início do vídeo por CONFIG.tempoPular e depois desaparece com fade-out. */
         pular.classList.add("visivel");
         clearTimeout(timerPular);
         timerPular = setTimeout(() => {
@@ -1223,10 +1223,10 @@
 
         document.addEventListener("visibilitychange", aoMudarVisibilidade, { once: true });
 
-        // A chamada nasce diretamente do toque do usuÃ¡rio: primeiro tenta o app nativo.
+        // A chamada nasce diretamente do toque do usuário: primeiro tenta o app nativo.
         window.location.href = appUrl;
 
-        // Se o app nÃ£o assumir a tela, cai para a experiÃªncia web com o mesmo destino.
+        // Se o app não assumir a tela, cai para a experiência web com o mesmo destino.
         setTimeout(() => {
           if (!paginaOcultou && !document.hidden && fallbackUrl) {
             window.location.href = fallbackUrl;

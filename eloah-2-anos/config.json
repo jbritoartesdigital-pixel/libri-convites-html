@@ -1,0 +1,55 @@
+{
+  "tituloPagina": "Os 2 Aninhos da Eloah",
+  "pastaCliente": "eloah-2-anos",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "numeroWhatsapp": "5513997124992",
+  "mensagemWhatsapp": "Olá! Estou confirmando minha presença nos 2 aninhos da Eloah. 💜",
+  "local": {
+    "nome": "My Dream Party Buffet",
+    "linha1": "Av. dos Bancários, 32",
+    "linha2": "Ponta da Praia",
+    "linha3": "Santos - SP • 11030-300",
+    "fotoArquivo": "https://www.mydreamparty.com.br/galeria/salao-1.jpg"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Av.%20dos%20Banc%C3%A1rios%2C%2032%2C%20Ponta%20da%20Praia%2C%20Santos%20-%20SP%2C%2011030-300",
+  "linkWaze": "https://www.waze.com/ul?q=Av.%20dos%20Banc%C3%A1rios%2C%2032%2C%20Ponta%20da%20Praia%2C%20Santos%20-%20SP%2C%2011030-300&navigate=yes",
+  "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Bnickname%5D=My%20Dream%20Party%20Buffet&dropoff%5Bformatted_address%5D=Av.%20dos%20Banc%C3%A1rios%2C%2032%2C%20Ponta%20da%20Praia%2C%20Santos%20-%20SP%2C%2011030-300",
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "43.15%",
+      "top": "67.82%",
+      "width": "51.54%",
+      "height": "6.52%"
+    },
+    "localizacao": {
+      "left": "43.36%",
+      "top": "74.88%",
+      "width": "51.22%",
+      "height": "6.34%"
+    }
+  },
+  "tema": {
+    "escuro": "#3D255B",
+    "principal": "#7B4FA3",
+    "claro": "#F3E8FA",
+    "acento": "#D98AB6",
+    "superficie": "#FFF9F1",
+    "texto": "#4A285E"
+  }
+}

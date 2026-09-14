@@ -1,0 +1,36 @@
+LIBRI-0051 | ELOAH | PACOTE FINAL PARA GITHUB
+
+Pasta/publicação:
+  eloah-2-anos
+
+Link previsto:
+  https://libriconvites.com.br/eloah-2-anos/
+
+ESTE PACOTE JÁ CONTÉM:
+  index.html
+  config.json
+  imagens/final.png
+
+COLOQUE NA PASTA imagens/ USANDO ESTES NOMES PADRÃO:
+  capa.png
+  preview-otimizada.jpg
+
+A FOTO REAL DO LOCAL JÁ ESTÁ CONFIGURADA NO config.json E É CARREGADA DIRETAMENTE DO SITE OFICIAL DO MY DREAM PARTY BUFFET.
+Você NÃO precisa colocar local.jpg.
+
+O resolver do motor aceita capa/final em jpg, jpeg, png, webp ou avif quando o config usa nome-base sem extensão.
+O preview social DEVE permanecer exatamente: preview-otimizada.jpg
+
+MÍDIA PESADA NO HOST/R2 (não precisa ir no GitHub):
+  https://midia.libriconvites.com.br/eloah-2-anos/abertura.mp4
+  https://midia.libriconvites.com.br/eloah-2-anos/musica.mp3
+
+FUNCIONALIDADES CONFIGURADAS:
+  - Confirmar presença -> WhatsApp Elaine
+  - Localização -> foto real oficial + Google Maps + Waze + Uber preto
+  - Presentes removido / N/A
+  - Pular abertura aparece no início e some após 7 s
+  - Hotspots medidos sobre o Card Final real
+
+IMPORTANTE:
+  Depois de subir, teste no celular os dois hotspots e os três botões do pop-up de localização.

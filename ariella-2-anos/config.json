@@ -1,0 +1,67 @@
+{
+  "tituloPagina": "Ariella | 2 anos",
+  "pastaCliente": "ariella-2-anos",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "numeroWhatsapp": "5561986564550",
+  "mensagemWhatsapp": "Oi! Quero confirmar minha presença no aniversário da Ariella. 💛",
+  "local": {
+    "nome": "Chácara Peniel",
+    "linha1": "M33Q+JR",
+    "linha2": "Luziânia - GO",
+    "linha3": "Brasil"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Ch%C3%A1cara%20Peniel%20M33Q%2BJR%20Luzi%C3%A2nia%20GO",
+  "linkWaze": "https://www.waze.com/ul?q=Ch%C3%A1cara%20Peniel%20M33Q%2BJR%20Luzi%C3%A2nia%20GO&navigate=yes",
+  "linkUber": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff%5Bformatted_address%5D=Ch%C3%A1cara%20Peniel%2C%20M33Q%2BJR%2C%20Luzi%C3%A2nia%20-%20GO",
+  "informacoes": {
+    "titulo": "Informações Importantes",
+    "linhas": [
+      "Para aproveitar bastante a diversão, tragam roupa de banho para as crianças.",
+      "Os adultos também podem trazer short e blusa para banho."
+    ]
+  },
+  "hotspotsFinal": {
+    "confirmacao": {
+      "left": "1.8%",
+      "top": "86.4%",
+      "width": "31.0%",
+      "height": "7.8%"
+    },
+    "localizacao": {
+      "left": "34.4%",
+      "top": "86.4%",
+      "width": "31.0%",
+      "height": "7.8%"
+    },
+    "informacoes": {
+      "left": "67.0%",
+      "top": "86.4%",
+      "width": "31.0%",
+      "height": "7.8%"
+    }
+  },
+  "tema": {
+    "escuro": "#5B2D20",
+    "principal": "#B52F32",
+    "claro": "#F7E9D5",
+    "acento": "#718449",
+    "superficie": "#FFF8EC",
+    "texto": "#4A2A1F"
+  }
+}

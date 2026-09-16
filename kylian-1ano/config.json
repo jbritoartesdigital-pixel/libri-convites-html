@@ -9,7 +9,7 @@
   "presentesArquivo": "imagens/presentes",
   "versaoArquivos": "1",
   "versaoMidia": "1",
-  "inicioMusica": 0,
+  "inicioMusica": 0.2,
   "volumeMusica": 0.5,
   "transicaoAudio": 260,
   "tempoPular": 7000,

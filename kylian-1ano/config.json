@@ -1,0 +1,52 @@
+{
+  "tituloPagina": "El Primer Safari de Kylian | Libri Convites",
+  "pastaCliente": "kylian-1ano",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "local": {
+    "nome": "El Angel",
+    "linha1": "Av. Antonia de la Bastida",
+    "linha2": "Montalvo",
+    "linha3": "Ecuador",
+    "fotoArquivo": "imagens/localizacao"
+  },
+  "botoes": {
+    "mapa": "Abrir en Google Maps",
+    "waze": "Abrir en Waze"
+  },
+  "linkMapa": "https://maps.app.goo.gl/sS71izFQg3XmwmWV9",
+  "linkWaze": "https://waze.com/ul?ll=-1.7944681%2C-79.2887851&navigate=yes",
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "9.78%",
+      "top": "74.64%",
+      "width": "38.68%",
+      "height": "12.44%"
+    },
+    "presentes": {
+      "left": "50.80%",
+      "top": "74.64%",
+      "width": "39.21%",
+      "height": "12.44%"
+    }
+  },
+  "tema": {
+    "escuro": "#69513D",
+    "principal": "#74845B",
+    "claro": "#F6E8D2",
+    "acento": "#D7926F",
+    "superficie": "#F6E8D2",
+    "texto": "#69513D"
+  }
+}

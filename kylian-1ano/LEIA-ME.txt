@@ -1,0 +1,35 @@
+KYLIAN | WEB HANDOFF
+
+Pasta/slug: kylian-1ano
+URL prevista: https://libriconvites.com.br/kylian-1ano/
+
+INCLUÍDO NESTE PACOTE
+- index.html personalizado
+- config.json personalizado
+- imagens/final.png (Card Final enviado no chat)
+- imagens/localizacao.png (foto real de El Angel enviada no chat)
+
+AINDA PRECISA ESTAR NA PASTA ANTES DO DEPLOY
+- imagens/capa.(jpg|jpeg|png|webp|avif)
+- imagens/presentes.(jpg|jpeg|png|webp|avif)
+- imagens/preview-otimizada.jpg
+- abertura.mp4 no host de mídia /kylian-1ano/
+- musica.mp3 no host de mídia /kylian-1ano/ (se a versão final usar música separada)
+
+LOCALIZAÇÃO
+- El Angel
+- Av. Antonia de la Bastida, Montalvo, Ecuador
+- Google Maps: link real fornecido pela cliente
+- Waze: coordenadas do ponto do Google Maps
+- Uber: N/A neste projeto
+
+FUNCIONALIDADES
+- Localización: ativa, com foto real + Maps + Waze
+- Regalos: ativa
+- RSVP/Confirmação: desativado
+- Pix: desativado
+- Uber: desativado
+
+HOTSPOTS CARD FINAL
+Ubicación: left 9.78%, top 74.64%, width 38.68%, height 12.44%
+Regalos: left 50.80%, top 74.64%, width 39.21%, height 12.44%

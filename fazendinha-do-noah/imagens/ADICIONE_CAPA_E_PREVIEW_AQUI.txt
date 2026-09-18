@@ -1,0 +1,2 @@
+capa: imagens/capa.<ext>
+preview social: imagens/preview-otimizada.jpg

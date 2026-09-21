@@ -1,0 +1,80 @@
+{
+  "tituloPagina": "Luca | 1 ano | Libri Convites",
+  "pastaCliente": "luca-formula1",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0.2,
+  "atrasoMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "numeroWhatsapp": "",
+  "mensagemWhatsapp": "",
+  "chavePix": "",
+  "confirmacao": {
+    "tipo": "google_forms_popup",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSdyKZwKXdi2jVBNS8WYIDnZmz9uQ9fPYAbuzKQNyCtbKuyXFQ/viewform"
+  },
+  "local": {
+    "fotoArquivo": "https://ipegardenboituva.com.br/wp-content/uploads/elementor/thumbs/festa-de-casamento-15-anos-salao-de-festas-boituva-interior-sp-desk-003-qiw23hwdghot6mo8czlxdypmy7n7wgacqb6x0296y8.jpg",
+    "nome": "Ipê Garden",
+    "linha1": "Alameda dos Ipês, 335 - Vitassay",
+    "linha2": "Boituva - SP",
+    "linha3": "18553-024"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=-23.3072433%2C-47.6634029",
+  "linkWaze": "https://ul.waze.com/ul?ll=-23.30724330%2C-47.66340290&navigate=yes&place=ChIJP5dsOybjxZQRamwJch2z7mI&utm_campaign=default&utm_medium=lm_share_location&utm_source=waze_website",
+  "linkUber": "",
+  "uberDestinoNome": "Ipê Garden",
+  "uberDestinoEndereco": "Alameda dos Ipês, 335 - Vitassay, Boituva - SP, 18553-024, Brasil",
+  "uberDestinoLatitude": -23.3072433,
+  "uberDestinoLongitude": -47.6634029,
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "52.60%",
+      "top": "75.66%",
+      "width": "43.04%",
+      "height": "9.27%"
+    },
+    "confirmacao": {
+      "left": "5.31%",
+      "top": "75.66%",
+      "width": "45.70%",
+      "height": "9.27%"
+    },
+    "presentes": {
+      "left": "0%",
+      "top": "0%",
+      "width": "0%",
+      "height": "0%"
+    }
+  },
+  "hotspotPresentes": {
+    "pix": {
+      "left": "0%",
+      "top": "0%",
+      "width": "0%",
+      "height": "0%"
+    }
+  },
+  "tema": {
+    "escuro": "#0D0D0D",
+    "principal": "#C91515",
+    "claro": "#F2F2F2",
+    "acento": "#E7B53A",
+    "superficie": "#F8F8F8",
+    "texto": "#151515"
+  }
+}

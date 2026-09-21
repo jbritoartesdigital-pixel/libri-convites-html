@@ -1,0 +1,32 @@
+LIBRI-0055 | LUCA | PACOTE WEB
+
+Pasta aprovada: luca-formula1
+Link previsto: https://libriconvites.com.br/luca-formula1/
+
+JÁ INCLUÍDO
+- index.html (motor oficial V1.7 + extensão explícita do Luca para Google Forms em popup)
+- config.json
+- imagens/final.png (Card Final aprovado)
+- Localização configurada com foto REAL remota do site oficial do Ipê Garden
+- CEP exibido/destino conforme cliente: 18553-024
+- Google Maps / Waze / Uber
+- Hotspots medidos sobre a arte final 941x1672
+
+CONFIRMAÇÃO
+- Google Forms abre dentro de popup/iframe no convite
+- X fecha e retorna ao Card Final
+- botão discreto de fallback abre o Forms externamente se necessário
+
+AINDA PRECISA RECEBER OS ARQUIVOS REAIS APROVADOS (não foram inventados nem substituídos):
+GITHUB / pasta luca-formula1/imagens/
+- capa.(jpg|jpeg|png|webp|avif) = abertura estática aprovada
+- preview-otimizada.jpg = preview 16:9 aprovado e otimizado
+
+R2 / pasta luca-formula1/
+- abertura.mp4 = vídeo final montado
+- musica.mp3 = música final usada no convite
+
+IMPORTANTE
+- Não existe imagem de Localização como asset. O popup usa foto real do local quando disponível.
+- Presentes: N/A.
+- Card Final tem exatamente: Confirmar presença + Como chegar.

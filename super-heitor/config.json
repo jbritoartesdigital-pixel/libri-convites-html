@@ -1,0 +1,76 @@
+{
+  "tituloPagina": "Super Heitor | 7 anos",
+  "pastaCliente": "super-heitor",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0.2,
+  "atrasoMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "numeroWhatsapp": "5549988445657",
+  "mensagemWhatsapp": "Olá! Gostaria de confirmar minha presença no aniversário de 7 anos do Heitor.",
+  "chavePix": "",
+  "local": {
+    "fotoArquivo": "",
+    "nome": "Casa de Festas Reino da Alegria",
+    "linha1": "Rua Bom Retiro, 258 E",
+    "linha2": "Seminário",
+    "linha3": "Chapecó - SC • CEP 89813-150"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
+  },
+  "linkMapa": "https://www.google.com/maps/search/?api=1&query=Casa+de+Festas+Reino+da+Alegria%2C+R.+Bom+Retiro%2C+258+E+-+Semin%C3%A1rio%2C+Chapec%C3%B3+-+SC%2C+89813-150%2C+Brasil",
+  "linkWaze": "https://www.waze.com/ul?q=Casa+de+Festas+Reino+da+Alegria%2C+R.+Bom+Retiro%2C+258+E+-+Semin%C3%A1rio%2C+Chapec%C3%B3+-+SC%2C+89813-150%2C+Brasil&navigate=yes",
+  "linkUber": "",
+  "uberDestinoNome": "Casa de Festas Reino da Alegria",
+  "uberDestinoEndereco": "Rua Bom Retiro, 258 E, Seminário, Chapecó - SC, CEP 89813-150, Brasil",
+  "uberDestinoLatitude": null,
+  "uberDestinoLongitude": null,
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "50.2%",
+      "top": "79.2%",
+      "width": "41.1%",
+      "height": "10.8%"
+    },
+    "confirmacao": {
+      "left": "8.6%",
+      "top": "79.2%",
+      "width": "41.0%",
+      "height": "10.8%"
+    },
+    "presentes": {
+      "left": "0%",
+      "top": "0%",
+      "width": "0%",
+      "height": "0%"
+    }
+  },
+  "hotspotPresentes": {
+    "pix": {
+      "left": "0%",
+      "top": "0%",
+      "width": "0%",
+      "height": "0%"
+    }
+  },
+  "tema": {
+    "escuro": "#14213D",
+    "principal": "#D82621",
+    "claro": "#DCEBFF",
+    "acento": "#0D61B3",
+    "superficie": "#FFF7EA",
+    "texto": "#17233C"
+  }
+}

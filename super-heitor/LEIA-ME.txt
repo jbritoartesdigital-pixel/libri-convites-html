@@ -1,0 +1,17 @@
+SUPER HEITOR | ARQUIVOS PARA PUBLICAÇÃO
+
+Já prontos:
+- index.html
+- config.json
+
+Adicionar antes do deploy:
+- imagens/capa.(png|jpg|webp|avif)
+- imagens/final.(png|jpg|webp|avif)
+- imagens/preview-otimizada.jpg
+- abertura.mp4 no host de mídia/pasta super-heitor
+- musica.mp3 no host de mídia/pasta super-heitor
+
+Opcional:
+- imagens/local.(png|jpg|webp|avif), somente se houver foto real aprovada do local
+
+Não há Presentes neste projeto.

@@ -1,0 +1,76 @@
+{
+  "tituloPagina": "Davi 2 Aninhos",
+  "pastaCliente": "davi-2-aninhos",
+  "hostMidia": "https://midia.libriconvites.com.br",
+  "capaArquivo": "imagens/capa",
+  "videoArquivo": "abertura.mp4",
+  "musicaArquivo": "musica.mp3",
+  "finalArquivo": "imagens/final",
+  "presentesArquivo": "imagens/presentes",
+  "versaoArquivos": "1",
+  "versaoMidia": "1",
+  "inicioMusica": 0.2,
+  "atrasoMusica": 0,
+  "volumeMusica": 0.5,
+  "transicaoAudio": 260,
+  "tempoPular": 7000,
+  "preloadInteligente": true,
+  "numeroWhatsapp": "5511976272821",
+  "mensagemWhatsapp": "Olá! Gostaria de confirmar minha presença no aniversário de 2 aninhos do Davi, dia 20/12/2026, às 13h, no Buffet Infantil Star Kids.",
+  "chavePix": "",
+  "local": {
+    "fotoArquivo": "",
+    "nome": "Buffet Infantil Star Kids",
+    "linha1": "R. Maria Cândida, 1166",
+    "linha2": "Vila Guilherme",
+    "linha3": "São Paulo - SP • 02071-002"
+  },
+  "botoes": {
+    "mapa": "Abrir no Google Maps",
+    "waze": "Abrir no Waze",
+    "uber": "Chamar Uber"
+  },
+  "linkMapa": "https://maps.app.goo.gl/fGRKPi1ZAsurnkCMA",
+  "linkWaze": "https://www.waze.com/ul?q=R.%20Maria%20C%C3%A2ndida%2C%201166%2C%20Vila%20Guilherme%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2002071-002&navigate=yes",
+  "linkUber": "",
+  "uberDestinoNome": "Buffet Infantil Star Kids",
+  "uberDestinoEndereco": "R. Maria Cândida, 1166, Vila Guilherme, São Paulo - SP, 02071-002",
+  "uberDestinoLatitude": null,
+  "uberDestinoLongitude": null,
+  "hotspotsFinal": {
+    "localizacao": {
+      "left": "36.34%",
+      "top": "84.21%",
+      "width": "28.16%",
+      "height": "11.06%"
+    },
+    "confirmacao": {
+      "left": "6.16%",
+      "top": "84.21%",
+      "width": "28.80%",
+      "height": "11.06%"
+    },
+    "presentes": {
+      "left": "65.99%",
+      "top": "84.21%",
+      "width": "28.37%",
+      "height": "11.06%"
+    }
+  },
+  "hotspotPresentes": {
+    "pix": {
+      "left": "0%",
+      "top": "0%",
+      "width": "0%",
+      "height": "0%"
+    }
+  },
+  "tema": {
+    "escuro": "#18566B",
+    "principal": "#72D5EC",
+    "claro": "#EAFBFF",
+    "acento": "#FFD64A",
+    "superficie": "#F8FEFF",
+    "texto": "#123A47"
+  }
+}

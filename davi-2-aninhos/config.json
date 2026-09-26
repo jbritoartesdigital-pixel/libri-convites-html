@@ -7,16 +7,14 @@
   "musicaArquivo": "musica.mp3",
   "finalArquivo": "imagens/final",
   "presentesArquivo": "imagens/presentes",
-  "versaoArquivos": "1",
+  "versaoArquivos": "2",
   "versaoMidia": "1",
   "inicioMusica": 0.2,
   "atrasoMusica": 0,
-  "volumeMusica": 0.3,
+  "volumeMusica": 0.5,
   "transicaoAudio": 260,
   "tempoPular": 7000,
   "preloadInteligente": true,
-  "numeroWhatsapp": "5511976272821",
-  "mensagemWhatsapp": "Olá! Gostaria de confirmar minha presença no aniversário de 2 aninhos do Davi.",
   "chavePix": "",
   "local": {
     "fotoArquivo": "",
@@ -72,5 +70,6 @@
     "acento": "#FFD64A",
     "superficie": "#F8FEFF",
     "texto": "#123A47"
-  }
+  },
+  "linkRSVP": "https://confirmacao.libriconvites.com.br/e/davi-2-aninhos"
 }

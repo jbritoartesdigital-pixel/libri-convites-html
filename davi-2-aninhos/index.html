@@ -398,6 +398,82 @@
       transform: translateY(0) scale(1);
     }
 
+
+    /* ==================================================
+       RSVP POPUP | IFRAME INTERNO
+    ================================================== */
+
+    .rsvp-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:
+        max(10px, env(safe-area-inset-top))
+        max(8px, env(safe-area-inset-right))
+        max(10px, env(safe-area-inset-bottom))
+        max(8px, env(safe-area-inset-left));
+      background: color-mix(in srgb, var(--tema-escuro) 72%, transparent);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, visibility 180ms ease;
+    }
+
+    .rsvp-modal.aberto {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .rsvp-shell {
+      position: relative;
+      width: min(96vw, 520px);
+      height: min(90dvh, 820px);
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 28%, transparent);
+      background: var(--tema-superficie);
+      box-shadow: 0 24px 80px rgba(0,0,0,.38);
+      transform: translateY(8px) scale(.99);
+      transition: transform 180ms ease;
+    }
+
+    .rsvp-modal.aberto .rsvp-shell {
+      transform: translateY(0) scale(1);
+    }
+
+    .rsvp-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: var(--tema-superficie);
+    }
+
+    .rsvp-fallback {
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      z-index: 3;
+      transform: translateX(-50%);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--tema-texto);
+      background: color-mix(in srgb, var(--tema-superficie) 88%, transparent);
+      border: 1px solid color-mix(in srgb, var(--tema-principal) 24%, transparent);
+      font: inherit;
+      font-size: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,.14);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
     .modal-conteudo {
       position: relative;
       z-index: 2;
@@ -713,6 +789,27 @@
     </div>
   </div>
 
+  <div id="modalRSVP" class="rsvp-modal" role="dialog" aria-modal="true" aria-label="Confirmação de presença">
+    <div class="rsvp-shell">
+      <button id="fecharRSVP" class="modal-fechar" type="button" aria-label="Fechar confirmação de presença">&times;</button>
+      <iframe
+        id="rsvpFrame"
+        class="rsvp-frame"
+        title="Confirmação de presença do Davi"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+      <a
+        id="rsvpFallback"
+        class="rsvp-fallback"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Abrir em nova aba</a>
+    </div>
+  </div>
+
+
   <audio id="musica" preload="metadata" loop></audio>
 
   <script>
@@ -761,6 +858,10 @@
       const fecharLocalizacao = document.getElementById("fecharLocalizacao");
 
       const modalPresentes = document.getElementById("modalPresentes");
+      const modalRSVP = document.getElementById("modalRSVP");
+      const fecharRSVP = document.getElementById("fecharRSVP");
+      const rsvpFrame = document.getElementById("rsvpFrame");
+      const rsvpFallback = document.getElementById("rsvpFallback");
       const presentesImagem = document.getElementById("presentesImagem");
       const hotspotPix = document.getElementById("hotspotPix");
       const fecharPresentes = document.getElementById("fecharPresentes");
@@ -1251,12 +1352,21 @@
         link.remove();
       }
 
-      function abrirWhatsApp() {
-        const numero = String(CONFIG.numeroWhatsapp || "").replace(/\D/g, "");
-        if (!numero) return;
-        const texto = encodeURIComponent(CONFIG.mensagemWhatsapp || "");
-        const url = `https://wa.me/${numero}${texto ? `?text=${texto}` : ""}`;
-        abrirDestino(url);
+      function abrirConfirmacao() {
+        const url = String(CONFIG.linkRSVP || "").trim();
+        if (!url) return;
+
+        if (rsvpFrame.src !== url) {
+          rsvpFrame.src = url;
+        }
+
+        rsvpFallback.href = url;
+        modalRSVP.classList.add("aberto");
+        fecharRSVP.focus();
+      }
+
+      function fecharRSVPModal() {
+        modalRSVP.classList.remove("aberto");
       }
 
       async function abrirPresentes() {
@@ -1335,7 +1445,7 @@
       pular.addEventListener("click", finalizarVideo);
       controleSom.addEventListener("click", alternarSom);
 
-      hotspotConfirmacao.addEventListener("click", abrirWhatsApp);
+      hotspotConfirmacao.addEventListener("click", abrirConfirmacao);
       hotspotLocalizacao.addEventListener("click", abrirLocalizacao);
       hotspotPresentes.addEventListener("click", abrirPresentes);
       hotspotPix.addEventListener("click", copiarChavePix);
@@ -1362,8 +1472,21 @@
         }
       });
 
+      fecharRSVP.addEventListener("click", fecharRSVPModal);
+
+      modalRSVP.addEventListener("click", (event) => {
+        if (event.target === modalRSVP) {
+          fecharRSVPModal();
+        }
+      });
+
       document.addEventListener("keydown", (event) => {
         if (event.key !== "Escape") return;
+
+        if (modalRSVP.classList.contains("aberto")) {
+          fecharRSVPModal();
+          return;
+        }
 
         if (modalPresentes.classList.contains("aberto")) {
           fecharPresentesModal();
